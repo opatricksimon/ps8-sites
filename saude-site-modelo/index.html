@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--
+  PS8 SITE-MODELO — SAÚDE / MÉDICO (urologista, clínico, especialista, odonto)  (Arquétipo A / Kit Médico-PREMIUM)
+  Gerado a partir de: DESIGN-SYSTEM/design.md (§2.5 Encaixe + §2.6 Acabamento Premium) + MOTION-PS8.md
+  Glow-up 2026-06-04: Playfair Display + petróleo profundo + dourado champanhe metálico + creme quente + ritmo de cor.
+  Hero: H1 IMAGEM ULTRAWIDE (regra Alan) + Ken Burns + overlay escuro. Mobile-first. WhatsApp real no deploy.
+
+  PERSONALIZAR POR CLIENTE:
+  {{DR_NOME}} {{ESPECIALIDADE}} {{CRM}} {{RQE}} {{CIDADE}} {{WHATSAPP=55DDDNUMERO}} {{ENDERECO}} {{CONVENIOS}}
+  {{ESPECIALIDADES/PROCEDIMENTOS}} {{FOTO real do médico}} {{ANTES/DEPOIS reais — odonto/estética/capilar}}
+  Imagens em ./assets/  (hero.webp ULTRAWIDE · sobre.webp · antes.webp · depois.webp · mapa.webp)
+  A seção ANTES/DEPOIS é p/ nichos com resultado visual (odonto, harmonização, capilar). Em urologia, remover.
+-->
+<title>Urologista em São Paulo | Saúde do Homem — Dr. Felipe Andrade</title>
+<meta name="description" content="Urologia e saúde do homem com o Dr. Felipe Andrade em São Paulo. Atendimento humanizado, discreto e com tecnologia. Agende sua consulta pelo WhatsApp." />
+<meta property="og:title" content="Dr. Felipe Andrade — Urologia e Saúde do Homem" />
+<meta property="og:description" content="Cuidado completo da saúde masculina, com discrição e acolhimento. Agende pelo WhatsApp." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cor-primaria:#0C5A6E; --cor-primaria-escura:#073D4C; --cor-realce:#C9A86A; --cor-realce-escura:#A8884E;
+    --cor-fundo:#FFFFFF; --cor-superficie:#F4F1EA; --cor-escura:#062831;
+    --cor-texto:#15242A; --cor-texto-suave:#56676E; --cor-borda:#E6E0D4; --cor-whatsapp:#25D366;
+    --container:1180px; --raio:16px; --raio-sm:10px;
+    --sombra:0 16px 52px rgba(6,40,49,.14); --sombra-sm:0 5px 20px rgba(6,40,49,.10);
+    --grad-realce:linear-gradient(100deg,#A8884E 0%,#E7CE94 28%,#C9A86A 52%,#F1DDA8 74%,#A8884E 100%);
+    --grad-azul:linear-gradient(100deg,#073D4C 0%,#1E8BA6 30%,#0C5A6E 55%,#34AEC9 78%,#073D4C 100%);
+    --nav-pad:22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--cor-realce) var(--cor-superficie)}
+  ::-webkit-scrollbar{width:11px}
+  ::-webkit-scrollbar-track{background:var(--cor-superficie)}
+  ::-webkit-scrollbar-thumb{background:var(--grad-realce);background-size:200% auto;border-radius:999px;border:3px solid var(--cor-superficie)}
+  ::-webkit-scrollbar-thumb:hover{background:var(--cor-realce-escura)}
+  body{font-family:'Inter',sans-serif;color:var(--cor-texto);background:var(--cor-fundo);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.16;letter-spacing:-.005em;font-weight:600}
+  h2{font-size:clamp(1.8rem,3.6vw,2.8rem)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:var(--container);margin:0 auto;padding:0 24px}
+  section{padding:clamp(42px,6vh,76px) 0}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Inter';font-weight:600;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-realce-escura);margin-bottom:18px}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--cor-realce)}
+  .center{text-align:center}
+  .center .eyebrow::after{content:"";width:28px;height:1px;background:var(--cor-realce)}
+  .center p.lead{max-width:640px;margin:14px auto 0;color:var(--cor-texto-suave)}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Inter';font-weight:600;font-size:.9rem;letter-spacing:.015em;padding:13px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,background-position .6s ease;will-change:transform}
+  .btn-primary{background:var(--cor-primaria);color:#fff;box-shadow:0 8px 22px rgba(12,90,110,.28)}
+  .btn-primary:hover{background:var(--cor-primaria-escura);transform:translateY(-2px)}
+  .btn-wpp{background:var(--grad-azul);background-size:220% auto;color:#fff;box-shadow:0 10px 26px rgba(12,90,110,.36);animation:shimmer 7s linear infinite,softpulse 2.8s ease-in-out infinite}
+  .btn-wpp:hover{background-position:right center;transform:translateY(-2px)}
+  .btn-gold{background:var(--grad-realce);background-size:220% auto;color:#073D4C;box-shadow:0 10px 26px rgba(201,168,106,.36);animation:shimmer 7s linear infinite}
+  .btn-gold:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 14px 32px rgba(201,168,106,.46)}
+  .btn-ghost-light{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.5);backdrop-filter:blur(4px)}
+  .btn-ghost-light:hover{background:rgba(255,255,255,.18);border-color:#fff}
+  @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(12,90,110,.36)}50%{box-shadow:0 12px 34px rgba(12,90,110,.62)}}
+
+  /* ===== HEADER (flutuante / floating pill) ===== */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease;padding:18px 16px 0}
+  header .nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:none;margin:0;
+    padding:0 14px 0 calc(clamp(24px,6vw,112px) - 16px);border-radius:999px;
+    background:rgba(6,40,49,.34);backdrop-filter:blur(12px) saturate(130%);-webkit-backdrop-filter:blur(12px) saturate(130%);
+    border:1px solid rgba(255,255,255,.16);box-shadow:0 8px 30px rgba(6,40,49,.2);transition:.35s ease}
+  .logo{font-family:'Playfair Display';font-weight:700;font-size:1.3rem;color:#fff;display:flex;align-items:center;gap:6px;transition:.3s}
+  .logo b{color:var(--cor-realce)}
+  .nav-links{display:flex;gap:28px;font-family:'Inter';font-weight:500;font-size:.9rem}
+  .nav-links a{color:rgba(255,255,255,.92);transition:.2s}
+  .nav-links a:hover{color:var(--cor-realce)}
+  header .btn{padding:10px 20px;font-size:.82rem}
+  header.scrolled{padding-top:10px}
+  header.scrolled .nav{background:rgba(255,255,255,.92);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--cor-borda);box-shadow:0 10px 34px rgba(6,40,49,.14)}
+  header.scrolled .logo{color:var(--cor-primaria)}
+  header.scrolled .nav-links a{color:var(--cor-texto-suave)}
+  header.scrolled .nav-links a:hover{color:var(--cor-primaria)}
+  .menu-btn{display:none;font-size:1.5rem;background:none;border:0;color:#fff;cursor:pointer}
+  header.scrolled .menu-btn{color:var(--cor-primaria)}
+
+  /* ===== HERO — IMAGEM ULTRAWIDE ===== */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--cor-escura)}
+  /* hero quebra o container centralizado e ancora na ESQUERDA do viewport (respiro vai pra direita) */
+  .hero>.container{max-width:none;margin:0;padding-left:clamp(24px,6vw,112px);padding-right:24px}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;animation:kenburns 22s ease-out forwards}
+  @keyframes kenburns{from{transform:scale(1.1)}to{transform:scale(1)}}
+  .hero-overlay{position:absolute;inset:0;z-index:2;
+    background:linear-gradient(180deg,rgba(6,40,49,.55) 0%,rgba(6,40,49,.18) 40%,rgba(6,40,49,.5) 75%,rgba(6,40,49,.86) 100%),
+               linear-gradient(90deg,rgba(6,40,49,.72) 0%,rgba(6,40,49,.22) 60%,transparent 100%)}
+  .hero-content{position:relative;z-index:3;color:#fff;max-width:760px;padding:clamp(90px,11.5vh,112px) 0 clamp(32px,5vh,56px);animation:heroIn 1s cubic-bezier(.22,.61,.36,1) both}
+  .hero .eyebrow{color:var(--cor-realce)}
+  .hero .eyebrow::before{background:var(--cor-realce)}
+  .hero h1{font-size:clamp(2.1rem,4.6vw,3.5rem);font-weight:600;color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.3)}
+  .hero h1 em{font-style:italic;background:var(--grad-realce);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite}
+  @keyframes shimmer{to{background-position:200% center}}
+  @keyframes heroIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  .hero p.sub{font-size:clamp(1.04rem,1.5vw,1.2rem);color:rgba(255,255,255,.9);margin:18px 0 26px;max-width:520px;font-weight:400}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.7);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;text-align:center}
+  .scroll-cue span{display:block;width:1px;height:32px;background:linear-gradient(rgba(255,255,255,.7),transparent);margin:9px auto 0;animation:cue 2s ease-in-out infinite}
+  @keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+  /* ===== TRUST STRIP (faixa fina + numerais tabulares) ===== */
+  .trust-strip{background:linear-gradient(90deg,var(--cor-primaria-escura),var(--cor-primaria) 50%,var(--cor-primaria-escura));color:#fff;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(0,0,0,.18)}
+  .trust-strip .container{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:24px;text-align:center}
+  .trust-strip .ts-item{position:relative}
+  .trust-strip .ts-item+.ts-item::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:36px;background:linear-gradient(transparent,rgba(255,255,255,.2),transparent)}
+  .trust-strip b{display:block;font-family:'Inter';font-weight:700;font-size:1.7rem;line-height:1.1;color:var(--cor-realce);font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum" 1,"lnum" 1;letter-spacing:.005em}
+  .trust-strip span{display:block;margin-top:3px;font-size:.74rem;opacity:.82;letter-spacing:.06em;text-transform:uppercase}
+
+  /* ===== CARDS ===== */
+  .grid{display:grid;gap:22px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .card{background:#fff;border:1px solid var(--cor-borda);border-radius:var(--raio);padding:22px 24px;transition:.25s ease}
+  .card:hover{box-shadow:var(--sombra);transform:translateY(-5px);border-color:transparent}
+  .card .ico{width:50px;height:50px;border-radius:14px;background:var(--cor-superficie);border:1px solid var(--cor-borda);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:12px}
+  .card h3{font-size:1.2rem;font-weight:600;margin-bottom:7px}
+  .card p{color:var(--cor-texto-suave);font-size:.94rem}
+
+  /* ===== STEPS ===== */
+  .steps{grid-template-columns:repeat(4,1fr)}
+  .step{text-align:center}
+  .step .num{width:56px;height:56px;border-radius:50%;background:var(--cor-primaria);color:var(--cor-realce);font-family:'Playfair Display';font-weight:700;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+  .step h3{font-size:1.12rem;margin-bottom:6px}
+  .step p{color:var(--cor-texto-suave);font-size:.9rem}
+
+  /* ===== RITMO DE COR DAS SEÇÕES (anti "tudo branco") ===== */
+  .sec-cream{background:var(--cor-superficie)}
+  .sec-dark{background:var(--cor-escura);color:#fff}
+  .sec-dark h2,.sec-dark h3{color:#fff}
+  .sec-dark p{color:rgba(255,255,255,.74)}
+  .sec-dark .center p.lead{color:rgba(255,255,255,.76)}
+  .sec-dark .eyebrow{color:var(--cor-realce)}
+  .sec-dark .eyebrow::before,.sec-dark .center .eyebrow::after{background:var(--cor-realce)}
+  .sec-dark .step .num{background:var(--grad-realce);color:#073D4C}
+
+  /* ===== SOBRE ===== */
+  .sobre{display:grid;grid-template-columns:.82fr 1.18fr;gap:54px;align-items:center}
+  .sobre-photo{position:relative;aspect-ratio:4/5;border-radius:var(--raio);overflow:hidden;background:linear-gradient(150deg,#1c5566,#062831);box-shadow:var(--sombra)}
+  .sobre-photo img{width:100%;height:100%;object-fit:cover}
+  .sobre-photo .crm{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(6,40,49,.88));color:#fff;padding:28px 22px 18px;font-family:'Inter';font-weight:600;font-size:.86rem}
+  .sobre-photo .crm b{color:var(--cor-realce)}
+  .sobre ul{list-style:none;margin-top:20px;display:grid;gap:12px}
+  .sobre li{display:flex;gap:11px;align-items:flex-start;color:var(--cor-texto-suave)}
+  .sobre li::before{content:"✦";color:var(--cor-realce);margin-top:3px}
+
+  /* ===== ABORDAGEM / PILARES ===== */
+  .pilar{text-align:center;padding:6px}
+  .pilar .ico{width:62px;height:62px;margin:0 auto 16px;border-radius:50%;background:#fff;border:1px solid var(--cor-borda);display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:var(--sombra-sm)}
+  .pilar h3{font-size:1.16rem;margin-bottom:8px}
+  .pilar p{color:var(--cor-texto-suave);font-size:.93rem}
+
+  /* ===== ANTES / DEPOIS (slider) ===== */
+  .ba{position:relative;max-width:680px;margin:26px auto 0;aspect-ratio:16/9;border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);cursor:ew-resize;touch-action:none;background:linear-gradient(135deg,#0C5A6E,#062831)}
+  .ba-before,.ba-after{position:absolute;inset:0;background-size:cover;background-position:center}
+  .ba-before{background-color:#2a3a40}
+  .ba-after{background-color:#0C5A6E;clip-path:inset(0 0 0 50%)}
+  .ba-tag{position:absolute;top:12px;z-index:4;background:rgba(6,40,49,.7);color:#fff;font-family:'Inter';font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+  .ba-tag.l{left:12px}.ba-tag.r{right:12px}
+  .ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;z-index:5;transform:translateX(-1px)}
+  .ba-handle::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:#fff;color:var(--cor-primaria);display:flex;align-items:center;justify-content:center;font-size:1.05rem;box-shadow:0 4px 14px rgba(0,0,0,.28)}
+  .ba-note{text-align:center;color:var(--cor-texto-suave);font-size:.82rem;margin-top:12px;font-style:italic}
+
+  /* ===== DEPOIMENTOS ===== */
+  .depo{background:#fff;border:1px solid var(--cor-borda);border-radius:var(--raio);padding:28px}
+  .depo .stars{color:var(--cor-realce);margin-bottom:12px;letter-spacing:3px}
+  .depo p{font-size:.98rem;color:var(--cor-texto);font-style:italic;font-family:'Playfair Display'}
+  .depo .who{display:flex;align-items:center;gap:12px;margin-top:18px}
+  .depo .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(150deg,var(--cor-realce),var(--cor-realce-escura));color:#073D4C;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Inter'}
+  .depo .who b{font-family:'Inter';font-size:.94rem;display:block}
+  .depo .who small{color:var(--cor-texto-suave);font-size:.82rem}
+
+  /* ===== CONVENIOS ===== */
+  .convenios{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:24px}
+  .conv-chip{background:#fff;border:1px solid var(--cor-borda);border-radius:999px;padding:12px 24px;font-family:'Inter';font-weight:600;font-size:.92rem;color:var(--cor-primaria);box-shadow:var(--sombra-sm)}
+
+  /* ===== FAQ ===== */
+  .faq{max-width:800px;margin:30px auto 0}
+  details{background:#fff;border:1px solid var(--cor-borda);border-radius:var(--raio-sm);margin-bottom:10px;padding:0 22px;transition:.2s}
+  details[open]{box-shadow:var(--sombra-sm);border-color:var(--cor-realce)}
+  summary{list-style:none;cursor:pointer;font-family:'Inter';font-weight:600;font-size:1rem;padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-size:1.5rem;color:var(--cor-realce-escura);transition:.2s;flex-shrink:0}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{padding:0 0 20px;color:var(--cor-texto-suave)}
+
+  /* ===== CONTATO ===== */
+  .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}
+  .info-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+  .info-row .ico{width:46px;height:46px;border-radius:12px;background:var(--cor-superficie);border:1px solid var(--cor-borda);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+  .info-row b{font-family:'Inter';font-weight:600;display:block;margin-bottom:2px}
+  .info-row span{color:var(--cor-texto-suave);font-size:.94rem}
+  .map-ph{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:linear-gradient(150deg,#dfe7e4,#d5e0e0 50%,#e7e1d4);display:flex;align-items:center;justify-content:center;color:var(--cor-primaria);font-family:'Inter';font-weight:600;border:1px solid var(--cor-borda)}
+  .map-ph img{width:100%;height:100%;object-fit:cover}
+
+  /* ===== CTA FINAL ===== */
+  .cta-final{background:linear-gradient(135deg,var(--cor-primaria),#0a4a5c);color:#fff;text-align:center}
+  .cta-final h2{color:#fff}
+  .cta-final h2 em{font-style:italic;color:var(--cor-realce)}
+  .cta-final p{max-width:560px;margin:14px auto 28px;opacity:.92}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--cor-escura);color:#9fb6bd;padding:56px 0 28px;font-size:.92rem}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:34px}
+  footer .logo{color:#fff;margin-bottom:12px;display:inline-flex}
+  footer a:hover{color:var(--cor-realce)}
+  .foot-col h4{font-family:'Inter';font-weight:600;color:#fff;font-size:.96rem;margin-bottom:12px}
+  .foot-col div{margin-bottom:7px;color:#88a3ab}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;text-align:center;color:#6f8c95;font-size:.84rem}
+
+  /* ===== WHATSAPP FLOAT (verde profundo metálico) ===== */
+  .wpp-float{position:fixed;bottom:24px;right:24px;z-index:60;background:var(--grad-azul);background-size:200% auto;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;box-shadow:0 12px 30px rgba(12,90,110,.5);animation:pulse 2.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(12,90,110,.55)}70%{box-shadow:0 0 0 18px rgba(12,90,110,0)}100%{box-shadow:0 0 0 0 rgba(12,90,110,0)}}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== CURSOR CUSTOMIZADO (só ponteiro fino) ===== */
+  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;opacity:0;transition:opacity .3s}
+  .cursor-dot{width:7px;height:7px;background:#fff}
+  .cursor-ring{width:32px;height:32px;border:1.6px solid rgba(255,255,255,.75);transition:width .25s ease,height .25s ease,background .25s ease,opacity .3s}
+  .has-cursor.ready .cursor-dot,.has-cursor.ready .cursor-ring{opacity:1}
+  .has-cursor.hovering .cursor-ring{width:52px;height:52px;background:rgba(255,255,255,.12)}
+  .has-cursor,.has-cursor a,.has-cursor button,.has-cursor summary,.has-cursor .btn,.has-cursor .ba{cursor:none}
+  @media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
+
+  /* ===== MODAL — FORMULÁRIO LEAD (popup) ===== */
+  .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+  .modal.open{display:flex}
+  .modal-bg{position:absolute;inset:0;background:rgba(6,40,49,.66);backdrop-filter:blur(6px);animation:fade .3s ease}
+  .modal-card{position:relative;z-index:2;background:#fff;border-radius:var(--raio);max-width:440px;width:100%;padding:clamp(28px,4vw,40px);box-shadow:0 30px 80px rgba(6,40,49,.4);animation:pop .35s cubic-bezier(.22,.61,.36,1);text-align:left}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+  .modal-card .x{position:absolute;top:14px;right:16px;font-size:1.6rem;color:var(--cor-texto-suave);background:none;border:0;cursor:pointer;line-height:1}
+  .modal-card .x:hover{color:var(--cor-primaria)}
+  .modal-card .eyebrow{margin-bottom:10px}
+  .modal-card h3{font-family:'Playfair Display';font-size:1.5rem;margin-bottom:6px;color:var(--cor-primaria)}
+  .modal-card p.msub{color:var(--cor-texto-suave);font-size:.92rem;margin-bottom:22px}
+  .modal-card label{display:block;font-family:'Inter';font-size:.78rem;font-weight:600;color:var(--cor-texto);margin:0 0 6px}
+  .modal-card input{width:100%;padding:13px 16px;border:1px solid var(--cor-borda);border-radius:var(--raio-sm);font-family:'Inter';font-size:.95rem;margin-bottom:15px;background:var(--cor-superficie);transition:.2s;color:var(--cor-texto)}
+  .modal-card input:focus{outline:0;border-color:var(--cor-realce);background:#fff;box-shadow:0 0 0 3px rgba(201,168,106,.2)}
+  .modal-card .btn{width:100%;justify-content:center;margin-top:4px}
+  .modal-card .priv{font-size:.74rem;color:var(--cor-texto-suave);text-align:center;margin-top:13px}
+
+  /* ===== RESPONSIVE (mobile-first) ===== */
+  @media(max-width:920px){
+    .nav-links,header .nav>.btn{display:none}
+    .menu-btn{display:block}
+    .g3,.steps,.trust-strip .container{grid-template-columns:1fr 1fr}
+    .trust-strip .ts-item+.ts-item::before{display:none}
+    .sobre,.contato-grid{grid-template-columns:1fr;gap:38px}
+    .sobre-photo{max-width:400px;margin:0 auto}
+    section{padding:clamp(38px,5vh,58px) 0}
+  }
+  @media(max-width:560px){
+    body{font-size:16px}
+    .g3,.steps{grid-template-columns:1fr}
+    .hero>.container{padding-left:24px}
+    .hero-cta{flex-direction:column;align-items:stretch}
+    .hero-cta .btn{justify-content:center}
+    .trust-strip .container{gap:22px 18px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}.hero-img{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a href="#" class="logo">Dr. Felipe Andrade<b>.</b></a>
+    <nav class="nav-links">
+      <a href="#especialidades">Especialidades</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#convenios">Convênios</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="https://wa.me/5511999990000?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." class="btn btn-gold">Agendar consulta</a>
+    <button class="menu-btn" aria-label="menu">☰</button>
+  </div>
+</header>
+
+<!-- ===== HERO — IMAGEM ULTRAWIDE ===== -->
+<section class="hero">
+  <img class="hero-img" src="assets/hero.webp" alt="Consultório de urologia moderno e acolhedor" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow">Urologia • Saúde do Homem • São Paulo</span>
+      <h1>Cuidar da sua saúde também é um ato de <em>coragem</em>.</h1>
+      <p class="sub">Atendimento humanizado, discreto e com tecnologia, do diagnóstico ao acompanhamento. Agende sua consulta sem constrangimento.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/5511999990000?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta." class="btn btn-wpp">💬 Agendar pelo WhatsApp</a>
+        <a href="#especialidades" class="btn btn-ghost-light">Ver especialidades</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">Role para conhecer<span></span></div>
+</section>
+
+<!-- ===== TRUST ===== -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="ts-item"><b class="count" data-target="5000" data-prefix="+">+0</b><span>Pacientes atendidos</span></div>
+    <div class="ts-item"><b class="count" data-target="4.9" data-dec="1" data-suffix="★">0★</b><span>312 avaliações no Google</span></div>
+    <div class="ts-item"><b class="count" data-target="15" data-suffix=" anos">0 anos</b><span>De experiência clínica</span></div>
+    <div class="ts-item"><b>CRM</b><span>000000 • RQE 00000</span></div>
+  </div>
+</div>
+
+<!-- ===== ESPECIALIDADES ===== -->
+<section id="especialidades">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Especialidades</span>
+      <h2>Cuidado completo da saúde masculina</h2>
+      <p class="lead">Diagnóstico preciso e tratamento individualizado, com acolhimento e total discrição.</p>
+    </div>
+    <div class="grid g3" style="margin-top:32px">
+      <div class="card reveal"><div class="ico">🩺</div><h3>Urologia geral</h3><p>Avaliação e tratamento de infecções, sintomas urinários e check-up preventivo.</p></div>
+      <div class="card reveal"><div class="ico">💪</div><h3>Saúde sexual masculina</h3><p>Disfunção erétil e ejaculação precoce tratadas com ciência e sem julgamento.</p></div>
+      <div class="card reveal"><div class="ico">🔬</div><h3>Saúde da próstata</h3><p>Rastreamento, diagnóstico precoce e acompanhamento personalizado.</p></div>
+      <div class="card reveal"><div class="ico">💎</div><h3>Cálculo renal (pedra)</h3><p>Tratamento e prevenção de cálculos com tecnologia minimamente invasiva.</p></div>
+      <div class="card reveal"><div class="ico">🧬</div><h3>Vasectomia</h3><p>Procedimento seguro, rápido e sem cortes, com orientação completa.</p></div>
+      <div class="card reveal"><div class="ico">🧪</div><h3>Reposição hormonal</h3><p>Avaliação de testosterona e tratamento da andropausa com segurança.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABORDAGEM ===== -->
+<section class="sec-cream">
+  <div class="container">
+    <div class="center"><span class="eyebrow">Como cuidamos de você</span><h2>Uma consulta diferente desde o primeiro minuto</h2></div>
+    <div class="grid g3" style="margin-top:32px">
+      <div class="pilar reveal"><div class="ico">🤐</div><h3>Discrição total</h3><p>Ambiente reservado e sigilo absoluto. Aqui você fala sem receio.</p></div>
+      <div class="pilar reveal"><div class="ico">👂</div><h3>Escuta de verdade</h3><p>Tempo de consulta adequado para entender o seu caso por inteiro.</p></div>
+      <div class="pilar reveal"><div class="ico">⚙️</div><h3>Tecnologia atual</h3><p>Exames e procedimentos com equipamentos modernos e técnicas atuais.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMO FUNCIONA (escura — ritmo de cor) ===== -->
+<section class="sec-dark">
+  <div class="container">
+    <div class="center"><span class="eyebrow">Como funciona</span><h2>Simples, do agendamento ao acompanhamento</h2></div>
+    <div class="grid steps" style="margin-top:32px">
+      <div class="step reveal"><div class="num">1</div><h3>Agende</h3><p>Fale pelo WhatsApp e escolha o melhor horário para você.</p></div>
+      <div class="step reveal"><div class="num">2</div><h3>Consulta</h3><p>Avaliação completa, com escuta atenta e exame quando necessário.</p></div>
+      <div class="step reveal"><div class="num">3</div><h3>Plano de cuidado</h3><p>Diagnóstico claro e um plano de tratamento feito para o seu caso.</p></div>
+      <div class="step reveal"><div class="num">4</div><h3>Acompanhamento</h3><p>Seguimos juntos até você se sentir bem — com retornos e suporte.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOBRE ===== -->
+<section id="sobre">
+  <div class="container sobre">
+    <div class="sobre-photo">
+      <img src="assets/sobre.webp" alt="Dr. Felipe Andrade, urologista" loading="lazy" onerror="this.style.display='none'">
+      <div class="crm">Dr. Felipe Andrade • <b>CRM 000000 | RQE 00000</b></div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Sobre o Dr. Felipe Andrade</span>
+      <h2>Medicina séria, com o cuidado humano que você merece</h2>
+      <p style="margin-top:14px;color:var(--cor-texto-suave)">Há mais de 15 anos dedicado à urologia e à saúde do homem, o Dr. Felipe une formação sólida, tecnologia e uma escuta acolhedora. Sua missão é quebrar o tabu e fazer com que o homem cuide da própria saúde sem medo e sem vergonha.</p>
+      <ul>
+        <li>Especialista em Urologia — Título pela SBU</li>
+        <li>Membro da Sociedade Brasileira de Urologia</li>
+        <li>+5.000 pacientes atendidos com acolhimento e sigilo</li>
+        <li>Atendimento humanizado, sem julgamento</li>
+      </ul>
+      <a href="https://wa.me/5511999990000?text=Quero%20agendar%20consulta%20com%20o%20Dr.%20Felipe." class="btn btn-primary" style="margin-top:24px">Agendar com o Dr. Felipe</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANTES / DEPOIS (slider) — p/ nichos com resultado visual (odonto/estética/capilar) ===== -->
+<section class="sec-cream">
+  <div class="container">
+    <div class="center"><span class="eyebrow">Resultados reais</span><h2>O antes e o depois de quem se cuidou</h2>
+      <p class="lead">Arraste para comparar. *Imagens ilustrativas neste modelo — substituir por casos reais do cliente (com consentimento).*</p></div>
+    <div class="ba" id="ba1">
+      <div class="ba-before" style="background-image:url(assets/antes.webp)"></div>
+      <div class="ba-after" style="background-image:url(assets/depois.webp)"></div>
+      <span class="ba-tag l">Antes</span>
+      <span class="ba-tag r">Depois</span>
+      <div class="ba-handle"></div>
+    </div>
+    <p class="ba-note">Resultados variam conforme cada caso e avaliação individual.</p>
+  </div>
+</section>
+
+<!-- ===== DEPOIMENTOS ===== -->
+<section>
+  <div class="container">
+    <div class="center"><span class="eyebrow">Depoimentos</span><h2>Quem foi atendido, recomenda</h2></div>
+    <div class="grid g3" style="margin-top:32px">
+      <div class="depo reveal"><div class="stars">★★★★★</div><p>"Adiei essa consulta por anos por vergonha. O Dr. Felipe me deixou totalmente à vontade. Me arrependo de não ter ido antes."</p><div class="who"><div class="av">JP</div><div><b>João P.</b><small>Saúde do homem</small></div></div></div>
+      <div class="depo reveal"><div class="stars">★★★★★</div><p>"Atendimento sério, explicou tudo com calma e sem pressa. Resolveu meu problema de cálculo renal rapidinho."</p><div class="who"><div class="av">MR</div><div><b>Marcos R.</b><small>Cálculo renal</small></div></div></div>
+      <div class="depo reveal"><div class="stars">★★★★★</div><p>"Fiz a vasectomia com ele. Procedimento tranquilo, sem dor, e o pós foi exatamente como explicado. Recomendo demais."</p><div class="who"><div class="av">AL</div><div><b>André L.</b><small>Vasectomia</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONVENIOS ===== -->
+<section id="convenios" class="sec-cream">
+  <div class="container center">
+    <span class="eyebrow">Atendimento</span>
+    <h2>Convênios e particular</h2>
+    <p class="lead">Atendemos os principais convênios e também consultas particulares com condições facilitadas.</p>
+    <div class="convenios">
+      <div class="conv-chip">Unimed</div>
+      <div class="conv-chip">Bradesco Saúde</div>
+      <div class="conv-chip">SulAmérica</div>
+      <div class="conv-chip">Amil</div>
+      <div class="conv-chip">Particular</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section>
+  <div class="container">
+    <div class="center"><span class="eyebrow">Dúvidas frequentes</span><h2>Perguntas que todo paciente faz</h2></div>
+    <div class="faq">
+      <details open><summary>A consulta é sigilosa?</summary><p>Totalmente. Tudo o que é conversado em consulta é protegido por sigilo médico. O ambiente é reservado e o atendimento, discreto do começo ao fim.</p></details>
+      <details><summary>A partir de que idade devo procurar um urologista?</summary><p>O acompanhamento da saúde do homem é recomendado a partir dos 40 anos (ou antes, com histórico familiar). Mas qualquer sintoma, em qualquer idade, já é motivo para uma avaliação.</p></details>
+      <details><summary>O exame é constrangedor ou dolorido?</summary><p>Não. Boa parte da avaliação é conversa e exames simples. Quando algum exame é necessário, explicamos cada passo e priorizamos o seu conforto.</p></details>
+      <details><summary>Atende meu convênio?</summary><p>Atendemos os principais convênios e também consultas particulares. Fale com a gente no WhatsApp para confirmar o seu plano.</p></details>
+      <details><summary>A vasectomia tem corte? Como é a recuperação?</summary><p>Realizamos a técnica sem bisturi, minimamente invasiva. A recuperação costuma ser rápida, com orientações claras de pós-procedimento.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTATO ===== -->
+<section id="contato">
+  <div class="container">
+    <div class="center"><span class="eyebrow">Atendimento</span><h2>Venha cuidar da sua saúde</h2></div>
+    <div class="contato-grid" style="margin-top:32px">
+      <div>
+        <div class="info-row"><div class="ico">📍</div><div><b>Consultório</b><span>Av. Paulista, 2000 — Bela Vista, São Paulo/SP</span></div></div>
+        <div class="info-row"><div class="ico">🕐</div><div><b>Horário</b><span>Seg a Sex: 8h às 19h • Sáb: 8h às 12h</span></div></div>
+        <div class="info-row"><div class="ico">💬</div><div><b>WhatsApp</b><span>(11) 99999-0000</span></div></div>
+        <a href="https://wa.me/5511999990000?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta." class="btn btn-wpp" style="margin-top:8px">💬 Chamar no WhatsApp</a>
+      </div>
+      <div class="map-ph"><img src="assets/mapa.webp" alt="Localização do consultório" loading="lazy" onerror="this.parentNode.innerHTML='🗺️ Mapa do consultório'">🗺️ Mapa do consultório</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="cta-final">
+  <div class="container">
+    <h2>Sua saúde não pode <em>esperar</em></h2>
+    <p>Dê o primeiro passo hoje. Agende sua consulta — com discrição e acolhimento.</p>
+    <a href="https://wa.me/5511999990000?text=Ol%C3%A1!%20Quero%20agendar%20minha%20consulta." class="btn btn-gold">💬 Agendar minha consulta</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col" style="max-width:300px">
+        <div class="logo" style="font-size:1.2rem">Dr. Felipe Andrade<b style="color:var(--cor-realce)">.</b></div>
+        <div>Urologia e saúde do homem em São Paulo. Cuidado sério, humano e discreto.</div>
+      </div>
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <div><a href="#especialidades">Especialidades</a></div>
+        <div><a href="#sobre">Sobre</a></div>
+        <div><a href="#convenios">Convênios</a></div>
+        <div><a href="#contato">Contato</a></div>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <div>Av. Paulista, 2000 — SP</div>
+        <div>(11) 99999-0000</div>
+        <div>Seg–Sex 8h–19h • Sáb 8h–12h</div>
+      </div>
+    </div>
+    <div class="foot-bottom">© <span id="ano"></span> Dr. Felipe Andrade — Urologia • CRM 000000 | RQE 00000 • Site por PS8</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5511999990000?text=Ol%C3%A1!%20Quero%20agendar%20uma%20consulta." class="wpp-float" aria-label="WhatsApp">💬</a>
+
+<!-- ===== MODAL — FORMULÁRIO LEAD (popup) ===== -->
+<div class="modal" id="leadModal" aria-hidden="true">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+    <button class="x" data-close aria-label="Fechar">×</button>
+    <span class="eyebrow">Agende sua consulta</span>
+    <h3 id="leadTitle">Dê o primeiro passo</h3>
+    <p class="msub">Deixe seus dados — nossa equipe entra em contato pelo WhatsApp com discrição.</p>
+    <form id="leadForm">
+      <label for="lf-nome">Nome</label>
+      <input id="lf-nome" name="nome" type="text" placeholder="Seu nome completo" required>
+      <label for="lf-email">E-mail</label>
+      <input id="lf-email" name="email" type="email" placeholder="voce@email.com" required>
+      <label for="lf-tel">WhatsApp</label>
+      <input id="lf-tel" name="telefone" type="tel" placeholder="(00) 00000-0000" required>
+      <button type="submit" class="btn btn-wpp">Quero agendar minha consulta</button>
+      <p class="priv">🔒 Atendimento sigiloso. Seus dados estão seguros.</p>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Header pílula sólida no scroll
+  const h=document.getElementById('header');
+  const onScroll=()=>h.classList.toggle('scrolled',scrollY>40);
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  document.getElementById('ano').textContent=new Date().getFullYear();
+
+  // Reveal on scroll
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Count-up dos números (rápido, easeOutCubic, separador pt-BR)
+  const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function fmtVal(v,dec){return dec? v.toFixed(dec).replace('.',',') : Math.round(v).toLocaleString('pt-BR');}
+  function animateCount(el){
+    const target=parseFloat(el.dataset.target),dec=+(el.dataset.dec||0),
+          pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';
+    if(RM){el.textContent=pre+fmtVal(target,dec)+suf;return;}
+    const dur=1100,t0=performance.now();
+    (function tick(now){
+      let p=Math.min((now-t0)/dur,1);p=1-Math.pow(1-p,3);
+      el.textContent=pre+fmtVal(target*p,dec)+suf;
+      if(p<1)requestAnimationFrame(tick);else el.textContent=pre+fmtVal(target,dec)+suf;
+    })(performance.now());
+  }
+  const co=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);co.unobserve(e.target)}})},{threshold:.6});
+  document.querySelectorAll('.count').forEach(el=>co.observe(el));
+
+  // Modal lead form (popup em todos os CTAs)
+  const modal=document.getElementById('leadModal');
+  const openModal=e=>{if(e)e.preventDefault();modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';const f=document.getElementById('lf-nome');if(f)setTimeout(()=>f.focus(),60)};
+  const closeModal=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''};
+  document.querySelectorAll('a.btn-wpp, a.btn-gold, a.btn-primary').forEach(b=>b.addEventListener('click',openModal));
+  modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeModal));
+  addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+  document.getElementById('leadForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const n=document.getElementById('lf-nome').value.trim(),
+          em=document.getElementById('lf-email').value.trim(),
+          t=document.getElementById('lf-tel').value.trim();
+    const msg=encodeURIComponent('Olá! Meu nome é '+n+'. Quero agendar uma consulta.\nE-mail: '+em+'\nWhatsApp: '+t);
+    window.open('https://wa.me/5511999990000?text='+msg,'_blank');
+    closeModal();
+  });
+
+  // Antes/Depois slider
+  document.querySelectorAll('.ba').forEach(ba=>{
+    const after=ba.querySelector('.ba-after'),handle=ba.querySelector('.ba-handle');
+    let drag=false;
+    function set(x){const r=ba.getBoundingClientRect();let p=Math.max(0,Math.min(100,(x-r.left)/r.width*100));
+      after.style.clipPath='inset(0 0 0 '+p+'%)';handle.style.left=p+'%';}
+    ba.addEventListener('pointerdown',e=>{drag=true;set(e.clientX);try{ba.setPointerCapture(e.pointerId)}catch(_){}});
+    ba.addEventListener('pointermove',e=>{if(drag)set(e.clientX)});
+    addEventListener('pointerup',()=>drag=false);
+  });
+
+  // Cursor customizado redondo (só ponteiro fino)
+  if(matchMedia('(pointer:fine)').matches){
+    const dot=document.createElement('div'),ring=document.createElement('div');
+    dot.className='cursor-dot';ring.className='cursor-ring';
+    document.body.append(dot,ring);
+    const root=document.documentElement;root.classList.add('has-cursor');
+    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,started=false;
+    addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';
+      if(!started){started=true;root.classList.add('ready')}},{passive:true});
+    (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+    const hov='a,button,summary,.btn,.card,.depo,details,.ba';
+    addEventListener('mouseover',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.add('hovering')});
+    addEventListener('mouseout',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.remove('hovering')});
+  }
+</script>
+</body>
+</html>

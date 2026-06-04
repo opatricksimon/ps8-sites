@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PS8 · Sites-Modelo</title>
+<meta name="description" content="Galeria de sites-modelo da PS8 — imobiliária, saúde e odontologia. Templates de alto padrão." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0E2A47; --navy-esc:#091D32; --escura:#0B1A2B; --ouro:#C2A36A; --ouro-esc:#A8884E;
+    --cream:#F6F3EC; --texto:#16202C; --suave:#8a97a6; --borda:rgba(255,255,255,.1);
+    --grad-ouro:linear-gradient(100deg,#A8884E 0%,#E7CE94 28%,#C2A36A 52%,#F1DDA8 74%,#A8884E 100%);
+    --raio:20px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scrollbar-width:thin;scrollbar-color:var(--ouro) var(--escura)}
+  ::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--escura)}
+  ::-webkit-scrollbar-thumb{background:var(--grad-ouro);border-radius:999px;border:3px solid var(--escura)}
+  body{font-family:'Montserrat',sans-serif;background:var(--escura);color:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(1200px 600px at 80% -10%,rgba(194,163,106,.14),transparent 60%),radial-gradient(900px 500px at -10% 10%,rgba(28,107,84,.10),transparent 55%)}
+  h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.12;letter-spacing:-.01em;font-weight:600}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  @keyframes shimmer{to{background-position:200% center}}
+
+  /* HERO / topo */
+  .top{padding:clamp(54px,10vh,104px) 0 clamp(30px,5vh,52px);text-align:center}
+  .brand{font-family:'Playfair Display';font-weight:700;font-size:1.5rem;letter-spacing:.02em;margin-bottom:30px}
+  .brand b{color:var(--ouro)}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ouro);margin-bottom:20px}
+  .eyebrow::before,.eyebrow::after{content:"";width:28px;height:1px;background:var(--ouro)}
+  .top h1{font-size:clamp(2.1rem,5.4vw,3.4rem)}
+  .top h1 em{font-style:italic;background:var(--grad-ouro);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite}
+  .top p{max-width:560px;margin:18px auto 0;color:rgba(255,255,255,.74);font-size:1.02rem}
+
+  /* GRID DE CARDS */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;padding:18px 0 60px}
+  .card{position:relative;display:flex;flex-direction:column;border-radius:var(--raio);overflow:hidden;
+    background:rgba(255,255,255,.035);border:1px solid var(--borda);
+    backdrop-filter:blur(8px);transition:transform .35s cubic-bezier(.22,.61,.36,1),border-color .35s,box-shadow .35s;min-height:340px}
+  .card:hover{transform:translateY(-6px);border-color:rgba(194,163,106,.4);box-shadow:0 24px 60px rgba(0,0,0,.45)}
+  .card .thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:linear-gradient(150deg,#1d3a5c,#0E2A47 60%,#091d32)}
+  .card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+  .card:hover .thumb img{transform:scale(1.07)}
+  .card .badge{position:absolute;top:14px;left:14px;z-index:2;font-weight:700;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+    padding:6px 13px;border-radius:999px;background:var(--grad-ouro);background-size:200% auto;color:#10243b;animation:shimmer 6s linear infinite}
+  .card .badge.alt{background:rgba(11,26,43,.7);color:#fff;border:1px solid var(--borda);animation:none}
+  .card .body{padding:22px 24px 24px;flex:1;display:flex;flex-direction:column}
+  .card .niche{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ouro);font-weight:600;margin-bottom:8px}
+  .card h3{font-size:1.4rem;margin-bottom:8px}
+  .card p{color:rgba(255,255,255,.66);font-size:.92rem;flex:1}
+  .card .go{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-weight:600;font-size:.86rem;color:#fff;
+    align-self:flex-start;padding:11px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.22);transition:.25s}
+  .card .go.gold{background:var(--grad-ouro);background-size:200% auto;color:#10243b;border:0;animation:shimmer 6s linear infinite}
+  .card .go:hover{transform:translateY(-2px);border-color:#fff}
+  .card .go.gold:hover{box-shadow:0 12px 30px rgba(194,163,106,.4)}
+
+  footer{border-top:1px solid var(--borda);padding:34px 0 44px;text-align:center;color:var(--suave);font-size:.84rem}
+  footer b{color:var(--ouro)}
+
+  @media(max-width:680px){
+    .grid{grid-template-columns:1fr;gap:18px}
+    .card{min-height:auto}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap top">
+    <div class="brand">PS8<b>.</b></div>
+    <span class="eyebrow">Sites-Modelo</span>
+    <h1>Templates de alto padrão, prontos para <em>encantar</em>.</h1>
+    <p>Três nichos, um padrão de acabamento. Toque em um card para abrir o site completo no seu celular.</p>
+  </div>
+
+  <div class="wrap">
+    <div class="grid">
+
+      <!-- IMOBILIÁRIA V2 (destaque) -->
+      <a class="card" href="./imobiliaria-site-modelo-v2/">
+        <div class="thumb">
+          <span class="badge">Novo · Scroll cinematic</span>
+          <img src="./imobiliaria-site-modelo-v2/frames/frame_0001.jpg" alt="Imobiliária — versão scroll animation" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="niche">Imobiliária</div>
+          <h3>Vértice · Scroll Cinematic</h3>
+          <p>Vídeo aéreo controlado pelo scroll: o prédio atravessa a tela e o texto troca de lado. Efeito estilo Apple.</p>
+          <span class="go gold">Abrir site →</span>
+        </div>
+      </a>
+
+      <!-- IMOBILIÁRIA V1 -->
+      <a class="card" href="./imobiliaria-site-modelo/">
+        <div class="thumb">
+          <span class="badge alt">Clássica</span>
+          <img src="./imobiliaria-site-modelo/assets/hero.webp" alt="Imobiliária — versão clássica" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="niche">Imobiliária</div>
+          <h3>Vértice · Clássica</h3>
+          <p>Hero em imagem ultrawide com Ken Burns, grid de imóveis, prova social e CTA de WhatsApp em todo o funil.</p>
+          <span class="go">Abrir site →</span>
+        </div>
+      </a>
+
+      <!-- SAÚDE -->
+      <a class="card" href="./saude-site-modelo/">
+        <div class="thumb">
+          <span class="badge alt">Clínica</span>
+          <img src="./saude-site-modelo/assets/hero.webp" alt="Site-modelo de saúde / clínica" loading="lazy">
+        </div>
+        <div class="body">
+          <div class="niche">Saúde</div>
+          <h3>Clínica Premium</h3>
+          <p>Paleta petróleo + champanhe, tom acolhedor e confiável. Estrutura pronta para consultório e clínica geral.</p>
+          <span class="go">Abrir site →</span>
+        </div>
+      </a>
+
+      <!-- ODONTOLOGIA -->
+      <a class="card" href="./odontologia-site-modelo/">
+        <div class="thumb">
+          <span class="badge alt">Dentista</span>
+          <img src="./odontologia-site-modelo/assets/hero.webp" alt="Site-modelo de odontologia" loading="lazy" onerror="this.style.display='none';this.parentNode.style.background='linear-gradient(150deg,#0C5A6E,#08323d)'">
+        </div>
+        <div class="body">
+          <div class="niche">Odontologia</div>
+          <h3>Sorriso · Odonto</h3>
+          <p>Hero ultrawide e slider Antes/Depois, pensado para estética dental e captação de pacientes via WhatsApp.</p>
+          <span class="go">Abrir site →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">Galeria de sites-modelo · feito pela <b>PS8</b> · © <span id="ano"></span></div>
+  </footer>
+  <script>document.getElementById('ano').textContent=new Date().getFullYear();</script>
+</body>
+</html>
