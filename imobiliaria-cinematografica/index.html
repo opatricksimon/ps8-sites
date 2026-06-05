@@ -7,11 +7,15 @@
   PS8 SITE-MODELO — IMOBILIÁRIA DE ALTO PADRÃO · VERSÃO 2 (HERO = SCROLL-ANIMATION)
   Gerado a partir de: DESIGN-SYSTEM/nichos/design.md + MOTION-PS8.md + skill 3d-animation-creator
   Hero V2: vídeo aéreo do prédio vira SCROLL ANIMATION (scroll controla o playback, estilo Apple).
-  Coreografia (2 estados = "2 seções" num só scroll):
-    • prédio à DIREITA  -> painel de texto à ESQUERDA   (progress 0.00 -> 0.42)
-    • varredura (motion blur, prédio cruza o centro)     (progress 0.42 -> 0.56 — painéis somem)
-    • prédio à ESQUERDA -> painel de texto à DIREITA    (progress 0.56 -> 1.00)
-  Frames em ./frames/frame_0001..0192.jpg (1600px, extraídos via ffmpeg).
+  Coreografia — 2 VÍDEOS ENCADEADOS num só canvas sticky (4 estados):
+    VÍDEO 1 (exterior, pan lateral) — frames/  · progress 0.00 -> 0.50
+      • prédio à DIREITA  -> painel A à ESQUERDA          (0.00 -> 0.18)
+      • prédio à ESQUERDA -> painel B à DIREITA           (0.28 -> 0.48)
+    VÍDEO 2 (a câmera entra na torre + interior) — frames2/ · progress 0.50 -> 1.00
+      • câmera entra na torre -> painel C (push-in)       (0.56 -> 0.66)
+      • atravessa o vidro (motion blur, sem texto)        (0.66 -> 0.78)
+      • interior revelado -> painel D + CTA               (0.80 -> 1.00)
+  Frames em ./frames/ (vídeo 1) e ./frames2/ (vídeo 2) — 192 cada, 1600px via ffmpeg.
   Canvas: FIT-BY-WIDTH (largura 100% sempre, centralizado vertical, bandas navy) — preserva o pan H inteiro.
   Mobile-first. WhatsApp sempre wa.me real (nunca placeholder no deploy final).
 
@@ -103,7 +107,7 @@
   #scrollbar{position:fixed;top:0;left:0;height:3px;width:0;z-index:10000;background:var(--grad-realce);background-size:200% auto;animation:shimmer 5s linear infinite;transition:width .08s linear}
 
   /* ===== CINE — HERO SCROLL-ANIMATION (vídeo controlado por scroll) ===== */
-  .cine{height:460vh;position:relative;background:var(--cor-escura)}
+  .cine{height:860vh;position:relative;background:var(--cor-escura)}
   .cine-sticky{position:sticky;top:0;height:100svh;width:100%;overflow:hidden;background:var(--cor-escura)}
   #cineCanvas{position:absolute;inset:0;display:block}
   /* scrims localizados pra legibilidade do texto (lado do texto) */
@@ -138,6 +142,11 @@
   .cine-cue .mouse{width:24px;height:38px;border:2px solid rgba(255,255,255,.5);border-radius:14px;position:relative}
   .cine-cue .mouse::before{content:"";position:absolute;top:7px;left:50%;width:4px;height:7px;border-radius:2px;background:var(--cor-realce);transform:translateX(-50%);animation:wheel 1.8s ease-in-out infinite}
   @keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}60%{opacity:1;transform:translate(-50%,9px)}100%{opacity:0;transform:translate(-50%,12px)}}
+  /* painéis do VÍDEO 2 (entra na torre + interior) — ancorados embaixo, à esquerda */
+  .cine-c,.cine-d{left:var(--gutter);right:auto;top:auto;bottom:clamp(54px,11vh,118px);
+    max-width:min(60%,600px);text-align:left;align-items:flex-start;transform:translateY(26px)}
+  .cine-c.on,.cine-d.on{transform:translateY(0)}
+  .cine-scrim.b{background:linear-gradient(0deg,rgba(8,18,30,.9) 0%,rgba(8,18,30,.44) 32%,transparent 64%)}
 
   /* ===== TRUST STRIP ===== */
   .trust-strip{background:linear-gradient(90deg,var(--cor-primaria-escura),var(--cor-primaria) 50%,var(--cor-primaria-escura));color:#fff;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(0,0,0,.18)}
@@ -302,12 +311,14 @@
   }
   /* ===== mobile: painéis viram TOPO / RODAPÉ sobre as bandas navy do canvas ===== */
   @media(max-width:760px){
-    .cine{height:420vh}
+    .cine{height:780vh}
     .cine-panel{max-width:none;left:24px;right:24px;text-align:center;align-items:center}
     .cine-a{top:auto;bottom:auto;top:11vh;transform:translateY(18px)}
     .cine-a.on{transform:none}
     .cine-b{top:auto;bottom:9vh;text-align:center;transform:translateY(18px)}
     .cine-b.on{transform:none}
+    .cine-c,.cine-d{left:24px;right:24px;top:auto;bottom:9vh;max-width:none;text-align:center;align-items:center;transform:translateY(18px)}
+    .cine-c.on,.cine-d.on{transform:none}
     .cine-panel .eyebrow,.cine-b .eyebrow{justify-content:center}
     .cine-panel p.sub,.cine-b p.sub{margin-left:auto;margin-right:auto}
     .cine-cta,.cine-b .cine-cta{justify-content:center}
@@ -360,6 +371,7 @@
     <div class="cine-vig"></div>
     <div class="cine-scrim l" id="scrimL"></div>
     <div class="cine-scrim r" id="scrimR"></div>
+    <div class="cine-scrim b" id="scrimB"></div>
 
     <!-- PAINEL A — prédio à DIREITA, texto à ESQUERDA (abertura) -->
     <div class="cine-panel cine-a" id="panelA">
@@ -372,15 +384,23 @@
       <span class="cine-cue">Role para descobrir<span class="mouse"></span></span>
     </div>
 
-    <!-- PAINEL B — prédio à ESQUERDA, texto à DIREITA (segunda seção) -->
+    <!-- PAINEL B — vídeo 1, prédio à ESQUERDA, texto à DIREITA (posicionamento, SEM números) -->
     <div class="cine-panel cine-b" id="panelB">
       <span class="eyebrow">A diferença Vértice</span>
       <h2>Cada detalhe pensado para quem <em>chegou ao topo</em>.</h2>
-      <div class="cine-stats">
-        <div class="st"><b>+450</b><span>Famílias realizadas</span></div>
-        <div class="st"><b>R$ 1,2 bi</b><span>Em VGV negociado</span></div>
-        <div class="st"><b>18 anos</b><span>De mercado de luxo</span></div>
-      </div>
+      <p class="sub">Curadoria exclusiva, assessoria de verdade e um portfólio que poucos têm acesso.</p>
+    </div>
+
+    <!-- PAINEL C — vídeo 2, a câmera entra na torre (push-in exterior, antes do blur) -->
+    <div class="cine-panel cine-c" id="panelC">
+      <span class="eyebrow">A vida lá dentro</span>
+      <h2>Não é um apartamento. É o seu novo <em>ponto de vista</em>.</h2>
+    </div>
+
+    <!-- PAINEL D — vídeo 2, interior revelado + CTA final -->
+    <div class="cine-panel cine-d" id="panelD">
+      <span class="eyebrow">Vértice • Cobertura</span>
+      <h2>Onde cada amanhecer <em>pertence a você</em>.</h2>
       <div class="cine-cta">
         <a href="https://wa.me/5547999990000?text=Quero%20uma%20sele%C3%A7%C3%A3o%20de%20im%C3%B3veis%20feita%20pra%20mim." class="btn btn-gold">Quero minha seleção exclusiva</a>
       </div>
@@ -612,35 +632,56 @@
 
 <script>
   // =========================================================================
-  // CINE — SCROLL ANIMATION (vídeo do prédio controlado por scroll)
-  // 192 frames · prédio direita->esquerda · painel A (esq) <-> painel B (dir)
+  // CINE — 2 VÍDEOS ENCADEADOS num só canvas sticky
+  //   vídeo 1 (frames/)  -> exterior, pan lateral      · painéis A,B · progress 0.00–0.50
+  //   vídeo 2 (frames2/) -> entra na torre + interior  · painéis C,D · progress 0.50–1.00
+  //   Vídeo 1 bloqueia o loader; vídeo 2 carrega em background (pronto antes do meio).
   // =========================================================================
-  const FRAME_COUNT = 192;
-  const FRAME_PATH = i => 'frames/frame_' + String(i).padStart(4,'0') + '.jpg';
-  const frames = [];
-  let loaded = 0, allReady = false;
+  const V1 = 192, V2 = 192, TOTAL = V1 + V2;
+  const F1 = i => 'frames/frame_'  + String(i).padStart(4,'0') + '.jpg';
+  const F2 = i => 'frames2/frame_' + String(i).padStart(4,'0') + '.jpg';
+  const frames1 = [], frames2 = [];
+  let loaded1 = 0, allReady = false;
 
   const canvas = document.getElementById('cineCanvas');
   const cctx = canvas.getContext('2d', { alpha:false });
   const cine = document.getElementById('cine');
   const panelA = document.getElementById('panelA');
   const panelB = document.getElementById('panelB');
+  const panelC = document.getElementById('panelC');
+  const panelD = document.getElementById('panelD');
   const scrimL = document.getElementById('scrimL');
   const scrimR = document.getElementById('scrimR');
+  const scrimB = document.getElementById('scrimB');
   const loader = document.getElementById('loader');
   const lfill  = document.getElementById('lfill');
   const NAVY = '#0B1A2B';
 
-  // ----- preload -----
-  for (let i=1; i<=FRAME_COUNT; i++){
+  // ----- preload VÍDEO 1 (bloqueia o loader) -----
+  for (let i=1; i<=V1; i++){
     const img = new Image();
     img.onload = img.onerror = () => {
-      loaded++;
-      lfill.style.width = (loaded/FRAME_COUNT*100) + '%';
-      if (loaded === FRAME_COUNT && !allReady){ allReady = true; onReady(); }
+      loaded1++;
+      lfill.style.width = (loaded1/V1*100) + '%';
+      if (loaded1 === V1 && !allReady){ allReady = true; onReady(); preloadV2(); }
     };
-    img.src = FRAME_PATH(i);
-    frames.push(img);
+    img.src = F1(i);
+    frames1.push(img);
+  }
+  // ----- VÍDEO 2 em background (não bloqueia) -----
+  let v2started = false;
+  function preloadV2(){
+    if (v2started) return; v2started = true;
+    for (let i=1; i<=V2; i++){ const img = new Image(); img.src = F2(i); frames2.push(img); }
+  }
+
+  // ----- escolhe o frame certo; se o v2 ainda não chegou, segura o último do v1 -----
+  function pick(g){
+    if (g < V1){ const im = frames1[g]; return (im && im.complete && im.naturalWidth) ? im : null; }
+    const im = frames2[g - V1];
+    if (im && im.complete && im.naturalWidth) return im;
+    const last = frames1[V1-1];
+    return (last && last.complete && last.naturalWidth) ? last : null;
   }
 
   // ----- canvas dims (Retina) -----
@@ -654,36 +695,36 @@
   }
 
   // ----- FIT-BY-WIDTH: largura 100% sempre (preserva o pan H), centra na vertical, bandas navy -----
-  function drawFrame(index){
-    const img = frames[index];
+  function drawFrame(g){
+    const img = pick(g);
     const cw = canvas.width, ch = canvas.height;
     cctx.fillStyle = NAVY; cctx.fillRect(0,0,cw,ch);
-    if (!img || !img.complete || !img.naturalWidth) return;
+    if (!img) return;
     const r = img.naturalWidth / img.naturalHeight;     // 16:9 ≈ 1.777
     const dW = cw, dH = cw / r, dX = 0, dY = (ch - dH)/2;
     cctx.drawImage(img, dX, dY, dW, dH);
   }
 
-  // ----- scroll -> frame + painéis -----
+  // ----- scroll -> frame global (v1+v2) + painéis A,B,C,D -----
   let currentFrame = -1, ticking = false;
-  // limites da coreografia
-  const A_OUT = 0.42;   // painel A some
-  const B_IN  = 0.56;   // painel B entra
   function render(){
     const rect = cine.getBoundingClientRect();
     const scrollable = cine.offsetHeight - window.innerHeight;
     const progress = Math.min(1, Math.max(0, -rect.top / scrollable));
-    const fi = Math.min(FRAME_COUNT-1, Math.round(progress*(FRAME_COUNT-1)));
-    if (fi !== currentFrame){ currentFrame = fi; drawFrame(fi); }
+    const gi = Math.min(TOTAL-1, Math.round(progress*(TOTAL-1)));
+    if (gi !== currentFrame){ currentFrame = gi; drawFrame(gi); }
 
-    // painéis (cross-fade) — só quando o hero está na viewport
     const inView = rect.top < window.innerHeight && rect.bottom > 0;
-    const showA = inView && progress < A_OUT;
-    const showB = inView && progress > B_IN;
-    panelA.classList.toggle('on', showA);
-    scrimL.classList.toggle('on', showA);
-    panelB.classList.toggle('on', showB);
-    scrimR.classList.toggle('on', showB);
+    // janelas em progress combinado (vídeo 1: 0–0.5 · vídeo 2: 0.5–1)
+    const showA = inView && progress < 0.18;                     // hook (v1 entra)
+    const showB = inView && progress > 0.28 && progress < 0.48;  // posicionamento (v1)
+    const showC = inView && progress > 0.56 && progress < 0.66;  // entra na torre (v2, antes do blur)
+    const showD = inView && progress > 0.80;                     // interior revelado + CTA (v2)
+    panelA.classList.toggle('on', showA); scrimL.classList.toggle('on', showA);
+    panelB.classList.toggle('on', showB); scrimR.classList.toggle('on', showB);
+    panelC.classList.toggle('on', showC);
+    panelD.classList.toggle('on', showD);
+    scrimB.classList.toggle('on', showC || showD);
     ticking = false;
   }
   function onScroll(){ if(!ticking){ requestAnimationFrame(render); ticking = true; } }
@@ -696,8 +737,8 @@
   }
   window.addEventListener('scroll', onScroll, { passive:true });
   window.addEventListener('resize', resizeCanvas);
-  // fallback: se algum frame travar, libera o loader em até 6s
-  setTimeout(()=>{ if(!allReady){ allReady=true; onReady(); } }, 6000);
+  // fallback: se algum frame do v1 travar, libera em até 6s
+  setTimeout(()=>{ if(!allReady){ allReady=true; onReady(); preloadV2(); } }, 6000);
   resizeCanvas();
 
   // =========================================================================
