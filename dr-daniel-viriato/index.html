@@ -7,20 +7,34 @@
   PS8 — SITE Dr. Daniel Viriato · Cirurgia Geral & Videolaparoscopia · Salvador/BA
   Base: DESIGN-SYSTEM/nichos/saude-site-modelo (Kit Médico-PREMIUM §2.5 Encaixe + §2.6 Acabamento)
   Paleta deste cliente: NAVY profundo + Dourado champanhe + Creme + Branco + Tinta.
+  Hardening 2026-06-06: auditoria adversarial 5-lentes (CFM, bugs, mobile, SEO local, a11y).
 
   ⚠️ CONFORMIDADE CFM (Res. 2.336/2023) — aplicada:
      • SEM "antes/depois"  • SEM promessa/garantia de resultado  • SEM depoimento de paciente
-     • RQE obrigatório p/ anunciar especialidade  → CRM e RQE estão como PLACEHOLDER, confirmar com o cliente.
+     • Tom sóbrio/informativo  • RQE obrigatório p/ anunciar especialidade → CRM/RQE em PLACEHOLDER.
 
   ⚠️ PLACEHOLDERS A CONFIRMAR antes de publicar de verdade:
      {{CRM=______}}  {{RQE=______}}  {{WHATSAPP confirmar se (71) 98482-9949 tem WhatsApp}}
-  Imagens (cliente envia manualmente) em ./assets/  →  hero.webp (ULTRAWIDE) · sobre.webp (retrato 4:5) · mapa.webp
+  Imagens (cliente envia manualmente) em ./assets/ → hero.webp (ULTRAWIDE) · sobre.webp (retrato 4:5) · mapa.webp
 -->
 <title>Cirurgião Geral e do Aparelho Digestivo em Salvador | Dr. Daniel Viriato</title>
 <meta name="description" content="Cirurgia geral e videolaparoscopia com o Dr. Daniel Viriato em Salvador/BA. Mais de 10 anos em cirurgias abdominais, da rotina à alta complexidade. Agende sua avaliação pelo WhatsApp." />
 <meta property="og:title" content="Dr. Daniel Viriato — Cirurgia Geral e Videolaparoscopia" />
 <meta property="og:description" content="Cirurgia do aparelho digestivo, da rotina à alta complexidade, por videolaparoscopia. Salvador/BA. Agende pelo WhatsApp." />
 <meta property="og:type" content="website" />
+<meta property="og:url" content="https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Dr. Daniel Viriato" />
+<meta property="og:image" content="https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/assets/hero.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Dr. Daniel Viriato — Cirurgia Geral e Videolaparoscopia" />
+<meta name="twitter:description" content="Cirurgia do aparelho digestivo, da rotina à alta complexidade, por videolaparoscopia. Salvador/BA." />
+<meta name="twitter:image" content="https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/assets/hero.webp" />
+<link rel="canonical" href="https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/" />
+<meta name="geo.region" content="BR-BA" />
+<meta name="geo.placename" content="Salvador" />
+<meta name="theme-color" content="#15385C" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
@@ -64,6 +78,10 @@
   .btn-ghost-light:hover{background:rgba(255,255,255,.18);border-color:#fff}
   @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(21,56,92,.38)}50%{box-shadow:0 12px 34px rgba(21,56,92,.64)}}
 
+  /* ===== ACESSIBILIDADE: foco de teclado visível + contraste sobre creme ===== */
+  a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid var(--cor-realce);outline-offset:3px;border-radius:6px}
+  .sec-cream .center p.lead,.sec-cream .pilar p,.sec-cream .card p,.sec-cream .local span{color:#45525E}
+
   /* ===== HEADER (flutuante / floating pill) ===== */
   header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease;padding:18px 16px 0}
   header .nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:none;margin:0;
@@ -73,7 +91,7 @@
   .logo{font-family:'Playfair Display';font-weight:700;font-size:1.3rem;color:#fff;display:flex;align-items:center;gap:6px;transition:.3s}
   .logo b{color:var(--cor-realce)}
   .nav-links{display:flex;gap:28px;font-family:'Inter';font-weight:500;font-size:.9rem}
-  .nav-links a{color:rgba(255,255,255,.92);transition:.2s}
+  .nav-links a{color:rgba(255,255,255,.92);padding:8px 4px;transition:.2s}
   .nav-links a:hover{color:var(--cor-realce)}
   header .btn{padding:10px 20px;font-size:.82rem}
   header.scrolled{padding-top:10px}
@@ -85,7 +103,7 @@
   header.scrolled .menu-btn{color:var(--cor-primaria)}
 
   /* ===== HERO — IMAGEM ULTRAWIDE ===== */
-  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--cor-escura)}
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--cor-escura)}
   .hero>.container{max-width:none;margin:0;padding-left:clamp(24px,6vw,112px);padding-right:24px}
   .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;animation:kenburns 22s ease-out forwards}
   @keyframes kenburns{from{transform:scale(1.1)}to{transform:scale(1)}}
@@ -179,6 +197,8 @@
   .info-row .ico{width:46px;height:46px;border-radius:12px;background:var(--cor-superficie);border:1px solid var(--cor-borda);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
   .info-row b{font-family:'Inter';font-weight:600;display:block;margin-bottom:2px}
   .info-row span{color:var(--cor-texto-suave);font-size:.94rem}
+  .info-row a{color:var(--cor-primaria);font-weight:600}
+  .info-row a:hover{color:var(--cor-realce-escura)}
   .map-ph{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:linear-gradient(150deg,#dfe4ea,#d5dde0 50%,#e7e1d4);display:flex;align-items:center;justify-content:center;color:var(--cor-primaria);font-family:'Inter';font-weight:600;border:1px solid var(--cor-borda)}
   .map-ph img{width:100%;height:100%;object-fit:cover}
 
@@ -236,6 +256,9 @@
   @media(max-width:920px){
     .nav-links,header .nav>.btn{display:none}
     .menu-btn{display:block}
+    header.menu-open .nav-links{display:flex;position:absolute;top:84px;left:16px;right:16px;flex-direction:column;gap:4px;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--cor-borda);border-radius:18px;padding:14px 20px;box-shadow:0 16px 40px rgba(10,27,46,.18)}
+    header.menu-open .nav-links a{color:var(--cor-texto);padding:10px 4px;border-bottom:1px solid var(--cor-borda)}
+    header.menu-open .nav-links a:last-child{border-bottom:0}
     .g3,.steps,.trust-strip .container{grid-template-columns:1fr 1fr}
     .trust-strip .ts-item+.ts-item::before{display:none}
     .sobre,.contato-grid{grid-template-columns:1fr;gap:38px}
@@ -246,15 +269,60 @@
     body{font-size:16px}
     .g3,.steps,.locais{grid-template-columns:1fr}
     .hero>.container{padding-left:24px}
+    .hero-content{padding:clamp(82px,13vh,100px) 0 clamp(22px,4vh,40px)}
+    .hero h1{font-size:clamp(1.9rem,7.6vw,2.45rem)}
     .hero-cta{flex-direction:column;align-items:stretch}
     .hero-cta .btn{justify-content:center}
-    .trust-strip .container{gap:22px 18px}
+    .scroll-cue{display:none}
+    .trust-strip .container{grid-template-columns:1fr 1fr;gap:22px 16px}
+    .trust-strip b{font-size:1.4rem}
+    .foot-grid{flex-direction:column;gap:26px}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
     .reveal{opacity:1;transform:none}.hero-img{transform:none}
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Physician",
+  "name": "Dr. Daniel Viriato",
+  "description": "Cirurgia geral e do aparelho digestivo por videolaparoscopia em Salvador/BA, da rotina à alta complexidade.",
+  "url": "https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/",
+  "telephone": "+5571984829949",
+  "email": "danielviriato@yahoo.com.br",
+  "medicalSpecialty": ["Surgical", "Gastroenterologic"],
+  "areaServed": { "@type": "City", "name": "Salvador", "addressRegion": "BA", "addressCountry": "BR" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Salvador", "addressRegion": "BA", "addressCountry": "BR" },
+  "availableService": [
+    { "@type": "MedicalProcedure", "name": "Colecistectomia por videolaparoscopia (cirurgia da vesícula)" },
+    { "@type": "MedicalProcedure", "name": "Hepatectomia (cirurgia do fígado)" },
+    { "@type": "MedicalProcedure", "name": "Gastrectomia (cirurgia do estômago)" },
+    { "@type": "MedicalProcedure", "name": "Colectomia (cirurgia do intestino)" },
+    { "@type": "MedicalProcedure", "name": "Gastroduodenopancreatectomia (procedimento de Whipple)" },
+    { "@type": "MedicalProcedure", "name": "Transplante hepático" }
+  ],
+  "hospitalAffiliation": [
+    { "@type": "Hospital", "name": "Hospital Português", "address": { "@type": "PostalAddress", "addressLocality": "Salvador", "addressRegion": "BA", "addressCountry": "BR" } },
+    { "@type": "Hospital", "name": "Hospital da Bahia", "address": { "@type": "PostalAddress", "addressLocality": "Salvador", "addressRegion": "BA", "addressCountry": "BR" } },
+    { "@type": "Hospital", "name": "Hospital Santa Izabel", "address": { "@type": "PostalAddress", "addressLocality": "Salvador", "addressRegion": "BA", "addressCountry": "BR" } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "O que é videolaparoscopia?", "acceptedAnswer": { "@type": "Answer", "text": "É uma técnica cirúrgica minimamente invasiva: em vez de um corte grande, são feitas pequenas incisões por onde passam uma câmera e os instrumentos. Quando indicada, costuma significar menos dor e recuperação mais rápida — a indicação depende da avaliação de cada caso." } },
+    { "@type": "Question", "name": "Preciso de encaminhamento de outro médico?", "acceptedAnswer": { "@type": "Answer", "text": "Não é obrigatório. Você pode agendar uma avaliação diretamente. Se já tiver exames e laudos, leve-os à consulta para uma análise mais completa." } },
+    { "@type": "Question", "name": "A cirurgia é feita em qual hospital?", "acceptedAnswer": { "@type": "Answer", "text": "Conforme o seu caso, nas principais referências de Salvador — como Hospital Português, Hospital da Bahia e Hospital Santa Izabel. O local é definido na avaliação." } },
+    { "@type": "Question", "name": "Atende convênio ou particular?", "acceptedAnswer": { "@type": "Answer", "text": "Fale pelo WhatsApp para confirmar as condições de atendimento e o hospital indicado para o seu caso." } },
+    { "@type": "Question", "name": "Como é a recuperação após a cirurgia?", "acceptedAnswer": { "@type": "Answer", "text": "A recuperação varia conforme o procedimento realizado e as características de cada paciente. Você recebe orientações detalhadas de pós-operatório e acompanhamento ao longo do processo." } }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -268,13 +336,13 @@
       <a href="#contato">Contato</a>
     </nav>
     <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-gold">Agendar avaliação</a>
-    <button class="menu-btn" aria-label="menu">☰</button>
+    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
   </div>
 </header>
 
 <!-- ===== HERO — IMAGEM ULTRAWIDE ===== -->
 <section class="hero">
-  <img class="hero-img" src="assets/hero.webp" alt="Centro cirúrgico moderno — cirurgia por videolaparoscopia" onerror="this.style.display='none'">
+  <img class="hero-img" src="assets/hero.webp" alt="Dr. Daniel Viriato em centro cirúrgico — cirurgia por videolaparoscopia em Salvador/BA" onerror="this.style.display='none'">
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
@@ -282,7 +350,7 @@
       <h1>Cirurgia do aparelho digestivo, da rotina à <em>alta complexidade</em>.</h1>
       <p class="sub">Mais de 10 anos em cirurgias abdominais por videolaparoscopia — da vesícula ao fígado —, com atuação nas principais referências hospitalares de Salvador.</p>
       <div class="hero-cta">
-        <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-wpp">💬 Agendar pelo WhatsApp</a>
+        <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-wpp"><span aria-hidden="true">💬</span> Agendar pelo WhatsApp</a>
         <a href="#cirurgias" class="btn btn-ghost-light">Conhecer as cirurgias</a>
       </div>
     </div>
@@ -293,8 +361,8 @@
 <!-- ===== TRUST (fatos verificáveis — sem números inventados) ===== -->
 <div class="trust-strip">
   <div class="container">
-    <div class="ts-item"><b class="count" data-target="10" data-prefix="+" data-suffix=" anos">+0 anos</b><span>De experiência em cirurgia</span></div>
-    <div class="ts-item"><b class="count" data-target="4">0</b><span>Hospitais de referência em Salvador</span></div>
+    <div class="ts-item"><b class="count" data-target="10" data-prefix="+" data-suffix=" anos">+10 anos</b><span>De experiência em cirurgia</span></div>
+    <div class="ts-item"><b class="count" data-target="4">4</b><span>Hospitais de referência em Salvador</span></div>
     <div class="ts-item"><b>UFBA</b><span>Formação em Medicina</span></div>
     <div class="ts-item"><b>CRM ______</b><span>RQE ______ • Cirurgia Geral</span></div>
   </div>
@@ -310,10 +378,10 @@
     </div>
     <div class="grid g3" style="margin-top:32px">
       <div class="card reveal"><div class="ico">🫧</div><h3>Cirurgia da vesícula</h3><p>Colecistectomia por videolaparoscopia para cálculos e pólipos da vesícula biliar.</p></div>
-      <div class="card reveal"><div class="ico">🩸</div><h3>Cirurgia do fígado</h3><p>Hepatectomia — ressecção de lesões hepáticas, incluindo casos de alta complexidade.</p></div>
+      <div class="card reveal"><div class="ico">⚕️</div><h3>Cirurgia do fígado</h3><p>Hepatectomia — ressecção de lesões hepáticas, incluindo casos de alta complexidade.</p></div>
       <div class="card reveal"><div class="ico">🫃</div><h3>Cirurgia do estômago</h3><p>Gastrectomia para o tratamento de tumores e doenças gástricas.</p></div>
       <div class="card reveal"><div class="ico">🧬</div><h3>Cirurgia do intestino</h3><p>Colectomia e reconstrução de trânsito intestinal, com técnica adequada a cada caso.</p></div>
-      <div class="card reveal"><div class="ico">⚕️</div><h3>Cirurgia do pâncreas e duodeno</h3><p>Gastroduodenopancreatectomia (procedimento de Whipple) — alta complexidade.</p></div>
+      <div class="card reveal"><div class="ico">🩺</div><h3>Cirurgia do pâncreas e duodeno</h3><p>Gastroduodenopancreatectomia (procedimento de Whipple) — alta complexidade.</p></div>
       <div class="card reveal"><div class="ico">🫀</div><h3>Transplante hepático</h3><p>Atuação como membro de equipe de transplante de fígado no Hospital Português.</p></div>
     </div>
   </div>
@@ -348,7 +416,7 @@
 <section id="sobre">
   <div class="container sobre">
     <div class="sobre-photo">
-      <img src="assets/sobre.webp" alt="Dr. Daniel Viriato, cirurgião geral" loading="lazy" onerror="this.style.display='none'">
+      <img src="assets/sobre.webp" alt="Dr. Daniel Viriato, cirurgião geral em Salvador/BA" loading="lazy" onerror="this.style.display='none'">
       <div class="crm">Dr. Daniel Viriato • <b>CRM ______ | RQE ______</b></div>
     </div>
     <div class="reveal">
@@ -383,12 +451,12 @@
 <!-- ===== FAQ ===== -->
 <section>
   <div class="container">
-    <div class="center"><span class="eyebrow">Dúvidas frequentes</span><h2>Perguntas que todo paciente faz</h2></div>
+    <div class="center"><span class="eyebrow">Antes de agendar</span><h2>Dúvidas frequentes</h2></div>
     <div class="faq">
       <details open><summary>O que é videolaparoscopia?</summary><p>É uma técnica cirúrgica minimamente invasiva: em vez de um corte grande, são feitas pequenas incisões por onde passam uma câmera e os instrumentos. Quando indicada, costuma significar menos dor e recuperação mais rápida — a indicação depende da avaliação de cada caso.</p></details>
       <details><summary>Preciso de encaminhamento de outro médico?</summary><p>Não é obrigatório. Você pode agendar uma avaliação diretamente. Se já tiver exames e laudos, leve-os à consulta para uma análise mais completa.</p></details>
       <details><summary>A cirurgia é feita em qual hospital?</summary><p>Conforme o seu caso, nas principais referências de Salvador — como Hospital Português, Hospital da Bahia e Hospital Santa Izabel. O local é definido na avaliação.</p></details>
-      <details><summary>Atende convênio ou particular?</summary><p>Fale pela WhatsApp para confirmar as condições de atendimento e o hospital indicado para o seu caso.</p></details>
+      <details><summary>Atende convênio ou particular?</summary><p>Fale pelo WhatsApp para confirmar as condições de atendimento e o hospital indicado para o seu caso.</p></details>
       <details><summary>Como é a recuperação após a cirurgia?</summary><p>A recuperação varia conforme o procedimento realizado e as características de cada paciente. Você recebe orientações detalhadas de pós-operatório e acompanhamento ao longo do processo.</p></details>
     </div>
   </div>
@@ -401,11 +469,11 @@
     <div class="contato-grid" style="margin-top:32px">
       <div>
         <div class="info-row"><div class="ico">📍</div><div><b>Salvador / BA</b><span>Hospital Português, Hospital da Bahia, Clínica SIM e Santa Izabel</span></div></div>
-        <div class="info-row"><div class="ico">💬</div><div><b>WhatsApp / Telefone</b><span>(71) 98482-9949</span></div></div>
-        <div class="info-row"><div class="ico">✉️</div><div><b>E-mail</b><span>danielviriato@yahoo.com.br</span></div></div>
-        <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-wpp" style="margin-top:8px">💬 Chamar no WhatsApp</a>
+        <div class="info-row"><div class="ico">💬</div><div><b>WhatsApp / Telefone</b><span><a href="tel:+5571984829949">(71) 98482-9949</a></span></div></div>
+        <div class="info-row"><div class="ico">✉️</div><div><b>E-mail</b><span><a href="mailto:danielviriato@yahoo.com.br">danielviriato@yahoo.com.br</a></span></div></div>
+        <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-wpp" style="margin-top:8px"><span aria-hidden="true">💬</span> Chamar no WhatsApp</a>
       </div>
-      <div class="map-ph"><img src="assets/mapa.webp" alt="Localização em Salvador/BA" loading="lazy" onerror="this.parentNode.innerHTML='🗺️ Salvador / BA'">🗺️ Salvador / BA</div>
+      <div class="map-ph"><img src="assets/mapa.webp" alt="Mapa da localização do Dr. Daniel Viriato — cirurgião em Salvador/BA" loading="lazy" onerror="this.parentNode.innerHTML='🗺️ Salvador / BA'"></div>
     </div>
   </div>
 </section>
@@ -413,9 +481,9 @@
 <!-- ===== CTA FINAL ===== -->
 <section class="cta-final">
   <div class="container">
-    <h2>Cuidar da sua saúde é uma decisão que não pode <em>esperar</em></h2>
-    <p>Dê o primeiro passo hoje. Agende sua avaliação com o Dr. Daniel Viriato.</p>
-    <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-gold">💬 Agendar minha avaliação</a>
+    <h2>Agende sua <em>avaliação</em> com o Dr. Daniel Viriato</h2>
+    <p>Tire suas dúvidas e entenda o melhor encaminhamento para o seu caso, com clareza e segurança.</p>
+    <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-gold"><span aria-hidden="true">💬</span> Agendar minha avaliação</a>
   </div>
 </section>
 
@@ -437,15 +505,15 @@
       <div class="foot-col">
         <h4>Contato</h4>
         <div>Salvador / BA</div>
-        <div>(71) 98482-9949</div>
-        <div>danielviriato@yahoo.com.br</div>
+        <div><a href="tel:+5571984829949">(71) 98482-9949</a></div>
+        <div><a href="mailto:danielviriato@yahoo.com.br">danielviriato@yahoo.com.br</a></div>
       </div>
     </div>
     <div class="foot-bottom">© <span id="ano"></span> Dr. Daniel Viriato — Cirurgia Geral e Videolaparoscopia • CRM ______ | RQE ______ • Site por PS8</div>
   </div>
 </footer>
 
-<a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="wpp-float" aria-label="WhatsApp">💬</a>
+<a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="wpp-float" aria-label="Falar no WhatsApp"><span aria-hidden="true">💬</span></a>
 
 <!-- ===== MODAL — FORMULÁRIO LEAD ===== -->
 <div class="modal" id="leadModal" aria-hidden="true">
@@ -475,6 +543,16 @@
   addEventListener('scroll',onScroll,{passive:true});onScroll();
   document.getElementById('ano').textContent=new Date().getFullYear();
 
+  // Menu mobile (hambúrguer) — abre/fecha dropdown de navegação
+  const mb=document.querySelector('.menu-btn');
+  if(mb){
+    mb.addEventListener('click',()=>{const o=h.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});
+    document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{h.classList.remove('menu-open');mb.setAttribute('aria-expanded','false')}));
+  }
+
+  // Emojis decorativos invisíveis a leitores de tela
+  document.querySelectorAll('.ico').forEach(el=>el.setAttribute('aria-hidden','true'));
+
   // Reveal on scroll
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
@@ -493,28 +571,39 @@
       if(p<1)requestAnimationFrame(tick);else el.textContent=pre+fmtVal(target,dec)+suf;
     })(performance.now());
   }
-  const co=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);co.unobserve(e.target)}})},{threshold:.6});
+  const co=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);co.unobserve(e.target)}})},{threshold:.4});
   document.querySelectorAll('.count').forEach(el=>co.observe(el));
 
-  // Modal lead form (popup em todos os CTAs)
+  // Modal lead form (popup em todos os CTAs) — com restauração de foco
   const modal=document.getElementById('leadModal');
-  const openModal=e=>{if(e)e.preventDefault();modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';const f=document.getElementById('lf-nome');if(f)setTimeout(()=>f.focus(),60)};
-  const closeModal=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''};
+  let lastTrigger=null;
+  const openModal=e=>{if(e){e.preventDefault();lastTrigger=e.currentTarget}modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';const f=document.getElementById('lf-nome');if(f)setTimeout(()=>f.focus(),60)};
+  const closeModal=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastTrigger){lastTrigger.focus();lastTrigger=null}};
   document.querySelectorAll('a.btn-wpp, a.btn-gold, a.btn-primary').forEach(b=>b.addEventListener('click',openModal));
   modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeModal));
-  addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+  addEventListener('keydown',e=>{
+    if(!modal.classList.contains('open'))return;
+    if(e.key==='Escape')return closeModal();
+    if(e.key==='Tab'){
+      const f=modal.querySelectorAll('input,button,[href]');
+      if(!f.length)return;
+      const first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+    }
+  });
   document.getElementById('leadForm').addEventListener('submit',e=>{
     e.preventDefault();
     const n=document.getElementById('lf-nome').value.trim(),
           em=document.getElementById('lf-email').value.trim(),
           t=document.getElementById('lf-tel').value.trim();
     const msg=encodeURIComponent('Olá! Meu nome é '+n+'. Quero agendar uma avaliação com o Dr. Daniel Viriato.\nE-mail: '+em+'\nWhatsApp: '+t);
-    window.open('https://wa.me/5571984829949?text='+msg,'_blank');
+    window.open('https://wa.me/5571984829949?text='+msg,'_blank','noopener');
     closeModal();
   });
 
-  // Cursor customizado redondo (só ponteiro fino)
-  if(matchMedia('(pointer:fine)').matches){
+  // Cursor customizado redondo (só ponteiro fino + sem redução de movimento)
+  if(matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches){
     const dot=document.createElement('div'),ring=document.createElement('div');
     dot.className='cursor-dot';ring.className='cursor-ring';
     document.body.append(dot,ring);
