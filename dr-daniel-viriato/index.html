@@ -275,12 +275,15 @@
     .sobre-photo{max-width:400px;margin:0 auto}
     .hero-photo{height:60%;bottom:auto;object-position:50% 22%;
       -webkit-mask:linear-gradient(180deg,#000 78%,transparent);mask:linear-gradient(180deg,#000 78%,transparent)}
+    /* mobile: top-anchor the text below the photo band so the white title never covers the doctor's face */
+    .hero{align-items:flex-start}
+    .hero-content{padding-top:62vh}
     section{padding:clamp(38px,5vh,58px) 0}
   }
   @media(max-width:560px){
     body{font-size:16px}
     .g3,.steps,.locais{grid-template-columns:1fr}
-    .hero-content{padding:0 0 clamp(26px,5.5vh,46px);max-width:none}
+    .hero-content{padding:62vh 0 clamp(26px,5.5vh,46px);max-width:none}
     .hero h1{font-size:clamp(1.95rem,7.8vw,2.5rem)}
     .hero p.sub{font-size:.95rem;margin:13px 0 20px}
     .hero-cta{flex-direction:column;align-items:stretch}
