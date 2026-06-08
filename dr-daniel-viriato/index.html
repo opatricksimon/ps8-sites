@@ -115,25 +115,19 @@
   header.scrolled .menu-btn{color:var(--cor-primaria)}
 
   /* ===== HERO — TIPOGRÁFICO (navy, CFM-conforme, sem foto de procedimento) ===== */
-  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;
-    background:
-      radial-gradient(900px 620px at 80% 26%, rgba(201,168,106,.18), transparent 60%),
-      radial-gradient(760px 560px at 8% 82%, rgba(46,111,166,.22), transparent 55%),
-      linear-gradient(158deg,#0A1B2E 0%,#0D2640 46%,#15385C 100%)}
-  .hero::before{content:"";position:absolute;inset:0;z-index:1;opacity:.55;pointer-events:none;
-    background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:24px 24px;
-    -webkit-mask:linear-gradient(180deg,#000,transparent 72%);mask:linear-gradient(180deg,#000,transparent 72%)}
-  .hero::after{content:"";position:absolute;right:-160px;top:50%;transform:translateY(-50%);z-index:1;pointer-events:none;
-    width:540px;height:540px;border-radius:50%;border:1px solid rgba(201,168,106,.22);
-    box-shadow:0 0 0 60px rgba(201,168,106,.04);opacity:.7}
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;
+    background:linear-gradient(158deg,#0A1B2E 0%,#0D2640 46%,#15385C 100%)}
+  .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:46% 24%;z-index:0;filter:saturate(1.03) contrast(1.03)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:
+      linear-gradient(180deg, rgba(8,20,34,.42) 0%, rgba(8,20,34,0) 22%, rgba(8,20,34,0) 46%, rgba(8,20,34,.72) 82%, rgba(8,20,34,.96) 100%),
+      linear-gradient(92deg, rgba(8,20,34,.48) 0%, transparent 52%)}
+  .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;z-index:2;pointer-events:none;
+    background:linear-gradient(90deg,var(--cor-realce),var(--cor-realce-escura))}
   .hero>.container{position:relative;z-index:3;max-width:var(--container);width:100%}
-  .hero-photo{position:absolute;right:0;top:0;height:100%;width:46%;max-width:660px;object-fit:cover;object-position:50% 15%;z-index:2;
-    -webkit-mask:linear-gradient(90deg,transparent,#000 44%);mask:linear-gradient(90deg,transparent,#000 44%);
-    filter:saturate(.97) contrast(1.02)}
-  .hero-content{color:#fff;max-width:760px;padding:clamp(96px,12vh,124px) 0 clamp(34px,6vh,60px);animation:heroIn 1s cubic-bezier(.22,.61,.36,1) both}
+  .hero-content{color:#fff;max-width:620px;padding:0 0 clamp(46px,8vh,88px);animation:heroIn 1s cubic-bezier(.22,.61,.36,1) both}
   .hero .eyebrow{color:var(--cor-realce)}
   .hero .eyebrow::before{background:var(--cor-realce)}
-  .hero h1{font-size:clamp(2.1rem,4.7vw,3.5rem);font-weight:600;color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.25)}
+  .hero h1{font-size:clamp(2.1rem,4.7vw,3.5rem);font-weight:600;color:#fff;text-shadow:0 2px 26px rgba(0,0,0,.62)}
   .hero h1 em{font-style:italic;color:var(--cor-realce)}
   @keyframes heroIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
   .hero p.sub{font-size:clamp(1.04rem,1.5vw,1.2rem);color:rgba(255,255,255,.9);margin:18px 0 28px;max-width:580px;font-weight:400}
@@ -224,6 +218,14 @@
   .info-row a:hover{color:var(--cor-realce-texto)}
   .map{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;border:1px solid var(--cor-borda);background:var(--cor-superficie);box-shadow:0 12px 34px rgba(10,27,46,.10)}
   .map iframe{width:100%;height:100%;border:0;display:block}
+  /* Faixa cinematográfica (ambiente cirúrgico) */
+  .cine-band{position:relative;min-height:clamp(280px,50vh,500px);display:flex;align-items:center;overflow:hidden;background:var(--cor-escura)}
+  .cine-band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 36%;z-index:0}
+  .cine-band::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(8,20,34,.9) 0%,rgba(8,20,34,.58) 46%,rgba(8,20,34,.12) 78%,transparent 100%)}
+  .cine-band .container{position:relative;z-index:2;width:100%}
+  .cine-band .eyebrow{color:var(--cor-realce)}
+  .cine-band h2{font-family:'Playfair Display';font-weight:600;color:#fff;font-size:clamp(1.5rem,3vw,2.35rem);line-height:1.15;max-width:540px;text-shadow:0 2px 22px rgba(0,0,0,.5)}
+  .cine-band p{color:rgba(255,255,255,.88);max-width:470px;margin-top:13px;font-size:.99rem;line-height:1.55}
 
   /* ===== CTA FINAL ===== */
   .cta-final{background:linear-gradient(135deg,var(--cor-primaria),#0D2A47);color:#fff;text-align:center}
@@ -268,14 +270,13 @@
     .trust-strip .ts-item+.ts-item::before{display:none}
     .sobre,.contato-grid{grid-template-columns:1fr;gap:38px}
     .sobre-photo{max-width:400px;margin:0 auto}
-    .hero-photo{width:100%;max-width:none;opacity:.34;object-position:50% 16%;
-      -webkit-mask:linear-gradient(180deg,transparent 12%,#000 54%,transparent 99%);mask:linear-gradient(180deg,transparent 12%,#000 54%,transparent 99%)}
+    .hero-photo{object-position:48% 18%}
     section{padding:clamp(38px,5vh,58px) 0}
   }
   @media(max-width:560px){
     body{font-size:16px}
     .g3,.steps,.locais{grid-template-columns:1fr}
-    .hero-content{padding:clamp(90px,14vh,108px) 0 clamp(26px,5vh,44px)}
+    .hero-content{padding:0 0 clamp(30px,6vh,50px);max-width:none}
     .hero h1{font-size:clamp(1.95rem,7.8vw,2.5rem)}
     .hero-cta{flex-direction:column;align-items:stretch}
     .hero-cta .btn{justify-content:center}
@@ -355,7 +356,7 @@
 
 <!-- ===== HERO — TIPOGRÁFICO (CFM-conforme) ===== -->
 <section class="hero">
-  <img class="hero-photo" src="assets/sobre.webp" alt="" aria-hidden="true" width="900" height="972" fetchpriority="high" decoding="async">
+  <img class="hero-photo" src="assets/hero.webp" alt="Dr. Daniel Viriato, cirurgião geral e do aparelho digestivo, em Salvador" width="1456" height="819" fetchpriority="high" decoding="async">
   <div class="container">
     <div class="hero-content">
       <span class="eyebrow">Cirurgia Geral &amp; Videolaparoscopia • Salvador/BA</span>
@@ -413,6 +414,16 @@
       <div class="pilar reveal"><div class="ico" aria-hidden="true">🏥</div><h3>Estrutura hospitalar</h3><p>Cirurgias realizadas em estruturas hospitalares de Salvador.</p></div>
       <div class="pilar reveal"><div class="ico" aria-hidden="true">🛡️</div><h3>Experiência em casos complexos</h3><p>Mais de uma década dedicada a casos delicados do aparelho digestivo.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- ===== FAIXA CINEMATOGRÁFICA — AMBIENTE CIRÚRGICO ===== -->
+<section class="cine-band" aria-label="Ambiente cirúrgico hospitalar">
+  <img src="assets/sala-cirurgia.webp" alt="Dr. Daniel Viriato em centro cirúrgico hospitalar em Salvador" width="1254" height="853" loading="lazy" decoding="async">
+  <div class="container">
+    <span class="eyebrow">Centro cirúrgico</span>
+    <h2>Cirurgia em estrutura hospitalar completa, em Salvador.</h2>
+    <p>Da videolaparoscopia de rotina aos casos mais complexos do aparelho digestivo, com equipe especializada.</p>
   </div>
 </section>
 
