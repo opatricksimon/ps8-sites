@@ -132,9 +132,6 @@
   @keyframes heroIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
   .hero p.sub{font-size:clamp(1.04rem,1.5vw,1.2rem);color:rgba(255,255,255,.9);margin:18px 0 28px;max-width:580px;font-weight:400}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)}
-  .hero-meta div{color:rgba(255,255,255,.86);font-size:.82rem;letter-spacing:.04em}
-  .hero-meta b{display:block;font-family:'Playfair Display';font-weight:700;font-size:1.5rem;color:var(--cor-realce);line-height:1.1;font-variant-numeric:tabular-nums lining-nums}
   .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.7);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;text-align:center}
   .scroll-cue span{display:block;width:1px;height:32px;background:linear-gradient(rgba(255,255,255,.7),transparent);margin:9px auto 0;animation:cue 2s ease-in-out infinite}
   @keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
@@ -270,19 +267,22 @@
     .trust-strip .ts-item+.ts-item::before{display:none}
     .sobre,.contato-grid{grid-template-columns:1fr;gap:38px}
     .sobre-photo{max-width:400px;margin:0 auto}
-    .hero-photo{height:56%;bottom:auto;object-position:50% 20%;
-      -webkit-mask:linear-gradient(180deg,#000 64%,transparent);mask:linear-gradient(180deg,#000 64%,transparent)}
+    .hero-photo{height:60%;bottom:auto;object-position:50% 22%;
+      -webkit-mask:linear-gradient(180deg,#000 78%,transparent);mask:linear-gradient(180deg,#000 78%,transparent)}
     section{padding:clamp(38px,5vh,58px) 0}
   }
   @media(max-width:560px){
     body{font-size:16px}
     .g3,.steps,.locais{grid-template-columns:1fr}
-    .hero-content{padding:0 0 clamp(30px,6vh,50px);max-width:none}
-    .hero-meta{display:none}
+    .hero-content{padding:0 0 clamp(26px,5.5vh,46px);max-width:none}
     .hero h1{font-size:clamp(1.95rem,7.8vw,2.5rem)}
+    .hero p.sub{font-size:.95rem;margin:13px 0 20px}
     .hero-cta{flex-direction:column;align-items:stretch}
     .hero-cta .btn{justify-content:center}
-    .hero-meta{gap:18px}
+    header{padding:11px 11px 0}
+    header .nav{height:54px;padding:0 8px 0 18px}
+    .logo{font-size:1.08rem}
+    .hero::before{background:linear-gradient(180deg,rgba(8,20,34,.14) 0%,rgba(8,20,34,0) 24%,rgba(8,20,34,0) 50%,rgba(8,20,34,.5) 84%,rgba(8,20,34,.93) 100%)}
     .scroll-cue{display:none}
     .trust-strip .container{grid-template-columns:1fr 1fr;gap:22px 16px}
     .trust-strip b{font-size:1.4rem}
@@ -367,11 +367,6 @@
       <div class="hero-cta">
         <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-wpp"><span aria-hidden="true">💬</span> Agendar pelo WhatsApp</a>
         <a href="#cirurgias" class="btn btn-ghost-light">Conhecer as cirurgias</a>
-      </div>
-      <div class="hero-meta">
-        <div><b>+10 anos</b>em cirurgia abdominal</div>
-        <div><b>UFBA</b>formação em Medicina</div>
-        <div><b>Videolaparoscopia</b>técnica minimamente invasiva</div>
       </div>
     </div>
   </div>
