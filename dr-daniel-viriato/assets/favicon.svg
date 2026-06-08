@@ -1,4 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Dr. Daniel Viriato">
-  <rect width="64" height="64" rx="14" fill="#15385C"/>
-  <text x="32" y="43" font-family="Georgia,'Playfair Display',serif" font-size="30" font-weight="700" fill="#C9A86A" text-anchor="middle">DV</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0D2640"></stop><stop offset="1" stop-color="#15385C"></stop>
+    </linearGradient>
+    <linearGradient id="au" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E7CE94"></stop><stop offset=".5" stop-color="#C9A86A"></stop><stop offset="1" stop-color="#A8884E"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#g)"></rect>
+  <rect x="5.5" y="5.5" width="53" height="53" rx="10.5" fill="none" stroke="url(#au)" stroke-width="1" opacity=".75"></rect>
+  <text x="32" y="40.5" font-family="&#39;Playfair Display&#39;,Georgia,serif" font-size="25" font-weight="600" letter-spacing="0.5" fill="url(#au)" text-anchor="middle">DV</text>
+  <rect x="26" y="46.5" width="12" height="1.4" rx=".7" fill="url(#au)" opacity=".9"></rect>
+  
 </svg>
