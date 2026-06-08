@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--
+  PS8 SITE-MODELO — BELEZA / ESTÉTICA (salão, studio, centro estético, barbearia premium)  (Arquétipo A Luxo / Kit Premium)
+  Gerado a partir de: DESIGN-SYSTEM/design.md (§2.5 Encaixe + §2.6 Acabamento Premium + §2.8 Card nunca chapado) + MOTION-PS8.md
+  Recolorido 2026-06-08: Playfair Display + ameixa profundo + ROSÉ/CHAMPAGNE metálico + nude creme + ritmo de cor.
+  EFEITOS-ASSINATURA DESTE NICHO:
+    ✨ Shine metálico (rosé)  ·  🎠 Carrossel infinito (CSS marquee)  ·  🖼️ Imagem ultrawide (hero+faixas)  ·  🧊 Tilt 3D nos cards
+  Primeira instância: Supreme Prime Deluxy — Studio de Beleza e Estética (Estr. do Côco, 40066 - Lauro de Freitas/BA)
+
+  PERSONALIZAR POR CLIENTE (buscar {{...}}):
+  {{NOME_STUDIO}} {{CIDADE/UF}} {{ENDERECO}} {{WHATSAPP=55DDDNUMERO}} {{AGENDA_ONLINE}} {{INSTAGRAM}}
+  {{SERVICOS}} {{PRECOS}} {{HORARIOS}} {{NUMEROS_PROVA_SOCIAL}} {{DEPOIMENTOS_REAIS}}
+  Imagens em ./assets/  (hero.webp ULTRAWIDE · ambiente.webp · galeria-1..4.webp · antes.webp · depois.webp)
+  Enquanto não houver foto real: as faixas usam degradê CSS premium (não quebram). Trocar pelo background-image indicado.
+-->
+<title>Supreme Prime Deluxy | Studio de Beleza e Estética em Lauro de Freitas</title>
+<meta name="description" content="Studio de beleza e estética em Lauro de Freitas/BA. Cabelo, unhas, sobrancelhas, cílios e estética facial e corporal em ambiente climatizado e acolhedor. Agende seu horário." />
+<meta property="og:title" content="Supreme Prime Deluxy — Studio de Beleza e Estética" />
+<meta property="og:description" content="Sua beleza tratada como prioridade. Ambiente climatizado, confortável e atendimento premium. Agende online." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cor-primaria:#6E3B52; --cor-primaria-escura:#4A2438; --cor-realce:#C99A82; --cor-realce-escura:#94654B;
+    --cor-fundo:#FFFFFF; --cor-superficie:#F7F1EC; --cor-escura:#241019;
+    --cor-texto:#2A1D24; --cor-texto-suave:#7A6770; --cor-borda:#EBE0D8; --cor-whatsapp:#25D366;
+    /* nude tint p/ cards (§2.8 nunca branco chapado) */
+    --cor-tint:#F4EAE4; --cor-tint-2:#ECDBD2; --cor-borda-tint:#E4CFC4;
+    --container:1180px; --raio:18px; --raio-sm:11px;
+    --sombra:0 18px 54px rgba(36,16,25,.16); --sombra-sm:0 6px 22px rgba(36,16,25,.10);
+    --grad-realce:linear-gradient(100deg,#94654B 0%,#E8C9AC 26%,#C99A82 50%,#F1D7C2 74%,#94654B 100%);
+    --grad-plum:linear-gradient(100deg,#4A2438 0%,#9B5C77 32%,#6E3B52 56%,#B5789A 80%,#4A2438 100%);
+    --nav-pad:22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--cor-realce) var(--cor-superficie)}
+  ::-webkit-scrollbar{width:11px}
+  ::-webkit-scrollbar-track{background:var(--cor-superficie)}
+  ::-webkit-scrollbar-thumb{background:var(--grad-realce);background-size:200% auto;border-radius:999px;border:3px solid var(--cor-superficie)}
+  ::-webkit-scrollbar-thumb:hover{background:var(--cor-realce-escura)}
+  body{font-family:'Inter',sans-serif;color:var(--cor-texto);background:var(--cor-fundo);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.16;letter-spacing:-.005em;font-weight:600}
+  h2{font-size:clamp(1.8rem,3.6vw,2.8rem)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:var(--container);margin:0 auto;padding:0 24px}
+  section{padding:clamp(40px,5.4vh,70px) 0}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Inter';font-weight:600;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-realce-escura);margin-bottom:18px}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--cor-realce)}
+  .center{text-align:center}
+  .center .eyebrow{justify-content:center}
+  .center .eyebrow::after{content:"";width:28px;height:1px;background:var(--cor-realce)}
+  .center p.lead{max-width:660px;margin:14px auto 0;color:var(--cor-texto-suave)}
+
+  /* ===== SHINE METÁLICO ROSÉ (gold-shine) — só sobre fundo escuro ===== */
+  .shine{color:var(--cor-realce);background:var(--grad-realce);background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 7s linear infinite}
+  @keyframes shimmer{to{background-position:200% center}}
+
+  /* ===== BOTÕES ===== */
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Inter';font-weight:600;font-size:.9rem;letter-spacing:.015em;padding:13px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,background-position .6s ease;will-change:transform}
+  .btn-primary{background:var(--cor-primaria);color:#fff;box-shadow:0 8px 22px rgba(110,59,82,.3)}
+  .btn-primary:hover{background:var(--cor-primaria-escura);transform:translateY(-2px)}
+  .btn-gold{background:var(--grad-realce);background-size:220% auto;color:#3a2018;box-shadow:0 10px 26px rgba(201,154,130,.4);animation:shimmer 7s linear infinite}
+  .btn-gold:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 14px 32px rgba(201,154,130,.5)}
+  .btn-plum{background:var(--grad-plum);background-size:220% auto;color:#fff;box-shadow:0 10px 26px rgba(110,59,82,.36);animation:shimmer 7s linear infinite,softpulse 2.8s ease-in-out infinite}
+  .btn-plum:hover{background-position:right center;transform:translateY(-2px)}
+  .btn-ghost-light{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.5);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .btn-ghost-light:hover{background:rgba(255,255,255,.18);border-color:#fff}
+  @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(110,59,82,.36)}50%{box-shadow:0 12px 34px rgba(110,59,82,.6)}}
+
+  /* ===== HEADER (flutuante / floating pill) ===== */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease;padding:18px 16px 0}
+  header .nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:none;margin:0;
+    padding:0 14px 0 calc(clamp(24px,6vw,112px) - 16px);border-radius:999px;
+    background:rgba(36,16,25,.34);-webkit-backdrop-filter:blur(12px) saturate(130%);backdrop-filter:blur(12px) saturate(130%);
+    border:1px solid rgba(255,255,255,.16);box-shadow:0 8px 30px rgba(36,16,25,.22);transition:.35s ease}
+  .logo{font-family:'Playfair Display';font-weight:700;font-size:1.26rem;color:#fff;display:flex;align-items:center;gap:2px;transition:.3s;letter-spacing:.01em}
+  .logo b{color:var(--cor-realce)}
+  .logo.shine b{-webkit-text-fill-color:transparent}
+  .nav-links{display:flex;gap:28px;font-family:'Inter';font-weight:500;font-size:.9rem}
+  .nav-links a{color:rgba(255,255,255,.92);transition:.2s}
+  .nav-links a:hover{color:var(--cor-realce)}
+  header .btn{padding:10px 20px;font-size:.82rem}
+  header.scrolled{padding-top:10px}
+  header.scrolled .nav{background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border-color:var(--cor-borda);box-shadow:0 10px 34px rgba(36,16,25,.14)}
+  header.scrolled .logo.shine{background:none;-webkit-text-fill-color:var(--cor-primaria);color:var(--cor-primaria);animation:none}
+  header.scrolled .logo.shine b{-webkit-text-fill-color:var(--cor-realce-escura);color:var(--cor-realce-escura)}
+  header.scrolled .nav-links a{color:var(--cor-texto-suave)}
+  header.scrolled .nav-links a:hover{color:var(--cor-primaria)}
+  .menu-btn{display:none;font-size:1.5rem;background:none;border:0;color:#fff;cursor:pointer}
+  header.scrolled .menu-btn{color:var(--cor-primaria)}
+
+  /* ===== HERO — IMAGEM ULTRAWIDE ===== */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--cor-escura)}
+  .hero>.container{max-width:none;margin:0;padding-left:clamp(24px,6vw,112px);padding-right:24px}
+  /* faixa ultrawide: trocar por foto real -> background-image:url('./assets/hero.webp') */
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;animation:kenburns 24s ease-out forwards;
+    background:
+      radial-gradient(120% 90% at 78% 18%,rgba(201,154,130,.5),transparent 55%),
+      radial-gradient(90% 80% at 12% 90%,rgba(155,92,119,.55),transparent 60%),
+      linear-gradient(125deg,#2c1320 0%,#5a2c44 45%,#7a4a39 100%)}
+  @keyframes kenburns{from{transform:scale(1.1)}to{transform:scale(1)}}
+  .hero-overlay{position:absolute;inset:0;z-index:2;
+    background:linear-gradient(180deg,rgba(36,16,25,.5) 0%,rgba(36,16,25,.15) 38%,rgba(36,16,25,.5) 74%,rgba(36,16,25,.88) 100%),
+               linear-gradient(90deg,rgba(36,16,25,.74) 0%,rgba(36,16,25,.24) 58%,transparent 100%)}
+  .hero-content{position:relative;z-index:3;color:#fff;max-width:780px;padding:clamp(92px,12vh,116px) 0 clamp(34px,5vh,58px);animation:heroIn 1s cubic-bezier(.22,.61,.36,1) both}
+  .hero .eyebrow{color:var(--cor-realce)}
+  .hero .eyebrow::before{background:var(--cor-realce)}
+  .hero-chip{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;
+    background:linear-gradient(rgba(36,16,25,.55),rgba(74,36,56,.55));-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);
+    padding:8px 16px 8px 14px;border-radius:999px;border:1px solid rgba(201,154,130,.32);box-shadow:0 6px 20px rgba(20,8,14,.34);
+    font-family:'Inter';font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#fff}
+  .hero-chip i{font-style:normal;color:var(--cor-realce)}
+  .hero h1{font-size:clamp(2.2rem,4.8vw,3.7rem);font-weight:600;color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.32)}
+  .hero h1 em{font-style:italic;background:var(--grad-realce);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite}
+  @keyframes heroIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  .hero p.sub{font-size:clamp(1.04rem,1.5vw,1.2rem);color:rgba(255,255,255,.9);margin:18px 0 26px;max-width:540px;font-weight:400}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.7);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;text-align:center}
+  .scroll-cue .mouse{display:block;width:26px;height:42px;margin:0 auto 8px;border:2px solid rgba(255,255,255,.6);border-radius:14px;position:relative}
+  .scroll-cue .wheel{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:4px;height:8px;border-radius:2px;background:var(--cor-realce);animation:cue 1.6s ease-in-out infinite}
+  @keyframes cue{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+  /* ===== 🎠 CARROSSEL INFINITO (marquee) ===== */
+  .marquee{overflow:hidden;position:relative;padding:6px 0;
+    -webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+  .mq-track{display:flex;gap:14px;width:max-content;animation:scrollx 40s linear infinite}
+  .mq-rev{animation-direction:reverse;animation-duration:52s}
+  .marquee:hover .mq-track{animation-play-state:paused}
+  @keyframes scrollx{to{transform:translateX(-50%)}}
+  .pill{flex:0 0 auto;display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;
+    background:var(--cor-superficie);border:1px solid var(--cor-borda-tint);font-family:'Inter';font-weight:600;font-size:.95rem;color:var(--cor-primaria);box-shadow:var(--sombra-sm)}
+  .pill .e{font-size:1.15rem;line-height:1}
+  .sec-dark .pill{background:rgba(255,255,255,.06);border-color:rgba(201,154,130,.3);color:#fff}
+
+  /* ===== 🧊 CARDS COM TILT 3D ===== */
+  .grid{display:grid;gap:22px}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .tilt-wrap{perspective:1000px}
+  .card{position:relative;background:linear-gradient(180deg,var(--cor-tint),var(--cor-tint-2));border:1px solid var(--cor-borda-tint);border-radius:var(--raio);padding:22px 24px 20px;
+    transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s ease,background .3s ease,border-color .3s ease;transform-style:preserve-3d;will-change:transform;overflow:hidden}
+  .card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(255,255,255,.55),transparent 42%);opacity:0;transition:opacity .3s;pointer-events:none}
+  .card:hover{background:#fff;box-shadow:var(--sombra);border-color:transparent}
+  .card:hover::after{opacity:1}
+  .card .ico{width:54px;height:54px;border-radius:15px;background:#fff;border:1px solid var(--cor-borda-tint);display:flex;align-items:center;justify-content:center;font-size:1.55rem;margin-bottom:14px;transform:translateZ(38px)}
+  .card h3{font-size:1.22rem;font-weight:600;margin-bottom:7px;transform:translateZ(26px)}
+  .card p{color:var(--cor-texto-suave);font-size:.94rem;transform:translateZ(16px)}
+  .card .price{display:inline-block;margin-top:10px;font-family:'Inter';font-weight:600;font-size:.82rem;color:var(--cor-realce-escura);letter-spacing:.02em;transform:translateZ(20px)}
+
+  /* ===== RITMO DE COR DAS SEÇÕES (anti "tudo branco") ===== */
+  .sec-cream{background:var(--cor-superficie)}
+  .sec-dark{background:var(--cor-escura);color:#fff;position:relative;overflow:hidden}
+  .sec-dark::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 80% 10%,rgba(201,154,130,.18),transparent 60%),radial-gradient(70% 60% at 10% 100%,rgba(155,92,119,.22),transparent 60%);pointer-events:none}
+  .sec-dark>*{position:relative;z-index:1}
+  .sec-dark h2,.sec-dark h3{color:#fff}
+  .sec-dark p{color:rgba(255,255,255,.76)}
+  .sec-dark .center p.lead{color:rgba(255,255,255,.78)}
+  .sec-dark .eyebrow{color:var(--cor-realce)}
+  .sec-dark .eyebrow::before,.sec-dark .center .eyebrow::after{background:var(--cor-realce)}
+
+  /* ===== EXPERIÊNCIA / AMBIENTE (faixa ultrawide + texto) ===== */
+  .exp{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+  .exp-img{position:relative;aspect-ratio:5/4;border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);
+    /* trocar por foto real -> background-image:url('./assets/ambiente.webp') */
+    background:radial-gradient(120% 100% at 20% 10%,rgba(241,215,194,.5),transparent 55%),linear-gradient(140deg,#3a1c2c,#6e3b52 60%,#9b5c77)}
+  .exp-img .badge{position:absolute;left:18px;bottom:18px;background:rgba(36,16,25,.6);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(201,154,130,.3);color:#fff;border-radius:999px;padding:9px 16px;font-family:'Inter';font-weight:600;font-size:.8rem}
+  .exp ul{list-style:none;margin-top:20px;display:grid;gap:13px}
+  .exp li{display:flex;gap:11px;align-items:flex-start}
+  .exp li::before{content:"\2726";color:var(--cor-realce);margin-top:3px}
+
+  /* ===== TRUST STRIP (numerais tabulares + count-up) ===== */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+  .trust .ts{position:relative;text-align:center}
+  .trust .ts+.ts::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:40px;background:linear-gradient(transparent,rgba(255,255,255,.22),transparent)}
+  .trust b{display:block;font-family:'Inter';font-weight:700;font-size:1.9rem;line-height:1.1;color:var(--cor-realce);font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum" 1,"lnum" 1}
+  .trust span{display:block;margin-top:4px;font-size:.74rem;opacity:.84;letter-spacing:.06em;text-transform:uppercase}
+
+  /* ===== GALERIA (faixas ultrawide) ===== */
+  .galeria{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:200px;gap:16px;margin-top:30px}
+  .ph{border-radius:var(--raio);overflow:hidden;position:relative;box-shadow:var(--sombra-sm);
+    background:linear-gradient(135deg,#6e3b52,#241019);display:flex;align-items:flex-end;color:rgba(255,255,255,.7);font-family:'Inter';font-weight:600;font-size:.78rem}
+  .ph span{padding:12px 14px;letter-spacing:.04em}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .ph:nth-child(1){grid-row:span 2;background:radial-gradient(110% 90% at 75% 20%,rgba(201,154,130,.45),transparent 55%),linear-gradient(140deg,#3a1c2c,#7a4a39)}
+  .ph:nth-child(4){grid-column:span 2;background:linear-gradient(120deg,#4a2438,#9b5c77)}
+
+  /* ===== ANTES / DEPOIS (slider) ===== */
+  .ba{position:relative;max-width:680px;margin:30px auto 0;aspect-ratio:16/9;border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);cursor:ew-resize;touch-action:none;background:linear-gradient(135deg,#6e3b52,#241019)}
+  .ba-before,.ba-after{position:absolute;inset:0;background-size:cover;background-position:center}
+  .ba-before{background:linear-gradient(135deg,#5a4a50,#2a2024)}
+  .ba-after{background:radial-gradient(100% 100% at 30% 20%,rgba(241,215,194,.5),transparent 55%),linear-gradient(135deg,#7a4a39,#6e3b52);clip-path:inset(0 0 0 50%)}
+  .ba-tag{position:absolute;top:12px;z-index:4;background:rgba(36,16,25,.7);color:#fff;font-family:'Inter';font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .ba-tag.l{left:12px}.ba-tag.r{right:12px}
+  .ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;z-index:5;transform:translateX(-1px)}
+  .ba-handle::after{content:"\27F7";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:#fff;color:var(--cor-primaria);display:flex;align-items:center;justify-content:center;font-size:1.05rem;box-shadow:0 4px 14px rgba(0,0,0,.28)}
+  .ba-note{text-align:center;color:var(--cor-texto-suave);font-size:.82rem;margin-top:12px;font-style:italic}
+
+  /* ===== 🎠 DEPOIMENTOS (carrossel infinito de cards) ===== */
+  .depo{flex:0 0 360px;background:#fff;border:1px solid var(--cor-borda);border-radius:var(--raio);padding:28px;white-space:normal}
+  .depo .stars{color:var(--cor-realce);margin-bottom:12px;letter-spacing:3px}
+  .depo p{font-size:.98rem;color:var(--cor-texto);font-style:italic;font-family:'Playfair Display'}
+  .depo .who{display:flex;align-items:center;gap:12px;margin-top:18px}
+  .depo .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(150deg,var(--cor-realce),var(--cor-realce-escura));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Inter'}
+  .depo .who b{font-family:'Inter';font-size:.94rem;display:block}
+  .depo .who small{color:var(--cor-texto-suave);font-size:.82rem}
+
+  /* ===== LOCALIZAÇÃO / CONTATO ===== */
+  .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}
+  .info-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
+  .info-row .ico{width:46px;height:46px;border-radius:12px;background:var(--cor-superficie);border:1px solid var(--cor-borda);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+  .info-row b{font-family:'Inter';font-weight:600;display:block;margin-bottom:2px}
+  .info-row span{color:var(--cor-texto-suave);font-size:.94rem}
+  .map-ph{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:var(--cor-superficie);border:1px solid var(--cor-borda)}
+  .map-ph iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.2) contrast(.95)}
+
+  /* ===== CTA FINAL ===== */
+  .cta-final{background:linear-gradient(135deg,var(--cor-primaria-escura),var(--cor-primaria));color:#fff;text-align:center;position:relative;overflow:hidden}
+  .cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 80% 0,rgba(201,154,130,.28),transparent 60%);pointer-events:none}
+  .cta-final>*{position:relative;z-index:1}
+  .cta-final h2{color:#fff}
+  .cta-final h2 em{font-style:italic;background:var(--grad-realce);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 6s linear infinite}
+  .cta-final p{max-width:560px;margin:14px auto 28px;opacity:.92}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--cor-escura);color:#c2a9b3;padding:56px 0 28px;font-size:.92rem}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:34px}
+  footer .logo{color:#fff;margin-bottom:12px;display:inline-flex}
+  footer a:hover{color:var(--cor-realce)}
+  .foot-col h4{font-family:'Inter';font-weight:600;color:#fff;font-size:.96rem;margin-bottom:12px}
+  .foot-col div{margin-bottom:7px;color:#a98b96}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;text-align:center;color:#8e7079;font-size:.84rem}
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .wpp-float{position:fixed;bottom:24px;right:24px;z-index:60;background:var(--cor-whatsapp);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;box-shadow:0 12px 30px rgba(37,211,102,.5);animation:pulse 2.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.55)}70%{box-shadow:0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== CURSOR CUSTOMIZADO ===== */
+  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;opacity:0;transition:opacity .3s}
+  .cursor-dot{width:7px;height:7px;background:#fff}
+  .cursor-ring{width:32px;height:32px;border:1.6px solid rgba(255,255,255,.75);transition:width .25s ease,height .25s ease,background .25s ease,opacity .3s}
+  .has-cursor.ready .cursor-dot,.has-cursor.ready .cursor-ring{opacity:1}
+  .has-cursor.hovering .cursor-ring{width:52px;height:52px;background:rgba(255,255,255,.12)}
+  .has-cursor,.has-cursor a,.has-cursor button,.has-cursor summary,.has-cursor .btn,.has-cursor .ba{cursor:none}
+  @media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
+
+  /* ===== MODAL — FORMULÁRIO LEAD ===== */
+  .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+  .modal.open{display:flex}
+  .modal-bg{position:absolute;inset:0;background:rgba(36,16,25,.66);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);animation:fade .3s ease}
+  .modal-card{position:relative;z-index:2;background:#fff;border-radius:var(--raio);max-width:440px;width:100%;padding:clamp(28px,4vw,40px);box-shadow:0 30px 80px rgba(36,16,25,.4);animation:pop .35s cubic-bezier(.22,.61,.36,1);text-align:left}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+  .modal-card .x{position:absolute;top:14px;right:16px;font-size:1.6rem;color:var(--cor-texto-suave);background:none;border:0;cursor:pointer;line-height:1}
+  .modal-card h3{font-size:1.5rem;margin-bottom:6px}
+  .modal-card .ml-sub{color:var(--cor-texto-suave);font-size:.92rem;margin-bottom:20px}
+  .modal-card label{display:block;font-family:'Inter';font-weight:600;font-size:.82rem;margin-bottom:6px;margin-top:14px}
+  .modal-card input{width:100%;padding:12px 14px;border:1px solid var(--cor-borda);border-radius:var(--raio-sm);font-family:'Inter';font-size:.95rem;transition:.2s}
+  .modal-card input:focus{outline:0;border-color:var(--cor-realce);box-shadow:0 0 0 3px rgba(201,154,130,.18)}
+  .modal-card .btn{width:100%;justify-content:center;margin-top:22px}
+
+  /* ===== RESPONSIVO ===== */
+  @media(max-width:920px){
+    .nav-links,header .nav>.btn{display:none}
+    .menu-btn{display:block}
+    .g3{grid-template-columns:1fr 1fr}
+    .exp,.contato-grid{grid-template-columns:1fr;gap:38px}
+    .exp-img{max-width:520px;margin:0 auto;width:100%}
+    .trust{grid-template-columns:1fr 1fr;gap:28px}
+    .trust .ts+.ts::before{display:none}
+    .galeria{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
+    .ph:nth-child(1){grid-row:span 1}
+    .ph:nth-child(4){grid-column:span 2}
+    section{padding:clamp(40px,5.5vh,60px) 0}
+  }
+  @media(max-width:560px){
+    body{font-size:16px}
+    .g3{grid-template-columns:1fr}
+    .hero>.container{padding-left:24px}
+    .hero-cta{flex-direction:column;align-items:stretch}
+    .hero-cta .btn{justify-content:center}
+    .depo{flex:0 0 84vw}
+    .galeria{grid-template-columns:1fr;grid-auto-rows:180px}
+    .ph:nth-child(4){grid-column:span 1}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}.hero-img{transform:none}
+    .mq-track{animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a href="#" class="logo shine">Supreme Prime Deluxy<b>.</b></a>
+    <nav class="nav-links">
+      <a href="#servicos">Serviços</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#localizacao">Localização</a>
+    </nav>
+    <a href="#agendar" class="btn btn-gold">Agendar horário</a>
+    <button class="menu-btn" aria-label="menu">&#9776;</button>
+  </div>
+</header>
+
+<!-- ===== HERO — IMAGEM ULTRAWIDE ===== -->
+<section class="hero">
+  <div class="hero-img" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-chip"><i>&#10022;</i> Studio de Beleza &amp; Estética &bull; Lauro de Freitas/BA</span>
+      <h1>Sua beleza tratada<br>como <em>prioridade</em>.</h1>
+      <p class="sub">Ambiente climatizado, confortável e um atendimento que cuida de cada detalhe &mdash; do cabelo &agrave; pele, das unhas ao olhar.</p>
+      <div class="hero-cta">
+        <a href="#agendar" class="btn btn-gold">Agendar meu horário</a>
+        <a href="#servicos" class="btn btn-ghost-light">Ver servi&ccedil;os</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><span class="mouse"><span class="wheel"></span></span>Role</div>
+</section>
+
+<!-- ===== 🎠 CARROSSEL INFINITO DE SERVIÇOS ===== -->
+<div class="marquee" style="background:var(--cor-fundo);padding:22px 0;border-bottom:1px solid var(--cor-borda)" aria-label="Servi&ccedil;os oferecidos">
+  <div class="mq-track">
+    <!-- set 1 -->
+    <span class="pill"><span class="e">&#9986;&#65039;</span> Cabelo</span>
+    <span class="pill"><span class="e">&#128133;</span> Manicure &amp; Pedicure</span>
+    <span class="pill"><span class="e">&#10022;</span> Design de Sobrancelhas</span>
+    <span class="pill"><span class="e">&#128064;</span> C&iacute;lios</span>
+    <span class="pill"><span class="e">&#129526;</span> Est&eacute;tica Facial</span>
+    <span class="pill"><span class="e">&#128132;</span> Est&eacute;tica Corporal</span>
+    <span class="pill"><span class="e">&#128396;&#65039;</span> Maquiagem &amp; Noivas</span>
+    <span class="pill"><span class="e">&#127754;</span> Depila&ccedil;&atilde;o</span>
+    <span class="pill"><span class="e">&#128167;</span> Tratamentos Capilares</span>
+    <!-- set 2 (duplicado p/ loop perfeito) -->
+    <span class="pill"><span class="e">&#9986;&#65039;</span> Cabelo</span>
+    <span class="pill"><span class="e">&#128133;</span> Manicure &amp; Pedicure</span>
+    <span class="pill"><span class="e">&#10022;</span> Design de Sobrancelhas</span>
+    <span class="pill"><span class="e">&#128064;</span> C&iacute;lios</span>
+    <span class="pill"><span class="e">&#129526;</span> Est&eacute;tica Facial</span>
+    <span class="pill"><span class="e">&#128132;</span> Est&eacute;tica Corporal</span>
+    <span class="pill"><span class="e">&#128396;&#65039;</span> Maquiagem &amp; Noivas</span>
+    <span class="pill"><span class="e">&#127754;</span> Depila&ccedil;&atilde;o</span>
+    <span class="pill"><span class="e">&#128167;</span> Tratamentos Capilares</span>
+  </div>
+</div>
+
+<!-- ===== SERVIÇOS (cards com tilt 3D) ===== -->
+<section id="servicos">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">O que fazemos por voc&ecirc;</span>
+      <h2>Servi&ccedil;os feitos com <em style="font-style:italic;color:var(--cor-primaria)">capricho</em></h2>
+      <p class="lead">Um card&aacute;pio completo de beleza e bem-estar em um s&oacute; lugar. Passe o mouse para sentir o cuidado &mdash; toque para agendar.</p>
+    </div>
+    <div class="grid g3 tilt-wrap" style="margin-top:22px">
+      <div class="card reveal" data-tilt><div class="ico">&#9986;&#65039;</div><h3>Cabelo</h3><p>Corte, coloration, escova, hidrata&ccedil;&atilde;o e tratamentos para todos os tipos de fio.</p><span class="price">{{a partir de R$XX}}</span></div>
+      <div class="card reveal" data-tilt><div class="ico">&#128133;</div><h3>Manicure &amp; Pedicure</h3><p>Esmalta&ccedil;&atilde;o tradicional e em gel, spa dos p&eacute;s e cuticagem impec&aacute;vel.</p><span class="price">{{a partir de R$XX}}</span></div>
+      <div class="card reveal" data-tilt><div class="ico">&#10022;</div><h3>Sobrancelhas &amp; Henna</h3><p>Design personalizado que valoriza o seu olhar com t&eacute;cnica e simetria.</p><span class="price">{{a partir de R$XX}}</span></div>
+      <div class="card reveal" data-tilt><div class="ico">&#128064;</div><h3>C&iacute;lios</h3><p>Extens&atilde;o fio a fio, volume e lash lifting para um olhar marcante.</p><span class="price">{{a partir de R$XX}}</span></div>
+      <div class="card reveal" data-tilt><div class="ico">&#129526;</div><h3>Est&eacute;tica Facial</h3><p>Limpeza de pele, peeling e protocolos de skincare para uma pele renovada.</p><span class="price">{{a partir de R$XX}}</span></div>
+      <div class="card reveal" data-tilt><div class="ico">&#128132;</div><h3>Est&eacute;tica Corporal</h3><p>Massagem relaxante, drenagem e modeladora para corpo e mente em equil&iacute;brio.</p><span class="price">{{a partir de R$XX}}</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIÊNCIA / AMBIENTE (faixa ultrawide + números) ===== -->
+<section id="experiencia" class="sec-dark">
+  <div class="container">
+    <div class="exp">
+      <div class="exp-img reveal" aria-hidden="true"><span class="badge">&#10052;&#65039; Ambiente climatizado</span></div>
+      <div class="reveal">
+        <span class="eyebrow">A experi&ecirc;ncia Supreme</span>
+        <h2>Mais que um sal&atilde;o.<br>Um momento <em class="shine">s&oacute; seu</em>.</h2>
+        <p>Cada visita &eacute; pensada para voc&ecirc; relaxar e sair se sentindo a sua melhor vers&atilde;o. Ambiente confort&aacute;vel, profissionais atenciosos e qualidade em cada servi&ccedil;o &mdash; do come&ccedil;o ao fim.</p>
+        <ul>
+          <li>Ambiente climatizado, limpo e acolhedor</li>
+          <li>Profissionais especializados em cada &aacute;rea</li>
+          <li>Produtos de qualidade e protocolos seguros</li>
+          <li>Agendamento online, sem fila e sem espera</li>
+        </ul>
+        <div class="trust">
+          <div class="ts"><b class="count" data-target="12" data-suffix="+">0</b><span>Servi&ccedil;os no card&aacute;pio</span></div>
+          <div class="ts"><b class="count" data-target="100" data-suffix="%">0</b><span>Ambiente climatizado</span></div>
+          <div class="ts"><b class="count" data-target="5" data-dec="1">0</b><span>Padr&atilde;o de atendimento</span></div>
+          <div class="ts"><b class="count" data-target="7" data-suffix=" dias">0</b><span>Agenda online</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALERIA (faixas ultrawide — trocar por fotos reais) ===== -->
+<section id="galeria" class="sec-cream">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Nosso espa&ccedil;o</span>
+      <h2>Onde a sua beleza <em style="font-style:italic;color:var(--cor-primaria)">acontece</em></h2>
+      <p class="lead">Um espa&ccedil;o pensado nos m&iacute;nimos detalhes para o seu conforto.</p>
+    </div>
+    <!-- trocar cada .ph por <img src="./assets/galeria-N.webp" alt="..."> -->
+    <div class="galeria reveal">
+      <div class="ph"><span>{{foto do ambiente}}</span></div>
+      <div class="ph"><span>{{foto servi&ccedil;o}}</span></div>
+      <div class="ph"><span>{{foto detalhe}}</span></div>
+      <div class="ph"><span>{{foto recep&ccedil;&atilde;o / vitrine}}</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANTES / DEPOIS (estética / cabelo) ===== -->
+<section id="resultados">
+  <div class="container center">
+    <div class="reveal">
+      <span class="eyebrow">Resultados reais</span>
+      <h2>O cuidado que <em style="font-style:italic;color:var(--cor-primaria)">aparece</em></h2>
+      <p class="lead">Arraste para comparar o antes e o depois. (Trocar pelos seus resultados reais.)</p>
+    </div>
+    <div class="ba reveal">
+      <div class="ba-before"></div>
+      <div class="ba-after"></div>
+      <span class="ba-tag l">Antes</span>
+      <span class="ba-tag r">Depois</span>
+      <div class="ba-handle"></div>
+    </div>
+    <p class="ba-note">{{Trocar .ba-before / .ba-after por background-image das fotos reais.}}</p>
+  </div>
+</section>
+
+<!-- ===== 🎠 DEPOIMENTOS (carrossel infinito) ===== -->
+<section id="depoimentos" class="sec-cream">
+  <div class="container center reveal">
+    <span class="eyebrow">Quem passa, recomenda</span>
+    <h2>Clientes que <em style="font-style:italic;color:var(--cor-primaria)">amam</em> o resultado</h2>
+    <p class="lead">{{Depoimentos de exemplo &mdash; substituir pelos reais do Google/Instagram.}}</p>
+  </div>
+  <div class="marquee" style="margin-top:34px" aria-label="Depoimentos">
+    <div class="mq-track mq-rev">
+      <!-- set 1 -->
+      <div class="depo"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Sa&iacute; de l&aacute; me sentindo outra pessoa. Ambiente lindo, climatizado e um atendimento de primeira."</p><div class="who"><span class="av">A</span><div><b>Ana Paula</b><small>Cliente</small></div></div></div>
+      <div class="depo"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Melhor design de sobrancelhas que j&aacute; fiz. As meninas s&atilde;o super atenciosas e caprichosas."</p><div class="who"><span class="av">J</span><div><b>Juliana M.</b><small>Cliente</small></div></div></div>
+      <div class="depo"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Fiz cabelo e unha no mesmo dia, tudo impec&aacute;vel. Virei cliente fiel do Supreme Prime."</p><div class="who"><span class="av">C</span><div><b>Carla S.</b><small>Cliente</small></div></div></div>
+      <div class="depo"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Lugar aconchegante e profissionais que entendem do assunto. Recomendo de olhos fechados."</p><div class="who"><span class="av">R</span><div><b>Renata L.</b><small>Cliente</small></div></div></div>
+      <!-- set 2 (duplicado p/ loop) -->
+      <div class="depo"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Sa&iacute; de l&aacute; me sentindo outra pessoa. Ambiente lindo, climatizado e um atendimento de primeira."</p><div class="who"><span class="av">A</span><div><b>Ana Paula</b><small>Cliente</small></div></div></div>
+      <div class="depo"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Melhor design de sobrancelhas que j&aacute; fiz. As meninas s&atilde;o super atenciosas e caprichosas."</p><div class="who"><span class="av">J</span><div><b>Juliana M.</b><small>Cliente</small></div></div></div>
+      <div class="depo"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Fiz cabelo e unha no mesmo dia, tudo impec&aacute;vel. Virei cliente fiel do Supreme Prime."</p><div class="who"><span class="av">C</span><div><b>Carla S.</b><small>Cliente</small></div></div></div>
+      <div class="depo"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Lugar aconchegante e profissionais que entendem do assunto. Recomendo de olhos fechados."</p><div class="who"><span class="av">R</span><div><b>Renata L.</b><small>Cliente</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOCALIZAÇÃO / CONTATO ===== -->
+<section id="localizacao">
+  <div class="container">
+    <div class="contato-grid">
+      <div class="reveal">
+        <span class="eyebrow">Onde estamos</span>
+        <h2>Venha nos <em style="font-style:italic;color:var(--cor-primaria)">visitar</em></h2>
+        <div style="margin-top:24px">
+          <div class="info-row"><div class="ico">&#128205;</div><div><b>Endere&ccedil;o</b><span>Estr. do C&ocirc;co, 40066 &mdash; Port&atilde;o, Lauro de Freitas/BA</span></div></div>
+          <div class="info-row"><div class="ico">&#128337;</div><div><b>Hor&aacute;rios</b><span>{{Seg a Sáb &mdash; confirmar horários}}</span></div></div>
+          <div class="info-row"><div class="ico">&#128241;</div><div><b>Agendamento</b><span>Agenda online &bull; WhatsApp</span></div></div>
+          <div class="info-row"><div class="ico">&#128247;</div><div><b>Instagram</b><span>@supremeprimedeluxy</span></div></div>
+        </div>
+        <a href="https://avec.app/supremeprimestudiodebeleza" target="_blank" rel="noopener" class="btn btn-plum" style="margin-top:8px">Agendar pela agenda online</a>
+      </div>
+      <div class="map-ph reveal">
+        <iframe title="Mapa Supreme Prime Deluxy" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Estrada%20do%20Coco%2040066%20Lauro%20de%20Freitas%20BA&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section id="agendar" class="cta-final">
+  <div class="container">
+    <div class="reveal">
+      <h2>Pronta para se sentir <em>ainda mais bonita</em>?</h2>
+      <p>Agende seu hor&aacute;rio em segundos e deixe o resto com a gente.</p>
+      <a href="https://avec.app/supremeprimestudiodebeleza" target="_blank" rel="noopener" class="btn btn-gold">Agendar meu hor&aacute;rio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div style="max-width:300px">
+        <a href="#" class="logo">Supreme Prime Deluxy<b>.</b></a>
+        <div>Studio de Beleza e Est&eacute;tica em Lauro de Freitas/BA. Sua beleza tratada como prioridade.</div>
+      </div>
+      <div class="foot-col">
+        <h4>Servi&ccedil;os</h4>
+        <div>Cabelo</div><div>Unhas</div><div>Sobrancelhas &amp; C&iacute;lios</div><div>Est&eacute;tica facial e corporal</div>
+      </div>
+      <div class="foot-col">
+        <h4>Studio</h4>
+        <div><a href="#experiencia">Experi&ecirc;ncia</a></div><div><a href="#depoimentos">Depoimentos</a></div><div><a href="#localizacao">Localiza&ccedil;&atilde;o</a></div>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <div>Estr. do C&ocirc;co, 40066 &mdash; Lauro de Freitas/BA</div>
+        <div><a href="https://avec.app/supremeprimestudiodebeleza" target="_blank" rel="noopener">Agenda online</a></div>
+        <div><a href="https://instagram.com/supremeprimedeluxy" target="_blank" rel="noopener">@supremeprimedeluxy</a></div>
+      </div>
+    </div>
+    <div class="foot-bottom">&copy; <span id="ano"></span> Supreme Prime Deluxy &bull; Studio de Beleza e Est&eacute;tica &bull; Feito por PS8</div>
+  </div>
+</footer>
+
+<a class="wpp-float" href="https://wa.me/5571999999999?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" aria-label="WhatsApp">&#128172;</a>
+
+<!-- ===== MODAL LEAD ===== -->
+<div class="modal" id="leadModal" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal-bg" data-close></div>
+  <div class="modal-card">
+    <button class="x" data-close aria-label="fechar">&times;</button>
+    <h3>Agendar hor&aacute;rio</h3>
+    <p class="ml-sub">Deixe seu contato que a gente confirma seu hor&aacute;rio pelo WhatsApp. &#10022;</p>
+    <form id="leadForm">
+      <label for="lf-nome">Seu nome</label>
+      <input id="lf-nome" type="text" placeholder="Como podemos te chamar?" required>
+      <label for="lf-tel">WhatsApp</label>
+      <input id="lf-tel" type="tel" placeholder="(71) 9 9999-9999" required>
+      <label for="lf-serv">Servi&ccedil;o desejado</label>
+      <input id="lf-serv" type="text" placeholder="Ex.: cabelo, unhas, sobrancelha...">
+      <button type="submit" class="btn btn-gold">Enviar pelo WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  // Header pílula sólida no scroll
+  const h=document.getElementById('header');
+  const onScroll=()=>h.classList.toggle('scrolled',scrollY>40);
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  document.getElementById('ano').textContent=new Date().getFullYear();
+
+  // Reveal on scroll
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Count-up dos números (easeOutCubic, separador pt-BR)
+  const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function fmtVal(v,dec){return dec? v.toFixed(dec).replace('.',',') : Math.round(v).toLocaleString('pt-BR');}
+  function animateCount(el){
+    const target=parseFloat(el.dataset.target),dec=+(el.dataset.dec||0),
+          pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';
+    if(RM){el.textContent=pre+fmtVal(target,dec)+suf;return;}
+    const dur=1100,t0=performance.now();
+    (function tick(now){
+      let p=Math.min((now-t0)/dur,1);p=1-Math.pow(1-p,3);
+      el.textContent=pre+fmtVal(target*p,dec)+suf;
+      if(p<1)requestAnimationFrame(tick);else el.textContent=pre+fmtVal(target,dec)+suf;
+    })(performance.now());
+  }
+  const co=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);co.unobserve(e.target)}})},{threshold:.6});
+  document.querySelectorAll('.count').forEach(el=>co.observe(el));
+
+  // Modal lead form (popup nos CTAs de agendar internos)
+  const modal=document.getElementById('leadModal');
+  const openModal=e=>{if(e)e.preventDefault();modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';const f=document.getElementById('lf-nome');if(f)setTimeout(()=>f.focus(),60)};
+  const closeModal=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''};
+  // CTAs internos (#agendar) abrem o modal; o link da agenda online (avec) segue normal
+  document.querySelectorAll('a[href="#agendar"]').forEach(b=>b.addEventListener('click',openModal));
+  modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeModal));
+  addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+  document.getElementById('leadForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const n=document.getElementById('lf-nome').value.trim(),
+          t=document.getElementById('lf-tel').value.trim(),
+          s=document.getElementById('lf-serv').value.trim();
+    const msg=encodeURIComponent('Olá! Meu nome é '+n+'. Quero agendar um horário'+(s?' de '+s:'')+'.\nWhatsApp: '+t);
+    window.open('https://wa.me/5571999999999?text='+msg,'_blank');
+    closeModal();
+  });
+
+  // Antes/Depois slider
+  document.querySelectorAll('.ba').forEach(ba=>{
+    const after=ba.querySelector('.ba-after'),handle=ba.querySelector('.ba-handle');
+    let drag=false;
+    function set(x){const r=ba.getBoundingClientRect();let p=Math.max(0,Math.min(100,(x-r.left)/r.width*100));
+      after.style.clipPath='inset(0 0 0 '+p+'%)';handle.style.left=p+'%';}
+    ba.addEventListener('pointerdown',e=>{drag=true;set(e.clientX);try{ba.setPointerCapture(e.pointerId)}catch(_){}});
+    ba.addEventListener('pointermove',e=>{if(drag)set(e.clientX)});
+    addEventListener('pointerup',()=>drag=false);
+  });
+
+  // 🧊 Tilt 3D nos cards (só pointer fino + sem reduced-motion)
+  if(matchMedia('(pointer:fine)').matches && !RM){
+    document.querySelectorAll('[data-tilt]').forEach(card=>{
+      const MAX=8;
+      card.addEventListener('pointermove',e=>{
+        const r=card.getBoundingClientRect();
+        const px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+        card.style.transform='rotateY('+((px-.5)*MAX*2).toFixed(2)+'deg) rotateX('+((.5-py)*MAX*2).toFixed(2)+'deg) translateY(-5px)';
+        card.style.setProperty('--mx',(px*100).toFixed(1)+'%');
+        card.style.setProperty('--my',(py*100).toFixed(1)+'%');
+      });
+      card.addEventListener('pointerleave',()=>{card.style.transform='';});
+    });
+  }
+
+  // Cursor customizado redondo
+  if(matchMedia('(pointer:fine)').matches){
+    const dot=document.createElement('div'),ring=document.createElement('div');
+    dot.className='cursor-dot';ring.className='cursor-ring';
+    document.body.append(dot,ring);
+    const root=document.documentElement;root.classList.add('has-cursor');
+    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,started=false;
+    addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';
+      if(!started){started=true;root.classList.add('ready')}},{passive:true});
+    (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+    const hov='a,button,summary,.btn,.card,.depo,.pill,.ba';
+    addEventListener('mouseover',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.add('hovering')});
+    addEventListener('mouseout',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.remove('hovering')});
+  }
+
+  // Menu mobile (scroll suave simples — nav-links escondidos no mobile, CTA flutua via WhatsApp)
+  document.querySelector('.menu-btn')?.addEventListener('click',()=>{document.getElementById('servicos')?.scrollIntoView({behavior:'smooth'})});
+</script>
+</body>
+</html>
