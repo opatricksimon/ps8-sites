@@ -270,13 +270,15 @@
     .trust-strip .ts-item+.ts-item::before{display:none}
     .sobre,.contato-grid{grid-template-columns:1fr;gap:38px}
     .sobre-photo{max-width:400px;margin:0 auto}
-    .hero-photo{object-position:48% 18%}
+    .hero-photo{height:56%;bottom:auto;object-position:50% 20%;
+      -webkit-mask:linear-gradient(180deg,#000 64%,transparent);mask:linear-gradient(180deg,#000 64%,transparent)}
     section{padding:clamp(38px,5vh,58px) 0}
   }
   @media(max-width:560px){
     body{font-size:16px}
     .g3,.steps,.locais{grid-template-columns:1fr}
     .hero-content{padding:0 0 clamp(30px,6vh,50px);max-width:none}
+    .hero-meta{display:none}
     .hero h1{font-size:clamp(1.95rem,7.8vw,2.5rem)}
     .hero-cta{flex-direction:column;align-items:stretch}
     .hero-cta .btn{justify-content:center}
