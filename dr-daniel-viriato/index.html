@@ -7,29 +7,34 @@
   PS8 — SITE Dr. Daniel Viriato · Cirurgia Geral & Videolaparoscopia · Salvador/BA
   Base: DESIGN-SYSTEM/nichos/saude-site-modelo (Kit Médico-PREMIUM §2.5 Encaixe + §2.6 Acabamento)
   Paleta deste cliente: NAVY profundo + Dourado champanhe + Creme + Branco + Tinta.
-  Hardening 2026-06-06: auditoria adversarial 5-lentes (CFM, bugs, mobile, SEO local, a11y).
 
-  ⚠️ CONFORMIDADE CFM (Res. 2.336/2023) — aplicada:
-     • SEM "antes/depois"  • SEM promessa/garantia de resultado  • SEM depoimento de paciente
-     • Tom sóbrio/informativo  • RQE obrigatório p/ anunciar especialidade → CRM/RQE em PLACEHOLDER.
+  Hardening 2026-06-07 (auditoria adversarial 4 lentes: CFM, WCAG, SEO-local, perf/bugs/seg):
+   • HERO trocado de foto de cirurgia -> hero tipográfico navy (foto do ato cirúrgico FERE o CFM:
+     Res. 2.336/2023 Art. 11 §2º "d" = sensacionalismo; exposição de procedimento só p/ partos ou eventos científicos).
+   • Skip-link + <main>, contraste dos eyebrows corrigido, foco navy/ouro por contexto.
+   • Conversão unificada: TODOS os CTAs vão DIRETO ao WhatsApp (modal de lead removido).
+   • Mapa sem imagem quebrada; count-up sem flicker; menos repaint; sitemap/robots no repo.
+   • Removido "principais referências" (termo comparativo vedado); "alta complexidade" reduzido.
 
-  ⚠️ PLACEHOLDERS A CONFIRMAR antes de publicar de verdade:
-     {{CRM=______}}  {{RQE=______}}  {{WHATSAPP confirmar se (71) 98482-9949 tem WhatsApp}}
-  Imagens (cliente envia manualmente) em ./assets/ → hero.webp (ULTRAWIDE) · sobre.webp (retrato 4:5) · mapa.webp
+  ⚠️ PLACEHOLDERS A CONFIRMAR (cliente) antes de publicar de verdade:
+     {{CRM-BA=______}}  {{RQE=______ e de quais áreas}}  {{ENDEREÇO completo do consultório}}
+     {{confirmar WhatsApp (71) 98482-9949}}  {{comprovar "membro de equipe de transplante"}}
+     {{Google Meu Negócio + sameAs no JSON-LD}}
+  Imagem em ./assets/ -> sobre.webp (retrato jaleco, CFM-conforme). hero.webp (cirurgia) REMOVIDO por conformidade.
 -->
-<title>Cirurgião Geral e do Aparelho Digestivo em Salvador | Dr. Daniel Viriato</title>
-<meta name="description" content="Cirurgia geral e videolaparoscopia com o Dr. Daniel Viriato em Salvador/BA. Mais de 10 anos em cirurgias abdominais, da rotina à alta complexidade. Agende sua avaliação pelo WhatsApp." />
+<title>Cirurgião do Aparelho Digestivo em Salvador | Dr. Daniel Viriato</title>
+<meta name="description" content="Cirurgião geral em Salvador/BA. Videolaparoscopia e cirurgias do aparelho digestivo, da rotina à alta complexidade. Agende sua avaliação pelo WhatsApp." />
 <meta property="og:title" content="Dr. Daniel Viriato — Cirurgia Geral e Videolaparoscopia" />
-<meta property="og:description" content="Cirurgia do aparelho digestivo, da rotina à alta complexidade, por videolaparoscopia. Salvador/BA. Agende pelo WhatsApp." />
+<meta property="og:description" content="Cirurgia do aparelho digestivo por videolaparoscopia, da rotina à alta complexidade. Salvador/BA. Agende pelo WhatsApp." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/" />
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:site_name" content="Dr. Daniel Viriato" />
-<meta property="og:image" content="https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/assets/hero.webp" />
+<meta property="og:image" content="https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/assets/sobre.webp" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Dr. Daniel Viriato — Cirurgia Geral e Videolaparoscopia" />
-<meta name="twitter:description" content="Cirurgia do aparelho digestivo, da rotina à alta complexidade, por videolaparoscopia. Salvador/BA." />
-<meta name="twitter:image" content="https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/assets/hero.webp" />
+<meta name="twitter:description" content="Cirurgia do aparelho digestivo por videolaparoscopia, da rotina à alta complexidade. Salvador/BA." />
+<meta name="twitter:image" content="https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/assets/sobre.webp" />
 <link rel="canonical" href="https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/" />
 <meta name="geo.region" content="BR-BA" />
 <meta name="geo.placename" content="Salvador" />
@@ -41,13 +46,13 @@
 <style>
   :root{
     --cor-primaria:#15385C; --cor-primaria-escura:#0D2640; --cor-realce:#C9A86A; --cor-realce-escura:#A8884E;
+    --cor-realce-texto:#7A5F28; /* dourado escurecido p/ TEXTO sobre fundo claro (>=4.5:1 AA) */
     --cor-fundo:#FFFFFF; --cor-superficie:#F4F1EA; --cor-escura:#0A1B2E;
     --cor-texto:#13212E; --cor-texto-suave:#54626F; --cor-borda:#E6E0D4; --cor-whatsapp:#25D366;
     --container:1180px; --raio:16px; --raio-sm:10px;
     --sombra:0 16px 52px rgba(10,27,46,.16); --sombra-sm:0 5px 20px rgba(10,27,46,.10);
     --grad-realce:linear-gradient(100deg,#A8884E 0%,#E7CE94 28%,#C9A86A 52%,#F1DDA8 74%,#A8884E 100%);
     --grad-azul:linear-gradient(100deg,#0D2640 0%,#2E6FA6 30%,#15385C 55%,#3E86BE 78%,#0D2640 100%);
-    --nav-pad:22px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--cor-realce) var(--cor-superficie)}
@@ -62,66 +67,77 @@
   img{max-width:100%;display:block}
   .container{max-width:var(--container);margin:0 auto;padding:0 24px}
   section{padding:clamp(42px,6vh,76px) 0}
-  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Inter';font-weight:600;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-realce-escura);margin-bottom:18px}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Inter';font-weight:600;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cor-realce-texto);margin-bottom:18px}
   .eyebrow::before{content:"";width:28px;height:1px;background:var(--cor-realce)}
   .center{text-align:center}
+  .center .eyebrow{justify-content:center}
   .center .eyebrow::after{content:"";width:28px;height:1px;background:var(--cor-realce)}
   .center p.lead{max-width:640px;margin:14px auto 0;color:var(--cor-texto-suave)}
   .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Inter';font-weight:600;font-size:.9rem;letter-spacing:.015em;padding:13px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,background-position .6s ease;will-change:transform}
   .btn-primary{background:var(--cor-primaria);color:#fff;box-shadow:0 8px 22px rgba(21,56,92,.30)}
   .btn-primary:hover{background:var(--cor-primaria-escura);transform:translateY(-2px)}
-  .btn-wpp{background:var(--grad-azul);background-size:220% auto;color:#fff;box-shadow:0 10px 26px rgba(21,56,92,.38);animation:shimmer 7s linear infinite,softpulse 2.8s ease-in-out infinite}
+  .btn-wpp{background:var(--grad-azul);background-size:220% auto;color:#fff;box-shadow:0 10px 26px rgba(21,56,92,.38);animation:shimmer 7s linear infinite}
   .btn-wpp:hover{background-position:right center;transform:translateY(-2px)}
   .btn-gold{background:var(--grad-realce);background-size:220% auto;color:#0D2640;box-shadow:0 10px 26px rgba(201,168,106,.36);animation:shimmer 7s linear infinite}
   .btn-gold:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 14px 32px rgba(201,168,106,.46)}
   .btn-ghost-light{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.5);backdrop-filter:blur(4px)}
   .btn-ghost-light:hover{background:rgba(255,255,255,.18);border-color:#fff}
-  @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(21,56,92,.38)}50%{box-shadow:0 12px 34px rgba(21,56,92,.64)}}
 
-  /* ===== ACESSIBILIDADE: foco de teclado visível + contraste sobre creme ===== */
-  a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid var(--cor-realce);outline-offset:3px;border-radius:6px}
+  /* ===== ACESSIBILIDADE ===== */
+  .skip{position:absolute;left:-9999px;top:0;z-index:300;background:var(--cor-primaria);color:#fff;padding:12px 20px;border-radius:0 0 12px 0;font-family:'Inter';font-weight:600;font-size:.9rem}
+  .skip:focus{left:0}
+  a:focus-visible,button:focus-visible,summary:focus-visible,.btn:focus-visible,input:focus-visible{outline:3px solid var(--cor-primaria);outline-offset:3px;border-radius:6px}
+  .hero a:focus-visible,.hero .btn:focus-visible,.sec-dark a:focus-visible,.sec-dark summary:focus-visible,.trust-strip a:focus-visible,footer a:focus-visible,header:not(.scrolled) a:focus-visible,header:not(.scrolled) .menu-btn:focus-visible{outline-color:var(--cor-realce)}
   .sec-cream .center p.lead,.sec-cream .pilar p,.sec-cream .card p,.sec-cream .local span{color:#45525E}
 
   /* ===== HEADER (flutuante / floating pill) ===== */
   header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease;padding:18px 16px 0}
   header .nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:none;margin:0;
-    padding:0 14px 0 calc(clamp(24px,6vw,112px) - 16px);border-radius:999px;
-    background:rgba(10,27,46,.34);backdrop-filter:blur(12px) saturate(130%);-webkit-backdrop-filter:blur(12px) saturate(130%);
+    padding:0 14px 0 clamp(20px,5vw,40px);border-radius:999px;
+    background:rgba(10,27,46,.42);backdrop-filter:blur(12px) saturate(130%);-webkit-backdrop-filter:blur(12px) saturate(130%);
     border:1px solid rgba(255,255,255,.16);box-shadow:0 8px 30px rgba(10,27,46,.22);transition:.35s ease}
   .logo{font-family:'Playfair Display';font-weight:700;font-size:1.3rem;color:#fff;display:flex;align-items:center;gap:6px;transition:.3s}
   .logo b{color:var(--cor-realce)}
   .nav-links{display:flex;gap:28px;font-family:'Inter';font-weight:500;font-size:.9rem}
-  .nav-links a{color:rgba(255,255,255,.92);padding:8px 4px;transition:.2s}
+  .nav-links a{color:#fff;padding:8px 4px;transition:.2s}
   .nav-links a:hover{color:var(--cor-realce)}
   header .btn{padding:10px 20px;font-size:.82rem}
   header.scrolled{padding-top:10px}
-  header.scrolled .nav{background:rgba(255,255,255,.94);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--cor-borda);box-shadow:0 10px 34px rgba(10,27,46,.16)}
+  header.scrolled .nav{background:rgba(255,255,255,.95);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--cor-borda);box-shadow:0 10px 34px rgba(10,27,46,.16)}
   header.scrolled .logo{color:var(--cor-primaria)}
-  header.scrolled .nav-links a{color:var(--cor-texto-suave)}
+  header.scrolled .nav-links a{color:var(--cor-texto)}
   header.scrolled .nav-links a:hover{color:var(--cor-primaria)}
-  .menu-btn{display:none;font-size:1.5rem;background:none;border:0;color:#fff;cursor:pointer}
+  .menu-btn{display:none;font-size:1.5rem;background:none;border:0;color:#fff;cursor:pointer;min-width:44px;min-height:44px;align-items:center;justify-content:center}
   header.scrolled .menu-btn{color:var(--cor-primaria)}
 
-  /* ===== HERO — IMAGEM ULTRAWIDE ===== */
-  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--cor-escura)}
-  .hero>.container{max-width:none;margin:0;padding-left:clamp(24px,6vw,112px);padding-right:24px}
-  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 36%;z-index:1;animation:kenburns 22s ease-out forwards}
-  @keyframes kenburns{from{transform:scale(1.1)}to{transform:scale(1)}}
-  .hero-overlay{position:absolute;inset:0;z-index:2;
-    background:linear-gradient(180deg,rgba(10,27,46,.55) 0%,rgba(10,27,46,.18) 40%,rgba(10,27,46,.5) 75%,rgba(10,27,46,.88) 100%),
-               linear-gradient(90deg,rgba(10,27,46,.74) 0%,rgba(10,27,46,.24) 60%,transparent 100%)}
-  .hero-content{position:relative;z-index:3;color:#fff;max-width:780px;padding:clamp(90px,11.5vh,112px) 0 clamp(32px,5vh,56px);animation:heroIn 1s cubic-bezier(.22,.61,.36,1) both}
+  /* ===== HERO — TIPOGRÁFICO (navy, CFM-conforme, sem foto de procedimento) ===== */
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;overflow:hidden;
+    background:
+      radial-gradient(900px 620px at 80% 26%, rgba(201,168,106,.18), transparent 60%),
+      radial-gradient(760px 560px at 8% 82%, rgba(46,111,166,.22), transparent 55%),
+      linear-gradient(158deg,#0A1B2E 0%,#0D2640 46%,#15385C 100%)}
+  .hero::before{content:"";position:absolute;inset:0;z-index:1;opacity:.55;pointer-events:none;
+    background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:24px 24px;
+    -webkit-mask:linear-gradient(180deg,#000,transparent 72%);mask:linear-gradient(180deg,#000,transparent 72%)}
+  .hero::after{content:"";position:absolute;right:-160px;top:50%;transform:translateY(-50%);z-index:1;pointer-events:none;
+    width:540px;height:540px;border-radius:50%;border:1px solid rgba(201,168,106,.22);
+    box-shadow:0 0 0 60px rgba(201,168,106,.04);opacity:.7}
+  .hero>.container{position:relative;z-index:3;max-width:var(--container)}
+  .hero-content{color:#fff;max-width:760px;padding:clamp(96px,12vh,124px) 0 clamp(34px,6vh,60px);animation:heroIn 1s cubic-bezier(.22,.61,.36,1) both}
   .hero .eyebrow{color:var(--cor-realce)}
   .hero .eyebrow::before{background:var(--cor-realce)}
-  .hero h1{font-size:clamp(2.1rem,4.6vw,3.5rem);font-weight:600;color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.3)}
-  .hero h1 em{font-style:italic;background:var(--grad-realce);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite}
-  @keyframes shimmer{to{background-position:200% center}}
+  .hero h1{font-size:clamp(2.1rem,4.7vw,3.5rem);font-weight:600;color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.25)}
+  .hero h1 em{font-style:italic;color:var(--cor-realce)}
   @keyframes heroIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-  .hero p.sub{font-size:clamp(1.04rem,1.5vw,1.2rem);color:rgba(255,255,255,.9);margin:18px 0 26px;max-width:560px;font-weight:400}
+  .hero p.sub{font-size:clamp(1.04rem,1.5vw,1.2rem);color:rgba(255,255,255,.9);margin:18px 0 28px;max-width:580px;font-weight:400}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-meta{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)}
+  .hero-meta div{color:rgba(255,255,255,.86);font-size:.82rem;letter-spacing:.04em}
+  .hero-meta b{display:block;font-family:'Playfair Display';font-weight:700;font-size:1.5rem;color:var(--cor-realce);line-height:1.1;font-variant-numeric:tabular-nums lining-nums}
   .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.7);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;text-align:center}
   .scroll-cue span{display:block;width:1px;height:32px;background:linear-gradient(rgba(255,255,255,.7),transparent);margin:9px auto 0;animation:cue 2s ease-in-out infinite}
   @keyframes cue{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+  @keyframes shimmer{to{background-position:200% center}}
 
   /* ===== TRUST STRIP ===== */
   .trust-strip{background:linear-gradient(90deg,var(--cor-primaria-escura),var(--cor-primaria) 50%,var(--cor-primaria-escura));color:#fff;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(0,0,0,.18)}
@@ -129,7 +145,7 @@
   .trust-strip .ts-item{position:relative}
   .trust-strip .ts-item+.ts-item::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:36px;background:linear-gradient(transparent,rgba(255,255,255,.2),transparent)}
   .trust-strip b{display:block;font-family:'Inter';font-weight:700;font-size:1.7rem;line-height:1.1;color:var(--cor-realce);font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum" 1,"lnum" 1;letter-spacing:.005em}
-  .trust-strip span{display:block;margin-top:3px;font-size:.74rem;opacity:.82;letter-spacing:.06em;text-transform:uppercase}
+  .trust-strip span{display:block;margin-top:3px;font-size:.74rem;opacity:.86;letter-spacing:.06em;text-transform:uppercase}
 
   /* ===== CARDS ===== */
   .grid{display:grid;gap:22px}
@@ -161,11 +177,11 @@
   .sobre{display:grid;grid-template-columns:.82fr 1.18fr;gap:54px;align-items:center}
   .sobre-photo{position:relative;aspect-ratio:4/5;border-radius:var(--raio);overflow:hidden;background:linear-gradient(150deg,#27517A,#0A1B2E);box-shadow:var(--sombra)}
   .sobre-photo img{width:100%;height:100%;object-fit:cover}
-  .sobre-photo .crm{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,27,46,.9));color:#fff;padding:28px 22px 18px;font-family:'Inter';font-weight:600;font-size:.86rem}
+  .sobre-photo .crm{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(10,27,46,.92));color:#fff;padding:28px 22px 18px;font-family:'Inter';font-weight:600;font-size:.86rem}
   .sobre-photo .crm b{color:var(--cor-realce)}
   .sobre ul{list-style:none;margin-top:20px;display:grid;gap:12px}
   .sobre li{display:flex;gap:11px;align-items:flex-start;color:var(--cor-texto-suave)}
-  .sobre li::before{content:"✦";color:var(--cor-realce);margin-top:3px}
+  .sobre li::before{content:"✦";color:var(--cor-realce-texto);margin-top:3px}
 
   /* ===== ABORDAGEM / PILARES ===== */
   .pilar{text-align:center;padding:6px}
@@ -187,7 +203,7 @@
   details[open]{box-shadow:var(--sombra-sm);border-color:var(--cor-realce)}
   summary{list-style:none;cursor:pointer;font-family:'Inter';font-weight:600;font-size:1rem;padding:16px 0;display:flex;justify-content:space-between;align-items:center;gap:14px}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-size:1.5rem;color:var(--cor-realce-escura);transition:.2s;flex-shrink:0}
+  summary::after{content:"+";font-size:1.5rem;color:var(--cor-realce-texto);transition:.2s;flex-shrink:0}
   details[open] summary::after{transform:rotate(45deg)}
   details p{padding:0 0 20px;color:var(--cor-texto-suave)}
 
@@ -198,9 +214,11 @@
   .info-row b{font-family:'Inter';font-weight:600;display:block;margin-bottom:2px}
   .info-row span{color:var(--cor-texto-suave);font-size:.94rem}
   .info-row a{color:var(--cor-primaria);font-weight:600}
-  .info-row a:hover{color:var(--cor-realce-escura)}
-  .map-ph{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:linear-gradient(150deg,#dfe4ea,#d5dde0 50%,#e7e1d4);display:flex;align-items:center;justify-content:center;color:var(--cor-primaria);font-family:'Inter';font-weight:600;border:1px solid var(--cor-borda)}
-  .map-ph img{width:100%;height:100%;object-fit:cover}
+  .info-row a:hover{color:var(--cor-realce-texto)}
+  .map-ph{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:linear-gradient(150deg,#27517A,#0A1B2E);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;font-family:'Inter';text-align:center;padding:24px;border:1px solid var(--cor-borda)}
+  .map-ph .pin{font-size:2rem}
+  .map-ph b{font-weight:700;font-size:1.05rem}
+  .map-ph span{color:rgba(255,255,255,.8);font-size:.86rem}
 
   /* ===== CTA FINAL ===== */
   .cta-final{background:linear-gradient(135deg,var(--cor-primaria),#0D2A47);color:#fff;text-align:center}
@@ -218,46 +236,28 @@
   .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;text-align:center;color:#73869a;font-size:.84rem}
 
   /* ===== WHATSAPP FLOAT ===== */
-  .wpp-float{position:fixed;bottom:24px;right:24px;z-index:60;background:var(--grad-azul);background-size:200% auto;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;box-shadow:0 12px 30px rgba(21,56,92,.5);animation:pulse 2.6s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(21,56,92,.55)}70%{box-shadow:0 0 0 18px rgba(21,56,92,0)}100%{box-shadow:0 0 0 0 rgba(21,56,92,0)}}
+  .wpp-float{position:fixed;bottom:24px;right:24px;z-index:60;background:var(--grad-azul);background-size:200% auto;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;box-shadow:0 12px 30px rgba(21,56,92,.5);animation:pulse 2.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(21,56,92,.5)}70%{box-shadow:0 0 0 16px rgba(21,56,92,0)}100%{box-shadow:0 0 0 0 rgba(21,56,92,0)}}
 
   /* ===== REVEAL ===== */
   .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
   .reveal.in{opacity:1;transform:none}
 
   /* ===== CURSOR CUSTOMIZADO ===== */
-  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;opacity:0;transition:opacity .3s}
-  .cursor-dot{width:7px;height:7px;background:#fff}
-  .cursor-ring{width:32px;height:32px;border:1.6px solid rgba(255,255,255,.75);transition:width .25s ease,height .25s ease,background .25s ease,opacity .3s}
+  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}
+  .cursor-dot{width:7px;height:7px;background:#15385C;box-shadow:0 0 0 1.5px rgba(255,255,255,.9)}
+  .cursor-ring{width:32px;height:32px;border:1.6px solid rgba(21,56,92,.55);transition:width .25s ease,height .25s ease,background .25s ease,opacity .3s}
   .has-cursor.ready .cursor-dot,.has-cursor.ready .cursor-ring{opacity:1}
-  .has-cursor.hovering .cursor-ring{width:52px;height:52px;background:rgba(255,255,255,.12)}
+  .has-cursor.hovering .cursor-ring{width:52px;height:52px;background:rgba(201,168,106,.18);border-color:var(--cor-realce)}
   .has-cursor,.has-cursor a,.has-cursor button,.has-cursor summary,.has-cursor .btn{cursor:none}
   @media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
-
-  /* ===== MODAL — FORMULÁRIO LEAD ===== */
-  .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
-  .modal.open{display:flex}
-  .modal-bg{position:absolute;inset:0;background:rgba(10,27,46,.66);backdrop-filter:blur(6px);animation:fade .3s ease}
-  .modal-card{position:relative;z-index:2;background:#fff;border-radius:var(--raio);max-width:440px;width:100%;padding:clamp(28px,4vw,40px);box-shadow:0 30px 80px rgba(10,27,46,.4);animation:pop .35s cubic-bezier(.22,.61,.36,1);text-align:left}
-  @keyframes fade{from{opacity:0}to{opacity:1}}
-  @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
-  .modal-card .x{position:absolute;top:14px;right:16px;font-size:1.6rem;color:var(--cor-texto-suave);background:none;border:0;cursor:pointer;line-height:1}
-  .modal-card .x:hover{color:var(--cor-primaria)}
-  .modal-card .eyebrow{margin-bottom:10px}
-  .modal-card h3{font-family:'Playfair Display';font-size:1.5rem;margin-bottom:6px;color:var(--cor-primaria)}
-  .modal-card p.msub{color:var(--cor-texto-suave);font-size:.92rem;margin-bottom:22px}
-  .modal-card label{display:block;font-family:'Inter';font-size:.78rem;font-weight:600;color:var(--cor-texto);margin:0 0 6px}
-  .modal-card input{width:100%;padding:13px 16px;border:1px solid var(--cor-borda);border-radius:var(--raio-sm);font-family:'Inter';font-size:.95rem;margin-bottom:15px;background:var(--cor-superficie);transition:.2s;color:var(--cor-texto)}
-  .modal-card input:focus{outline:0;border-color:var(--cor-realce);background:#fff;box-shadow:0 0 0 3px rgba(201,168,106,.2)}
-  .modal-card .btn{width:100%;justify-content:center;margin-top:4px}
-  .modal-card .priv{font-size:.74rem;color:var(--cor-texto-suave);text-align:center;margin-top:13px}
 
   /* ===== RESPONSIVE ===== */
   @media(max-width:920px){
     .nav-links,header .nav>.btn{display:none}
-    .menu-btn{display:block}
+    .menu-btn{display:flex}
     header.menu-open .nav-links{display:flex;position:absolute;top:84px;left:16px;right:16px;flex-direction:column;gap:4px;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--cor-borda);border-radius:18px;padding:14px 20px;box-shadow:0 16px 40px rgba(10,27,46,.18)}
-    header.menu-open .nav-links a{color:var(--cor-texto);padding:10px 4px;border-bottom:1px solid var(--cor-borda)}
+    header.menu-open .nav-links a{color:var(--cor-texto);padding:12px 4px;min-height:44px;display:flex;align-items:center;border-bottom:1px solid var(--cor-borda)}
     header.menu-open .nav-links a:last-child{border-bottom:0}
     .g3,.steps,.trust-strip .container{grid-template-columns:1fr 1fr}
     .trust-strip .ts-item+.ts-item::before{display:none}
@@ -268,11 +268,11 @@
   @media(max-width:560px){
     body{font-size:16px}
     .g3,.steps,.locais{grid-template-columns:1fr}
-    .hero>.container{padding-left:24px}
-    .hero-content{padding:clamp(82px,13vh,100px) 0 clamp(22px,4vh,40px)}
-    .hero h1{font-size:clamp(1.9rem,7.6vw,2.45rem)}
+    .hero-content{padding:clamp(90px,14vh,108px) 0 clamp(26px,5vh,44px)}
+    .hero h1{font-size:clamp(1.95rem,7.8vw,2.5rem)}
     .hero-cta{flex-direction:column;align-items:stretch}
     .hero-cta .btn{justify-content:center}
+    .hero-meta{gap:18px}
     .scroll-cue{display:none}
     .trust-strip .container{grid-template-columns:1fr 1fr;gap:22px 16px}
     .trust-strip b{font-size:1.4rem}
@@ -280,9 +280,10 @@
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
-    .reveal{opacity:1;transform:none}.hero-img{transform:none}
+    .reveal{opacity:1;transform:none}
   }
 </style>
+<!-- TODO (cliente): ao preencher, adicionar ao Physician -> identifier (CRM-BA), address completo (streetAddress/postalCode), geo (lat/long), sameAs (Google Meu Negócio/Instagram). -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -290,6 +291,7 @@
   "name": "Dr. Daniel Viriato",
   "description": "Cirurgia geral e do aparelho digestivo por videolaparoscopia em Salvador/BA, da rotina à alta complexidade.",
   "url": "https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/",
+  "image": "https://opatricksimon.github.io/ps8-sites/dr-daniel-viriato/assets/sobre.webp",
   "telephone": "+5571984829949",
   "email": "danielviriato@yahoo.com.br",
   "medicalSpecialty": ["Surgical", "Gastroenterologic"],
@@ -317,7 +319,7 @@
   "mainEntity": [
     { "@type": "Question", "name": "O que é videolaparoscopia?", "acceptedAnswer": { "@type": "Answer", "text": "É uma técnica cirúrgica minimamente invasiva: em vez de um corte grande, são feitas pequenas incisões por onde passam uma câmera e os instrumentos. Quando indicada, costuma significar menos dor e recuperação mais rápida — a indicação depende da avaliação de cada caso." } },
     { "@type": "Question", "name": "Preciso de encaminhamento de outro médico?", "acceptedAnswer": { "@type": "Answer", "text": "Não é obrigatório. Você pode agendar uma avaliação diretamente. Se já tiver exames e laudos, leve-os à consulta para uma análise mais completa." } },
-    { "@type": "Question", "name": "A cirurgia é feita em qual hospital?", "acceptedAnswer": { "@type": "Answer", "text": "Conforme o seu caso, nas principais referências de Salvador — como Hospital Português, Hospital da Bahia e Hospital Santa Izabel. O local é definido na avaliação." } },
+    { "@type": "Question", "name": "A cirurgia é feita em qual hospital?", "acceptedAnswer": { "@type": "Answer", "text": "Conforme o seu caso, em hospitais de Salvador como Hospital Português, Hospital da Bahia e Hospital Santa Izabel. O local é definido na avaliação." } },
     { "@type": "Question", "name": "Atende convênio ou particular?", "acceptedAnswer": { "@type": "Answer", "text": "Fale pelo WhatsApp para confirmar as condições de atendimento e o hospital indicado para o seu caso." } },
     { "@type": "Question", "name": "Como é a recuperação após a cirurgia?", "acceptedAnswer": { "@type": "Answer", "text": "A recuperação varia conforme o procedimento realizado e as características de cada paciente. Você recebe orientações detalhadas de pós-operatório e acompanhamento ao longo do processo." } }
   ]
@@ -326,45 +328,52 @@
 </head>
 <body>
 
+<a href="#conteudo" class="skip">Pular para o conteúdo</a>
+
 <header id="header">
   <div class="container nav">
     <a href="#" class="logo">Dr. Daniel Viriato<b>.</b></a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Navegação principal">
       <a href="#cirurgias">Cirurgias</a>
       <a href="#sobre">Sobre</a>
       <a href="#onde">Onde atende</a>
       <a href="#contato">Contato</a>
     </nav>
     <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-gold">Agendar avaliação</a>
-    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false"><span aria-hidden="true">☰</span></button>
   </div>
 </header>
 
-<!-- ===== HERO — IMAGEM ULTRAWIDE ===== -->
+<main id="conteudo">
+
+<!-- ===== HERO — TIPOGRÁFICO (CFM-conforme) ===== -->
 <section class="hero">
-  <img class="hero-img" src="assets/hero.webp" alt="Dr. Daniel Viriato em centro cirúrgico — cirurgia por videolaparoscopia em Salvador/BA" onerror="this.style.display='none'">
-  <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
       <span class="eyebrow">Cirurgia Geral &amp; Videolaparoscopia • Salvador/BA</span>
-      <h1>Cirurgia do aparelho digestivo, da rotina à <em>alta complexidade</em>.</h1>
-      <p class="sub">Mais de 10 anos em cirurgias abdominais por videolaparoscopia — da vesícula ao fígado —, com atuação nas principais referências hospitalares de Salvador.</p>
+      <h1>Cirurgião do aparelho digestivo e videolaparoscopia em <em>Salvador</em>.</h1>
+      <p class="sub">Mais de 10 anos em cirurgias abdominais por videolaparoscopia — da vesícula ao fígado —, com atuação em hospitais de Salvador.</p>
       <div class="hero-cta">
         <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-wpp"><span aria-hidden="true">💬</span> Agendar pelo WhatsApp</a>
         <a href="#cirurgias" class="btn btn-ghost-light">Conhecer as cirurgias</a>
       </div>
+      <div class="hero-meta">
+        <div><b>+10 anos</b>em cirurgia abdominal</div>
+        <div><b>UFBA</b>formação em Medicina</div>
+        <div><b>Videolaparoscopia</b>técnica minimamente invasiva</div>
+      </div>
     </div>
   </div>
-  <div class="scroll-cue">Role para conhecer<span></span></div>
+  <div class="scroll-cue" aria-hidden="true">Role para conhecer<span></span></div>
 </section>
 
-<!-- ===== TRUST (fatos verificáveis — sem números inventados) ===== -->
+<!-- ===== TRUST (fatos verificáveis — sem termos comparativos) ===== -->
 <div class="trust-strip">
   <div class="container">
     <div class="ts-item"><b class="count" data-target="10" data-prefix="+" data-suffix=" anos">+10 anos</b><span>De experiência em cirurgia</span></div>
-    <div class="ts-item"><b class="count" data-target="4">4</b><span>Hospitais de referência em Salvador</span></div>
+    <div class="ts-item"><b class="count" data-target="4">4</b><span>Hospitais em Salvador</span></div>
     <div class="ts-item"><b>UFBA</b><span>Formação em Medicina</span></div>
-    <div class="ts-item"><b>CRM ______</b><span>RQE ______ • Cirurgia Geral</span></div>
+    <div class="ts-item"><b>CRM-BA ______</b><span>MÉDICO • RQE ______</span></div>
   </div>
 </div>
 
@@ -377,12 +386,12 @@
       <p class="lead">Procedimentos de pequena a alta complexidade, sempre que possível por videolaparoscopia — técnica minimamente invasiva.</p>
     </div>
     <div class="grid g3" style="margin-top:32px">
-      <div class="card reveal"><div class="ico">🫧</div><h3>Cirurgia da vesícula</h3><p>Colecistectomia por videolaparoscopia para cálculos e pólipos da vesícula biliar.</p></div>
-      <div class="card reveal"><div class="ico">⚕️</div><h3>Cirurgia do fígado</h3><p>Hepatectomia — ressecção de lesões hepáticas, incluindo casos de alta complexidade.</p></div>
-      <div class="card reveal"><div class="ico">🫃</div><h3>Cirurgia do estômago</h3><p>Gastrectomia para o tratamento de tumores e doenças gástricas.</p></div>
-      <div class="card reveal"><div class="ico">🧬</div><h3>Cirurgia do intestino</h3><p>Colectomia e reconstrução de trânsito intestinal, com técnica adequada a cada caso.</p></div>
-      <div class="card reveal"><div class="ico">🩺</div><h3>Cirurgia do pâncreas e duodeno</h3><p>Gastroduodenopancreatectomia (procedimento de Whipple) — alta complexidade.</p></div>
-      <div class="card reveal"><div class="ico">🫀</div><h3>Transplante hepático</h3><p>Atuação como membro de equipe de transplante de fígado no Hospital Português.</p></div>
+      <div class="card reveal"><div class="ico" aria-hidden="true">🫧</div><h3>Cirurgia da vesícula</h3><p>Colecistectomia por videolaparoscopia para cálculos e pólipos da vesícula biliar.</p></div>
+      <div class="card reveal"><div class="ico" aria-hidden="true">⚕️</div><h3>Cirurgia do fígado</h3><p>Hepatectomia — ressecção de lesões hepáticas, incluindo casos complexos.</p></div>
+      <div class="card reveal"><div class="ico" aria-hidden="true">🫃</div><h3>Cirurgia do estômago</h3><p>Gastrectomia para o tratamento de tumores e doenças gástricas.</p></div>
+      <div class="card reveal"><div class="ico" aria-hidden="true">🧬</div><h3>Cirurgia do intestino</h3><p>Colectomia e reconstrução de trânsito intestinal, com técnica adequada a cada caso.</p></div>
+      <div class="card reveal"><div class="ico" aria-hidden="true">🩺</div><h3>Cirurgia do pâncreas e duodeno</h3><p>Gastroduodenopancreatectomia (procedimento de Whipple).</p></div>
+      <div class="card reveal"><div class="ico" aria-hidden="true">🫀</div><h3>Transplante hepático</h3><p>Atuação como membro de equipe de transplante de fígado no Hospital Português.</p></div>
     </div>
   </div>
 </section>
@@ -392,9 +401,9 @@
   <div class="container">
     <div class="center"><span class="eyebrow">Como o Dr. Daniel cuida do seu caso</span><h2>Cirurgia minimamente invasiva, do diagnóstico ao pós-operatório</h2></div>
     <div class="grid g3" style="margin-top:32px">
-      <div class="pilar reveal"><div class="ico">🔬</div><h3>Videolaparoscopia</h3><p>Quando indicada, a técnica usa pequenas incisões — costuma significar menos dor e recuperação mais rápida.</p></div>
-      <div class="pilar reveal"><div class="ico">🏥</div><h3>Hospitais de referência</h3><p>Cirurgias realizadas nas principais estruturas hospitalares de Salvador.</p></div>
-      <div class="pilar reveal"><div class="ico">🛡️</div><h3>Experiência em alta complexidade</h3><p>Mais de uma década dedicada a casos delicados do aparelho digestivo.</p></div>
+      <div class="pilar reveal"><div class="ico" aria-hidden="true">🔬</div><h3>Videolaparoscopia</h3><p>Quando indicada, a técnica usa pequenas incisões — costuma significar menos dor e recuperação mais rápida.</p></div>
+      <div class="pilar reveal"><div class="ico" aria-hidden="true">🏥</div><h3>Estrutura hospitalar</h3><p>Cirurgias realizadas em estruturas hospitalares de Salvador.</p></div>
+      <div class="pilar reveal"><div class="ico" aria-hidden="true">🛡️</div><h3>Experiência em casos complexos</h3><p>Mais de uma década dedicada a casos delicados do aparelho digestivo.</p></div>
     </div>
   </div>
 </section>
@@ -416,13 +425,13 @@
 <section id="sobre">
   <div class="container sobre">
     <div class="sobre-photo">
-      <img src="assets/sobre.webp" alt="Dr. Daniel Viriato, cirurgião geral em Salvador/BA" loading="lazy" onerror="this.style.display='none'">
-      <div class="crm">Dr. Daniel Viriato • <b>CRM ______ | RQE ______</b></div>
+      <img src="assets/sobre.webp" width="900" height="972" alt="Dr. Daniel Viriato, cirurgião geral em Salvador/BA" loading="lazy" onerror="this.style.display='none'">
+      <div class="crm">Dr. Daniel Viriato • <b>CRM-BA ______ | RQE ______</b></div>
     </div>
     <div class="reveal">
       <span class="eyebrow">Sobre o Dr. Daniel Viriato</span>
-      <h2>Cirurgia séria, com a técnica e a estrutura que o seu caso exige</h2>
-      <p style="margin-top:14px;color:var(--cor-texto-suave)">Há mais de 10 anos dedicado à cirurgia geral e do aparelho digestivo, o Dr. Daniel Viriato atua de procedimentos de rotina à alta complexidade, com domínio da videolaparoscopia. Formado em Medicina pela UFBA, integra a equipe de Transplante Hepático do Hospital Português desde 2015.</p>
+      <h2>Técnica e estrutura adequadas para cada caso</h2>
+      <p style="margin-top:14px;color:var(--cor-texto-suave)">Há mais de 10 anos dedicado à cirurgia geral e do aparelho digestivo, o Dr. Daniel Viriato atua de procedimentos de rotina a casos complexos, com domínio da videolaparoscopia. Formado em Medicina pela UFBA, integra a equipe de Transplante Hepático do Hospital Português desde 2015.</p>
       <ul>
         <li>Graduação em Medicina — UFBA (2001–2007)</li>
         <li>Residência em Cirurgia Geral — Hospital Universitário Professor Edgard Santos (HUPES/UFBA)</li>
@@ -437,13 +446,13 @@
 <!-- ===== ONDE ATENDE (hospitais — bloco de confiança) ===== -->
 <section id="onde" class="sec-cream">
   <div class="container">
-    <div class="center"><span class="eyebrow">Onde atende</span><h2>Atendimento nas principais referências de Salvador</h2>
-      <p class="lead">Consultas e cirurgias realizadas em hospitais e clínicas de referência da capital baiana.</p></div>
+    <div class="center"><span class="eyebrow">Onde atende</span><h2>Atendimento em hospitais de Salvador</h2>
+      <p class="lead">Consultas e cirurgias realizadas em hospitais e clínicas da capital baiana.</p></div>
     <div class="locais">
-      <div class="local reveal"><div class="ico">🏥</div><div><b>Hospital Português</b><span>E.C.O.D. — Centro Médico do Hospital Português (sala 305)</span></div></div>
-      <div class="local reveal"><div class="ico">🏥</div><div><b>Hospital da Bahia</b><span>AMO — Hospital da Bahia</span></div></div>
-      <div class="local reveal"><div class="ico">🏥</div><div><b>Clínica SIM</b><span>Salvador/BA</span></div></div>
-      <div class="local reveal"><div class="ico">🏥</div><div><b>Hospital Santa Izabel</b><span>Centro Médico do Hospital Santa Izabel</span></div></div>
+      <div class="local reveal"><div class="ico" aria-hidden="true">🏥</div><div><b>Hospital Português</b><span>E.C.O.D. — Centro Médico do Hospital Português (sala 305)</span></div></div>
+      <div class="local reveal"><div class="ico" aria-hidden="true">🏥</div><div><b>Hospital da Bahia</b><span>AMO — Hospital da Bahia</span></div></div>
+      <div class="local reveal"><div class="ico" aria-hidden="true">🏥</div><div><b>Clínica SIM</b><span>Salvador/BA</span></div></div>
+      <div class="local reveal"><div class="ico" aria-hidden="true">🏥</div><div><b>Hospital Santa Izabel</b><span>Centro Médico do Hospital Santa Izabel</span></div></div>
     </div>
   </div>
 </section>
@@ -455,7 +464,7 @@
     <div class="faq">
       <details open><summary>O que é videolaparoscopia?</summary><p>É uma técnica cirúrgica minimamente invasiva: em vez de um corte grande, são feitas pequenas incisões por onde passam uma câmera e os instrumentos. Quando indicada, costuma significar menos dor e recuperação mais rápida — a indicação depende da avaliação de cada caso.</p></details>
       <details><summary>Preciso de encaminhamento de outro médico?</summary><p>Não é obrigatório. Você pode agendar uma avaliação diretamente. Se já tiver exames e laudos, leve-os à consulta para uma análise mais completa.</p></details>
-      <details><summary>A cirurgia é feita em qual hospital?</summary><p>Conforme o seu caso, nas principais referências de Salvador — como Hospital Português, Hospital da Bahia e Hospital Santa Izabel. O local é definido na avaliação.</p></details>
+      <details><summary>A cirurgia é feita em qual hospital?</summary><p>Conforme o seu caso, em hospitais de Salvador como Hospital Português, Hospital da Bahia e Hospital Santa Izabel. O local é definido na avaliação.</p></details>
       <details><summary>Atende convênio ou particular?</summary><p>Fale pelo WhatsApp para confirmar as condições de atendimento e o hospital indicado para o seu caso.</p></details>
       <details><summary>Como é a recuperação após a cirurgia?</summary><p>A recuperação varia conforme o procedimento realizado e as características de cada paciente. Você recebe orientações detalhadas de pós-operatório e acompanhamento ao longo do processo.</p></details>
     </div>
@@ -468,12 +477,12 @@
     <div class="center"><span class="eyebrow">Agende sua avaliação</span><h2>Fale com o Dr. Daniel Viriato</h2></div>
     <div class="contato-grid" style="margin-top:32px">
       <div>
-        <div class="info-row"><div class="ico">📍</div><div><b>Salvador / BA</b><span>Hospital Português, Hospital da Bahia, Clínica SIM e Santa Izabel</span></div></div>
-        <div class="info-row"><div class="ico">💬</div><div><b>WhatsApp / Telefone</b><span><a href="tel:+5571984829949">(71) 98482-9949</a></span></div></div>
-        <div class="info-row"><div class="ico">✉️</div><div><b>E-mail</b><span><a href="mailto:danielviriato@yahoo.com.br">danielviriato@yahoo.com.br</a></span></div></div>
+        <div class="info-row"><div class="ico" aria-hidden="true">📍</div><div><b>Salvador / BA</b><span>Hospital Português, Hospital da Bahia, Clínica SIM e Santa Izabel</span></div></div>
+        <div class="info-row"><div class="ico" aria-hidden="true">💬</div><div><b>WhatsApp / Telefone</b><span><a href="tel:+5571984829949">(71) 98482-9949</a></span></div></div>
+        <div class="info-row"><div class="ico" aria-hidden="true">✉️</div><div><b>E-mail</b><span><a href="mailto:danielviriato@yahoo.com.br">danielviriato@yahoo.com.br</a></span></div></div>
         <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-wpp" style="margin-top:8px"><span aria-hidden="true">💬</span> Chamar no WhatsApp</a>
       </div>
-      <div class="map-ph"><img src="assets/mapa.webp" alt="Mapa da localização do Dr. Daniel Viriato — cirurgião em Salvador/BA" loading="lazy" onerror="this.parentNode.innerHTML='🗺️ Salvador / BA'"></div>
+      <div class="map-ph"><span class="pin" aria-hidden="true">📍</span><b>Salvador / BA</b><span>Atendimento em consultório e hospitais da capital baiana</span></div>
     </div>
   </div>
 </section>
@@ -486,6 +495,8 @@
     <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="btn btn-gold"><span aria-hidden="true">💬</span> Agendar minha avaliação</a>
   </div>
 </section>
+
+</main>
 
 <!-- ===== FOOTER ===== -->
 <footer>
@@ -509,105 +520,59 @@
         <div><a href="mailto:danielviriato@yahoo.com.br">danielviriato@yahoo.com.br</a></div>
       </div>
     </div>
-    <div class="foot-bottom">© <span id="ano"></span> Dr. Daniel Viriato — Cirurgia Geral e Videolaparoscopia • CRM ______ | RQE ______ • Site por PS8</div>
+    <div class="foot-bottom">© <span id="ano"></span> Dr. Daniel Viriato — Cirurgia Geral e Videolaparoscopia • CRM-BA ______ | RQE ______ • Site por PS8</div>
   </div>
 </footer>
 
 <a href="https://wa.me/5571984829949?text=Ol%C3%A1!%20Quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Daniel%20Viriato." class="wpp-float" aria-label="Falar no WhatsApp"><span aria-hidden="true">💬</span></a>
-
-<!-- ===== MODAL — FORMULÁRIO LEAD ===== -->
-<div class="modal" id="leadModal" aria-hidden="true">
-  <div class="modal-bg" data-close></div>
-  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
-    <button class="x" data-close aria-label="Fechar">×</button>
-    <span class="eyebrow">Agende sua avaliação</span>
-    <h3 id="leadTitle">Dê o primeiro passo</h3>
-    <p class="msub">Deixe seus dados — a equipe do Dr. Daniel entra em contato pelo WhatsApp.</p>
-    <form id="leadForm">
-      <label for="lf-nome">Nome</label>
-      <input id="lf-nome" name="nome" type="text" placeholder="Seu nome completo" required>
-      <label for="lf-email">E-mail</label>
-      <input id="lf-email" name="email" type="email" placeholder="voce@email.com" required>
-      <label for="lf-tel">WhatsApp</label>
-      <input id="lf-tel" name="telefone" type="tel" placeholder="(00) 00000-0000" required>
-      <button type="submit" class="btn btn-wpp">Quero agendar minha avaliação</button>
-      <p class="priv">🔒 Seus dados são tratados com sigilo e segurança.</p>
-    </form>
-  </div>
-</div>
 
 <script>
   // Header pílula sólida no scroll
   const h=document.getElementById('header');
   const onScroll=()=>h.classList.toggle('scrolled',scrollY>40);
   addEventListener('scroll',onScroll,{passive:true});onScroll();
-  document.getElementById('ano').textContent=new Date().getFullYear();
+  const anoEl=document.getElementById('ano');if(anoEl)anoEl.textContent=new Date().getFullYear();
 
-  // Menu mobile (hambúrguer) — abre/fecha dropdown de navegação
+  // Menu mobile (hambúrguer) — abre/fecha + fecha no Esc
   const mb=document.querySelector('.menu-btn');
   if(mb){
     mb.addEventListener('click',()=>{const o=h.classList.toggle('menu-open');mb.setAttribute('aria-expanded',o)});
     document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{h.classList.remove('menu-open');mb.setAttribute('aria-expanded','false')}));
+    addEventListener('keydown',e=>{if(e.key==='Escape'&&h.classList.contains('menu-open')){h.classList.remove('menu-open');mb.setAttribute('aria-expanded','false');mb.focus()}});
   }
-
-  // Emojis decorativos invisíveis a leitores de tela
-  document.querySelectorAll('.ico').forEach(el=>el.setAttribute('aria-hidden','true'));
 
   // Reveal on scroll
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // Count-up dos números (easeOutCubic, separador pt-BR)
+  // Count-up dos números (sem flicker: zera ANTES de entrar em tela; HTML mantém valor final p/ no-JS)
   const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
   function fmtVal(v,dec){return dec? v.toFixed(dec).replace('.',',') : Math.round(v).toLocaleString('pt-BR');}
+  function startText(el){const dec=+(el.dataset.dec||0),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';return pre+fmtVal(0,dec)+suf;}
+  function finalText(el){const dec=+(el.dataset.dec||0),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';return pre+fmtVal(parseFloat(el.dataset.target),dec)+suf;}
   function animateCount(el){
-    const target=parseFloat(el.dataset.target),dec=+(el.dataset.dec||0),
-          pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';
-    if(RM){el.textContent=pre+fmtVal(target,dec)+suf;return;}
+    const target=parseFloat(el.dataset.target),dec=+(el.dataset.dec||0),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';
     const dur=1100,t0=performance.now();
     (function tick(now){
       let p=Math.min((now-t0)/dur,1);p=1-Math.pow(1-p,3);
       el.textContent=pre+fmtVal(target*p,dec)+suf;
-      if(p<1)requestAnimationFrame(tick);else el.textContent=pre+fmtVal(target,dec)+suf;
+      if(p<1)requestAnimationFrame(tick);else el.textContent=finalText(el);
     })(performance.now());
   }
   const co=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);co.unobserve(e.target)}})},{threshold:.4});
-  document.querySelectorAll('.count').forEach(el=>co.observe(el));
-
-  // Modal lead form (popup em todos os CTAs) — com restauração de foco
-  const modal=document.getElementById('leadModal');
-  let lastTrigger=null;
-  const openModal=e=>{if(e){e.preventDefault();lastTrigger=e.currentTarget}modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';const f=document.getElementById('lf-nome');if(f)setTimeout(()=>f.focus(),60)};
-  const closeModal=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';if(lastTrigger){lastTrigger.focus();lastTrigger=null}};
-  document.querySelectorAll('a.btn-wpp, a.btn-gold, a.btn-primary').forEach(b=>b.addEventListener('click',openModal));
-  modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeModal));
-  addEventListener('keydown',e=>{
-    if(!modal.classList.contains('open'))return;
-    if(e.key==='Escape')return closeModal();
-    if(e.key==='Tab'){
-      const f=modal.querySelectorAll('input,button,[href]');
-      if(!f.length)return;
-      const first=f[0],last=f[f.length-1];
-      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
-      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
-    }
-  });
-  document.getElementById('leadForm').addEventListener('submit',e=>{
-    e.preventDefault();
-    const n=document.getElementById('lf-nome').value.trim(),
-          em=document.getElementById('lf-email').value.trim(),
-          t=document.getElementById('lf-tel').value.trim();
-    const msg=encodeURIComponent('Olá! Meu nome é '+n+'. Quero agendar uma avaliação com o Dr. Daniel Viriato.\nE-mail: '+em+'\nWhatsApp: '+t);
-    window.open('https://wa.me/5571984829949?text='+msg,'_blank','noopener');
-    closeModal();
+  document.querySelectorAll('.count').forEach(el=>{
+    if(RM){el.textContent=finalText(el);return;}
+    el.textContent=startText(el); // invisível: elemento está abaixo da dobra
+    co.observe(el);
   });
 
-  // Cursor customizado redondo (só ponteiro fino + sem redução de movimento)
+  // Cursor customizado (só ponteiro fino + sem redução de movimento)
   if(matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion:reduce)').matches){
     const dot=document.createElement('div'),ring=document.createElement('div');
     dot.className='cursor-dot';ring.className='cursor-ring';
     document.body.append(dot,ring);
-    const root=document.documentElement;root.classList.add('has-cursor');
+    document.documentElement.classList.add('has-cursor');
+    const root=document.documentElement;
     let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,started=false;
     addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';
       if(!started){started=true;root.classList.add('ready')}},{passive:true});

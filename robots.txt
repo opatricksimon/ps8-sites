@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://opatricksimon.github.io/ps8-sites/sitemap.xml
