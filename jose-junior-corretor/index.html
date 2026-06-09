@@ -5,12 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!--
   PS8 SITE — JOSÉ JUNIOR · CORRETOR DE IMÓVEIS (Salvador/BA · CRECI-BA 26560)
-  Base: DESIGN-SYSTEM/nichos/imobiliaria-site-modelo  (navy + dourado + Playfair)
-  Personalizado para CORRETOR AUTÔNOMO / marca pessoal. v1.1 (pós review 5 lentes)
-  Hero ultrawide (foto real) + Ken Burns + shine dourado. Imóveis = criativos reais do IG.
-  Mobile = carrossel arrastável. CTA = formulário embutido -> WhatsApp personalizado.
-  WhatsApp: 5571993801610  (CONFIRMAR: cliente digitou 12 díg; usei 13 díg = móvel BR válido)
-  Instagram: @eu_josejunior
+  v2.0 — Form em POPUP (modal) + seção de VÍDEOS do Instagram com player customizado
+         (clique=play com som · clique de novo=pausa · novo vídeo para o anterior · sem seek)
+         + botões à venda AZUIS + setas laterais nos carrosséis + viewport-fit em mídia vertical.
+  Hero ultrawide (foto real) + Ken Burns. Mobile = carrossel arrastável.
+  WhatsApp: 5571993801610  (CONFIRMAR — cliente digitou 12 díg; usei 13 díg = móvel BR válido)
+  Instagram: instagram.com/eu_josejunior  (exibido como "José Junior", sem @ e sem nº de seguidores)
+  Vídeos: assets/videos/*.mp4 (+ *-poster.jpg). Baixados via yt-dlp a partir dos reels do IG.
 -->
 <title>José Junior — Corretor de Imóveis em Salvador/BA | CRECI-BA 26560</title>
 <meta name="description" content="José Junior, corretor de imóveis em Salvador e Região Metropolitana. Imóveis de alto padrão, na planta, prontos e de revenda — atendimento direto comigo, do primeiro contato às chaves. Fale no WhatsApp." />
@@ -33,6 +34,8 @@
     --grad-realce:linear-gradient(100deg,#A8884E 0%,#E7CE94 28%,#C2A36A 52%,#F1DDA8 74%,#A8884E 100%);
     --verde-prof:#1C6B54; --verde-prof-esc:#124A3A;
     --grad-verde:linear-gradient(100deg,#124A3A 0%,#2C9270 30%,#1C6B54 55%,#37A985 78%,#124A3A 100%);
+    --azul-prof:#1C4E86;
+    --grad-azul:linear-gradient(100deg,#0B2A4A 0%,#2E6DB4 30%,#1C4E86 55%,#3E86D6 78%,#0B2A4A 100%);
     --grad-insta:linear-gradient(45deg,#F58529 0%,#FEDA77 18%,#DD2A7B 48%,#8134AF 74%,#515BD4 100%);
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -59,6 +62,8 @@
   .btn-primary:hover{background:var(--cor-primaria-escura);transform:translateY(-2px);box-shadow:var(--sombra-sm)}
   .btn-wpp{background:var(--grad-verde);background-size:220% auto;color:#fff;box-shadow:0 10px 26px rgba(28,107,84,.34);animation:shimmer 7s linear infinite,softpulse 2.8s ease-in-out infinite}
   .btn-wpp:hover{background-position:right center;transform:translateY(-2px)}
+  .btn-azul{background:var(--grad-azul);background-size:220% auto;color:#fff;box-shadow:0 10px 26px rgba(28,78,134,.36);animation:shimmer 7s linear infinite,softpulse-azul 2.8s ease-in-out infinite}
+  .btn-azul:hover{background-position:right center;transform:translateY(-2px)}
   .btn-gold{background:var(--grad-realce);background-size:220% auto;color:#0E2A47;box-shadow:0 10px 26px rgba(194,163,106,.36);animation:shimmer 7s linear infinite}
   .btn-gold:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 14px 32px rgba(194,163,106,.46)}
   .btn-insta{background:var(--grad-insta);background-size:200% auto;color:#fff;box-shadow:0 10px 28px rgba(221,42,123,.4);animation:shimmer 8s linear infinite}
@@ -66,6 +71,7 @@
   .btn-ghost-light{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.45);backdrop-filter:blur(4px)}
   .btn-ghost-light:hover{background:rgba(255,255,255,.16);border-color:#fff}
   @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(28,107,84,.34)}50%{box-shadow:0 12px 34px rgba(28,107,84,.6)}}
+  @keyframes softpulse-azul{0%,100%{box-shadow:0 10px 26px rgba(28,78,134,.34)}50%{box-shadow:0 12px 34px rgba(28,78,134,.62)}}
   @keyframes shimmer{to{background-position:200% center}}
   a:focus-visible,button:focus-visible,.btn:focus-visible,input:focus-visible{outline:2px solid var(--cor-realce);outline-offset:3px}
 
@@ -121,6 +127,17 @@
   .trust-strip b{display:block;font-family:'Montserrat';font-weight:600;font-size:1.7rem;line-height:1.1;color:var(--cor-realce);font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum" 1,"lnum" 1}
   .trust-strip span{display:block;margin-top:3px;font-size:.74rem;opacity:.78;letter-spacing:.07em;text-transform:uppercase}
 
+  /* ===== CARROSSEL / RAIL + SETAS LATERAIS ===== */
+  .rail-wrap{position:relative}
+  .rail-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:6;width:46px;height:46px;border-radius:50%;border:1px solid var(--cor-borda);background:rgba(255,255,255,.93);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--cor-primaria);font-size:1.5rem;line-height:1;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 24px rgba(14,42,71,.20);transition:transform .2s ease,background .2s ease,opacity .2s ease}
+  .rail-nav:hover{background:#fff;transform:translateY(-50%) scale(1.08)}
+  .rail-nav.prev{left:-8px}
+  .rail-nav.next{right:-8px}
+  .rail-wrap.scrollable .rail-nav{display:flex}
+  .rail-nav[disabled]{opacity:.3;cursor:default}
+  .sec-dark .rail-nav{background:rgba(14,42,71,.62);border-color:rgba(255,255,255,.28);color:#fff}
+  .sec-dark .rail-nav:hover{background:rgba(14,42,71,.9)}
+
   /* ===== IMÓVEIS (à venda / vendidos) ===== */
   .listings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;max-width:840px;margin:32px auto 0}
   .swipe-hint{display:none}
@@ -142,6 +159,21 @@
   .lst-preco small{display:block;font-family:'Montserrat';font-weight:500;font-size:.68rem;color:var(--cor-texto-suave);letter-spacing:.05em;text-transform:uppercase;margin-bottom:1px}
   .lst .btn{width:100%;justify-content:center}
   .lst.sold .lst-preco{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:var(--verde-prof);letter-spacing:.02em}
+
+  /* ===== SEÇÃO DE VÍDEOS (Instagram) — player customizado ===== */
+  .video-rail{display:flex;justify-content:center;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 6px 16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-top:34px}
+  .video-rail::-webkit-scrollbar{display:none}
+  .video-rail.overflowing{justify-content:flex-start}
+  .vcard{position:relative;flex:0 0 auto;height:min(72vh,520px);aspect-ratio:9/16;border-radius:var(--raio);overflow:hidden;background:#000;scroll-snap-align:center;box-shadow:0 18px 50px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.1)}
+  .vplayer{width:100%;height:100%;object-fit:cover;display:block;background:#000;cursor:pointer}
+  .vplay{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(8,18,30,.12),rgba(8,18,30,.46));border:0;cursor:pointer;transition:opacity .3s ease}
+  .vplay::after{content:"";position:absolute;width:84px;height:84px;border-radius:50%;background:rgba(194,163,106,.94);box-shadow:0 8px 30px rgba(0,0,0,.5);z-index:-1;transition:transform .25s ease}
+  .vplay::before{content:"";width:0;height:0;border-style:solid;border-width:17px 0 17px 28px;border-color:transparent transparent transparent #16202C;margin-left:7px}
+  .vplay:hover::after{transform:scale(1.08)}
+  .vcard.playing .vplay{opacity:0;pointer-events:none}
+  .vcap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:30px 16px 14px;background:linear-gradient(transparent,rgba(8,18,30,.86));color:#fff;font-family:'Montserrat';font-weight:600;font-size:.84rem;letter-spacing:.02em;pointer-events:none;transition:opacity .3s ease}
+  .vcard.playing .vcap{opacity:0}
+  .insta-cta{text-align:center;margin-top:30px}
 
   /* ===== RITMO DE COR ===== */
   .sec-cream{background:var(--cor-superficie)}
@@ -169,13 +201,7 @@
   .sobre li{display:flex;gap:12px;align-items:flex-start;color:var(--cor-texto-suave)}
   .sobre li::before{content:"✦";color:var(--cor-realce);font-size:.9rem;margin-top:3px}
 
-  /* ===== INSTAGRAM ===== */
-  .insta-stats{display:flex;justify-content:center;gap:clamp(40px,8vw,90px);margin-top:36px}
-  .insta-stats b{display:block;font-family:'Montserrat';font-weight:600;font-size:clamp(2rem,5vw,2.6rem);line-height:1;color:var(--cor-realce);font-variant-numeric:tabular-nums lining-nums;text-align:center}
-  .insta-stats span{display:block;text-align:center;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:7px}
-  .insta-cta{text-align:center;margin-top:38px}
-
-  /* ===== CTA FINAL — FORMULÁRIO EMBUTIDO ===== */
+  /* ===== CTA FINAL (abre o popup) ===== */
   .cta-form-sec{background:linear-gradient(135deg,var(--cor-primaria),#10314f);color:#fff;position:relative;overflow:hidden}
   .cta-form-sec::before{content:"";position:absolute;top:-40%;right:-10%;width:60%;height:160%;background:radial-gradient(circle,rgba(194,163,106,.16),transparent 62%);pointer-events:none}
   .cta-form-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;position:relative;z-index:2}
@@ -185,15 +211,11 @@
   .cta-trust{display:flex;gap:22px;margin-top:26px;flex-wrap:wrap}
   .cta-trust div{font-size:.82rem;color:rgba(255,255,255,.78);display:flex;align-items:center;gap:8px}
   .cta-trust b{color:var(--cor-realce)}
-  .cta-form-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:var(--raio);padding:clamp(24px,3vw,34px);box-shadow:0 24px 60px rgba(8,18,30,.34)}
-  .cta-form-card .ftit{font-family:'Playfair Display';font-weight:600;font-size:1.32rem;margin-bottom:5px}
-  .cta-form-card .fsub{font-size:.86rem;color:rgba(255,255,255,.7);margin-bottom:20px}
-  .cta-form-card label{display:block;font-family:'Montserrat';font-size:.76rem;font-weight:600;letter-spacing:.03em;margin:0 0 6px;color:rgba(255,255,255,.88)}
-  .cta-form-card input{width:100%;padding:13px 15px;border-radius:var(--raio-sm);border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.96);color:#16202C;font-family:'Montserrat';font-size:.95rem;margin-bottom:14px;transition:.2s}
-  .cta-form-card input:focus{outline:0;border-color:var(--cor-realce);box-shadow:0 0 0 3px rgba(194,163,106,.32)}
-  .cta-form-card input::placeholder{color:#9aa3ac}
-  .cta-form-card .btn{width:100%;justify-content:center;margin-top:6px}
-  .cta-form-card .priv{font-size:.74rem;color:rgba(255,255,255,.62);text-align:center;margin-top:13px}
+  .cta-form-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:var(--raio);padding:clamp(26px,3vw,38px);box-shadow:0 24px 60px rgba(8,18,30,.34);display:flex;flex-direction:column;justify-content:center;text-align:center}
+  .cta-form-card .ftit{font-family:'Playfair Display';font-weight:600;font-size:1.5rem;margin-bottom:7px}
+  .cta-form-card .fsub{font-size:.9rem;color:rgba(255,255,255,.74);margin-bottom:22px}
+  .cta-form-card .btn{width:100%;justify-content:center}
+  .cta-form-card .priv{font-size:.74rem;color:rgba(255,255,255,.62);text-align:center;margin-top:14px}
 
   /* ===== CONTATO ===== */
   .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;margin-top:34px}
@@ -231,6 +253,23 @@
   .has-cursor input,.has-cursor textarea{cursor:text}
   @media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
 
+  /* ===== MODAL / POPUP DE CAPTAÇÃO ===== */
+  .modal-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(8,18,30,.74);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s ease}
+  .modal-overlay.open{opacity:1;visibility:visible}
+  .modal-card{position:relative;width:100%;max-width:440px;max-height:92vh;overflow-y:auto;background:linear-gradient(150deg,#10314f,#0E2A47 60%,#0B1A2B);border:1px solid rgba(194,163,106,.3);border-radius:var(--raio);padding:clamp(26px,4vw,40px);box-shadow:0 30px 80px rgba(0,0,0,.55);transform:translateY(20px) scale(.98);transition:transform .35s cubic-bezier(.22,.61,.36,1);color:#fff}
+  .modal-overlay.open .modal-card{transform:none}
+  .modal-card .ftit{font-family:'Playfair Display';font-weight:600;font-size:1.5rem;margin-bottom:5px;color:#fff}
+  .modal-card .fsub{font-size:.88rem;color:rgba(255,255,255,.72);margin-bottom:22px}
+  .modal-card label{display:block;font-family:'Montserrat';font-size:.76rem;font-weight:600;letter-spacing:.03em;margin:0 0 6px;color:rgba(255,255,255,.88)}
+  .modal-card input[type=text],.modal-card input[type=tel],.modal-card input[type=email]{width:100%;padding:13px 15px;border-radius:var(--raio-sm);border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.96);color:#16202C;font-family:'Montserrat';font-size:16px;margin-bottom:14px;transition:.2s}
+  .modal-card input:focus{outline:0;border-color:var(--cor-realce);box-shadow:0 0 0 3px rgba(194,163,106,.32)}
+  .modal-card input::placeholder{color:#9aa3ac}
+  .modal-card .btn{width:100%;justify-content:center;margin-top:6px}
+  .modal-card .priv{font-size:.74rem;color:rgba(255,255,255,.62);text-align:center;margin-top:13px}
+  .modal-close{position:absolute;top:12px;right:14px;width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;background:rgba(255,255,255,.1);color:#fff;font-size:1.6rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease}
+  .modal-close:hover{background:rgba(255,255,255,.2);transform:rotate(90deg)}
+  body.modal-open{overflow:hidden}
+
   /* ===== RESPONSIVE ===== */
   @media(max-width:980px){
     .nav-links{position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;gap:0;
@@ -258,6 +297,8 @@
     .sec-dark .swipe-hint{color:rgba(255,255,255,.6)}
     .swipe-hint .ar{animation:swipeAr 1.6s ease-in-out infinite}
     @keyframes swipeAr{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+    .rail-nav.prev{left:2px}
+    .rail-nav.next{right:2px}
   }
   @media(max-width:600px){
     body{font-size:16px}
@@ -267,8 +308,8 @@
     .hero-cta{flex-direction:column;align-items:stretch}
     .hero-cta .btn{justify-content:center}
     .lst{flex-basis:84%}
-    .cta-form-card input{font-size:16px}
     .wpp-float{width:52px;height:52px;font-size:1.5rem;bottom:16px;right:16px}
+    .rail-nav{width:40px;height:40px;font-size:1.25rem}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
@@ -285,8 +326,8 @@
     <nav class="nav-links" id="navLinks">
       <a href="#imoveis">Imóveis</a>
       <a href="#vendidos">Vendidos</a>
+      <a href="#instagram">Vídeos</a>
       <a href="#sobre">Sobre</a>
-      <a href="#instagram">Instagram</a>
       <a href="#contato">Contato</a>
     </nav>
     <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vi%20seu%20site%20e%20quero%20falar%20sobre%20im%C3%B3veis%20em%20Salvador." class="btn btn-gold">Falar no WhatsApp</a>
@@ -312,13 +353,13 @@
   <div class="scroll-cue">Role para ver os imóveis<span class="mouse"></span></div>
 </section>
 
-<!-- ===== TRUST STRIP ===== -->
+<!-- ===== TRUST STRIP (sem nº de seguidores) ===== -->
 <div class="trust-strip">
   <div class="container">
-    <div class="ts-item"><b class="count" data-target="5900" data-prefix="+">+0</b><span>Seguidores no Instagram</span></div>
     <div class="ts-item"><b class="count" data-target="500" data-prefix="+">+0</b><span>Imóveis publicados</span></div>
     <div class="ts-item"><b>26560</b><span>CRECI-BA • registro ativo</span></div>
     <div class="ts-item"><b class="count" data-target="100" data-suffix="%">0%</b><span>Atendimento direto</span></div>
+    <div class="ts-item"><b>Hoje</b><span>Resposta no mesmo dia</span></div>
   </div>
 </div>
 
@@ -330,38 +371,42 @@
       <h2>Imóveis selecionados em Salvador e Região</h2>
       <p class="lead">Uma curadoria pessoal de empreendimentos e apartamentos com excelente localização. Clique e fale comigo direto sobre o que te interessou.</p>
     </div>
-    <div class="listings">
-      <!-- GREEN HOME -->
-      <article class="lst reveal">
-        <div class="lst-media">
-          <span class="lst-badge venda">À venda • Na planta</span>
-          <img src="assets/green-home.webp" alt="Green Home — casas de 3 e 4 suítes em Vilas de Abrantes" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="lst-body">
-          <h3>Green Home</h3>
-          <div class="lst-bairro">📍 Vilas de Abrantes • Camaçari/BA</div>
-          <p class="lst-hl">Casas de 3 ou 4 suítes com quintal privativo, em condomínio com mais de 3.700&nbsp;m² de lazer. Pode ser financiável em até 100% pela Caixa e usar o FGTS (sujeito a análise de crédito).</p>
-          <div class="lst-preco"><small>A partir de</small>R$ 638.800</div>
-          <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Tenho%20interesse%20no%20Green%20Home%20(Vilas%20de%20Abrantes).%20Pode%20me%20passar%20mais%20detalhes%3F" class="btn btn-wpp">💬 Quero saber mais</a>
-        </div>
-      </article>
-      <!-- BEACH CLASS ONDINA -->
-      <article class="lst reveal">
-        <div class="lst-media">
-          <span class="lst-badge venda">À venda • Frente mar</span>
-          <img src="assets/beach-class.webp" alt="Beach Class Salvador, Ondina — apartamento alto padrão vista mar" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="lst-body">
-          <h3>Beach Class — Ondina</h3>
-          <div class="lst-bairro">📍 Ondina • vista mar</div>
-          <p class="lst-hl">Alto padrão de frente para o mar: andar altíssimo, piscina de borda infinita, rooftop, academia e acesso à praia. Vem mobiliado, é só entrar.</p>
-          <div class="lst-preco">R$ 1.250.000</div>
-          <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Tenho%20interesse%20no%20Beach%20Class%20Salvador%20(Ondina).%20Pode%20me%20passar%20mais%20detalhes%3F" class="btn btn-wpp">💬 Quero saber mais</a>
-        </div>
-      </article>
+    <div class="rail-wrap">
+      <button class="rail-nav prev" type="button" aria-label="Anterior" data-rail-prev>‹</button>
+      <div class="listings" data-rail>
+        <!-- GREEN HOME -->
+        <article class="lst reveal">
+          <div class="lst-media">
+            <span class="lst-badge venda">À venda • Na planta</span>
+            <img src="assets/green-home.webp" alt="Green Home — casas de 3 e 4 suítes em Vilas de Abrantes" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="lst-body">
+            <h3>Green Home</h3>
+            <div class="lst-bairro">📍 Vilas de Abrantes • Camaçari/BA</div>
+            <p class="lst-hl">Casas de 3 ou 4 suítes com quintal privativo, em condomínio com mais de 3.700&nbsp;m² de lazer. Pode ser financiável em até 100% pela Caixa e usar o FGTS (sujeito a análise de crédito).</p>
+            <div class="lst-preco"><small>A partir de</small>R$ 638.800</div>
+            <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Tenho%20interesse%20no%20Green%20Home%20(Vilas%20de%20Abrantes).%20Pode%20me%20passar%20mais%20detalhes%3F" class="btn btn-azul" data-context="Tenho interesse no Green Home, em Vilas de Abrantes.">💬 Quero saber mais</a>
+          </div>
+        </article>
+        <!-- BEACH CLASS ONDINA -->
+        <article class="lst reveal">
+          <div class="lst-media">
+            <span class="lst-badge venda">À venda • Frente mar</span>
+            <img src="assets/beach-class.webp" alt="Beach Class Salvador, Ondina — apartamento alto padrão vista mar" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="lst-body">
+            <h3>Beach Class — Ondina</h3>
+            <div class="lst-bairro">📍 Ondina • vista mar</div>
+            <p class="lst-hl">Alto padrão de frente para o mar: andar altíssimo, piscina de borda infinita, rooftop, academia e acesso à praia. Vem mobiliado, é só entrar.</p>
+            <div class="lst-preco">R$ 1.250.000</div>
+            <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Tenho%20interesse%20no%20Beach%20Class%20Salvador%20(Ondina).%20Pode%20me%20passar%20mais%20detalhes%3F" class="btn btn-azul" data-context="Tenho interesse no Beach Class, em Ondina.">💬 Quero saber mais</a>
+          </div>
+        </article>
+      </div>
+      <button class="rail-nav next" type="button" aria-label="Próximo" data-rail-next>›</button>
     </div>
     <div class="swipe-hint"><span class="ar">←</span> arraste para ver os imóveis <span class="ar">→</span></div>
-    <div class="center" style="margin-top:30px"><a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Quero%20ver%20mais%20op%C3%A7%C3%B5es%20de%20im%C3%B3veis%20em%20Salvador." class="btn btn-primary">Ver mais opções no WhatsApp</a></div>
+    <div class="center" style="margin-top:30px"><a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Quero%20ver%20mais%20op%C3%A7%C3%B5es%20de%20im%C3%B3veis%20em%20Salvador." class="btn btn-primary" data-context="Quero ver mais opções de imóveis em Salvador.">Ver mais opções</a></div>
   </div>
 </section>
 
@@ -373,38 +418,71 @@
       <h2>Negócios que já fechei em Salvador</h2>
       <p class="lead">Estes imóveis já encontraram dono. São a prova de que, com o atendimento certo, o imóvel certo não fica parado. Quer encontrar o próximo? Fale comigo.</p>
     </div>
-    <div class="listings">
-      <!-- ARMAÇÃO -->
-      <article class="lst sold reveal">
-        <div class="lst-media">
-          <div class="lst-ribbon"><span>Vendido</span></div>
-          <img src="assets/armacao.webp" alt="Apartamento vendido na Armação, vista mar — Rua Rodrigues Dorea" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="lst-body">
-          <h3>Apartamento Armação</h3>
-          <div class="lst-bairro">📍 Armação • vista mar</div>
-          <p class="lst-hl">97&nbsp;m², 3 quartos (1 suíte), lavabo, 2 vagas, vista mar e posição norte/sul. Vinha com boa parte dos móveis, prédio com lazer completo.</p>
-          <div class="lst-preco">Negócio fechado ✓</div>
-          <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vi%20que%20voc%C3%AA%20vendeu%20o%20ap%C3%AA%20na%20Arma%C3%A7%C3%A3o.%20Quero%20encontrar%20um%20im%C3%B3vel%20parecido." class="btn btn-gold">Quero um imóvel assim</a>
-        </div>
-      </article>
-      <!-- STIEP -->
-      <article class="lst sold reveal">
-        <div class="lst-media">
-          <div class="lst-ribbon"><span>Vendido</span></div>
-          <img src="assets/stiep.webp" alt="Apartamento vendido no Stiep, 78m², andar alto, vista livre" loading="lazy" onerror="this.style.display='none'">
-        </div>
-        <div class="lst-body">
-          <h3>Apartamento Stiep</h3>
-          <div class="lst-bairro">📍 Stiep • andar alto</div>
-          <p class="lst-hl">78&nbsp;m², vista livre e nascente, 3 quartos (1 suíte), varanda e 1 vaga coberta. Prédio com piscina, academia, quadra e portaria 24h.</p>
-          <div class="lst-preco">Negócio fechado ✓</div>
-          <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vi%20que%20voc%C3%AA%20vendeu%20o%20ap%C3%AA%20no%20Stiep.%20Quero%20encontrar%20um%20im%C3%B3vel%20parecido." class="btn btn-gold">Quero um imóvel assim</a>
-        </div>
-      </article>
+    <div class="rail-wrap">
+      <button class="rail-nav prev" type="button" aria-label="Anterior" data-rail-prev>‹</button>
+      <div class="listings" data-rail>
+        <!-- ARMAÇÃO -->
+        <article class="lst sold reveal">
+          <div class="lst-media">
+            <div class="lst-ribbon"><span>Vendido</span></div>
+            <img src="assets/armacao.webp" alt="Apartamento vendido na Armação, vista mar — Rua Rodrigues Dorea" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="lst-body">
+            <h3>Apartamento Armação</h3>
+            <div class="lst-bairro">📍 Armação • vista mar</div>
+            <p class="lst-hl">97&nbsp;m², 3 quartos (1 suíte), lavabo, 2 vagas, vista mar e posição norte/sul. Vinha com boa parte dos móveis, prédio com lazer completo.</p>
+            <div class="lst-preco">Negócio fechado ✓</div>
+            <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vi%20que%20voc%C3%AA%20vendeu%20o%20ap%C3%AA%20na%20Arma%C3%A7%C3%A3o.%20Quero%20encontrar%20um%20im%C3%B3vel%20parecido." class="btn btn-gold" data-context="Vi o apê vendido na Armação e quero encontrar algo parecido.">Quero um imóvel assim</a>
+          </div>
+        </article>
+        <!-- STIEP -->
+        <article class="lst sold reveal">
+          <div class="lst-media">
+            <div class="lst-ribbon"><span>Vendido</span></div>
+            <img src="assets/stiep.webp" alt="Apartamento vendido no Stiep, 78m², andar alto, vista livre" loading="lazy" onerror="this.style.display='none'">
+          </div>
+          <div class="lst-body">
+            <h3>Apartamento Stiep</h3>
+            <div class="lst-bairro">📍 Stiep • andar alto</div>
+            <p class="lst-hl">78&nbsp;m², vista livre e nascente, 3 quartos (1 suíte), varanda e 1 vaga coberta. Prédio com piscina, academia, quadra e portaria 24h.</p>
+            <div class="lst-preco">Negócio fechado ✓</div>
+            <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vi%20que%20voc%C3%AA%20vendeu%20o%20ap%C3%AA%20no%20Stiep.%20Quero%20encontrar%20um%20im%C3%B3vel%20parecido." class="btn btn-gold" data-context="Vi o apê vendido no Stiep e quero encontrar algo parecido.">Quero um imóvel assim</a>
+          </div>
+        </article>
+      </div>
+      <button class="rail-nav next" type="button" aria-label="Próximo" data-rail-next>›</button>
     </div>
     <div class="swipe-hint"><span class="ar">←</span> arraste para ver <span class="ar">→</span></div>
-    <div class="center" style="margin-top:30px"><a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20N%C3%A3o%20quero%20perder%20a%20pr%C3%B3xima%20oportunidade.%20Me%20ajuda%20a%20achar%20o%20meu%3F" class="btn btn-gold">💬 Quero achar o meu antes que venda</a></div>
+    <div class="center" style="margin-top:30px"><a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20N%C3%A3o%20quero%20perder%20a%20pr%C3%B3xima%20oportunidade.%20Me%20ajuda%20a%20achar%20o%20meu%3F" class="btn btn-gold" data-context="Não quero perder a próxima oportunidade. Me ajuda a achar o meu?">💬 Quero achar o meu antes que venda</a></div>
+  </div>
+</section>
+
+<!-- ===== VÍDEOS (Instagram) — player customizado ===== -->
+<section id="instagram" class="sec-dark">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Vídeos de José Junior</span>
+      <h2>Veja os imóveis por dentro, na voz de quem vende</h2>
+      <p class="lead">Toque no vídeo para assistir com som. Os mesmos tours que rodam no meu Instagram, agora aqui pra você conhecer cada imóvel de verdade.</p>
+    </div>
+    <div class="rail-wrap reveal">
+      <button class="rail-nav prev" type="button" aria-label="Anterior" data-rail-prev>‹</button>
+      <div class="video-rail" data-rail>
+        <article class="vcard">
+          <video class="vplayer" preload="metadata" playsinline webkit-playsinline poster="assets/videos/green-home-poster.jpg" controlslist="nodownload noplaybackrate noremoteplayback" disablepictureinpicture oncontextmenu="return false">
+            <source src="assets/videos/green-home.mp4" type="video/mp4">
+          </video>
+          <button class="vplay" type="button" aria-label="Reproduzir vídeo"></button>
+          <div class="vcap">Green Home · Vilas de Abrantes</div>
+        </article>
+        <!-- + Para adicionar mais vídeos: baixar o .mp4 do reel para assets/videos/ e duplicar este bloco <article class="vcard"> -->
+      </div>
+      <button class="rail-nav next" type="button" aria-label="Próximo" data-rail-next>›</button>
+    </div>
+    <div class="swipe-hint"><span class="ar">←</span> arraste para ver mais vídeos <span class="ar">→</span></div>
+    <div class="insta-cta">
+      <a href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener" class="btn btn-insta">📸 Seguir José Junior no Instagram</a>
+    </div>
   </div>
 </section>
 
@@ -442,31 +520,13 @@
   </div>
 </section>
 
-<!-- ===== INSTAGRAM ===== -->
-<section id="instagram" class="sec-dark">
-  <div class="container">
-    <div class="center">
-      <span class="eyebrow">@eu_josejunior</span>
-      <h2>Os melhores imóveis aparecem primeiro no meu Instagram</h2>
-      <p class="lead">É lá que eu publico os lançamentos de Salvador em primeira mão, antes de chegarem nos portais. Me siga para não perder a próxima oportunidade.</p>
-    </div>
-    <div class="insta-stats reveal">
-      <div><b class="count" data-target="500" data-prefix="+">+0</b><span>Imóveis publicados</span></div>
-      <div><b class="count" data-target="5900" data-prefix="+">+0</b><span>Seguidores</span></div>
-    </div>
-    <div class="insta-cta">
-      <a href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener" class="btn btn-insta">📸 Seguir @eu_josejunior</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CTA FINAL — FORMULÁRIO EMBUTIDO ===== -->
+<!-- ===== CTA FINAL — abre o popup ===== -->
 <section class="cta-form-sec">
   <div class="container cta-form-grid">
     <div class="reveal">
       <span class="eyebrow">Vamos começar</span>
       <h2>Me conta o que você procura — <em>eu encontro</em>.</h2>
-      <p class="lead">Preencha seus dados e já te chamo no WhatsApp com as melhores opções para o seu perfil. Rápido, direto e sem compromisso.</p>
+      <p class="lead">Deixe seu nome e WhatsApp e eu já te chamo com as melhores opções para o seu perfil. Rápido, direto e sem compromisso.</p>
       <div class="cta-trust">
         <div>🔑 <b>CRECI-BA 26560</b> ativo</div>
         <div>📍 <b>Salvador</b> e Região</div>
@@ -474,18 +534,10 @@
       </div>
     </div>
     <div class="cta-form-card reveal">
-      <div class="ftit">Falar com o José</div>
-      <div class="fsub">É só preencher — a conversa abre direto no seu WhatsApp.</div>
-      <form id="leadForm" novalidate>
-        <label for="lf-nome">Seu nome</label>
-        <input id="lf-nome" name="nome" type="text" placeholder="Como posso te chamar?" required autocomplete="name">
-        <label for="lf-tel">Seu WhatsApp</label>
-        <input id="lf-tel" name="telefone" type="tel" placeholder="(71) 90000-0000" autocomplete="tel" inputmode="tel">
-        <label for="lf-email">E-mail (opcional)</label>
-        <input id="lf-email" name="email" type="email" placeholder="voce@email.com" autocomplete="email">
-        <button type="submit" class="btn btn-wpp">💬 Falar com o José no WhatsApp</button>
-        <p class="priv">🔒 Seus dados são usados só para este contato. Sem spam.</p>
-      </form>
+      <div class="ftit">Vamos achar seu imóvel?</div>
+      <div class="fsub">Clique abaixo, deixe seu nome e WhatsApp, e eu te chamo com as melhores opções pro seu perfil.</div>
+      <button type="button" class="btn btn-wpp" data-open-form>💬 Quero falar com o José</button>
+      <p class="priv">🔒 Leva 20 segundos. Sem spam.</p>
     </div>
   </div>
 </section>
@@ -498,7 +550,7 @@
       <div class="reveal">
         <div class="info-row"><div class="ico">📍</div><div><b>Região de atuação</b><span>Salvador e Região Metropolitana — BA</span></div></div>
         <div class="info-row"><div class="ico">💬</div><div><b>WhatsApp</b><span>(71) 99380-1610</span></div></div>
-        <div class="info-row"><div class="ico">📸</div><div><b>Instagram</b><span>@eu_josejunior</span></div></div>
+        <div class="info-row"><div class="ico">📸</div><div><b>Instagram</b><span>José Junior</span></div></div>
         <div class="info-row"><div class="ico">🔑</div><div><b>Registro</b><span>CRECI-BA 26560 • corretor ativo</span></div></div>
         <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Quero%20agendar%20um%20atendimento." class="btn btn-wpp" style="margin-top:10px">💬 Chamar no WhatsApp</a>
       </div>
@@ -522,14 +574,14 @@
         <h4>Navegação</h4>
         <div><a href="#imoveis">Imóveis à venda</a></div>
         <div><a href="#vendidos">Vendidos</a></div>
+        <div><a href="#instagram">Vídeos</a></div>
         <div><a href="#sobre">Sobre</a></div>
-        <div><a href="#instagram">Instagram</a></div>
         <div><a href="#contato">Contato</a></div>
       </div>
       <div class="foot-col">
         <h4>Contato</h4>
         <div><a href="https://wa.me/5571993801610">WhatsApp: (71) 99380-1610</a></div>
-        <div><a href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener">@eu_josejunior</a></div>
+        <div><a href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener">Instagram de José Junior</a></div>
         <div>Salvador / BA</div>
         <div>CRECI-BA 26560</div>
       </div>
@@ -540,12 +592,31 @@
 
 <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20im%C3%B3veis." class="wpp-float" aria-label="WhatsApp">💬</a>
 
+<!-- ===== POPUP / MODAL DE CAPTAÇÃO ===== -->
+<div class="modal-overlay" id="formModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="fm-title">
+    <button class="modal-close" id="fmClose" type="button" aria-label="Fechar">×</button>
+    <div class="ftit" id="fm-title">Falar com o José</div>
+    <div class="fsub" id="fm-sub">É só preencher — a conversa abre direto no seu WhatsApp.</div>
+    <form id="leadForm" novalidate>
+      <input type="hidden" id="lf-context" value="">
+      <label for="lf-nome">Seu nome</label>
+      <input id="lf-nome" name="nome" type="text" placeholder="Como posso te chamar?" required autocomplete="name">
+      <label for="lf-tel">Seu WhatsApp</label>
+      <input id="lf-tel" name="telefone" type="tel" placeholder="(71) 90000-0000" autocomplete="tel" inputmode="tel">
+      <label for="lf-email">E-mail (opcional)</label>
+      <input id="lf-email" name="email" type="email" placeholder="voce@email.com" autocomplete="email">
+      <button type="submit" class="btn btn-wpp">💬 Falar com o José no WhatsApp</button>
+      <p class="priv">🔒 Seus dados são usados só para este contato. Sem spam.</p>
+    </form>
+  </div>
+</div>
+
 <script>
   // Header solid on scroll
   const h=document.getElementById('header');
   const onScroll=()=>h.classList.toggle('scrolled',scrollY>40);
   addEventListener('scroll',onScroll,{passive:true});onScroll();
-  // Ano
   document.getElementById('ano').textContent=new Date().getFullYear();
 
   // Menu mobile (dropdown funcional)
@@ -575,8 +646,83 @@
   const co=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);co.unobserve(e.target)}})},{threshold:.6});
   document.querySelectorAll('.count').forEach(el=>co.observe(el));
 
-  // ===== Formulário embutido -> WhatsApp personalizado =====
+  // ===== Player de vídeo customizado =====
+  // clique = play COM SOM | clique de novo no mesmo = pausa | iniciar outro para o anterior | sem barra de progresso
+  const vcards=[...document.querySelectorAll('.vcard')];
+  function pauseOthers(except){
+    vcards.forEach(c=>{const v=c.querySelector('video');if(v&&v!==except){v.pause();c.classList.remove('playing');}});
+  }
+  vcards.forEach(card=>{
+    const v=card.querySelector('video');
+    const play=card.querySelector('.vplay');
+    const toggle=()=>{
+      if(v.paused){
+        pauseOthers(v);
+        v.muted=false;v.volume=1;
+        const pr=v.play();card.classList.add('playing');
+        if(pr&&pr.catch)pr.catch(()=>{});
+      }else{
+        v.pause();card.classList.remove('playing');
+      }
+    };
+    play.addEventListener('click',toggle);
+    v.addEventListener('click',toggle);
+    v.addEventListener('pause',()=>card.classList.remove('playing'));
+    v.addEventListener('play',()=>card.classList.add('playing'));
+    v.addEventListener('ended',()=>{card.classList.remove('playing');v.currentTime=0;});
+  });
+
+  // ===== Setas laterais dos carrosséis =====
+  document.querySelectorAll('.rail-wrap').forEach(wrap=>{
+    const rail=wrap.querySelector('[data-rail]');
+    const prev=wrap.querySelector('[data-rail-prev]');
+    const next=wrap.querySelector('[data-rail-next]');
+    if(!rail||!prev||!next)return;
+    const update=()=>{
+      const scrollable=rail.scrollWidth-rail.clientWidth>8;
+      wrap.classList.toggle('scrollable',scrollable);
+      rail.classList.toggle('overflowing',scrollable);
+      if(!scrollable)return;
+      prev.disabled=rail.scrollLeft<=2;
+      next.disabled=rail.scrollLeft>=rail.scrollWidth-rail.clientWidth-2;
+    };
+    const step=()=>Math.max(rail.clientWidth*.82,260);
+    prev.addEventListener('click',()=>rail.scrollBy({left:-step(),behavior:'smooth'}));
+    next.addEventListener('click',()=>rail.scrollBy({left:step(),behavior:'smooth'}));
+    rail.addEventListener('scroll',update,{passive:true});
+    addEventListener('resize',update);
+    setTimeout(update,80);
+  });
+
+  // ===== Popup / modal de captação -> WhatsApp personalizado =====
   const WPP='5571993801610';
+  const modal=document.getElementById('formModal');
+  const fmSub=document.getElementById('fm-sub');
+  const ctxField=document.getElementById('lf-context');
+  let lastFocus=null;
+  function openModal(context){
+    ctxField.value=context||'';
+    fmSub.textContent = context ? 'Deixe seu nome e WhatsApp — já te respondo sobre isso.' : 'É só preencher — a conversa abre direto no seu WhatsApp.';
+    lastFocus=document.activeElement;
+    modal.classList.add('open');modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('modal-open');
+    setTimeout(()=>document.getElementById('lf-nome').focus(),60);
+  }
+  function closeModal(){
+    modal.classList.remove('open');modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  // Qualquer CTA de WhatsApp (ou [data-open-form]) abre o popup
+  document.addEventListener('click',e=>{
+    const t=e.target.closest('a[href*="wa.me"],[data-open-form]');
+    if(!t)return;
+    e.preventDefault();
+    openModal(t.dataset.context||'');
+  });
+  document.getElementById('fmClose').addEventListener('click',closeModal);
+  modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+  addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
   document.getElementById('leadForm').addEventListener('submit',e=>{
     e.preventDefault();
     const n=document.getElementById('lf-nome').value.trim(),
@@ -584,7 +730,8 @@
           em=document.getElementById('lf-email').value.trim();
     if(!n){document.getElementById('lf-nome').focus();return;}
     if(em && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){document.getElementById('lf-email').focus();return;}
-    const linhas=['Olá José! Meu nome é '+n+'.','Quero falar sobre imóveis em Salvador.'];
+    const ctx=ctxField.value.trim();
+    const linhas=['Olá José! Meu nome é '+n+'.', ctx||'Quero falar sobre imóveis em Salvador.'];
     if(t)  linhas.push('Meu WhatsApp: '+t);
     if(em) linhas.push('E-mail: '+em);
     const url='https://wa.me/'+WPP+'?text='+encodeURIComponent(linhas.join('\n'));
@@ -601,7 +748,7 @@
     addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';
       if(!started){started=true;root.classList.add('ready')}},{passive:true});
     (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
-    const hov='a,button,summary,.btn,.lst';
+    const hov='a,button,summary,.btn,.lst,.vcard';
     addEventListener('mouseover',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.add('hovering')});
     addEventListener('mouseout',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.remove('hovering')});
   }
