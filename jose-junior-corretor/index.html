@@ -6,10 +6,9 @@
 <!--
   PS8 SITE — JOSÉ JUNIOR · CORRETOR DE IMÓVEIS (Salvador/BA · CRECI-BA 26560)
   Base: DESIGN-SYSTEM/nichos/imobiliaria-site-modelo  (navy + dourado + Playfair)
-  Personalizado para CORRETOR AUTÔNOMO / marca pessoal.
-  Hero: imagem ultrawide (foto real dele) + Ken Burns + shine dourado.
-  Imóveis = criativos reais do Instagram (à venda / vendidos com tarja). Mobile = carrossel arrastável.
-  CTA = formulário embutido (nome/email/telefone) que personaliza a mensagem do WhatsApp.
+  Personalizado para CORRETOR AUTÔNOMO / marca pessoal. v1.1 (pós review 5 lentes)
+  Hero ultrawide (foto real) + Ken Burns + shine dourado. Imóveis = criativos reais do IG.
+  Mobile = carrossel arrastável. CTA = formulário embutido -> WhatsApp personalizado.
   WhatsApp: 5571993801610  (CONFIRMAR: cliente digitou 12 díg; usei 13 díg = móvel BR válido)
   Instagram: @eu_josejunior
 -->
@@ -49,6 +48,7 @@
   img{max-width:100%;display:block}
   .container{max-width:var(--container);margin:0 auto;padding:0 24px}
   section{padding:clamp(44px,6vh,80px) 0}
+  section[id]{scroll-margin-top:92px}
   .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Montserrat';font-weight:600;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cor-realce-escura);margin-bottom:20px}
   .eyebrow::before{content:"";width:30px;height:1px;background:var(--cor-realce)}
   .center{text-align:center}
@@ -67,10 +67,11 @@
   .btn-ghost-light:hover{background:rgba(255,255,255,.16);border-color:#fff}
   @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(28,107,84,.34)}50%{box-shadow:0 12px 34px rgba(28,107,84,.6)}}
   @keyframes shimmer{to{background-position:200% center}}
+  a:focus-visible,button:focus-visible,.btn:focus-visible,input:focus-visible{outline:2px solid var(--cor-realce);outline-offset:3px}
 
   /* ===== HEADER (flutuante / floating pill) ===== */
   header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease;padding:18px 16px 0}
-  header .nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:none;margin:0;
+  header .nav{position:relative;display:flex;align-items:center;justify-content:space-between;height:64px;max-width:none;margin:0;
     padding:0 14px 0 calc(clamp(24px,6vw,72px) - 16px);border-radius:999px;
     background:rgba(11,26,43,.30);backdrop-filter:blur(12px) saturate(130%);-webkit-backdrop-filter:blur(12px) saturate(130%);
     border:1px solid rgba(255,255,255,.16);box-shadow:0 8px 30px rgba(8,18,30,.18);transition:.35s ease}
@@ -81,13 +82,14 @@
   .nav-links a{color:rgba(255,255,255,.92);transition:.2s;position:relative}
   .nav-links a:hover{color:var(--cor-realce)}
   header .btn{padding:10px 20px;font-size:.82rem}
+  header .btn-gold{animation:none}
   header.scrolled{padding-top:10px}
   header.scrolled .nav{background:rgba(255,255,255,.92);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--cor-borda);box-shadow:0 10px 34px rgba(14,42,71,.14)}
   header.scrolled .logo{color:var(--cor-primaria)}
   header.scrolled .logo small{opacity:.55}
   header.scrolled .nav-links a{color:var(--cor-texto-suave)}
   header.scrolled .nav-links a:hover{color:var(--cor-realce-escura)}
-  .menu-btn{display:none;font-size:1.5rem;background:none;border:0;color:#fff;cursor:pointer}
+  .menu-btn{display:none;font-size:1.5rem;background:none;border:0;color:#fff;cursor:pointer;line-height:1}
   header.scrolled .menu-btn{color:var(--cor-primaria)}
 
   /* ===== HERO — IMAGEM ULTRAWIDE ===== */
@@ -122,16 +124,16 @@
   /* ===== IMÓVEIS (à venda / vendidos) ===== */
   .listings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;max-width:840px;margin:32px auto 0}
   .swipe-hint{display:none}
-  .lst{position:relative;background:#fff;border:1px solid var(--cor-borda);border-radius:var(--raio);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+  .lst{position:relative;background:#fff;border:1px solid var(--cor-borda);border-radius:var(--raio);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sombra-sm);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
   .lst:hover{box-shadow:var(--sombra);transform:translateY(-6px);border-color:transparent}
   .lst-media{position:relative;aspect-ratio:9/16;background:#0b1a2b;overflow:hidden}
   .lst-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
   .lst:hover .lst-media img{transform:scale(1.045)}
   .lst-badge{position:absolute;top:14px;left:14px;z-index:3;font-family:'Montserrat';font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 13px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.28)}
   .lst-badge.venda{background:var(--grad-realce);background-size:200% auto;color:#10243b;animation:shimmer 7s linear infinite}
-  .lst.sold .lst-media img{filter:saturate(.62) brightness(.8)}
+  .lst.sold .lst-media img{filter:saturate(.62) brightness(.78)}
   .lst-ribbon{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;pointer-events:none}
-  .lst-ribbon span{background:rgba(11,26,43,.8);color:#fff;font-family:'Montserrat';font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:1.05rem;padding:13px 30px;border:2px solid var(--cor-realce);border-radius:10px;transform:rotate(-7deg);box-shadow:0 12px 34px rgba(0,0,0,.4)}
+  .lst-ribbon span{background:rgba(11,26,43,.82);color:#fff;font-family:'Montserrat';font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:1.05rem;padding:13px 30px;border:2px solid var(--cor-realce);border-radius:10px;transform:rotate(-7deg);box-shadow:0 12px 34px rgba(0,0,0,.4)}
   .lst-body{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}
   .lst-body h3{font-size:1.3rem;margin-bottom:2px}
   .lst-bairro{color:var(--cor-texto-suave);font-size:.86rem;display:flex;align-items:center;gap:5px;margin-bottom:13px}
@@ -139,7 +141,7 @@
   .lst-preco{font-family:'Playfair Display';font-weight:700;font-size:1.34rem;color:var(--cor-primaria);margin-bottom:16px;line-height:1.2}
   .lst-preco small{display:block;font-family:'Montserrat';font-weight:500;font-size:.68rem;color:var(--cor-texto-suave);letter-spacing:.05em;text-transform:uppercase;margin-bottom:1px}
   .lst .btn{width:100%;justify-content:center}
-  .lst.sold .lst-preco{color:var(--verde-prof)}
+  .lst.sold .lst-preco{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:var(--verde-prof);letter-spacing:.02em}
 
   /* ===== RITMO DE COR ===== */
   .sec-cream{background:var(--cor-superficie)}
@@ -168,13 +170,10 @@
   .sobre li::before{content:"✦";color:var(--cor-realce);font-size:.9rem;margin-top:3px}
 
   /* ===== INSTAGRAM ===== */
-  .insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px;max-width:760px;margin-left:auto;margin-right:auto}
-  .insta-thumb{position:relative;aspect-ratio:9/16;border-radius:var(--raio-sm);overflow:hidden;background:#0b1a2b;display:block;border:1px solid rgba(255,255,255,.1)}
-  .insta-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-  .insta-thumb:hover img{transform:scale(1.07)}
-  .insta-thumb::after{content:"⌕";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#fff;background:rgba(11,26,43,.4);opacity:0;transition:.3s}
-  .insta-thumb:hover::after{opacity:1}
-  .insta-cta{text-align:center;margin-top:32px}
+  .insta-stats{display:flex;justify-content:center;gap:clamp(40px,8vw,90px);margin-top:36px}
+  .insta-stats b{display:block;font-family:'Montserrat';font-weight:600;font-size:clamp(2rem,5vw,2.6rem);line-height:1;color:var(--cor-realce);font-variant-numeric:tabular-nums lining-nums;text-align:center}
+  .insta-stats span{display:block;text-align:center;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:7px}
+  .insta-cta{text-align:center;margin-top:38px}
 
   /* ===== CTA FINAL — FORMULÁRIO EMBUTIDO ===== */
   .cta-form-sec{background:linear-gradient(135deg,var(--cor-primaria),#10314f);color:#fff;position:relative;overflow:hidden}
@@ -228,27 +227,33 @@
   .cursor-ring{width:32px;height:32px;border:1.6px solid rgba(255,255,255,.75);transition:width .25s ease,height .25s ease,background .25s ease,opacity .3s}
   .has-cursor.ready .cursor-dot,.has-cursor.ready .cursor-ring{opacity:1}
   .has-cursor.hovering .cursor-ring{width:52px;height:52px;background:rgba(255,255,255,.12)}
-  .has-cursor,.has-cursor a,.has-cursor button,.has-cursor input,.has-cursor .btn{cursor:none}
+  .has-cursor,.has-cursor a,.has-cursor button,.has-cursor .btn{cursor:none}
+  .has-cursor input,.has-cursor textarea{cursor:text}
   @media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
 
   /* ===== RESPONSIVE ===== */
   @media(max-width:980px){
-    .nav-links,header .nav>.btn{display:none}
+    .nav-links{position:absolute;top:calc(100% + 10px);left:0;right:0;flex-direction:column;gap:0;
+      background:rgba(255,255,255,.98);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+      border:1px solid var(--cor-borda);border-radius:16px;padding:8px;box-shadow:0 16px 42px rgba(14,42,71,.22);display:none}
+    .nav-links.show{display:flex}
+    .nav-links a{color:var(--cor-texto)!important;padding:13px 16px;border-radius:10px;font-weight:600}
+    .nav-links a:hover{background:var(--cor-superficie);color:var(--cor-realce-escura)!important}
+    header .nav>.btn{display:none}
     .menu-btn{display:block}
     .steps{grid-template-columns:1fr;gap:22px;max-width:440px;margin-left:auto;margin-right:auto}
     .trust-strip .container{grid-template-columns:1fr 1fr;gap:22px 18px}
     .trust-strip .ts-item:nth-child(3)::before{display:none}
     .sobre,.contato-grid,.cta-form-grid{grid-template-columns:1fr;gap:36px}
     .sobre-photo{max-width:380px;margin:0 auto}
-    .insta-grid{max-width:480px}
     section{padding:clamp(40px,5vh,64px) 0}
   }
   @media(max-width:760px){
     /* IMÓVEIS viram carrossel arrastável (com espia do próximo) */
     .listings{display:flex;grid-template-columns:none;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;
-      gap:16px;padding:6px 24px 16px;margin:22px -24px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+      gap:16px;padding:6px 24px 16px;margin:22px -24px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-padding-left:24px}
     .listings::-webkit-scrollbar{display:none}
-    .lst{flex:0 0 80%;scroll-snap-align:center}
+    .lst{flex:0 0 82%;scroll-snap-align:start}
     .swipe-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;color:var(--cor-texto-suave);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
     .sec-dark .swipe-hint{color:rgba(255,255,255,.6)}
     .swipe-hint .ar{animation:swipeAr 1.6s ease-in-out infinite}
@@ -256,12 +261,14 @@
   }
   @media(max-width:600px){
     body{font-size:16px}
+    .hero-img{object-position:68% 22%}
     .hero-content{padding:clamp(88px,14vh,104px) 0 clamp(28px,5vh,52px)}
     .hero>.container{padding-left:24px}
     .hero-cta{flex-direction:column;align-items:stretch}
     .hero-cta .btn{justify-content:center}
-    .insta-grid{grid-template-columns:1fr 1fr;max-width:340px}
     .lst{flex-basis:84%}
+    .cta-form-card input{font-size:16px}
+    .wpp-float{width:52px;height:52px;font-size:1.5rem;bottom:16px;right:16px}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
@@ -275,7 +282,7 @@
 <header id="header">
   <div class="container nav">
     <a href="#" class="logo">José Junior<b>.</b><small>Corretor</small></a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a href="#imoveis">Imóveis</a>
       <a href="#vendidos">Vendidos</a>
       <a href="#sobre">Sobre</a>
@@ -283,7 +290,7 @@
       <a href="#contato">Contato</a>
     </nav>
     <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vi%20seu%20site%20e%20quero%20falar%20sobre%20im%C3%B3veis%20em%20Salvador." class="btn btn-gold">Falar no WhatsApp</a>
-    <button class="menu-btn" aria-label="menu" onclick="document.querySelector('.nav-links').scrollIntoView">☰</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">☰</button>
   </div>
 </header>
 
@@ -309,8 +316,8 @@
 <div class="trust-strip">
   <div class="container">
     <div class="ts-item"><b class="count" data-target="5900" data-prefix="+">+0</b><span>Seguidores no Instagram</span></div>
-    <div class="ts-item"><b class="count" data-target="500" data-prefix="+">+0</b><span>Imóveis divulgados</span></div>
-    <div class="ts-item"><b>CRECI-BA</b><span>26560 • registro ativo</span></div>
+    <div class="ts-item"><b class="count" data-target="500" data-prefix="+">+0</b><span>Imóveis publicados</span></div>
+    <div class="ts-item"><b>26560</b><span>CRECI-BA • registro ativo</span></div>
     <div class="ts-item"><b class="count" data-target="100" data-suffix="%">0%</b><span>Atendimento direto</span></div>
   </div>
 </div>
@@ -320,7 +327,7 @@
   <div class="container">
     <div class="center">
       <span class="eyebrow">À venda agora</span>
-      <h2>Imóveis selecionados em Salvador</h2>
+      <h2>Imóveis selecionados em Salvador e Região</h2>
       <p class="lead">Uma curadoria pessoal de empreendimentos e apartamentos com excelente localização. Clique e fale comigo direto sobre o que te interessou.</p>
     </div>
     <div class="listings">
@@ -333,7 +340,7 @@
         <div class="lst-body">
           <h3>Green Home</h3>
           <div class="lst-bairro">📍 Vilas de Abrantes • Camaçari/BA</div>
-          <p class="lst-hl">Casas de 3 ou 4 suítes com quintal privativo, em condomínio com mais de 3.700&nbsp;m² de lazer. Financiável em até 100% pela Caixa.</p>
+          <p class="lst-hl">Casas de 3 ou 4 suítes com quintal privativo, em condomínio com mais de 3.700&nbsp;m² de lazer. Pode ser financiável em até 100% pela Caixa e usar o FGTS (sujeito a análise de crédito).</p>
           <div class="lst-preco"><small>A partir de</small>R$ 638.800</div>
           <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Tenho%20interesse%20no%20Green%20Home%20(Vilas%20de%20Abrantes).%20Pode%20me%20passar%20mais%20detalhes%3F" class="btn btn-wpp">💬 Quero saber mais</a>
         </div>
@@ -347,7 +354,7 @@
         <div class="lst-body">
           <h3>Beach Class — Ondina</h3>
           <div class="lst-bairro">📍 Ondina • vista mar</div>
-          <p class="lst-hl">Alto padrão de frente para o mar: andar altíssimo, piscina de borda infinita, rooftop, academia e acesso à praia. Porteira fechada.</p>
+          <p class="lst-hl">Alto padrão de frente para o mar: andar altíssimo, piscina de borda infinita, rooftop, academia e acesso à praia. Vem mobiliado, é só entrar.</p>
           <div class="lst-preco">R$ 1.250.000</div>
           <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Tenho%20interesse%20no%20Beach%20Class%20Salvador%20(Ondina).%20Pode%20me%20passar%20mais%20detalhes%3F" class="btn btn-wpp">💬 Quero saber mais</a>
         </div>
@@ -376,8 +383,8 @@
         <div class="lst-body">
           <h3>Apartamento Armação</h3>
           <div class="lst-bairro">📍 Armação • vista mar</div>
-          <p class="lst-hl">97&nbsp;m², 3 quartos (1 suíte), lavabo, 2 vagas, vista mar e nascente/sul. Porteira semi-fechada, prédio com lazer completo.</p>
-          <div class="lst-preco">Vendido ✓</div>
+          <p class="lst-hl">97&nbsp;m², 3 quartos (1 suíte), lavabo, 2 vagas, vista mar e posição norte/sul. Vinha com boa parte dos móveis, prédio com lazer completo.</p>
+          <div class="lst-preco">Negócio fechado ✓</div>
           <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vi%20que%20voc%C3%AA%20vendeu%20o%20ap%C3%AA%20na%20Arma%C3%A7%C3%A3o.%20Quero%20encontrar%20um%20im%C3%B3vel%20parecido." class="btn btn-gold">Quero um imóvel assim</a>
         </div>
       </article>
@@ -391,12 +398,13 @@
           <h3>Apartamento Stiep</h3>
           <div class="lst-bairro">📍 Stiep • andar alto</div>
           <p class="lst-hl">78&nbsp;m², vista livre e nascente, 3 quartos (1 suíte), varanda e 1 vaga coberta. Prédio com piscina, academia, quadra e portaria 24h.</p>
-          <div class="lst-preco">Vendido ✓</div>
+          <div class="lst-preco">Negócio fechado ✓</div>
           <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vi%20que%20voc%C3%AA%20vendeu%20o%20ap%C3%AA%20no%20Stiep.%20Quero%20encontrar%20um%20im%C3%B3vel%20parecido." class="btn btn-gold">Quero um imóvel assim</a>
         </div>
       </article>
     </div>
     <div class="swipe-hint"><span class="ar">←</span> arraste para ver <span class="ar">→</span></div>
+    <div class="center" style="margin-top:30px"><a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20N%C3%A3o%20quero%20perder%20a%20pr%C3%B3xima%20oportunidade.%20Me%20ajuda%20a%20achar%20o%20meu%3F" class="btn btn-gold">💬 Quero achar o meu antes que venda</a></div>
   </div>
 </section>
 
@@ -440,13 +448,11 @@
     <div class="center">
       <span class="eyebrow">@eu_josejunior</span>
       <h2>Os melhores imóveis aparecem primeiro no meu Instagram</h2>
-      <p class="lead">São mais de 500 imóveis publicados e +5.900 pessoas acompanhando os lançamentos de Salvador em primeira mão. Me siga para não perder a próxima oportunidade.</p>
+      <p class="lead">É lá que eu publico os lançamentos de Salvador em primeira mão, antes de chegarem nos portais. Me siga para não perder a próxima oportunidade.</p>
     </div>
-    <div class="insta-grid">
-      <a class="insta-thumb reveal" href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener"><img src="assets/green-home.webp" alt="Post Green Home no Instagram" loading="lazy"></a>
-      <a class="insta-thumb reveal" href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener"><img src="assets/beach-class.webp" alt="Post Beach Class no Instagram" loading="lazy"></a>
-      <a class="insta-thumb reveal" href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener"><img src="assets/armacao.webp" alt="Post Armação no Instagram" loading="lazy"></a>
-      <a class="insta-thumb reveal" href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener"><img src="assets/stiep.webp" alt="Post Stiep no Instagram" loading="lazy"></a>
+    <div class="insta-stats reveal">
+      <div><b class="count" data-target="500" data-prefix="+">+0</b><span>Imóveis publicados</span></div>
+      <div><b class="count" data-target="5900" data-prefix="+">+0</b><span>Seguidores</span></div>
     </div>
     <div class="insta-cta">
       <a href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener" class="btn btn-insta">📸 Seguir @eu_josejunior</a>
@@ -473,10 +479,10 @@
       <form id="leadForm" novalidate>
         <label for="lf-nome">Seu nome</label>
         <input id="lf-nome" name="nome" type="text" placeholder="Como posso te chamar?" required autocomplete="name">
-        <label for="lf-email">E-mail</label>
-        <input id="lf-email" name="email" type="email" placeholder="voce@email.com" required autocomplete="email">
         <label for="lf-tel">Seu WhatsApp</label>
-        <input id="lf-tel" name="telefone" type="tel" placeholder="(71) 90000-0000" required autocomplete="tel" inputmode="tel">
+        <input id="lf-tel" name="telefone" type="tel" placeholder="(71) 90000-0000" autocomplete="tel" inputmode="tel">
+        <label for="lf-email">E-mail (opcional)</label>
+        <input id="lf-email" name="email" type="email" placeholder="voce@email.com" autocomplete="email">
         <button type="submit" class="btn btn-wpp">💬 Falar com o José no WhatsApp</button>
         <p class="priv">🔒 Seus dados são usados só para este contato. Sem spam.</p>
       </form>
@@ -491,7 +497,7 @@
     <div class="contato-grid">
       <div class="reveal">
         <div class="info-row"><div class="ico">📍</div><div><b>Região de atuação</b><span>Salvador e Região Metropolitana — BA</span></div></div>
-        <div class="info-row"><div class="ico">💬</div><div><b>WhatsApp</b><span>(71) 9 9380-1610</span></div></div>
+        <div class="info-row"><div class="ico">💬</div><div><b>WhatsApp</b><span>(71) 99380-1610</span></div></div>
         <div class="info-row"><div class="ico">📸</div><div><b>Instagram</b><span>@eu_josejunior</span></div></div>
         <div class="info-row"><div class="ico">🔑</div><div><b>Registro</b><span>CRECI-BA 26560 • corretor ativo</span></div></div>
         <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Quero%20agendar%20um%20atendimento." class="btn btn-wpp" style="margin-top:10px">💬 Chamar no WhatsApp</a>
@@ -522,7 +528,7 @@
       </div>
       <div class="foot-col">
         <h4>Contato</h4>
-        <div><a href="https://wa.me/5571993801610">WhatsApp: (71) 9 9380-1610</a></div>
+        <div><a href="https://wa.me/5571993801610">WhatsApp: (71) 99380-1610</a></div>
         <div><a href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener">@eu_josejunior</a></div>
         <div>Salvador / BA</div>
         <div>CRECI-BA 26560</div>
@@ -541,6 +547,14 @@
   addEventListener('scroll',onScroll,{passive:true});onScroll();
   // Ano
   document.getElementById('ano').textContent=new Date().getFullYear();
+
+  // Menu mobile (dropdown funcional)
+  const mb=document.getElementById('menuBtn'),nl=document.getElementById('navLinks');
+  if(mb&&nl){
+    mb.addEventListener('click',()=>{const s=nl.classList.toggle('show');mb.setAttribute('aria-expanded',s)});
+    nl.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nl.classList.remove('show');mb.setAttribute('aria-expanded','false')}));
+  }
+
   // Reveal on scroll
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
@@ -566,15 +580,15 @@
   document.getElementById('leadForm').addEventListener('submit',e=>{
     e.preventDefault();
     const n=document.getElementById('lf-nome').value.trim(),
-          em=document.getElementById('lf-email').value.trim(),
-          t=document.getElementById('lf-tel').value.trim();
+          t=document.getElementById('lf-tel').value.trim(),
+          em=document.getElementById('lf-email').value.trim();
     if(!n){document.getElementById('lf-nome').focus();return;}
-    const linhas=['Olá José! Meu nome é '+n+'.',
-                  'Quero falar sobre imóveis em Salvador.'];
-    if(em) linhas.push('E-mail: '+em);
+    if(em && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){document.getElementById('lf-email').focus();return;}
+    const linhas=['Olá José! Meu nome é '+n+'.','Quero falar sobre imóveis em Salvador.'];
     if(t)  linhas.push('Meu WhatsApp: '+t);
-    const msg=encodeURIComponent(linhas.join('\n'));
-    window.open('https://wa.me/'+WPP+'?text='+msg,'_blank');
+    if(em) linhas.push('E-mail: '+em);
+    const url='https://wa.me/'+WPP+'?text='+encodeURIComponent(linhas.join('\n'));
+    const w=window.open(url,'_blank'); if(!w) location.href=url;
   });
 
   // ===== Cursor customizado redondo (só ponteiro fino) =====
@@ -587,7 +601,7 @@
     addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';
       if(!started){started=true;root.classList.add('ready')}},{passive:true});
     (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
-    const hov='a,button,summary,.btn,.lst,input';
+    const hov='a,button,summary,.btn,.lst';
     addEventListener('mouseover',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.add('hovering')});
     addEventListener('mouseout',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.remove('hovering')});
   }
