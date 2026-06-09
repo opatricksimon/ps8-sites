@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--
+  PS8 SITE — JOSÉ JUNIOR · CORRETOR DE IMÓVEIS (Salvador/BA · CRECI-BA 26560)
+  Base: DESIGN-SYSTEM/nichos/imobiliaria-site-modelo  (navy + dourado + Playfair)
+  Personalizado para CORRETOR AUTÔNOMO / marca pessoal.
+  Hero: imagem ultrawide (foto real dele) + Ken Burns + shine dourado.
+  Imóveis = criativos reais do Instagram (à venda / vendidos com tarja). Mobile = carrossel arrastável.
+  CTA = formulário embutido (nome/email/telefone) que personaliza a mensagem do WhatsApp.
+  WhatsApp: 5571993801610  (CONFIRMAR: cliente digitou 12 díg; usei 13 díg = móvel BR válido)
+  Instagram: @eu_josejunior
+-->
+<title>José Junior — Corretor de Imóveis em Salvador/BA | CRECI-BA 26560</title>
+<meta name="description" content="José Junior, corretor de imóveis em Salvador e Região Metropolitana. Imóveis de alto padrão, na planta, prontos e de revenda — atendimento direto comigo, do primeiro contato às chaves. Fale no WhatsApp." />
+<meta name="theme-color" content="#0E2A47" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<meta property="og:title" content="José Junior — Corretor de Imóveis em Salvador/BA" />
+<meta property="og:description" content="Seu próximo endereço em Salvador, com quem cuida de cada detalhe. CRECI-BA 26560." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/og.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cor-primaria:#0E2A47; --cor-primaria-escura:#091D32; --cor-realce:#C2A36A; --cor-realce-escura:#A8884E;
+    --cor-fundo:#FFFFFF; --cor-superficie:#F6F3EC; --cor-escura:#0B1A2B;
+    --cor-texto:#16202C; --cor-texto-suave:#5C6670; --cor-borda:#E7E0D2; --cor-whatsapp:#25D366;
+    --container:1280px; --raio:18px; --raio-sm:12px;
+    --sombra:0 18px 60px rgba(14,42,71,.12); --sombra-sm:0 6px 24px rgba(14,42,71,.08);
+    --grad-realce:linear-gradient(100deg,#A8884E 0%,#E7CE94 28%,#C2A36A 52%,#F1DDA8 74%,#A8884E 100%);
+    --verde-prof:#1C6B54; --verde-prof-esc:#124A3A;
+    --grad-verde:linear-gradient(100deg,#124A3A 0%,#2C9270 30%,#1C6B54 55%,#37A985 78%,#124A3A 100%);
+    --grad-insta:linear-gradient(45deg,#F58529 0%,#FEDA77 18%,#DD2A7B 48%,#8134AF 74%,#515BD4 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--cor-realce) var(--cor-superficie)}
+  ::-webkit-scrollbar{width:11px}
+  ::-webkit-scrollbar-track{background:var(--cor-superficie)}
+  ::-webkit-scrollbar-thumb{background:var(--grad-realce);background-size:200% auto;border-radius:999px;border:3px solid var(--cor-superficie)}
+  ::-webkit-scrollbar-thumb:hover{background:var(--cor-realce-escura)}
+  body{font-family:'Montserrat',sans-serif;color:var(--cor-texto);background:var(--cor-fundo);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.14;letter-spacing:-.005em;font-weight:600}
+  h2{font-size:clamp(1.9rem,3.8vw,3rem)}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:var(--container);margin:0 auto;padding:0 24px}
+  section{padding:clamp(44px,6vh,80px) 0}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Montserrat';font-weight:600;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cor-realce-escura);margin-bottom:20px}
+  .eyebrow::before{content:"";width:30px;height:1px;background:var(--cor-realce)}
+  .center{text-align:center}
+  .center .eyebrow::after{content:"";width:30px;height:1px;background:var(--cor-realce)}
+  .center p.lead{max-width:660px;margin:16px auto 0;color:var(--cor-texto-suave)}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Montserrat';font-weight:600;font-size:.9rem;letter-spacing:.015em;padding:13px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,background-position .6s ease;will-change:transform}
+  .btn-primary{background:var(--cor-primaria);color:#fff}
+  .btn-primary:hover{background:var(--cor-primaria-escura);transform:translateY(-2px);box-shadow:var(--sombra-sm)}
+  .btn-wpp{background:var(--grad-verde);background-size:220% auto;color:#fff;box-shadow:0 10px 26px rgba(28,107,84,.34);animation:shimmer 7s linear infinite,softpulse 2.8s ease-in-out infinite}
+  .btn-wpp:hover{background-position:right center;transform:translateY(-2px)}
+  .btn-gold{background:var(--grad-realce);background-size:220% auto;color:#0E2A47;box-shadow:0 10px 26px rgba(194,163,106,.36);animation:shimmer 7s linear infinite}
+  .btn-gold:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 14px 32px rgba(194,163,106,.46)}
+  .btn-insta{background:var(--grad-insta);background-size:200% auto;color:#fff;box-shadow:0 10px 28px rgba(221,42,123,.4);animation:shimmer 8s linear infinite}
+  .btn-insta:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 14px 34px rgba(221,42,123,.5)}
+  .btn-ghost-light{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.45);backdrop-filter:blur(4px)}
+  .btn-ghost-light:hover{background:rgba(255,255,255,.16);border-color:#fff}
+  @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(28,107,84,.34)}50%{box-shadow:0 12px 34px rgba(28,107,84,.6)}}
+  @keyframes shimmer{to{background-position:200% center}}
+
+  /* ===== HEADER (flutuante / floating pill) ===== */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease;padding:18px 16px 0}
+  header .nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:none;margin:0;
+    padding:0 14px 0 calc(clamp(24px,6vw,72px) - 16px);border-radius:999px;
+    background:rgba(11,26,43,.30);backdrop-filter:blur(12px) saturate(130%);-webkit-backdrop-filter:blur(12px) saturate(130%);
+    border:1px solid rgba(255,255,255,.16);box-shadow:0 8px 30px rgba(8,18,30,.18);transition:.35s ease}
+  .logo{font-family:'Playfair Display';font-weight:700;font-size:1.32rem;color:#fff;letter-spacing:.01em;transition:.3s;display:flex;align-items:baseline;gap:2px}
+  .logo b{color:var(--cor-realce);font-weight:700}
+  .logo small{font-family:'Montserrat';font-weight:500;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;opacity:.7;margin-left:8px}
+  .nav-links{display:flex;gap:28px;font-family:'Montserrat';font-weight:500;font-size:.9rem}
+  .nav-links a{color:rgba(255,255,255,.92);transition:.2s;position:relative}
+  .nav-links a:hover{color:var(--cor-realce)}
+  header .btn{padding:10px 20px;font-size:.82rem}
+  header.scrolled{padding-top:10px}
+  header.scrolled .nav{background:rgba(255,255,255,.92);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--cor-borda);box-shadow:0 10px 34px rgba(14,42,71,.14)}
+  header.scrolled .logo{color:var(--cor-primaria)}
+  header.scrolled .logo small{opacity:.55}
+  header.scrolled .nav-links a{color:var(--cor-texto-suave)}
+  header.scrolled .nav-links a:hover{color:var(--cor-realce-escura)}
+  .menu-btn{display:none;font-size:1.5rem;background:none;border:0;color:#fff;cursor:pointer}
+  header.scrolled .menu-btn{color:var(--cor-primaria)}
+
+  /* ===== HERO — IMAGEM ULTRAWIDE ===== */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--cor-escura)}
+  .hero>.container{max-width:none;margin:0;padding-left:clamp(24px,6vw,96px);padding-right:24px}
+  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:1;animation:kenburns 22s ease-out forwards}
+  @keyframes kenburns{from{transform:scale(1.12)}to{transform:scale(1)}}
+  .hero-overlay{position:absolute;inset:0;z-index:2;
+    background:linear-gradient(180deg,rgba(8,18,30,.55) 0%,rgba(8,18,30,.10) 36%,rgba(8,18,30,.42) 70%,rgba(8,18,30,.88) 100%),
+               linear-gradient(90deg,rgba(8,18,30,.74) 0%,rgba(8,18,30,.30) 52%,transparent 100%)}
+  .hero-content{position:relative;z-index:3;color:#fff;max-width:760px;padding:clamp(96px,12vh,120px) 0 clamp(64px,10vh,96px);animation:heroIn 1s cubic-bezier(.22,.61,.36,1) both}
+  .hero .eyebrow{color:var(--cor-realce);margin-bottom:22px}
+  .hero .eyebrow::before{background:var(--cor-realce)}
+  .hero h1{font-size:clamp(2rem,4.2vw,3.3rem);line-height:1.1;font-weight:600;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.3)}
+  .hero h1 em{font-style:italic;background:var(--grad-realce);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite}
+  @keyframes heroIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  .hero p.sub{font-size:clamp(1.02rem,1.6vw,1.18rem);color:rgba(255,255,255,.9);margin:26px 0 38px;max-width:560px;font-weight:400}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .scroll-cue{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.72);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;text-align:center;display:flex;flex-direction:column;align-items:center;gap:11px}
+  .scroll-cue .mouse{width:24px;height:38px;border:2px solid rgba(255,255,255,.55);border-radius:14px;position:relative}
+  .scroll-cue .mouse::before{content:"";position:absolute;top:7px;left:50%;width:4px;height:7px;border-radius:2px;background:var(--cor-realce);transform:translateX(-50%);animation:wheel 1.8s ease-in-out infinite}
+  @keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}60%{opacity:1;transform:translate(-50%,9px)}100%{opacity:0;transform:translate(-50%,12px)}}
+
+  /* ===== TRUST STRIP ===== */
+  .trust-strip{background:linear-gradient(90deg,var(--cor-primaria-escura),var(--cor-primaria) 50%,var(--cor-primaria-escura));color:#fff;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(0,0,0,.18)}
+  .trust-strip .container{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:24px;text-align:center}
+  .trust-strip .ts-item{position:relative}
+  .trust-strip .ts-item+.ts-item::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:36px;background:linear-gradient(transparent,rgba(255,255,255,.2),transparent)}
+  .trust-strip b{display:block;font-family:'Montserrat';font-weight:600;font-size:1.7rem;line-height:1.1;color:var(--cor-realce);font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum" 1,"lnum" 1}
+  .trust-strip span{display:block;margin-top:3px;font-size:.74rem;opacity:.78;letter-spacing:.07em;text-transform:uppercase}
+
+  /* ===== IMÓVEIS (à venda / vendidos) ===== */
+  .listings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;max-width:840px;margin:32px auto 0}
+  .swipe-hint{display:none}
+  .lst{position:relative;background:#fff;border:1px solid var(--cor-borda);border-radius:var(--raio);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+  .lst:hover{box-shadow:var(--sombra);transform:translateY(-6px);border-color:transparent}
+  .lst-media{position:relative;aspect-ratio:9/16;background:#0b1a2b;overflow:hidden}
+  .lst-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+  .lst:hover .lst-media img{transform:scale(1.045)}
+  .lst-badge{position:absolute;top:14px;left:14px;z-index:3;font-family:'Montserrat';font-weight:700;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 13px;border-radius:999px;box-shadow:0 6px 16px rgba(0,0,0,.28)}
+  .lst-badge.venda{background:var(--grad-realce);background-size:200% auto;color:#10243b;animation:shimmer 7s linear infinite}
+  .lst.sold .lst-media img{filter:saturate(.62) brightness(.8)}
+  .lst-ribbon{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;pointer-events:none}
+  .lst-ribbon span{background:rgba(11,26,43,.8);color:#fff;font-family:'Montserrat';font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:1.05rem;padding:13px 30px;border:2px solid var(--cor-realce);border-radius:10px;transform:rotate(-7deg);box-shadow:0 12px 34px rgba(0,0,0,.4)}
+  .lst-body{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}
+  .lst-body h3{font-size:1.3rem;margin-bottom:2px}
+  .lst-bairro{color:var(--cor-texto-suave);font-size:.86rem;display:flex;align-items:center;gap:5px;margin-bottom:13px}
+  .lst-hl{font-size:.9rem;color:var(--cor-texto-suave);margin-bottom:15px;flex:1}
+  .lst-preco{font-family:'Playfair Display';font-weight:700;font-size:1.34rem;color:var(--cor-primaria);margin-bottom:16px;line-height:1.2}
+  .lst-preco small{display:block;font-family:'Montserrat';font-weight:500;font-size:.68rem;color:var(--cor-texto-suave);letter-spacing:.05em;text-transform:uppercase;margin-bottom:1px}
+  .lst .btn{width:100%;justify-content:center}
+  .lst.sold .lst-preco{color:var(--verde-prof)}
+
+  /* ===== RITMO DE COR ===== */
+  .sec-cream{background:var(--cor-superficie)}
+  .sec-dark{background:var(--cor-escura);color:#fff}
+  .sec-dark h2,.sec-dark h3{color:#fff}
+  .sec-dark p{color:rgba(255,255,255,.74)}
+  .sec-dark .center p.lead{color:rgba(255,255,255,.78)}
+  .sec-dark .eyebrow{color:var(--cor-realce)}
+  .sec-dark .eyebrow::before,.sec-dark .center .eyebrow::after{background:var(--cor-realce)}
+
+  /* ===== COMO FUNCIONA ===== */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:36px}
+  .step{text-align:center;position:relative}
+  .step .num{width:58px;height:58px;border-radius:50%;background:var(--grad-realce);color:#0E2A47;font-family:'Playfair Display';font-weight:700;font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+  .step h3{font-size:1.16rem;margin-bottom:7px}
+  .step p{font-size:.92rem}
+
+  /* ===== SOBRE ===== */
+  .sobre{display:grid;grid-template-columns:.82fr 1.18fr;gap:56px;align-items:center}
+  .sobre-photo{position:relative;aspect-ratio:3/4;border-radius:var(--raio);overflow:hidden;background:linear-gradient(150deg,#27496e,#0E2A47);box-shadow:var(--sombra)}
+  .sobre-photo img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+  .sobre-photo .creci{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(8,18,30,.88));color:#fff;padding:34px 22px 18px;font-family:'Montserrat';font-weight:600;font-size:.86rem;letter-spacing:.03em}
+  .sobre-photo .creci b{color:var(--cor-realce);display:block;font-size:.96rem;margin-top:2px}
+  .sobre ul{list-style:none;margin-top:22px;display:grid;gap:13px}
+  .sobre li{display:flex;gap:12px;align-items:flex-start;color:var(--cor-texto-suave)}
+  .sobre li::before{content:"✦";color:var(--cor-realce);font-size:.9rem;margin-top:3px}
+
+  /* ===== INSTAGRAM ===== */
+  .insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:34px;max-width:760px;margin-left:auto;margin-right:auto}
+  .insta-thumb{position:relative;aspect-ratio:9/16;border-radius:var(--raio-sm);overflow:hidden;background:#0b1a2b;display:block;border:1px solid rgba(255,255,255,.1)}
+  .insta-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .insta-thumb:hover img{transform:scale(1.07)}
+  .insta-thumb::after{content:"⌕";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#fff;background:rgba(11,26,43,.4);opacity:0;transition:.3s}
+  .insta-thumb:hover::after{opacity:1}
+  .insta-cta{text-align:center;margin-top:32px}
+
+  /* ===== CTA FINAL — FORMULÁRIO EMBUTIDO ===== */
+  .cta-form-sec{background:linear-gradient(135deg,var(--cor-primaria),#10314f);color:#fff;position:relative;overflow:hidden}
+  .cta-form-sec::before{content:"";position:absolute;top:-40%;right:-10%;width:60%;height:160%;background:radial-gradient(circle,rgba(194,163,106,.16),transparent 62%);pointer-events:none}
+  .cta-form-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;position:relative;z-index:2}
+  .cta-form-grid h2{color:#fff}
+  .cta-form-grid h2 em{font-style:italic;color:var(--cor-realce)}
+  .cta-form-grid .lead{color:rgba(255,255,255,.82);margin-top:16px;max-width:460px}
+  .cta-trust{display:flex;gap:22px;margin-top:26px;flex-wrap:wrap}
+  .cta-trust div{font-size:.82rem;color:rgba(255,255,255,.78);display:flex;align-items:center;gap:8px}
+  .cta-trust b{color:var(--cor-realce)}
+  .cta-form-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:var(--raio);padding:clamp(24px,3vw,34px);box-shadow:0 24px 60px rgba(8,18,30,.34)}
+  .cta-form-card .ftit{font-family:'Playfair Display';font-weight:600;font-size:1.32rem;margin-bottom:5px}
+  .cta-form-card .fsub{font-size:.86rem;color:rgba(255,255,255,.7);margin-bottom:20px}
+  .cta-form-card label{display:block;font-family:'Montserrat';font-size:.76rem;font-weight:600;letter-spacing:.03em;margin:0 0 6px;color:rgba(255,255,255,.88)}
+  .cta-form-card input{width:100%;padding:13px 15px;border-radius:var(--raio-sm);border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.96);color:#16202C;font-family:'Montserrat';font-size:.95rem;margin-bottom:14px;transition:.2s}
+  .cta-form-card input:focus{outline:0;border-color:var(--cor-realce);box-shadow:0 0 0 3px rgba(194,163,106,.32)}
+  .cta-form-card input::placeholder{color:#9aa3ac}
+  .cta-form-card .btn{width:100%;justify-content:center;margin-top:6px}
+  .cta-form-card .priv{font-size:.74rem;color:rgba(255,255,255,.62);text-align:center;margin-top:13px}
+
+  /* ===== CONTATO ===== */
+  .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;margin-top:34px}
+  .info-row{display:flex;gap:15px;align-items:flex-start;margin-bottom:22px}
+  .info-row .ico{width:48px;height:48px;border-radius:12px;background:var(--cor-superficie);border:1px solid var(--cor-borda);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+  .info-row b{font-family:'Montserrat';font-weight:600;display:block;margin-bottom:2px}
+  .info-row span{color:var(--cor-texto-suave);font-size:.94rem}
+  .map-ph{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:linear-gradient(150deg,#dfe7ef,#cdd9e6 50%,#e3ded2);border:1px solid var(--cor-borda)}
+  .map-ph iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.25) contrast(1.04)}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--cor-escura);color:#a9b8c6;padding:60px 0 30px;font-size:.92rem}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:36px;margin-bottom:36px}
+  footer .logo{color:#fff;margin-bottom:14px}
+  footer a:hover{color:var(--cor-realce)}
+  .foot-col h4{font-family:'Montserrat';font-weight:600;color:#fff;font-size:.96rem;margin-bottom:14px;letter-spacing:.02em}
+  .foot-col div{margin-bottom:8px;color:#90a2b2}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;text-align:center;color:#6f8294;font-size:.84rem}
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .wpp-float{position:fixed;bottom:24px;right:24px;z-index:60;background:var(--grad-verde);background-size:200% auto;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;box-shadow:0 12px 30px rgba(28,107,84,.5);animation:pulse 2.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(28,107,84,.55)}70%{box-shadow:0 0 0 18px rgba(28,107,84,0)}100%{box-shadow:0 0 0 0 rgba(28,107,84,0)}}
+
+  /* ===== REVEAL ===== */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== CURSOR CUSTOMIZADO ===== */
+  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;opacity:0;transition:opacity .3s}
+  .cursor-dot{width:7px;height:7px;background:#fff}
+  .cursor-ring{width:32px;height:32px;border:1.6px solid rgba(255,255,255,.75);transition:width .25s ease,height .25s ease,background .25s ease,opacity .3s}
+  .has-cursor.ready .cursor-dot,.has-cursor.ready .cursor-ring{opacity:1}
+  .has-cursor.hovering .cursor-ring{width:52px;height:52px;background:rgba(255,255,255,.12)}
+  .has-cursor,.has-cursor a,.has-cursor button,.has-cursor input,.has-cursor .btn{cursor:none}
+  @media (hover:none),(pointer:coarse){.cursor-dot,.cursor-ring{display:none}}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:980px){
+    .nav-links,header .nav>.btn{display:none}
+    .menu-btn{display:block}
+    .steps{grid-template-columns:1fr;gap:22px;max-width:440px;margin-left:auto;margin-right:auto}
+    .trust-strip .container{grid-template-columns:1fr 1fr;gap:22px 18px}
+    .trust-strip .ts-item:nth-child(3)::before{display:none}
+    .sobre,.contato-grid,.cta-form-grid{grid-template-columns:1fr;gap:36px}
+    .sobre-photo{max-width:380px;margin:0 auto}
+    .insta-grid{max-width:480px}
+    section{padding:clamp(40px,5vh,64px) 0}
+  }
+  @media(max-width:760px){
+    /* IMÓVEIS viram carrossel arrastável (com espia do próximo) */
+    .listings{display:flex;grid-template-columns:none;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;
+      gap:16px;padding:6px 24px 16px;margin:22px -24px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .listings::-webkit-scrollbar{display:none}
+    .lst{flex:0 0 80%;scroll-snap-align:center}
+    .swipe-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;color:var(--cor-texto-suave);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+    .sec-dark .swipe-hint{color:rgba(255,255,255,.6)}
+    .swipe-hint .ar{animation:swipeAr 1.6s ease-in-out infinite}
+    @keyframes swipeAr{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+  }
+  @media(max-width:600px){
+    body{font-size:16px}
+    .hero-content{padding:clamp(88px,14vh,104px) 0 clamp(28px,5vh,52px)}
+    .hero>.container{padding-left:24px}
+    .hero-cta{flex-direction:column;align-items:stretch}
+    .hero-cta .btn{justify-content:center}
+    .insta-grid{grid-template-columns:1fr 1fr;max-width:340px}
+    .lst{flex-basis:84%}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    .hero-img{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="container nav">
+    <a href="#" class="logo">José Junior<b>.</b><small>Corretor</small></a>
+    <nav class="nav-links">
+      <a href="#imoveis">Imóveis</a>
+      <a href="#vendidos">Vendidos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#instagram">Instagram</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vi%20seu%20site%20e%20quero%20falar%20sobre%20im%C3%B3veis%20em%20Salvador." class="btn btn-gold">Falar no WhatsApp</a>
+    <button class="menu-btn" aria-label="menu" onclick="document.querySelector('.nav-links').scrollIntoView">☰</button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <img class="hero-img" src="assets/hero.webp" alt="José Junior, corretor de imóveis, em frente a residência de alto padrão em Salvador" onerror="this.style.display='none'">
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow">Corretor de Imóveis • Salvador / BA</span>
+      <h1>Seu próximo endereço em Salvador, com quem cuida de <em>cada detalhe</em>.</h1>
+      <p class="sub">Sou José Junior. Ajudo você a comprar, vender ou investir no imóvel certo em Salvador e Região Metropolitana — atendimento direto comigo, do primeiro "olá" às chaves na sua mão.</p>
+      <div class="hero-cta">
+        <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Quero%20conhecer%20os%20im%C3%B3veis%20dispon%C3%ADveis%20em%20Salvador." class="btn btn-wpp">💬 Falar com o José</a>
+        <a href="#imoveis" class="btn btn-ghost-light">Ver imóveis</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">Role para ver os imóveis<span class="mouse"></span></div>
+</section>
+
+<!-- ===== TRUST STRIP ===== -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="ts-item"><b class="count" data-target="5900" data-prefix="+">+0</b><span>Seguidores no Instagram</span></div>
+    <div class="ts-item"><b class="count" data-target="500" data-prefix="+">+0</b><span>Imóveis divulgados</span></div>
+    <div class="ts-item"><b>CRECI-BA</b><span>26560 • registro ativo</span></div>
+    <div class="ts-item"><b class="count" data-target="100" data-suffix="%">0%</b><span>Atendimento direto</span></div>
+  </div>
+</div>
+
+<!-- ===== IMÓVEIS À VENDA ===== -->
+<section id="imoveis" class="sec-cream">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">À venda agora</span>
+      <h2>Imóveis selecionados em Salvador</h2>
+      <p class="lead">Uma curadoria pessoal de empreendimentos e apartamentos com excelente localização. Clique e fale comigo direto sobre o que te interessou.</p>
+    </div>
+    <div class="listings">
+      <!-- GREEN HOME -->
+      <article class="lst reveal">
+        <div class="lst-media">
+          <span class="lst-badge venda">À venda • Na planta</span>
+          <img src="assets/green-home.webp" alt="Green Home — casas de 3 e 4 suítes em Vilas de Abrantes" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="lst-body">
+          <h3>Green Home</h3>
+          <div class="lst-bairro">📍 Vilas de Abrantes • Camaçari/BA</div>
+          <p class="lst-hl">Casas de 3 ou 4 suítes com quintal privativo, em condomínio com mais de 3.700&nbsp;m² de lazer. Financiável em até 100% pela Caixa.</p>
+          <div class="lst-preco"><small>A partir de</small>R$ 638.800</div>
+          <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Tenho%20interesse%20no%20Green%20Home%20(Vilas%20de%20Abrantes).%20Pode%20me%20passar%20mais%20detalhes%3F" class="btn btn-wpp">💬 Quero saber mais</a>
+        </div>
+      </article>
+      <!-- BEACH CLASS ONDINA -->
+      <article class="lst reveal">
+        <div class="lst-media">
+          <span class="lst-badge venda">À venda • Frente mar</span>
+          <img src="assets/beach-class.webp" alt="Beach Class Salvador, Ondina — apartamento alto padrão vista mar" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="lst-body">
+          <h3>Beach Class — Ondina</h3>
+          <div class="lst-bairro">📍 Ondina • vista mar</div>
+          <p class="lst-hl">Alto padrão de frente para o mar: andar altíssimo, piscina de borda infinita, rooftop, academia e acesso à praia. Porteira fechada.</p>
+          <div class="lst-preco">R$ 1.250.000</div>
+          <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Tenho%20interesse%20no%20Beach%20Class%20Salvador%20(Ondina).%20Pode%20me%20passar%20mais%20detalhes%3F" class="btn btn-wpp">💬 Quero saber mais</a>
+        </div>
+      </article>
+    </div>
+    <div class="swipe-hint"><span class="ar">←</span> arraste para ver os imóveis <span class="ar">→</span></div>
+    <div class="center" style="margin-top:30px"><a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Quero%20ver%20mais%20op%C3%A7%C3%B5es%20de%20im%C3%B3veis%20em%20Salvador." class="btn btn-primary">Ver mais opções no WhatsApp</a></div>
+  </div>
+</section>
+
+<!-- ===== VENDIDOS (prova social / escassez) ===== -->
+<section id="vendidos" class="sec-dark">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">Vendidos recentemente</span>
+      <h2>Negócios que já fechei em Salvador</h2>
+      <p class="lead">Estes imóveis já encontraram dono. São a prova de que, com o atendimento certo, o imóvel certo não fica parado. Quer encontrar o próximo? Fale comigo.</p>
+    </div>
+    <div class="listings">
+      <!-- ARMAÇÃO -->
+      <article class="lst sold reveal">
+        <div class="lst-media">
+          <div class="lst-ribbon"><span>Vendido</span></div>
+          <img src="assets/armacao.webp" alt="Apartamento vendido na Armação, vista mar — Rua Rodrigues Dorea" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="lst-body">
+          <h3>Apartamento Armação</h3>
+          <div class="lst-bairro">📍 Armação • vista mar</div>
+          <p class="lst-hl">97&nbsp;m², 3 quartos (1 suíte), lavabo, 2 vagas, vista mar e nascente/sul. Porteira semi-fechada, prédio com lazer completo.</p>
+          <div class="lst-preco">Vendido ✓</div>
+          <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vi%20que%20voc%C3%AA%20vendeu%20o%20ap%C3%AA%20na%20Arma%C3%A7%C3%A3o.%20Quero%20encontrar%20um%20im%C3%B3vel%20parecido." class="btn btn-gold">Quero um imóvel assim</a>
+        </div>
+      </article>
+      <!-- STIEP -->
+      <article class="lst sold reveal">
+        <div class="lst-media">
+          <div class="lst-ribbon"><span>Vendido</span></div>
+          <img src="assets/stiep.webp" alt="Apartamento vendido no Stiep, 78m², andar alto, vista livre" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="lst-body">
+          <h3>Apartamento Stiep</h3>
+          <div class="lst-bairro">📍 Stiep • andar alto</div>
+          <p class="lst-hl">78&nbsp;m², vista livre e nascente, 3 quartos (1 suíte), varanda e 1 vaga coberta. Prédio com piscina, academia, quadra e portaria 24h.</p>
+          <div class="lst-preco">Vendido ✓</div>
+          <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vi%20que%20voc%C3%AA%20vendeu%20o%20ap%C3%AA%20no%20Stiep.%20Quero%20encontrar%20um%20im%C3%B3vel%20parecido." class="btn btn-gold">Quero um imóvel assim</a>
+        </div>
+      </article>
+    </div>
+    <div class="swipe-hint"><span class="ar">←</span> arraste para ver <span class="ar">→</span></div>
+  </div>
+</section>
+
+<!-- ===== COMO FUNCIONA ===== -->
+<section>
+  <div class="container">
+    <div class="center"><span class="eyebrow">Simples assim</span><h2>Do WhatsApp às chaves, comigo do seu lado</h2></div>
+    <div class="steps">
+      <div class="step reveal"><div class="num">1</div><h3>Você me chama</h3><p>Me conta no WhatsApp o que procura — bairro, perfil, orçamento. Sem compromisso.</p></div>
+      <div class="step reveal"><div class="num">2</div><h3>Eu faço a curadoria</h3><p>Seleciono pessoalmente os imóveis que combinam com você e agendo as visitas.</p></div>
+      <div class="step reveal"><div class="num">3</div><h3>A gente fecha</h3><p>Cuido da proposta, do financiamento e da documentação até a chave na sua mão.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOBRE ===== -->
+<section id="sobre" class="sec-cream">
+  <div class="container sobre">
+    <div class="sobre-photo reveal">
+      <img src="assets/sobre-jose.webp" alt="José Junior, corretor de imóveis em Salvador" loading="lazy" onerror="this.style.display='none'">
+      <div class="creci">José Junior<b>CRECI-BA 26560</b></div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Quem vai cuidar do seu negócio</span>
+      <h2>Atendimento de gente, não de balcão</h2>
+      <p style="margin-top:16px;color:var(--cor-texto-suave)">Sou corretor de imóveis em Salvador e Região Metropolitana. Trabalho de forma independente justamente para poder olhar cada cliente nos olhos: quem fala com você no WhatsApp sou eu, quem mostra o imóvel sou eu, e quem cuida da negociação até o final sou eu. Sem fila, sem repassar para outro, sem enrolação.</p>
+      <ul>
+        <li>Atendimento direto comigo, sem intermediário</li>
+        <li>Especialista em Salvador e Região Metropolitana</li>
+        <li>Imóveis na planta, prontos e de revenda</li>
+        <li>Da simulação de financiamento à escritura</li>
+      </ul>
+      <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Quero%20conversar%20com%20voc%C3%AA%20sobre%20im%C3%B3veis%20em%20Salvador." class="btn btn-primary" style="margin-top:26px">💬 Conversar com o José</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSTAGRAM ===== -->
+<section id="instagram" class="sec-dark">
+  <div class="container">
+    <div class="center">
+      <span class="eyebrow">@eu_josejunior</span>
+      <h2>Os melhores imóveis aparecem primeiro no meu Instagram</h2>
+      <p class="lead">São mais de 500 imóveis publicados e +5.900 pessoas acompanhando os lançamentos de Salvador em primeira mão. Me siga para não perder a próxima oportunidade.</p>
+    </div>
+    <div class="insta-grid">
+      <a class="insta-thumb reveal" href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener"><img src="assets/green-home.webp" alt="Post Green Home no Instagram" loading="lazy"></a>
+      <a class="insta-thumb reveal" href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener"><img src="assets/beach-class.webp" alt="Post Beach Class no Instagram" loading="lazy"></a>
+      <a class="insta-thumb reveal" href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener"><img src="assets/armacao.webp" alt="Post Armação no Instagram" loading="lazy"></a>
+      <a class="insta-thumb reveal" href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener"><img src="assets/stiep.webp" alt="Post Stiep no Instagram" loading="lazy"></a>
+    </div>
+    <div class="insta-cta">
+      <a href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener" class="btn btn-insta">📸 Seguir @eu_josejunior</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL — FORMULÁRIO EMBUTIDO ===== -->
+<section class="cta-form-sec">
+  <div class="container cta-form-grid">
+    <div class="reveal">
+      <span class="eyebrow">Vamos começar</span>
+      <h2>Me conta o que você procura — <em>eu encontro</em>.</h2>
+      <p class="lead">Preencha seus dados e já te chamo no WhatsApp com as melhores opções para o seu perfil. Rápido, direto e sem compromisso.</p>
+      <div class="cta-trust">
+        <div>🔑 <b>CRECI-BA 26560</b> ativo</div>
+        <div>📍 <b>Salvador</b> e Região</div>
+        <div>⚡ Resposta <b>no mesmo dia</b></div>
+      </div>
+    </div>
+    <div class="cta-form-card reveal">
+      <div class="ftit">Falar com o José</div>
+      <div class="fsub">É só preencher — a conversa abre direto no seu WhatsApp.</div>
+      <form id="leadForm" novalidate>
+        <label for="lf-nome">Seu nome</label>
+        <input id="lf-nome" name="nome" type="text" placeholder="Como posso te chamar?" required autocomplete="name">
+        <label for="lf-email">E-mail</label>
+        <input id="lf-email" name="email" type="email" placeholder="voce@email.com" required autocomplete="email">
+        <label for="lf-tel">Seu WhatsApp</label>
+        <input id="lf-tel" name="telefone" type="tel" placeholder="(71) 90000-0000" required autocomplete="tel" inputmode="tel">
+        <button type="submit" class="btn btn-wpp">💬 Falar com o José no WhatsApp</button>
+        <p class="priv">🔒 Seus dados são usados só para este contato. Sem spam.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTATO ===== -->
+<section id="contato">
+  <div class="container">
+    <div class="center"><span class="eyebrow">Atendimento</span><h2>Onde me encontrar</h2></div>
+    <div class="contato-grid">
+      <div class="reveal">
+        <div class="info-row"><div class="ico">📍</div><div><b>Região de atuação</b><span>Salvador e Região Metropolitana — BA</span></div></div>
+        <div class="info-row"><div class="ico">💬</div><div><b>WhatsApp</b><span>(71) 9 9380-1610</span></div></div>
+        <div class="info-row"><div class="ico">📸</div><div><b>Instagram</b><span>@eu_josejunior</span></div></div>
+        <div class="info-row"><div class="ico">🔑</div><div><b>Registro</b><span>CRECI-BA 26560 • corretor ativo</span></div></div>
+        <a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Quero%20agendar%20um%20atendimento." class="btn btn-wpp" style="margin-top:10px">💬 Chamar no WhatsApp</a>
+      </div>
+      <div class="map-ph reveal">
+        <iframe title="Salvador - BA" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Salvador,BA&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div class="foot-col" style="max-width:320px">
+        <div class="logo" style="font-size:1.4rem">José Junior<b style="color:var(--cor-realce)">.</b></div>
+        <div>Corretor de imóveis em Salvador e Região Metropolitana. Seu próximo endereço, com quem cuida de cada detalhe.</div>
+      </div>
+      <div class="foot-col">
+        <h4>Navegação</h4>
+        <div><a href="#imoveis">Imóveis à venda</a></div>
+        <div><a href="#vendidos">Vendidos</a></div>
+        <div><a href="#sobre">Sobre</a></div>
+        <div><a href="#instagram">Instagram</a></div>
+        <div><a href="#contato">Contato</a></div>
+      </div>
+      <div class="foot-col">
+        <h4>Contato</h4>
+        <div><a href="https://wa.me/5571993801610">WhatsApp: (71) 9 9380-1610</a></div>
+        <div><a href="https://www.instagram.com/eu_josejunior/" target="_blank" rel="noopener">@eu_josejunior</a></div>
+        <div>Salvador / BA</div>
+        <div>CRECI-BA 26560</div>
+      </div>
+    </div>
+    <div class="foot-bottom">© <span id="ano"></span> José Junior • Corretor de Imóveis • CRECI-BA 26560 • Site por PS8</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5571993801610?text=Ol%C3%A1%20Jos%C3%A9!%20Vim%20pelo%20site%20e%20quero%20falar%20sobre%20im%C3%B3veis." class="wpp-float" aria-label="WhatsApp">💬</a>
+
+<script>
+  // Header solid on scroll
+  const h=document.getElementById('header');
+  const onScroll=()=>h.classList.toggle('scrolled',scrollY>40);
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  // Ano
+  document.getElementById('ano').textContent=new Date().getFullYear();
+  // Reveal on scroll
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ===== Count-up (easeOutCubic, milhar pt-BR) =====
+  const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function fmtInt(v){return Math.round(v).toLocaleString('pt-BR');}
+  function animateCount(el){
+    const target=parseFloat(el.dataset.target),pre=el.dataset.prefix||'',suf=el.dataset.suffix||'';
+    if(RM){el.textContent=pre+fmtInt(target)+suf;return;}
+    const dur=1200,t0=performance.now();
+    (function tick(now){
+      let p=Math.min((now-t0)/dur,1);p=1-Math.pow(1-p,3);
+      el.textContent=pre+fmtInt(target*p)+suf;
+      if(p<1)requestAnimationFrame(tick);else el.textContent=pre+fmtInt(target)+suf;
+    })(performance.now());
+  }
+  const co=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){animateCount(e.target);co.unobserve(e.target)}})},{threshold:.6});
+  document.querySelectorAll('.count').forEach(el=>co.observe(el));
+
+  // ===== Formulário embutido -> WhatsApp personalizado =====
+  const WPP='5571993801610';
+  document.getElementById('leadForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const n=document.getElementById('lf-nome').value.trim(),
+          em=document.getElementById('lf-email').value.trim(),
+          t=document.getElementById('lf-tel').value.trim();
+    if(!n){document.getElementById('lf-nome').focus();return;}
+    const linhas=['Olá José! Meu nome é '+n+'.',
+                  'Quero falar sobre imóveis em Salvador.'];
+    if(em) linhas.push('E-mail: '+em);
+    if(t)  linhas.push('Meu WhatsApp: '+t);
+    const msg=encodeURIComponent(linhas.join('\n'));
+    window.open('https://wa.me/'+WPP+'?text='+msg,'_blank');
+  });
+
+  // ===== Cursor customizado redondo (só ponteiro fino) =====
+  if(matchMedia('(pointer:fine)').matches){
+    const dot=document.createElement('div'),ring=document.createElement('div');
+    dot.className='cursor-dot';ring.className='cursor-ring';
+    document.body.append(dot,ring);
+    const root=document.documentElement;root.classList.add('has-cursor');
+    let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,started=false;
+    addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';
+      if(!started){started=true;root.classList.add('ready')}},{passive:true});
+    (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+    const hov='a,button,summary,.btn,.lst,input';
+    addEventListener('mouseover',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.add('hovering')});
+    addEventListener('mouseout',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.remove('hovering')});
+  }
+</script>
+</body>
+</html>
