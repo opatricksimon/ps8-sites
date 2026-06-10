@@ -193,6 +193,31 @@
   .resgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
   .resgrid .ph{aspect-ratio:4/5;grid-row:auto;grid-column:auto}
 
+  /* ===== 🎬 REELS (vídeos reais — player custom estilo José Junior) ===== */
+  .reels{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+  .reel{position:relative;aspect-ratio:9/16;border-radius:var(--raio);overflow:hidden;background:var(--cor-escura);box-shadow:var(--sombra);cursor:pointer;border:1px solid var(--cor-borda-tint)}
+  .reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
+  .reel .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s ease;z-index:2}
+  .reel.playing .poster{opacity:0;pointer-events:none}
+  .reel .playbtn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:3;width:64px;height:64px;border-radius:50%;
+    background:var(--grad-realce);background-size:220% auto;box-shadow:0 10px 30px rgba(18,18,18,.45);display:flex;align-items:center;justify-content:center;
+    transition:opacity .3s ease,transform .3s ease;animation:shimmer 7s linear infinite}
+  .reel .playbtn::after{content:"";margin-left:5px;border-style:solid;border-width:13px 0 13px 22px;border-color:transparent transparent transparent #211a06}
+  .reel.playing .playbtn{opacity:0;transform:translate(-50%,-50%) scale(.6);pointer-events:none}
+  .reel:hover .playbtn{transform:translate(-50%,-50%) scale(1.08)}
+  .reel .cap{position:absolute;left:0;right:0;bottom:0;z-index:3;padding:30px 16px 14px;color:#fff;
+    background:linear-gradient(transparent,rgba(18,18,18,.78));font-family:'Inter';font-weight:600;font-size:.9rem;letter-spacing:.01em;transition:opacity .3s}
+  .reel .cap small{display:block;font-weight:400;font-size:.74rem;color:var(--cor-realce);letter-spacing:.12em;text-transform:uppercase;margin-bottom:3px}
+  .reel.playing .cap{opacity:0}
+  .reel .badge-live{position:absolute;top:12px;left:12px;z-index:3;background:rgba(18,18,18,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+    border:1px solid rgba(201,162,75,.4);color:#fff;border-radius:999px;padding:5px 11px;font-family:'Inter';font-weight:600;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase}
+  .reel .badge-live::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--cor-realce);margin-right:6px;vertical-align:middle}
+  .reel .mutebtn{position:absolute;bottom:12px;right:12px;z-index:4;width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;
+    background:rgba(18,18,18,.55);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);color:#fff;font-size:1rem;display:none;align-items:center;justify-content:center;transition:background .2s}
+  .reel.playing .mutebtn{display:flex}
+  .reel .mutebtn:hover{background:rgba(18,18,18,.8)}
+  .sec-dark .reel{border-color:rgba(201,162,75,.25)}
+
   /* ===== 🎠 DEPOIMENTOS (carrossel infinito de cards) ===== */
   .depo{flex:0 0 360px;background:#fff;border:1px solid var(--cor-borda);border-radius:var(--raio);padding:28px;white-space:normal}
   .depo .stars{color:var(--cor-realce);margin-bottom:12px;letter-spacing:3px}
@@ -274,10 +299,15 @@
     .ph:nth-child(1){grid-row:span 1}
     .ph:nth-child(4){grid-column:span 2}
     section{padding:clamp(40px,5.5vh,60px) 0}
+    /* reels viram carrossel horizontal (9:16 fica usável) */
+    .reels{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px;scrollbar-width:none}
+    .reels::-webkit-scrollbar{display:none}
+    .reel{flex:0 0 60%;scroll-snap-align:center}
   }
   @media(max-width:560px){
     body{font-size:16px}
     .g3,.resgrid{grid-template-columns:1fr}
+    .reel{flex:0 0 78%}
     .hero>.container{padding-left:24px}
     .hero-img{background-position:74% center}
     .hero-overlay{background:linear-gradient(90deg,rgba(246,242,234,.95) 0%,rgba(246,242,234,.82) 50%,rgba(246,242,234,.4) 100%),
@@ -446,6 +476,46 @@
   </div>
 </section>
 
+<!-- ===== 🎬 REELS / VÍDEOS REAIS (player custom — clique p/ tocar com som) ===== -->
+<section id="reels" class="sec-dark">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Por dentro do Supreme</span>
+      <h2>Veja o studio <em class="shine">em movimento</em></h2>
+      <p class="lead">Bastidores reais do nosso dia a dia. Toque para assistir com som.</p>
+    </div>
+    <div class="reels reveal">
+      <div class="reel" data-reel>
+        <span class="badge-live">Bastidores</span>
+        <video preload="none" playsinline poster="./assets/vid-poster-1.webp" src="./assets/video-1.mp4"></video>
+        <img class="poster" src="./assets/vid-poster-1.webp" alt="Momento de cuidado e lavagem no Supreme Prime Deluxy" loading="lazy">
+        <button class="playbtn" aria-label="Assistir v&iacute;deo"></button>
+        <button class="mutebtn" aria-label="Ativar ou silenciar som">&#128266;</button>
+        <div class="cap"><small>Cuidado &amp; relaxamento</small>Um momento s&oacute; seu</div>
+      </div>
+      <div class="reel" data-reel>
+        <span class="badge-live">Equipe</span>
+        <video preload="none" playsinline poster="./assets/vid-poster-2.webp" src="./assets/video-2.mp4"></video>
+        <img class="poster" src="./assets/vid-poster-2.webp" alt="Equipe do Supreme modelando cabelos" loading="lazy">
+        <button class="playbtn" aria-label="Assistir v&iacute;deo"></button>
+        <button class="mutebtn" aria-label="Ativar ou silenciar som">&#128266;</button>
+        <div class="cap"><small>Nossa equipe em a&ccedil;&atilde;o</small>Ondas e finaliza&ccedil;&atilde;o</div>
+      </div>
+      <div class="reel" data-reel>
+        <span class="badge-live">Studio</span>
+        <video preload="none" playsinline poster="./assets/vid-poster-3.webp" src="./assets/video-3.mp4"></video>
+        <img class="poster" src="./assets/vid-poster-3.webp" alt="Equipe do Supreme Prime Deluxy dentro do studio" loading="lazy">
+        <button class="playbtn" aria-label="Assistir v&iacute;deo"></button>
+        <button class="mutebtn" aria-label="Ativar ou silenciar som">&#128266;</button>
+        <div class="cap"><small>Por dentro do studio</small>Quem cuida de voc&ecirc;</div>
+      </div>
+    </div>
+    <div class="center" style="margin-top:26px">
+      <a href="https://instagram.com/supremeprimeoficial" target="_blank" rel="noopener" class="btn btn-gold">Ver mais no Instagram</a>
+    </div>
+  </div>
+</section>
+
 <!-- ===== 🎠 DEPOIMENTOS (carrossel infinito) ===== -->
 <section id="depoimentos" class="sec-cream">
   <div class="container center reveal">
@@ -600,6 +670,48 @@
     closeModal();
   });
 
+  // 🎬 Reels — player custom (clique p/ tocar com som, sem seek, pausa os outros)
+  (function(){
+    const reels=[...document.querySelectorAll('[data-reel]')];
+    function hardPause(v){ // pausa mesmo se a promise do play() ainda estiver pendente
+      if(v._pp&&v._pp.then){ v._pp.then(()=>v.pause()).catch(()=>{}); }
+      try{v.pause();}catch(_){}
+    }
+    function stopAll(except){
+      reels.forEach(r=>{ if(r===except)return; const v=r.querySelector('video');
+        if(v){hardPause(v);} r.classList.remove('playing'); });
+    }
+    reels.forEach(reel=>{
+      const v=reel.querySelector('video'),
+            mute=reel.querySelector('.mutebtn');
+      function play(){
+        stopAll(reel);
+        reel.classList.add('playing');
+        v.muted=false; v.volume=1; mute.textContent='🔊';
+        const p=v.play(); v._pp=p;
+        if(p&&p.catch)p.catch(()=>{ v.muted=true; mute.textContent='🔇'; v._pp=v.play(); if(v._pp&&v._pp.catch)v._pp.catch(()=>{}); });
+      }
+      function pause(){ v.pause(); reel.classList.remove('playing'); }
+      // clique no card alterna play/pause (ignora clique no botão de mudo)
+      reel.addEventListener('click',e=>{
+        if(e.target.closest('.mutebtn'))return;
+        if(reel.classList.contains('playing')&&!v.paused) pause(); else play();
+      });
+      mute.addEventListener('click',e=>{ e.stopPropagation();
+        v.muted=!v.muted; mute.textContent=v.muted?'🔇':'🔊';
+        if(v.muted===false&&v.paused)play();
+      });
+      v.addEventListener('ended',()=>{ reel.classList.remove('playing'); v.currentTime=0; });
+    });
+    // pausa qualquer reel que sair da viewport
+    if('IntersectionObserver' in window){
+      const vo=new IntersectionObserver(es=>es.forEach(e=>{
+        if(!e.isIntersecting){const r=e.target;const v=r.querySelector('video');if(v&&!v.paused){v.pause();r.classList.remove('playing');}}
+      }),{threshold:.25});
+      reels.forEach(r=>vo.observe(r));
+    }
+  })();
+
   // Antes/Depois slider
   document.querySelectorAll('.ba').forEach(ba=>{
     const after=ba.querySelector('.ba-after'),handle=ba.querySelector('.ba-handle');
@@ -636,7 +748,7 @@
     addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';
       if(!started){started=true;root.classList.add('ready')}},{passive:true});
     (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
-    const hov='a,button,summary,.btn,.card,.depo,.pill,.ba';
+    const hov='a,button,summary,.btn,.card,.depo,.pill,.ba,.reel';
     addEventListener('mouseover',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.add('hovering')});
     addEventListener('mouseout',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.remove('hovering')});
   }
