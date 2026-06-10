@@ -13,10 +13,10 @@
   Dados reais: Sam's Club Estr. do Côco, Lauro de Freitas/BA · Seg–Sáb 08h–20h, Dom 08h–17h · WhatsApp (71) 98690-7621 · @supremeprimeoficial · beacons.ai/supremeprime
   PENDENTE (flags): preços por serviço · depoimentos reais · vídeos do IG (baixados, não publicados)
 -->
-<title>Supreme Prime Deluxy | Centro de Beleza e Estética no Sam's Club — Lauro de Freitas</title>
-<meta name="description" content="Centro de Beleza e Estética em Lauro de Freitas/BA, dentro do Sam's Club da Estrada do Côco. Cabelo, unhas, sobrancelhas, cílios, estética facial e corporal. Seg–Sáb 08h–20h, Dom 08h–17h. Agende seu horário." />
+<title>Supreme Prime Deluxy | Centro de Beleza e Estética no Sam's Club de Lauro de Freitas</title>
+<meta name="description" content="Centro de Beleza e Estética em Lauro de Freitas/BA, dentro do Sam's Club da Estrada do Côco. Cabelo, unhas, sobrancelhas, cílios, estética facial e corporal. Seg a Sáb das 08h às 20h, Dom das 08h às 17h. Agende seu horário." />
 <link rel="canonical" href="https://opatricksimon.github.io/ps8-sites/beleza-estetica-site-modelo/" />
-<meta property="og:title" content="Supreme Prime Deluxy — Centro de Beleza &amp; Estética" />
+<meta property="og:title" content="Supreme Prime Deluxy: Centro de Beleza &amp; Estética" />
 <meta property="og:description" content="A beleza já está em você, nós só realçamos. Tudo em um só lugar, de domingo a domingo, no Sam's Club de Lauro de Freitas. Agende online." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://opatricksimon.github.io/ps8-sites/beleza-estetica-site-modelo/" />
@@ -38,7 +38,7 @@
   "telephone": "+5571986907621",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Sam's Club — Estrada do Côco",
+    "streetAddress": "Sam's Club, Estrada do Côco",
     "addressLocality": "Lauro de Freitas",
     "addressRegion": "BA",
     "addressCountry": "BR"
@@ -111,6 +111,13 @@
   .btn-noir:hover{background-position:right center;transform:translateY(-2px)}
   .btn-ghost-dark{background:rgba(255,255,255,.55);color:var(--cor-texto);border:1.5px solid rgba(36,31,22,.4);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
   .btn-ghost-dark:hover{background:rgba(255,255,255,.8);border-color:var(--cor-texto)}
+  /* WhatsApp (verde da marca) + Instagram (dourado adaptado à página) */
+  .btn-wpp{background:var(--cor-whatsapp);color:#fff;box-shadow:0 10px 26px rgba(37,211,102,.3)}
+  .btn-wpp:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(37,211,102,.42)}
+  .btn-ig{background:linear-gradient(105deg,#8A6A1E 0%,#C9A24B 52%,#E8D391 100%);color:#2a2008;box-shadow:0 10px 26px rgba(201,162,75,.32)}
+  .btn-ig:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(201,162,75,.44)}
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:6px 0 14px}
+  .btn-row .btn{flex:1 1 0;justify-content:center;min-width:150px}
   @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(18,18,18,.4)}50%{box-shadow:0 12px 34px rgba(138,106,30,.55)}}
 
   /* ===== FOCO VISÍVEL (acessibilidade por teclado — WCAG 2.4.7) ===== */
@@ -174,6 +181,12 @@
   .pill .e{font-size:1.15rem;line-height:1}
   .sec-dark .pill{background:rgba(255,255,255,.06);border-color:rgba(201,162,75,.3);color:#fff}
 
+  /* ===== 🎠 SCROLL-MARQUEE (auto infinito + responde à rolagem + arrastável) ===== */
+  .smq{display:flex;gap:14px;width:max-content;will-change:transform;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+  .smq.dragging{cursor:grabbing}
+  .smq>*{flex:0 0 auto}
+  .smq img{pointer-events:none;-webkit-user-drag:none;user-drag:none}
+
   /* ===== 🧊 CARDS COM TILT 3D ===== */
   .grid{display:grid;gap:22px}
   .g3{grid-template-columns:repeat(3,1fr)}
@@ -236,13 +249,14 @@
   .ba-handle::after{content:"\27F7";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:#fff;color:var(--cor-realce-escura);display:flex;align-items:center;justify-content:center;font-size:1.05rem;box-shadow:0 4px 14px rgba(0,0,0,.28)}
   .ba-note{text-align:center;color:var(--cor-texto-suave);font-size:.82rem;margin-top:12px;font-style:italic}
 
-  /* ===== GRID DE RESULTADOS ===== */
-  .resgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-  .resgrid .ph{aspect-ratio:4/5;grid-row:auto;grid-column:auto}
+  /* ===== RESULTADOS — DUAS FILEIRAS HORIZONTAIS (scroll-marquee) ===== */
+  .reswrap{margin-top:30px;display:grid;gap:16px}
+  .resrow .smq{gap:16px}
+  .resrow .ph{flex:0 0 clamp(206px,23vw,268px);aspect-ratio:4/5}
 
   /* ===== 🎬 REELS (vídeos reais — player custom estilo José Junior) ===== */
-  .reels{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
-  .reel{position:relative;aspect-ratio:9/16;border-radius:var(--raio);overflow:hidden;background:var(--cor-escura);box-shadow:var(--sombra);cursor:pointer;border:1px solid var(--cor-borda-tint)}
+  .reels{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px;justify-items:center;align-items:start}
+  .reel{position:relative;width:100%;aspect-ratio:9/16;max-height:76svh;border-radius:var(--raio);overflow:hidden;background:var(--cor-escura);box-shadow:var(--sombra);cursor:pointer;border:1px solid var(--cor-borda-tint)}
   .reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
   .reel .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .35s ease;z-index:2}
   .reel.playing .poster{opacity:0;pointer-events:none}
@@ -282,6 +296,9 @@
   .info-row span{color:var(--cor-texto-suave);font-size:.94rem}
   .map-ph{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:var(--cor-superficie);border:1px solid var(--cor-borda)}
   .map-ph iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.2) contrast(.95)}
+  /* fotos do espaço fundidas na seção de localização (recepção / lavagem / fachada) */
+  .local-fotos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+  .local-fotos .ph{aspect-ratio:4/3}
 
   /* ===== CTA FINAL (mármore preto + dourado — logo inversa) ===== */
   .cta-final{background:linear-gradient(135deg,#000 0%,#1E1A10 55%,#121212 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
@@ -344,9 +361,8 @@
     .exp-img{max-width:520px;margin:0 auto;width:100%}
     .trust{grid-template-columns:1fr 1fr;gap:28px}
     .trust .ts+.ts::before{display:none}
-    .galeria{grid-template-columns:1fr 1fr;grid-auto-rows:170px}
-    .ph:nth-child(1){grid-row:span 1}
-    .ph:nth-child(4){grid-column:span 2}
+    .local-fotos{grid-template-columns:1fr 1fr}
+    .local-fotos .ph:nth-child(3){grid-column:span 2}
     section{padding:clamp(40px,5.5vh,60px) 0}
     /* reels viram carrossel horizontal (9:16 fica usável) */
     .reels{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px;scrollbar-width:none}
@@ -368,8 +384,8 @@
     #depoimentos .marquee::-webkit-scrollbar{display:none}
     #depoimentos .mq-track{animation:none!important;width:auto}
     .depo{flex:0 0 84vw;scroll-snap-align:center}
-    .galeria{grid-template-columns:1fr;grid-auto-rows:200px}
-    .ph:nth-child(4){grid-column:span 1}
+    .local-fotos{grid-template-columns:1fr}
+    .local-fotos .ph:nth-child(3){grid-column:span 1}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
@@ -396,13 +412,13 @@
 
 <!-- ===== HERO — FOTO REAL DO SALÃO (mármore branco + veios dourados) ===== -->
 <section class="hero">
-  <div class="hero-img" role="img" aria-label="Profissional do Supreme Prime Deluxy lavando o cabelo de uma cliente diante da parede de m&aacute;rmore branco com veios dourados"></div>
+  <div class="hero-img" role="img" aria-label="Profissional do Supreme Prime Deluxy na recep&ccedil;&atilde;o do sal&atilde;o, com a parede da marca ao fundo"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-content">
       <span class="hero-chip"><i>&#10022;</i> Centro de Beleza &amp; Est&eacute;tica &bull; Sam's Club &bull; Lauro de Freitas/BA</span>
       <h1>A beleza j&aacute; est&aacute; em voc&ecirc;.<br>N&oacute;s s&oacute; <em>real&ccedil;amos</em>.</h1>
-      <p class="sub">Cabelo, unhas, rosto e corpo em um s&oacute; lugar &mdash; todos os dias da semana, dentro do Sam's Club da Estrada do C&ocirc;co.</p>
+      <p class="sub">Cabelo, unhas, rosto e corpo em um s&oacute; lugar, todos os dias da semana, dentro do Sam's Club da Estrada do C&ocirc;co.</p>
       <div class="hero-cta">
         <a href="#agendar" class="btn btn-gold">Agendar meu hor&aacute;rio</a>
         <a href="#servicos" class="btn btn-ghost-dark">Ver servi&ccedil;os</a>
@@ -414,19 +430,7 @@
 
 <!-- ===== 🎠 CARROSSEL INFINITO DE SERVIÇOS (cardápio real) ===== -->
 <div class="marquee" style="background:var(--cor-fundo);padding:22px 0;border-bottom:1px solid var(--cor-borda)" aria-label="Servi&ccedil;os oferecidos">
-  <div class="mq-track">
-    <!-- set 1 -->
-    <span class="pill"><span class="e">&#9986;&#65039;</span> Cabelo</span>
-    <span class="pill"><span class="e">&#128133;</span> Manicure &amp; Pedicure</span>
-    <span class="pill"><span class="e">&#10022;</span> Design de Sobrancelhas</span>
-    <span class="pill"><span class="e">&#128064;</span> Alongamento de C&iacute;lios</span>
-    <span class="pill"><span class="e">&#128396;&#65039;</span> Micropigmenta&ccedil;&atilde;o</span>
-    <span class="pill"><span class="e">&#129526;</span> Limpeza de Pele</span>
-    <span class="pill"><span class="e">&#128134;</span> Massagens</span>
-    <span class="pill"><span class="e">&#128167;</span> Drenagem Linf&aacute;tica</span>
-    <span class="pill"><span class="e">&#129461;</span> Spa dos P&eacute;s</span>
-    <span class="pill"><span class="e">&#127754;</span> Depila&ccedil;&atilde;o Eg&iacute;pcia</span>
-    <!-- set 2 (duplicado p/ loop perfeito) -->
+  <div class="smq" data-smq data-dir="-1" data-base="0.55">
     <span class="pill"><span class="e">&#9986;&#65039;</span> Cabelo</span>
     <span class="pill"><span class="e">&#128133;</span> Manicure &amp; Pedicure</span>
     <span class="pill"><span class="e">&#10022;</span> Design de Sobrancelhas</span>
@@ -445,8 +449,8 @@
   <div class="container">
     <div class="center reveal">
       <span class="eyebrow">O que fazemos por voc&ecirc;</span>
-      <h2>Cuidado, eleg&acirc;ncia e <em style="font-style:italic;color:var(--cor-realce-escura)">exclusividade</em></h2>
-      <p class="lead">Um card&aacute;pio completo de beleza e bem-estar em um s&oacute; lugar. Toque em um servi&ccedil;o para agendar pelo WhatsApp.</p>
+      <h2>Tudo o que voc&ecirc; precisa, <em style="font-style:italic;color:var(--cor-realce-escura)">num lugar s&oacute;</em></h2>
+      <p class="lead">Cabelo, unhas, rosto e corpo. Toque em um servi&ccedil;o para agendar pelo WhatsApp.</p>
     </div>
     <div class="grid g3 tilt-wrap" style="margin-top:22px">
       <div class="card reveal" data-tilt><div class="ico">&#9986;&#65039;</div><h3>Cabelo</h3><p>Corte, colora&ccedil;&atilde;o, mechas e loiros, escova e tratamentos para todos os tipos de fio.</p></div>
@@ -467,9 +471,9 @@
       <div class="reveal">
         <span class="eyebrow">A experi&ecirc;ncia Supreme</span>
         <h2>Mais que um sal&atilde;o.<br>Um momento <em class="shine">s&oacute; seu</em>.</h2>
-        <p>Bem-vinda ao universo Supreme: cuidado, eleg&acirc;ncia e exclusividade em cada detalhe. Ambiente climatizado, profissionais especializados e qualidade do come&ccedil;o ao fim &mdash; dentro do Sam's Club, com toda a praticidade.</p>
+        <p>Voc&ecirc; senta, relaxa e sai pronta. Ambiente climatizado, equipe que conhece o que faz e a praticidade de j&aacute; estar dentro do Sam's Club, com estacionamento na porta.</p>
         <ul>
-          <li>Funcionamos todos os dias &mdash; de domingo a domingo</li>
+          <li>Aberto todos os dias, de domingo a domingo</li>
           <li>Profissionais especializados em cada &aacute;rea</li>
           <li>Dentro do Sam's Club da Estrada do C&ocirc;co, com estacionamento f&aacute;cil</li>
           <li>Ambiente climatizado, limpo e acolhedor</li>
@@ -485,22 +489,7 @@
   </div>
 </section>
 
-<!-- ===== GALERIA (fotos reais do espaço) ===== -->
-<section id="galeria" class="sec-cream">
-  <div class="container">
-    <div class="center reveal">
-      <span class="eyebrow">Nosso espa&ccedil;o</span>
-      <h2>Onde a sua beleza <em style="font-style:italic;color:var(--cor-realce-escura)">acontece</em></h2>
-      <p class="lead">M&aacute;rmore, dourado e conforto &mdash; um espa&ccedil;o pensado nos m&iacute;nimos detalhes.</p>
-    </div>
-    <div class="galeria reveal">
-      <div class="ph"><img src="./assets/lavatorio.webp" alt="Lavat&oacute;rios diante da parede de m&aacute;rmore com veios dourados" loading="lazy"><span>Lavat&oacute;rios &bull; m&aacute;rmore &amp; dourado</span></div>
-      <div class="ph"><img src="./assets/balcao.webp" alt="Balc&atilde;o de recep&ccedil;&atilde;o com logo dourada" loading="lazy"><span>Recep&ccedil;&atilde;o</span></div>
-      <div class="ph"><img src="./assets/res-unha-roxa.webp" alt="Unhas em gel roxas com detalhe dourado" loading="lazy"><span>Unhas em gel</span></div>
-      <div class="ph"><img src="./assets/fachada.webp" alt="Fachada do Supreme Prime Deluxy dentro do Sam's Club" loading="lazy" style="object-position:center 38%"><span>Dentro do Sam's Club &bull; Estrada do C&ocirc;co</span></div>
-    </div>
-  </div>
-</section>
+<!-- (Seção "Nosso espaço" fundida na Localização, mais abaixo) -->
 
 <!-- ===== ANTES / DEPOIS + RESULTADOS REAIS ===== -->
 <section id="resultados">
@@ -517,14 +506,22 @@
       <span class="ba-tag r">Depois</span>
       <div class="ba-handle"></div>
     </div>
-    <p class="ba-note">Loiro iluminado &mdash; transforma&ccedil;&atilde;o real de cliente Supreme.</p>
-    <div class="resgrid reveal">
-      <div class="ph"><img src="./assets/res-loiro.webp" alt="Loiro iluminado finalizado" loading="lazy"><span>Loiro iluminado</span></div>
-      <div class="ph"><img src="./assets/res-mechas.webp" alt="Mechas com fundo escuro finalizado" loading="lazy"><span>Mechas</span></div>
-      <div class="ph"><img src="./assets/res-castanho.webp" alt="Castanho iluminado ondulado" loading="lazy"><span>Castanho iluminado</span></div>
-      <div class="ph"><img src="./assets/res-unha-nude.webp" alt="Unhas nude com aplica&ccedil;&otilde;es 3D" loading="lazy"><span>Nail art 3D</span></div>
-      <div class="ph"><img src="./assets/res-unha-terracota.webp" alt="Esmalta&ccedil;&atilde;o em gel terracota" loading="lazy"><span>Esmalta&ccedil;&atilde;o em gel</span></div>
-      <div class="ph"><img src="./assets/res-unha-roxa.webp" alt="Unhas roxas com glitter dourado" loading="lazy"><span>Alongamento</span></div>
+    <p class="ba-note">Loiro iluminado: transforma&ccedil;&atilde;o real de uma cliente.</p>
+    <div class="reswrap reveal">
+      <div class="marquee resrow" aria-label="Resultados de cabelo">
+        <div class="smq" data-smq data-dir="-1" data-base="0.4">
+          <div class="ph"><img src="./assets/res-loiro.webp" alt="Loiro iluminado finalizado" loading="lazy"><span>Loiro iluminado</span></div>
+          <div class="ph"><img src="./assets/res-mechas.webp" alt="Mechas iluminando o rosto" loading="lazy"><span>Mechas que abrem o tom</span></div>
+          <div class="ph"><img src="./assets/res-castanho.webp" alt="Castanho iluminado e ondulado" loading="lazy"><span>Castanho com brilho</span></div>
+        </div>
+      </div>
+      <div class="marquee resrow" aria-label="Resultados de unhas">
+        <div class="smq" data-smq data-dir="1" data-base="0.4">
+          <div class="ph"><img src="./assets/res-unha-nude.webp" alt="Unhas nude com aplica&ccedil;&otilde;es 3D" loading="lazy"><span>Unhas 3D feitas &agrave; m&atilde;o</span></div>
+          <div class="ph"><img src="./assets/res-unha-terracota.webp" alt="Esmalta&ccedil;&atilde;o em gel terracota" loading="lazy"><span>Esmalta&ccedil;&atilde;o em gel</span></div>
+          <div class="ph"><img src="./assets/res-unha-roxa.webp" alt="Alongamento de unhas com brilho dourado" loading="lazy"><span>Alongamento</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -574,7 +571,7 @@
   <div class="container center reveal">
     <span class="eyebrow">Quem passa, recomenda</span>
     <h2>Clientes que <em style="font-style:italic;color:var(--cor-realce-escura)">amam</em> o resultado</h2>
-    <p class="lead">Depoimentos ilustrativos &mdash; em breve, avalia&ccedil;&otilde;es reais das nossas clientes.</p>
+    <p class="lead">Depoimentos ilustrativos. Em breve, avalia&ccedil;&otilde;es reais das nossas clientes.</p>
   </div>
   <div class="marquee" style="margin-top:34px" aria-label="Depoimentos">
     <div class="mq-track mq-rev">
@@ -600,17 +597,24 @@
         <span class="eyebrow">Onde estamos</span>
         <h2>Venha nos <em style="font-style:italic;color:var(--cor-realce-escura)">visitar</em></h2>
         <div style="margin-top:24px">
-          <div class="info-row"><div class="ico">&#128205;</div><div><b>Endere&ccedil;o</b><span>Dentro do Sam's Club &mdash; Estr. do C&ocirc;co, Lauro de Freitas/BA</span></div></div>
-          <div class="info-row"><div class="ico">&#128337;</div><div><b>Hor&aacute;rios &mdash; todos os dias</b><span>Seg a S&aacute;b: 08h &agrave;s 20h &bull; Dom: 08h &agrave;s 17h</span></div></div>
-          <div class="info-row"><div class="ico">&#128241;</div><div><b>WhatsApp</b><span>(71) 98690-7621</span></div></div>
-          <div class="info-row"><div class="ico">&#128247;</div><div><b>Instagram</b><span>@supremeprimeoficial</span></div></div>
+          <div class="info-row"><div class="ico">&#128205;</div><div><b>Endere&ccedil;o</b><span>Dentro do Sam's Club, Estr. do C&ocirc;co, Lauro de Freitas/BA</span></div></div>
+          <div class="info-row"><div class="ico">&#128337;</div><div><b>Hor&aacute;rios</b><span>Seg a S&aacute;b: 08h &agrave;s 20h &bull; Dom: 08h &agrave;s 17h</span></div></div>
         </div>
-        <a href="https://beacons.ai/supremeprime" target="_blank" rel="noopener" class="btn btn-noir" style="margin-top:8px">Agendar pela agenda online</a>
+        <div class="btn-row">
+          <a href="https://wa.me/5571986907621?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" class="btn btn-wpp" aria-label="Falar no WhatsApp"><span aria-hidden="true">&#128172;</span> WhatsApp</a>
+          <a href="https://instagram.com/supremeprimeoficial" target="_blank" rel="noopener" class="btn btn-ig" aria-label="Abrir o Instagram"><span aria-hidden="true">&#128247;</span> Instagram</a>
+        </div>
+        <a href="https://beacons.ai/supremeprime" target="_blank" rel="noopener" class="btn btn-noir">Agendar pela agenda online</a>
       </div>
       <div class="map-ph reveal">
-        <iframe title="Mapa Supreme Prime Deluxy — Sam's Club Lauro de Freitas" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        <iframe title="Mapa do Supreme Prime Deluxy no Sam's Club de Lauro de Freitas" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=Sam%27s%20Club%20Estrada%20do%20Coco%20Lauro%20de%20Freitas%20BA&amp;output=embed"></iframe>
       </div>
+    </div>
+    <div class="local-fotos reveal">
+      <div class="ph"><img src="./assets/balcao.webp" alt="Recep&ccedil;&atilde;o do Supreme Prime Deluxy com a logo dourada" loading="lazy"><span>Nossa recep&ccedil;&atilde;o</span></div>
+      <div class="ph"><img src="./assets/lavatorio.webp" alt="&Aacute;rea de lavagem de cabelo do sal&atilde;o" loading="lazy"><span>Hora de relaxar</span></div>
+      <div class="ph"><img src="./assets/fachada.webp" alt="Entrada do Supreme Prime Deluxy dentro do Sam's Club" loading="lazy" style="object-position:center 38%"><span>Estamos dentro do Sam's Club, Estr. do C&ocirc;co</span></div>
     </div>
   </div>
 </section>
@@ -620,7 +624,7 @@
   <div class="container">
     <div class="reveal">
       <h2>Pronta para se sentir <em>ainda mais bonita</em>?</h2>
-      <p>Supreme: onde sua beleza encontra o cuidado perfeito. Agende em segundos e deixe o resto com a gente.</p>
+      <p>Agende em segundos pelo WhatsApp e deixe o resto com a gente.</p>
       <a href="#agendar" class="btn btn-gold">Agendar meu hor&aacute;rio</a>
     </div>
   </div>
@@ -644,7 +648,7 @@
       </div>
       <div class="foot-col">
         <h4>Contato</h4>
-        <div>Sam's Club &mdash; Estr. do C&ocirc;co, Lauro de Freitas/BA</div>
+        <div>Sam's Club, Estr. do C&ocirc;co, Lauro de Freitas/BA</div>
         <div><a href="https://wa.me/5571986907621" target="_blank" rel="noopener">(71) 98690-7621</a></div>
         <div><a href="https://beacons.ai/supremeprime" target="_blank" rel="noopener">Agenda online</a></div>
         <div><a href="https://instagram.com/supremeprimeoficial" target="_blank" rel="noopener">@supremeprimeoficial</a></div>
@@ -813,6 +817,46 @@
     addEventListener('mouseover',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.add('hovering')});
     addEventListener('mouseout',e=>{if(e.target.closest&&e.target.closest(hov))root.classList.remove('hovering')});
   }
+
+  // 🎠 Scroll-marquee — auto infinito + responde à rolagem da página + arrastável com o dedo
+  (function(){
+    const tracks=[...document.querySelectorAll('[data-smq]')];
+    if(!tracks.length)return;
+    const RMq=matchMedia('(prefers-reduced-motion:reduce)').matches;
+    let lastY=scrollY;
+    const items=tracks.map(track=>{
+      const dir=parseFloat(track.dataset.dir||'-1');
+      const base=parseFloat(track.dataset.base||'0.5');
+      track.innerHTML=track.innerHTML+track.innerHTML+track.innerHTML+track.innerHTML; // 4x p/ loop seamless por metade
+      const o={track,dir,base,pos:0,half:1,vx:0,drag:false,moved:0,lastX:0};
+      o.measure=()=>{o.half=track.scrollWidth/2||1;};
+      o.wrap=p=>{if(o.half<=1)return p;p%=o.half;if(p>0)p-=o.half;return p;};
+      o.apply=()=>{track.style.transform='translate3d('+o.pos.toFixed(2)+'px,0,0)';};
+      o.measure();
+      track.addEventListener('pointerdown',e=>{o.drag=true;o.moved=0;o.lastX=e.clientX;o.vx=0;track.classList.add('dragging');try{track.setPointerCapture(e.pointerId)}catch(_){}});
+      track.addEventListener('pointermove',e=>{if(!o.drag)return;const dx=e.clientX-o.lastX;o.lastX=e.clientX;o.moved+=Math.abs(dx);o.vx=dx;o.pos=o.wrap(o.pos+dx);o.apply();});
+      const end=()=>{o.drag=false;track.classList.remove('dragging');};
+      track.addEventListener('pointerup',end);track.addEventListener('pointercancel',end);
+      // clique que virou arrasto não navega
+      track.addEventListener('click',e=>{if(o.moved>6){e.preventDefault();e.stopPropagation();}},true);
+      return o;
+    });
+    addEventListener('scroll',()=>{
+      const dy=scrollY-lastY;lastY=scrollY;
+      items.forEach(o=>{if(o.drag)return;o.pos=o.wrap(o.pos+o.dir*dy*0.7);o.apply();});
+    },{passive:true});
+    (function frame(){
+      items.forEach(o=>{
+        if(o.drag)return;
+        let step=RMq?0:o.base*o.dir;
+        if(Math.abs(o.vx)>0.1){step+=o.vx;o.vx*=0.9;} // inércia do arrasto
+        if(step){o.pos=o.wrap(o.pos+step);o.apply();}
+      });
+      requestAnimationFrame(frame);
+    })();
+    addEventListener('resize',()=>items.forEach(o=>{o.measure();o.apply();}));
+    addEventListener('load',()=>items.forEach(o=>{o.measure();o.apply();}));
+  })();
 
   // Menu mobile (scroll suave simples — nav-links escondidos no mobile, CTA flutua via WhatsApp)
   document.querySelector('.menu-btn')?.addEventListener('click',()=>{document.getElementById('servicos')?.scrollIntoView({behavior:'smooth'})});
