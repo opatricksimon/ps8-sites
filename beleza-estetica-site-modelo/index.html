@@ -4,38 +4,36 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <!--
-  PS8 SITE-MODELO — BELEZA / ESTÉTICA (salão, studio, centro estético, barbearia premium)  (Arquétipo A Luxo / Kit Premium)
-  Gerado a partir de: DESIGN-SYSTEM/design.md (§2.5 Encaixe + §2.6 Acabamento Premium + §2.8 Card nunca chapado) + MOTION-PS8.md
-  Recolorido 2026-06-08: Playfair Display + ameixa profundo + ROSÉ/CHAMPAGNE metálico + nude creme + ritmo de cor.
-  EFEITOS-ASSINATURA DESTE NICHO:
-    ✨ Shine metálico (rosé)  ·  🎠 Carrossel infinito (CSS marquee)  ·  🖼️ Imagem ultrawide (hero+faixas)  ·  🧊 Tilt 3D nos cards
-  Primeira instância: Supreme Prime Deluxy — Studio de Beleza e Estética (Estr. do Côco, 40066 - Lauro de Freitas/BA)
-
-  PERSONALIZAR POR CLIENTE (buscar {{...}}):
-  {{NOME_STUDIO}} {{CIDADE/UF}} {{ENDERECO}} {{WHATSAPP=55DDDNUMERO}} {{AGENDA_ONLINE}} {{INSTAGRAM}}
-  {{SERVICOS}} {{PRECOS}} {{HORARIOS}} {{NUMEROS_PROVA_SOCIAL}} {{DEPOIMENTOS_REAIS}}
-  Imagens em ./assets/  (hero.webp ULTRAWIDE · ambiente.webp · galeria-1..4.webp · antes.webp · depois.webp)
-  Enquanto não houver foto real: as faixas usam degradê CSS premium (não quebram). Trocar pelo background-image indicado.
+  PS8 SITE — SUPREME PRIME DELUXY v2.0 (instância real do site-modelo BELEZA/ESTÉTICA)
+  Base: DESIGN-SYSTEM/design.md (§2.5 Encaixe + §2.6 Acabamento Premium + §2.8 Card nunca chapado + §2.9 Marquee/Tilt) + MOTION-PS8.md
+  Repaleta 2026-06-10: MÁRMORE BRANCO + DOURADO CHAMPANHE + PRETO (conforme logo oficial — mármore claro c/ veios dourados).
+  Seções escuras = mármore preto (logo inversa) p/ ritmo de cor.
+  Fotos REAIS do salão/Instagram tratadas via site-image-enricher (assets/*.webp; brutas em assets/_raw/).
+  EFEITOS-ASSINATURA: ✨ Shine metálico dourado · 🎠 Carrossel infinito · 🖼️ Hero foto real ultrawide · 🧊 Tilt 3D nos cards
+  Dados reais: Sam's Club Estr. do Côco, Lauro de Freitas/BA · Seg–Sáb 08h–20h, Dom 08h–17h · WhatsApp (71) 98690-7621 · @supremeprimeoficial · beacons.ai/supremeprime
+  PENDENTE (flags): preços por serviço · depoimentos reais · vídeos do IG (baixados, não publicados)
 -->
-<title>Supreme Prime Deluxy | Studio de Beleza e Estética em Lauro de Freitas</title>
-<meta name="description" content="Studio de beleza e estética em Lauro de Freitas/BA. Cabelo, unhas, sobrancelhas, cílios e estética facial e corporal em ambiente climatizado e acolhedor. Agende seu horário." />
-<meta property="og:title" content="Supreme Prime Deluxy — Studio de Beleza e Estética" />
-<meta property="og:description" content="Sua beleza tratada como prioridade. Ambiente climatizado, confortável e atendimento premium. Agende online." />
+<title>Supreme Prime Deluxy | Centro de Beleza e Estética no Sam's Club — Lauro de Freitas</title>
+<meta name="description" content="Centro de Beleza e Estética dentro do Sam's Club da Estrada do Côco, Lauro de Freitas/BA. Cabelo, unhas, sobrancelhas, cílios, estética facial e corporal — todos os dias da semana. Agende seu horário." />
+<meta property="og:title" content="Supreme Prime Deluxy — Centro de Beleza &amp; Estética" />
+<meta property="og:description" content="A beleza já está em você, nós só realçamos. Tudo em um só lugar, de domingo a domingo, no Sam's Club de Lauro de Freitas. Agende online." />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://opatricksimon.github.io/ps8-sites/beleza-estetica-site-modelo/assets/og.jpg" />
+<link rel="icon" href="./assets/logo-clara.webp" type="image/webp" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cor-primaria:#6E3B52; --cor-primaria-escura:#4A2438; --cor-realce:#C99A82; --cor-realce-escura:#94654B;
-    --cor-fundo:#FFFFFF; --cor-superficie:#F7F1EC; --cor-escura:#241019;
-    --cor-texto:#2A1D24; --cor-texto-suave:#7A6770; --cor-borda:#EBE0D8; --cor-whatsapp:#25D366;
-    /* nude tint p/ cards (§2.8 nunca branco chapado) */
-    --cor-tint:#F4EAE4; --cor-tint-2:#ECDBD2; --cor-borda-tint:#E4CFC4;
+    --cor-primaria:#1B1611; --cor-primaria-escura:#000000; --cor-realce:#C9A24B; --cor-realce-escura:#8A6A1E;
+    --cor-fundo:#FFFFFF; --cor-superficie:#F6F2EA; --cor-escura:#121212;
+    --cor-texto:#241F16; --cor-texto-suave:#7A7060; --cor-borda:#EAE2D3; --cor-whatsapp:#25D366;
+    /* tint creme-mármore p/ cards (§2.8 nunca branco chapado) */
+    --cor-tint:#F6F0E2; --cor-tint-2:#EFE5CC; --cor-borda-tint:#E4D7B8;
     --container:1180px; --raio:18px; --raio-sm:11px;
-    --sombra:0 18px 54px rgba(36,16,25,.16); --sombra-sm:0 6px 22px rgba(36,16,25,.10);
-    --grad-realce:linear-gradient(100deg,#94654B 0%,#E8C9AC 26%,#C99A82 50%,#F1D7C2 74%,#94654B 100%);
-    --grad-plum:linear-gradient(100deg,#4A2438 0%,#9B5C77 32%,#6E3B52 56%,#B5789A 80%,#4A2438 100%);
+    --sombra:0 18px 54px rgba(27,22,17,.16); --sombra-sm:0 6px 22px rgba(27,22,17,.10);
+    --grad-realce:linear-gradient(100deg,#8A6A1E 0%,#E8D391 26%,#C9A24B 50%,#F3E2A9 74%,#8A6A1E 100%);
+    --grad-noir:linear-gradient(100deg,#121212 0%,#3C341F 32%,#1E1A10 56%,#52482C 80%,#121212 100%);
     --nav-pad:22px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -58,86 +56,76 @@
   .center .eyebrow::after{content:"";width:28px;height:1px;background:var(--cor-realce)}
   .center p.lead{max-width:660px;margin:14px auto 0;color:var(--cor-texto-suave)}
 
-  /* ===== SHINE METÁLICO ROSÉ (gold-shine) — só sobre fundo escuro ===== */
+  /* ===== SHINE METÁLICO DOURADO — sobre fundo escuro ===== */
   .shine{color:var(--cor-realce);background:var(--grad-realce);background-size:220% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 7s linear infinite}
   @keyframes shimmer{to{background-position:200% center}}
 
   /* ===== BOTÕES ===== */
   .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Inter';font-weight:600;font-size:.9rem;letter-spacing:.015em;padding:13px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,background-position .6s ease;will-change:transform}
-  .btn-primary{background:var(--cor-primaria);color:#fff;box-shadow:0 8px 22px rgba(110,59,82,.3)}
+  .btn-primary{background:var(--cor-primaria);color:#fff;box-shadow:0 8px 22px rgba(27,22,17,.3)}
   .btn-primary:hover{background:var(--cor-primaria-escura);transform:translateY(-2px)}
-  .btn-gold{background:var(--grad-realce);background-size:220% auto;color:#3a2018;box-shadow:0 10px 26px rgba(201,154,130,.4);animation:shimmer 7s linear infinite}
-  .btn-gold:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 14px 32px rgba(201,154,130,.5)}
-  .btn-plum{background:var(--grad-plum);background-size:220% auto;color:#fff;box-shadow:0 10px 26px rgba(110,59,82,.36);animation:shimmer 7s linear infinite,softpulse 2.8s ease-in-out infinite}
-  .btn-plum:hover{background-position:right center;transform:translateY(-2px)}
-  .btn-ghost-light{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.5);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
-  .btn-ghost-light:hover{background:rgba(255,255,255,.18);border-color:#fff}
-  @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(110,59,82,.36)}50%{box-shadow:0 12px 34px rgba(110,59,82,.6)}}
+  .btn-gold{background:var(--grad-realce);background-size:220% auto;color:#2a2008;box-shadow:0 10px 26px rgba(201,162,75,.4);animation:shimmer 7s linear infinite}
+  .btn-gold:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 14px 32px rgba(201,162,75,.5)}
+  .btn-noir{background:var(--grad-noir);background-size:220% auto;color:#F3E2A9;box-shadow:0 10px 26px rgba(18,18,18,.4);animation:shimmer 7s linear infinite,softpulse 2.8s ease-in-out infinite}
+  .btn-noir:hover{background-position:right center;transform:translateY(-2px)}
+  .btn-ghost-dark{background:rgba(255,255,255,.55);color:var(--cor-texto);border:1.5px solid rgba(36,31,22,.4);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .btn-ghost-dark:hover{background:rgba(255,255,255,.8);border-color:var(--cor-texto)}
+  @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(18,18,18,.4)}50%{box-shadow:0 12px 34px rgba(138,106,30,.55)}}
 
-  /* ===== HEADER (flutuante / floating pill) ===== */
+  /* ===== HEADER (pílula flutuante — hero CLARO: tinta escura desde o início) ===== */
   header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease;padding:18px 16px 0}
   header .nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:none;margin:0;
     padding:0 14px 0 calc(clamp(24px,6vw,112px) - 16px);border-radius:999px;
-    background:rgba(36,16,25,.34);-webkit-backdrop-filter:blur(12px) saturate(130%);backdrop-filter:blur(12px) saturate(130%);
-    border:1px solid rgba(255,255,255,.16);box-shadow:0 8px 30px rgba(36,16,25,.22);transition:.35s ease}
-  .logo{font-family:'Playfair Display';font-weight:700;font-size:1.26rem;color:#fff;display:flex;align-items:center;gap:2px;transition:.3s;letter-spacing:.01em}
-  .logo b{color:var(--cor-realce)}
-  .logo.shine b{-webkit-text-fill-color:transparent}
+    background:rgba(255,255,255,.6);-webkit-backdrop-filter:blur(12px) saturate(130%);backdrop-filter:blur(12px) saturate(130%);
+    border:1px solid rgba(201,162,75,.35);box-shadow:0 8px 30px rgba(27,22,17,.12);transition:.35s ease}
+  .logo{font-family:'Playfair Display';font-weight:700;font-size:1.18rem;color:var(--cor-primaria);display:flex;align-items:center;gap:10px;transition:.3s;letter-spacing:.01em}
+  .logo b{color:var(--cor-realce-escura)}
+  .logo img{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--cor-realce);box-shadow:0 2px 10px rgba(138,106,30,.3)}
   .nav-links{display:flex;gap:28px;font-family:'Inter';font-weight:500;font-size:.9rem}
-  .nav-links a{color:rgba(255,255,255,.92);transition:.2s}
-  .nav-links a:hover{color:var(--cor-realce)}
+  .nav-links a{color:var(--cor-texto-suave);transition:.2s}
+  .nav-links a:hover{color:var(--cor-realce-escura)}
   header .btn{padding:10px 20px;font-size:.82rem}
   header.scrolled{padding-top:10px}
-  header.scrolled .nav{background:rgba(255,255,255,.94);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border-color:var(--cor-borda);box-shadow:0 10px 34px rgba(36,16,25,.14)}
-  header.scrolled .logo.shine{background:none;-webkit-text-fill-color:var(--cor-primaria);color:var(--cor-primaria);animation:none}
-  header.scrolled .logo.shine b{-webkit-text-fill-color:var(--cor-realce-escura);color:var(--cor-realce-escura)}
-  header.scrolled .nav-links a{color:var(--cor-texto-suave)}
-  header.scrolled .nav-links a:hover{color:var(--cor-primaria)}
-  .menu-btn{display:none;font-size:1.5rem;background:none;border:0;color:#fff;cursor:pointer}
-  header.scrolled .menu-btn{color:var(--cor-primaria)}
+  header.scrolled .nav{background:rgba(255,255,255,.95);border-color:var(--cor-borda);box-shadow:0 10px 34px rgba(27,22,17,.14)}
+  .menu-btn{display:none;font-size:1.5rem;background:none;border:0;color:var(--cor-primaria);cursor:pointer}
 
-  /* ===== HERO — IMAGEM ULTRAWIDE ===== */
-  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--cor-escura)}
+  /* ===== HERO — FOTO REAL ULTRAWIDE (mármore branco + dourado do próprio salão) ===== */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--cor-superficie)}
   .hero>.container{max-width:none;margin:0;padding-left:clamp(24px,6vw,112px);padding-right:24px}
-  /* faixa ultrawide: trocar por foto real -> background-image:url('./assets/hero.webp') */
-  .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;animation:kenburns 24s ease-out forwards;
-    background:
-      radial-gradient(120% 90% at 78% 18%,rgba(201,154,130,.5),transparent 55%),
-      radial-gradient(90% 80% at 12% 90%,rgba(155,92,119,.55),transparent 60%),
-      linear-gradient(125deg,#2c1320 0%,#5a2c44 45%,#7a4a39 100%)}
+  .hero-img{position:absolute;inset:0;z-index:1;animation:kenburns 24s ease-out forwards;
+    background:url('./assets/hero.webp') center/cover no-repeat}
   @keyframes kenburns{from{transform:scale(1.1)}to{transform:scale(1)}}
   .hero-overlay{position:absolute;inset:0;z-index:2;
-    background:linear-gradient(180deg,rgba(36,16,25,.5) 0%,rgba(36,16,25,.15) 38%,rgba(36,16,25,.5) 74%,rgba(36,16,25,.88) 100%),
-               linear-gradient(90deg,rgba(36,16,25,.74) 0%,rgba(36,16,25,.24) 58%,transparent 100%)}
-  .hero-content{position:relative;z-index:3;color:#fff;max-width:780px;padding:clamp(92px,12vh,116px) 0 clamp(34px,5vh,58px);animation:heroIn 1s cubic-bezier(.22,.61,.36,1) both}
-  .hero .eyebrow{color:var(--cor-realce)}
-  .hero .eyebrow::before{background:var(--cor-realce)}
+    background:linear-gradient(90deg,rgba(246,242,234,.94) 0%,rgba(246,242,234,.72) 38%,rgba(246,242,234,.18) 68%,rgba(246,242,234,0) 100%),
+               linear-gradient(180deg,rgba(246,242,234,.35) 0%,transparent 30%,transparent 70%,rgba(38,32,20,.45) 100%)}
+  .hero-content{position:relative;z-index:3;color:var(--cor-texto);max-width:720px;padding:clamp(92px,12vh,116px) 0 clamp(34px,5vh,58px);animation:heroIn 1s cubic-bezier(.22,.61,.36,1) both}
+  .hero .eyebrow{color:var(--cor-realce-escura)}
   .hero-chip{display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;
-    background:linear-gradient(rgba(36,16,25,.55),rgba(74,36,56,.55));-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);
-    padding:8px 16px 8px 14px;border-radius:999px;border:1px solid rgba(201,154,130,.32);box-shadow:0 6px 20px rgba(20,8,14,.34);
-    font-family:'Inter';font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#fff}
-  .hero-chip i{font-style:normal;color:var(--cor-realce)}
-  .hero h1{font-size:clamp(2.2rem,4.8vw,3.7rem);font-weight:600;color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.32)}
-  .hero h1 em{font-style:italic;background:var(--grad-realce);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite}
+    background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);
+    padding:8px 16px 8px 14px;border-radius:999px;border:1px solid rgba(138,106,30,.4);box-shadow:0 6px 20px rgba(27,22,17,.12);
+    font-family:'Inter';font-weight:600;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--cor-texto)}
+  .hero-chip i{font-style:normal;color:var(--cor-realce-escura)}
+  .hero h1{font-size:clamp(2.2rem,4.8vw,3.7rem);font-weight:600;color:var(--cor-primaria);text-shadow:0 1px 18px rgba(246,242,234,.6)}
+  .hero h1 em{font-style:italic;background:linear-gradient(100deg,#8A6A1E 0%,#C9A24B 40%,#8A6A1E 70%,#E8D391 90%,#8A6A1E 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite}
   @keyframes heroIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-  .hero p.sub{font-size:clamp(1.04rem,1.5vw,1.2rem);color:rgba(255,255,255,.9);margin:18px 0 26px;max-width:540px;font-weight:400}
+  .hero p.sub{font-size:clamp(1.04rem,1.5vw,1.2rem);color:#4C4435;margin:18px 0 26px;max-width:520px;font-weight:400}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.7);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;text-align:center}
-  .scroll-cue .mouse{display:block;width:26px;height:42px;margin:0 auto 8px;border:2px solid rgba(255,255,255,.6);border-radius:14px;position:relative}
+  .scroll-cue{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.85);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;text-align:center;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+  .scroll-cue .mouse{display:block;width:26px;height:42px;margin:0 auto 8px;border:2px solid rgba(255,255,255,.75);border-radius:14px;position:relative}
   .scroll-cue .wheel{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:4px;height:8px;border-radius:2px;background:var(--cor-realce);animation:cue 1.6s ease-in-out infinite}
   @keyframes cue{0%{opacity:0;transform:translate(-50%,0)}40%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
 
   /* ===== 🎠 CARROSSEL INFINITO (marquee) ===== */
   .marquee{overflow:hidden;position:relative;padding:6px 0;
     -webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-  .mq-track{display:flex;gap:14px;width:max-content;animation:scrollx 40s linear infinite}
+  .mq-track{display:flex;gap:14px;width:max-content;animation:scrollx 44s linear infinite}
   .mq-rev{animation-direction:reverse;animation-duration:52s}
   .marquee:hover .mq-track{animation-play-state:paused}
   @keyframes scrollx{to{transform:translateX(-50%)}}
   .pill{flex:0 0 auto;display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;
     background:var(--cor-superficie);border:1px solid var(--cor-borda-tint);font-family:'Inter';font-weight:600;font-size:.95rem;color:var(--cor-primaria);box-shadow:var(--sombra-sm)}
   .pill .e{font-size:1.15rem;line-height:1}
-  .sec-dark .pill{background:rgba(255,255,255,.06);border-color:rgba(201,154,130,.3);color:#fff}
+  .sec-dark .pill{background:rgba(255,255,255,.06);border-color:rgba(201,162,75,.3);color:#fff}
 
   /* ===== 🧊 CARDS COM TILT 3D ===== */
   .grid{display:grid;gap:22px}
@@ -151,12 +139,11 @@
   .card .ico{width:54px;height:54px;border-radius:15px;background:#fff;border:1px solid var(--cor-borda-tint);display:flex;align-items:center;justify-content:center;font-size:1.55rem;margin-bottom:14px;transform:translateZ(38px)}
   .card h3{font-size:1.22rem;font-weight:600;margin-bottom:7px;transform:translateZ(26px)}
   .card p{color:var(--cor-texto-suave);font-size:.94rem;transform:translateZ(16px)}
-  .card .price{display:inline-block;margin-top:10px;font-family:'Inter';font-weight:600;font-size:.82rem;color:var(--cor-realce-escura);letter-spacing:.02em;transform:translateZ(20px)}
 
   /* ===== RITMO DE COR DAS SEÇÕES (anti "tudo branco") ===== */
   .sec-cream{background:var(--cor-superficie)}
   .sec-dark{background:var(--cor-escura);color:#fff;position:relative;overflow:hidden}
-  .sec-dark::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 80% 10%,rgba(201,154,130,.18),transparent 60%),radial-gradient(70% 60% at 10% 100%,rgba(155,92,119,.22),transparent 60%);pointer-events:none}
+  .sec-dark::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 80% 10%,rgba(201,162,75,.16),transparent 60%),radial-gradient(70% 60% at 10% 100%,rgba(138,106,30,.18),transparent 60%);pointer-events:none}
   .sec-dark>*{position:relative;z-index:1}
   .sec-dark h2,.sec-dark h3{color:#fff}
   .sec-dark p{color:rgba(255,255,255,.76)}
@@ -164,12 +151,11 @@
   .sec-dark .eyebrow{color:var(--cor-realce)}
   .sec-dark .eyebrow::before,.sec-dark .center .eyebrow::after{background:var(--cor-realce)}
 
-  /* ===== EXPERIÊNCIA / AMBIENTE (faixa ultrawide + texto) ===== */
+  /* ===== EXPERIÊNCIA / AMBIENTE (foto real + texto) ===== */
   .exp{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
   .exp-img{position:relative;aspect-ratio:5/4;border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);
-    /* trocar por foto real -> background-image:url('./assets/ambiente.webp') */
-    background:radial-gradient(120% 100% at 20% 10%,rgba(241,215,194,.5),transparent 55%),linear-gradient(140deg,#3a1c2c,#6e3b52 60%,#9b5c77)}
-  .exp-img .badge{position:absolute;left:18px;bottom:18px;background:rgba(36,16,25,.6);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(201,154,130,.3);color:#fff;border-radius:999px;padding:9px 16px;font-family:'Inter';font-weight:600;font-size:.8rem}
+    background:url('./assets/sobre-dona.webp') center 18%/cover no-repeat}
+  .exp-img .badge{position:absolute;left:18px;bottom:18px;background:rgba(18,18,18,.62);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid rgba(201,162,75,.4);color:#fff;border-radius:999px;padding:9px 16px;font-family:'Inter';font-weight:600;font-size:.8rem}
   .exp ul{list-style:none;margin-top:20px;display:grid;gap:13px}
   .exp li{display:flex;gap:11px;align-items:flex-start}
   .exp li::before{content:"\2726";color:var(--cor-realce);margin-top:3px}
@@ -181,25 +167,31 @@
   .trust b{display:block;font-family:'Inter';font-weight:700;font-size:1.9rem;line-height:1.1;color:var(--cor-realce);font-variant-numeric:tabular-nums lining-nums;font-feature-settings:"tnum" 1,"lnum" 1}
   .trust span{display:block;margin-top:4px;font-size:.74rem;opacity:.84;letter-spacing:.06em;text-transform:uppercase}
 
-  /* ===== GALERIA (faixas ultrawide) ===== */
+  /* ===== GALERIA (fotos reais) ===== */
   .galeria{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:200px;gap:16px;margin-top:30px}
   .ph{border-radius:var(--raio);overflow:hidden;position:relative;box-shadow:var(--sombra-sm);
-    background:linear-gradient(135deg,#6e3b52,#241019);display:flex;align-items:flex-end;color:rgba(255,255,255,.7);font-family:'Inter';font-weight:600;font-size:.78rem}
-  .ph span{padding:12px 14px;letter-spacing:.04em}
-  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-  .ph:nth-child(1){grid-row:span 2;background:radial-gradient(110% 90% at 75% 20%,rgba(201,154,130,.45),transparent 55%),linear-gradient(140deg,#3a1c2c,#7a4a39)}
-  .ph:nth-child(4){grid-column:span 2;background:linear-gradient(120deg,#4a2438,#9b5c77)}
+    background:var(--cor-tint);display:flex;align-items:flex-end;color:#fff;font-family:'Inter';font-weight:600;font-size:.78rem}
+  .ph span{position:relative;z-index:2;padding:12px 14px;letter-spacing:.04em;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+  .ph::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,transparent 55%,rgba(18,18,18,.55) 100%)}
+  .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .ph:hover img{transform:scale(1.05)}
+  .ph:nth-child(1){grid-row:span 2}
+  .ph:nth-child(4){grid-column:span 2}
 
-  /* ===== ANTES / DEPOIS (slider) ===== */
-  .ba{position:relative;max-width:680px;margin:30px auto 0;aspect-ratio:16/9;border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);cursor:ew-resize;touch-action:none;background:linear-gradient(135deg,#6e3b52,#241019)}
+  /* ===== ANTES / DEPOIS (slider — fotos reais) ===== */
+  .ba{position:relative;max-width:680px;margin:30px auto 0;aspect-ratio:16/10;border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);cursor:ew-resize;touch-action:none;background:var(--cor-escura)}
   .ba-before,.ba-after{position:absolute;inset:0;background-size:cover;background-position:center}
-  .ba-before{background:linear-gradient(135deg,#5a4a50,#2a2024)}
-  .ba-after{background:radial-gradient(100% 100% at 30% 20%,rgba(241,215,194,.5),transparent 55%),linear-gradient(135deg,#7a4a39,#6e3b52);clip-path:inset(0 0 0 50%)}
-  .ba-tag{position:absolute;top:12px;z-index:4;background:rgba(36,16,25,.7);color:#fff;font-family:'Inter';font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .ba-before{background-image:url('./assets/ba-antes.webp')}
+  .ba-after{background-image:url('./assets/ba-depois.webp');clip-path:inset(0 0 0 50%)}
+  .ba-tag{position:absolute;top:12px;z-index:4;background:rgba(18,18,18,.7);color:#fff;font-family:'Inter';font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
   .ba-tag.l{left:12px}.ba-tag.r{right:12px}
   .ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;z-index:5;transform:translateX(-1px)}
-  .ba-handle::after{content:"\27F7";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:#fff;color:var(--cor-primaria);display:flex;align-items:center;justify-content:center;font-size:1.05rem;box-shadow:0 4px 14px rgba(0,0,0,.28)}
+  .ba-handle::after{content:"\27F7";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:#fff;color:var(--cor-realce-escura);display:flex;align-items:center;justify-content:center;font-size:1.05rem;box-shadow:0 4px 14px rgba(0,0,0,.28)}
   .ba-note{text-align:center;color:var(--cor-texto-suave);font-size:.82rem;margin-top:12px;font-style:italic}
+
+  /* ===== GRID DE RESULTADOS ===== */
+  .resgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
+  .resgrid .ph{aspect-ratio:4/5;grid-row:auto;grid-column:auto}
 
   /* ===== 🎠 DEPOIMENTOS (carrossel infinito de cards) ===== */
   .depo{flex:0 0 360px;background:#fff;border:1px solid var(--cor-borda);border-radius:var(--raio);padding:28px;white-space:normal}
@@ -219,22 +211,22 @@
   .map-ph{aspect-ratio:4/3;border-radius:var(--raio);overflow:hidden;background:var(--cor-superficie);border:1px solid var(--cor-borda)}
   .map-ph iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(.2) contrast(.95)}
 
-  /* ===== CTA FINAL ===== */
-  .cta-final{background:linear-gradient(135deg,var(--cor-primaria-escura),var(--cor-primaria));color:#fff;text-align:center;position:relative;overflow:hidden}
-  .cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 80% 0,rgba(201,154,130,.28),transparent 60%);pointer-events:none}
+  /* ===== CTA FINAL (mármore preto + dourado — logo inversa) ===== */
+  .cta-final{background:linear-gradient(135deg,#000 0%,#1E1A10 55%,#121212 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
+  .cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 80% 0,rgba(201,162,75,.26),transparent 60%),radial-gradient(50% 60% at 10% 100%,rgba(138,106,30,.2),transparent 60%);pointer-events:none}
   .cta-final>*{position:relative;z-index:1}
   .cta-final h2{color:#fff}
   .cta-final h2 em{font-style:italic;background:var(--grad-realce);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 6s linear infinite}
   .cta-final p{max-width:560px;margin:14px auto 28px;opacity:.92}
 
   /* ===== FOOTER ===== */
-  footer{background:var(--cor-escura);color:#c2a9b3;padding:56px 0 28px;font-size:.92rem}
+  footer{background:var(--cor-escura);color:#B5AB97;padding:56px 0 28px;font-size:.92rem}
   .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:34px}
   footer .logo{color:#fff;margin-bottom:12px;display:inline-flex}
   footer a:hover{color:var(--cor-realce)}
   .foot-col h4{font-family:'Inter';font-weight:600;color:#fff;font-size:.96rem;margin-bottom:12px}
-  .foot-col div{margin-bottom:7px;color:#a98b96}
-  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;text-align:center;color:#8e7079;font-size:.84rem}
+  .foot-col div{margin-bottom:7px;color:#9C9279}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;text-align:center;color:#857B63;font-size:.84rem}
 
   /* ===== WHATSAPP FLOAT ===== */
   .wpp-float{position:fixed;bottom:24px;right:24px;z-index:60;background:var(--cor-whatsapp);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;box-shadow:0 12px 30px rgba(37,211,102,.5);animation:pulse 2.6s infinite}
@@ -256,16 +248,16 @@
   /* ===== MODAL — FORMULÁRIO LEAD ===== */
   .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
   .modal.open{display:flex}
-  .modal-bg{position:absolute;inset:0;background:rgba(36,16,25,.66);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);animation:fade .3s ease}
-  .modal-card{position:relative;z-index:2;background:#fff;border-radius:var(--raio);max-width:440px;width:100%;padding:clamp(28px,4vw,40px);box-shadow:0 30px 80px rgba(36,16,25,.4);animation:pop .35s cubic-bezier(.22,.61,.36,1);text-align:left}
+  .modal-bg{position:absolute;inset:0;background:rgba(18,18,18,.66);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);animation:fade .3s ease}
+  .modal-card{position:relative;z-index:2;background:#fff;border-radius:var(--raio);max-width:440px;width:100%;padding:clamp(28px,4vw,40px);box-shadow:0 30px 80px rgba(18,18,18,.4);animation:pop .35s cubic-bezier(.22,.61,.36,1);text-align:left}
   @keyframes fade{from{opacity:0}to{opacity:1}}
   @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
   .modal-card .x{position:absolute;top:14px;right:16px;font-size:1.6rem;color:var(--cor-texto-suave);background:none;border:0;cursor:pointer;line-height:1}
   .modal-card h3{font-size:1.5rem;margin-bottom:6px}
   .modal-card .ml-sub{color:var(--cor-texto-suave);font-size:.92rem;margin-bottom:20px}
   .modal-card label{display:block;font-family:'Inter';font-weight:600;font-size:.82rem;margin-bottom:6px;margin-top:14px}
-  .modal-card input{width:100%;padding:12px 14px;border:1px solid var(--cor-borda);border-radius:var(--raio-sm);font-family:'Inter';font-size:.95rem;transition:.2s}
-  .modal-card input:focus{outline:0;border-color:var(--cor-realce);box-shadow:0 0 0 3px rgba(201,154,130,.18)}
+  .modal-card input{width:100%;padding:12px 14px;border:1px solid var(--cor-borda);border-radius:var(--raio-sm);font-family:'Inter';font-size:16px;transition:.2s}
+  .modal-card input:focus{outline:0;border-color:var(--cor-realce);box-shadow:0 0 0 3px rgba(201,162,75,.18)}
   .modal-card .btn{width:100%;justify-content:center;margin-top:22px}
 
   /* ===== RESPONSIVO ===== */
@@ -273,6 +265,7 @@
     .nav-links,header .nav>.btn{display:none}
     .menu-btn{display:block}
     .g3{grid-template-columns:1fr 1fr}
+    .resgrid{grid-template-columns:1fr 1fr}
     .exp,.contato-grid{grid-template-columns:1fr;gap:38px}
     .exp-img{max-width:520px;margin:0 auto;width:100%}
     .trust{grid-template-columns:1fr 1fr;gap:28px}
@@ -284,12 +277,15 @@
   }
   @media(max-width:560px){
     body{font-size:16px}
-    .g3{grid-template-columns:1fr}
+    .g3,.resgrid{grid-template-columns:1fr}
     .hero>.container{padding-left:24px}
+    .hero-img{background-position:74% center}
+    .hero-overlay{background:linear-gradient(90deg,rgba(246,242,234,.95) 0%,rgba(246,242,234,.82) 50%,rgba(246,242,234,.4) 100%),
+               linear-gradient(180deg,rgba(246,242,234,.4) 0%,transparent 35%,transparent 70%,rgba(38,32,20,.4) 100%)}
     .hero-cta{flex-direction:column;align-items:stretch}
     .hero-cta .btn{justify-content:center}
     .depo{flex:0 0 84vw}
-    .galeria{grid-template-columns:1fr;grid-auto-rows:180px}
+    .galeria{grid-template-columns:1fr;grid-auto-rows:200px}
     .ph:nth-child(4){grid-column:span 1}
   }
   @media(prefers-reduced-motion:reduce){
@@ -303,132 +299,133 @@
 
 <header id="header">
   <div class="container nav">
-    <a href="#" class="logo shine">Supreme Prime Deluxy<b>.</b></a>
+    <a href="#" class="logo"><img src="./assets/logo-clara.webp" alt="Logo Supreme Prime Deluxy" width="38" height="38">Supreme Prime Deluxy<b>.</b></a>
     <nav class="nav-links">
-      <a href="#servicos">Serviços</a>
-      <a href="#experiencia">Experiência</a>
-      <a href="#depoimentos">Depoimentos</a>
-      <a href="#localizacao">Localização</a>
+      <a href="#servicos">Servi&ccedil;os</a>
+      <a href="#experiencia">Experi&ecirc;ncia</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#localizacao">Localiza&ccedil;&atilde;o</a>
     </nav>
-    <a href="#agendar" class="btn btn-gold">Agendar horário</a>
+    <a href="#agendar" class="btn btn-gold">Agendar hor&aacute;rio</a>
     <button class="menu-btn" aria-label="menu">&#9776;</button>
   </div>
 </header>
 
-<!-- ===== HERO — IMAGEM ULTRAWIDE ===== -->
+<!-- ===== HERO — FOTO REAL DO SALÃO (mármore branco + veios dourados) ===== -->
 <section class="hero">
-  <div class="hero-img" aria-hidden="true"></div>
+  <div class="hero-img" role="img" aria-label="Profissional do Supreme Prime Deluxy lavando o cabelo de uma cliente diante da parede de m&aacute;rmore branco com veios dourados"></div>
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-content">
-      <span class="hero-chip"><i>&#10022;</i> Studio de Beleza &amp; Estética &bull; Lauro de Freitas/BA</span>
-      <h1>Sua beleza tratada<br>como <em>prioridade</em>.</h1>
-      <p class="sub">Ambiente climatizado, confortável e um atendimento que cuida de cada detalhe &mdash; do cabelo &agrave; pele, das unhas ao olhar.</p>
+      <span class="hero-chip"><i>&#10022;</i> Centro de Beleza &amp; Est&eacute;tica &bull; Sam's Club &bull; Lauro de Freitas/BA</span>
+      <h1>A beleza j&aacute; est&aacute; em voc&ecirc;.<br>N&oacute;s s&oacute; <em>real&ccedil;amos</em>.</h1>
+      <p class="sub">Cabelo, unhas, rosto e corpo em um s&oacute; lugar &mdash; todos os dias da semana, dentro do Sam's Club da Estrada do C&ocirc;co.</p>
       <div class="hero-cta">
-        <a href="#agendar" class="btn btn-gold">Agendar meu horário</a>
-        <a href="#servicos" class="btn btn-ghost-light">Ver servi&ccedil;os</a>
+        <a href="#agendar" class="btn btn-gold">Agendar meu hor&aacute;rio</a>
+        <a href="#servicos" class="btn btn-ghost-dark">Ver servi&ccedil;os</a>
       </div>
     </div>
   </div>
   <div class="scroll-cue" aria-hidden="true"><span class="mouse"><span class="wheel"></span></span>Role</div>
 </section>
 
-<!-- ===== 🎠 CARROSSEL INFINITO DE SERVIÇOS ===== -->
+<!-- ===== 🎠 CARROSSEL INFINITO DE SERVIÇOS (cardápio real) ===== -->
 <div class="marquee" style="background:var(--cor-fundo);padding:22px 0;border-bottom:1px solid var(--cor-borda)" aria-label="Servi&ccedil;os oferecidos">
   <div class="mq-track">
     <!-- set 1 -->
     <span class="pill"><span class="e">&#9986;&#65039;</span> Cabelo</span>
     <span class="pill"><span class="e">&#128133;</span> Manicure &amp; Pedicure</span>
     <span class="pill"><span class="e">&#10022;</span> Design de Sobrancelhas</span>
-    <span class="pill"><span class="e">&#128064;</span> C&iacute;lios</span>
-    <span class="pill"><span class="e">&#129526;</span> Est&eacute;tica Facial</span>
-    <span class="pill"><span class="e">&#128132;</span> Est&eacute;tica Corporal</span>
-    <span class="pill"><span class="e">&#128396;&#65039;</span> Maquiagem &amp; Noivas</span>
-    <span class="pill"><span class="e">&#127754;</span> Depila&ccedil;&atilde;o</span>
-    <span class="pill"><span class="e">&#128167;</span> Tratamentos Capilares</span>
+    <span class="pill"><span class="e">&#128064;</span> Alongamento de C&iacute;lios</span>
+    <span class="pill"><span class="e">&#128396;&#65039;</span> Micropigmenta&ccedil;&atilde;o</span>
+    <span class="pill"><span class="e">&#129526;</span> Limpeza de Pele</span>
+    <span class="pill"><span class="e">&#128134;</span> Massagens</span>
+    <span class="pill"><span class="e">&#128167;</span> Drenagem Linf&aacute;tica</span>
+    <span class="pill"><span class="e">&#129461;</span> Spa dos P&eacute;s</span>
+    <span class="pill"><span class="e">&#127754;</span> Depila&ccedil;&atilde;o Eg&iacute;pcia</span>
     <!-- set 2 (duplicado p/ loop perfeito) -->
     <span class="pill"><span class="e">&#9986;&#65039;</span> Cabelo</span>
     <span class="pill"><span class="e">&#128133;</span> Manicure &amp; Pedicure</span>
     <span class="pill"><span class="e">&#10022;</span> Design de Sobrancelhas</span>
-    <span class="pill"><span class="e">&#128064;</span> C&iacute;lios</span>
-    <span class="pill"><span class="e">&#129526;</span> Est&eacute;tica Facial</span>
-    <span class="pill"><span class="e">&#128132;</span> Est&eacute;tica Corporal</span>
-    <span class="pill"><span class="e">&#128396;&#65039;</span> Maquiagem &amp; Noivas</span>
-    <span class="pill"><span class="e">&#127754;</span> Depila&ccedil;&atilde;o</span>
-    <span class="pill"><span class="e">&#128167;</span> Tratamentos Capilares</span>
+    <span class="pill"><span class="e">&#128064;</span> Alongamento de C&iacute;lios</span>
+    <span class="pill"><span class="e">&#128396;&#65039;</span> Micropigmenta&ccedil;&atilde;o</span>
+    <span class="pill"><span class="e">&#129526;</span> Limpeza de Pele</span>
+    <span class="pill"><span class="e">&#128134;</span> Massagens</span>
+    <span class="pill"><span class="e">&#128167;</span> Drenagem Linf&aacute;tica</span>
+    <span class="pill"><span class="e">&#129461;</span> Spa dos P&eacute;s</span>
+    <span class="pill"><span class="e">&#127754;</span> Depila&ccedil;&atilde;o Eg&iacute;pcia</span>
   </div>
 </div>
 
-<!-- ===== SERVIÇOS (cards com tilt 3D) ===== -->
+<!-- ===== SERVIÇOS (cards com tilt 3D — cardápio real do carrossel IG) ===== -->
 <section id="servicos">
   <div class="container">
     <div class="center reveal">
       <span class="eyebrow">O que fazemos por voc&ecirc;</span>
-      <h2>Servi&ccedil;os feitos com <em style="font-style:italic;color:var(--cor-primaria)">capricho</em></h2>
-      <p class="lead">Um card&aacute;pio completo de beleza e bem-estar em um s&oacute; lugar. Passe o mouse para sentir o cuidado &mdash; toque para agendar.</p>
+      <h2>Cuidado, eleg&acirc;ncia e <em style="font-style:italic;color:var(--cor-realce-escura)">exclusividade</em></h2>
+      <p class="lead">Um card&aacute;pio completo de beleza e bem-estar em um s&oacute; lugar. Toque em um servi&ccedil;o para agendar pelo WhatsApp.</p>
     </div>
     <div class="grid g3 tilt-wrap" style="margin-top:22px">
-      <div class="card reveal" data-tilt><div class="ico">&#9986;&#65039;</div><h3>Cabelo</h3><p>Corte, coloration, escova, hidrata&ccedil;&atilde;o e tratamentos para todos os tipos de fio.</p><span class="price">{{a partir de R$XX}}</span></div>
-      <div class="card reveal" data-tilt><div class="ico">&#128133;</div><h3>Manicure &amp; Pedicure</h3><p>Esmalta&ccedil;&atilde;o tradicional e em gel, spa dos p&eacute;s e cuticagem impec&aacute;vel.</p><span class="price">{{a partir de R$XX}}</span></div>
-      <div class="card reveal" data-tilt><div class="ico">&#10022;</div><h3>Sobrancelhas &amp; Henna</h3><p>Design personalizado que valoriza o seu olhar com t&eacute;cnica e simetria.</p><span class="price">{{a partir de R$XX}}</span></div>
-      <div class="card reveal" data-tilt><div class="ico">&#128064;</div><h3>C&iacute;lios</h3><p>Extens&atilde;o fio a fio, volume e lash lifting para um olhar marcante.</p><span class="price">{{a partir de R$XX}}</span></div>
-      <div class="card reveal" data-tilt><div class="ico">&#129526;</div><h3>Est&eacute;tica Facial</h3><p>Limpeza de pele, peeling e protocolos de skincare para uma pele renovada.</p><span class="price">{{a partir de R$XX}}</span></div>
-      <div class="card reveal" data-tilt><div class="ico">&#128132;</div><h3>Est&eacute;tica Corporal</h3><p>Massagem relaxante, drenagem e modeladora para corpo e mente em equil&iacute;brio.</p><span class="price">{{a partir de R$XX}}</span></div>
+      <div class="card reveal" data-tilt><div class="ico">&#9986;&#65039;</div><h3>Cabelo</h3><p>Corte, colora&ccedil;&atilde;o, mechas e loiros, escova e tratamentos para todos os tipos de fio.</p></div>
+      <div class="card reveal" data-tilt><div class="ico">&#128133;</div><h3>Unhas</h3><p>Manicure, pedicure, alongamento, esmalta&ccedil;&atilde;o em gel e spa dos p&eacute;s.</p></div>
+      <div class="card reveal" data-tilt><div class="ico">&#10022;</div><h3>Sobrancelhas &amp; Olhar</h3><p>Design de sobrancelhas, micropigmenta&ccedil;&atilde;o, alongamento de c&iacute;lios e hidrogloss.</p></div>
+      <div class="card reveal" data-tilt><div class="ico">&#129526;</div><h3>Est&eacute;tica Facial</h3><p>Limpeza de pele, hidrogloss e remo&ccedil;&atilde;o de micropigmenta&ccedil;&atilde;o e tatuagens.</p></div>
+      <div class="card reveal" data-tilt><div class="ico">&#128134;</div><h3>Corpo &amp; Bem-estar</h3><p>Massagem relaxante e modeladora, drenagem linf&aacute;tica, ventosaterapia e est&eacute;tica corporal.</p></div>
+      <div class="card reveal" data-tilt><div class="ico">&#127754;</div><h3>Depila&ccedil;&atilde;o</h3><p>Depila&ccedil;&atilde;o com cera e t&eacute;cnica eg&iacute;pcia, com todo o cuidado que a sua pele merece.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== EXPERIÊNCIA / AMBIENTE (faixa ultrawide + números) ===== -->
+<!-- ===== EXPERIÊNCIA / AMBIENTE (foto real + números) ===== -->
 <section id="experiencia" class="sec-dark">
   <div class="container">
     <div class="exp">
-      <div class="exp-img reveal" aria-hidden="true"><span class="badge">&#10052;&#65039; Ambiente climatizado</span></div>
+      <div class="exp-img reveal" role="img" aria-label="Profissional do Supreme Prime Deluxy no sal&atilde;o"><span class="badge">&#10022; Tudo em um s&oacute; lugar</span></div>
       <div class="reveal">
         <span class="eyebrow">A experi&ecirc;ncia Supreme</span>
         <h2>Mais que um sal&atilde;o.<br>Um momento <em class="shine">s&oacute; seu</em>.</h2>
-        <p>Cada visita &eacute; pensada para voc&ecirc; relaxar e sair se sentindo a sua melhor vers&atilde;o. Ambiente confort&aacute;vel, profissionais atenciosos e qualidade em cada servi&ccedil;o &mdash; do come&ccedil;o ao fim.</p>
+        <p>Bem-vinda ao universo Supreme: cuidado, eleg&acirc;ncia e exclusividade em cada detalhe. Ambiente climatizado, profissionais especializados e qualidade do come&ccedil;o ao fim &mdash; dentro do Sam's Club, com toda a praticidade.</p>
         <ul>
-          <li>Ambiente climatizado, limpo e acolhedor</li>
+          <li>Funcionamos todos os dias &mdash; de domingo a domingo</li>
           <li>Profissionais especializados em cada &aacute;rea</li>
-          <li>Produtos de qualidade e protocolos seguros</li>
-          <li>Agendamento online, sem fila e sem espera</li>
+          <li>Dentro do Sam's Club da Estrada do C&ocirc;co, com estacionamento f&aacute;cil</li>
+          <li>Ambiente climatizado, limpo e acolhedor</li>
         </ul>
         <div class="trust">
-          <div class="ts"><b class="count" data-target="12" data-suffix="+">0</b><span>Servi&ccedil;os no card&aacute;pio</span></div>
+          <div class="ts"><b class="count" data-target="15" data-suffix="+">0</b><span>Servi&ccedil;os no card&aacute;pio</span></div>
+          <div class="ts"><b class="count" data-target="7" data-suffix="/7">0</b><span>Dias por semana</span></div>
+          <div class="ts"><b class="count" data-target="12" data-suffix="h">0</b><span>De agenda por dia</span></div>
           <div class="ts"><b class="count" data-target="100" data-suffix="%">0</b><span>Ambiente climatizado</span></div>
-          <div class="ts"><b class="count" data-target="5" data-dec="1">0</b><span>Padr&atilde;o de atendimento</span></div>
-          <div class="ts"><b class="count" data-target="7" data-suffix=" dias">0</b><span>Agenda online</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== GALERIA (faixas ultrawide — trocar por fotos reais) ===== -->
+<!-- ===== GALERIA (fotos reais do espaço) ===== -->
 <section id="galeria" class="sec-cream">
   <div class="container">
     <div class="center reveal">
       <span class="eyebrow">Nosso espa&ccedil;o</span>
-      <h2>Onde a sua beleza <em style="font-style:italic;color:var(--cor-primaria)">acontece</em></h2>
-      <p class="lead">Um espa&ccedil;o pensado nos m&iacute;nimos detalhes para o seu conforto.</p>
+      <h2>Onde a sua beleza <em style="font-style:italic;color:var(--cor-realce-escura)">acontece</em></h2>
+      <p class="lead">M&aacute;rmore, dourado e conforto &mdash; um espa&ccedil;o pensado nos m&iacute;nimos detalhes.</p>
     </div>
-    <!-- trocar cada .ph por <img src="./assets/galeria-N.webp" alt="..."> -->
     <div class="galeria reveal">
-      <div class="ph"><span>{{foto do ambiente}}</span></div>
-      <div class="ph"><span>{{foto servi&ccedil;o}}</span></div>
-      <div class="ph"><span>{{foto detalhe}}</span></div>
-      <div class="ph"><span>{{foto recep&ccedil;&atilde;o / vitrine}}</span></div>
+      <div class="ph"><img src="./assets/lavatorio.webp" alt="Lavat&oacute;rios diante da parede de m&aacute;rmore com veios dourados" loading="lazy"><span>Lavat&oacute;rios &bull; m&aacute;rmore &amp; dourado</span></div>
+      <div class="ph"><img src="./assets/balcao.webp" alt="Balc&atilde;o de recep&ccedil;&atilde;o com logo dourada" loading="lazy"><span>Recep&ccedil;&atilde;o</span></div>
+      <div class="ph"><img src="./assets/res-unha-roxa.webp" alt="Unhas em gel roxas com detalhe dourado" loading="lazy"><span>Unhas em gel</span></div>
+      <div class="ph"><img src="./assets/fachada.webp" alt="Fachada do Supreme Prime Deluxy dentro do Sam's Club" loading="lazy" style="object-position:center 38%"><span>Dentro do Sam's Club &bull; Estrada do C&ocirc;co</span></div>
     </div>
   </div>
 </section>
 
-<!-- ===== ANTES / DEPOIS (estética / cabelo) ===== -->
+<!-- ===== ANTES / DEPOIS + RESULTADOS REAIS ===== -->
 <section id="resultados">
   <div class="container center">
     <div class="reveal">
       <span class="eyebrow">Resultados reais</span>
-      <h2>O cuidado que <em style="font-style:italic;color:var(--cor-primaria)">aparece</em></h2>
-      <p class="lead">Arraste para comparar o antes e o depois. (Trocar pelos seus resultados reais.)</p>
+      <h2>O cuidado que <em style="font-style:italic;color:var(--cor-realce-escura)">aparece</em></h2>
+      <p class="lead">Arraste para comparar uma transforma&ccedil;&atilde;o real feita no Supreme.</p>
     </div>
     <div class="ba reveal">
       <div class="ba-before"></div>
@@ -437,7 +434,15 @@
       <span class="ba-tag r">Depois</span>
       <div class="ba-handle"></div>
     </div>
-    <p class="ba-note">{{Trocar .ba-before / .ba-after por background-image das fotos reais.}}</p>
+    <p class="ba-note">Loiro iluminado &mdash; transforma&ccedil;&atilde;o real de cliente Supreme.</p>
+    <div class="resgrid reveal">
+      <div class="ph"><img src="./assets/res-loiro.webp" alt="Loiro iluminado finalizado" loading="lazy"><span>Loiro iluminado</span></div>
+      <div class="ph"><img src="./assets/res-mechas.webp" alt="Mechas com fundo escuro finalizado" loading="lazy"><span>Mechas</span></div>
+      <div class="ph"><img src="./assets/res-castanho.webp" alt="Castanho iluminado ondulado" loading="lazy"><span>Castanho iluminado</span></div>
+      <div class="ph"><img src="./assets/res-unha-nude.webp" alt="Unhas nude com aplica&ccedil;&otilde;es 3D" loading="lazy"><span>Nail art 3D</span></div>
+      <div class="ph"><img src="./assets/res-unha-terracota.webp" alt="Esmalta&ccedil;&atilde;o em gel terracota" loading="lazy"><span>Esmalta&ccedil;&atilde;o em gel</span></div>
+      <div class="ph"><img src="./assets/res-unha-roxa.webp" alt="Unhas roxas com glitter dourado" loading="lazy"><span>Alongamento</span></div>
+    </div>
   </div>
 </section>
 
@@ -445,8 +450,8 @@
 <section id="depoimentos" class="sec-cream">
   <div class="container center reveal">
     <span class="eyebrow">Quem passa, recomenda</span>
-    <h2>Clientes que <em style="font-style:italic;color:var(--cor-primaria)">amam</em> o resultado</h2>
-    <p class="lead">{{Depoimentos de exemplo &mdash; substituir pelos reais do Google/Instagram.}}</p>
+    <h2>Clientes que <em style="font-style:italic;color:var(--cor-realce-escura)">amam</em> o resultado</h2>
+    <p class="lead">Depoimentos ilustrativos &mdash; em breve, avalia&ccedil;&otilde;es reais das nossas clientes.</p>
   </div>
   <div class="marquee" style="margin-top:34px" aria-label="Depoimentos">
     <div class="mq-track mq-rev">
@@ -470,30 +475,30 @@
     <div class="contato-grid">
       <div class="reveal">
         <span class="eyebrow">Onde estamos</span>
-        <h2>Venha nos <em style="font-style:italic;color:var(--cor-primaria)">visitar</em></h2>
+        <h2>Venha nos <em style="font-style:italic;color:var(--cor-realce-escura)">visitar</em></h2>
         <div style="margin-top:24px">
-          <div class="info-row"><div class="ico">&#128205;</div><div><b>Endere&ccedil;o</b><span>Estr. do C&ocirc;co, 40066 &mdash; Port&atilde;o, Lauro de Freitas/BA</span></div></div>
-          <div class="info-row"><div class="ico">&#128337;</div><div><b>Hor&aacute;rios</b><span>{{Seg a Sáb &mdash; confirmar horários}}</span></div></div>
-          <div class="info-row"><div class="ico">&#128241;</div><div><b>Agendamento</b><span>Agenda online &bull; WhatsApp</span></div></div>
-          <div class="info-row"><div class="ico">&#128247;</div><div><b>Instagram</b><span>@supremeprimedeluxy</span></div></div>
+          <div class="info-row"><div class="ico">&#128205;</div><div><b>Endere&ccedil;o</b><span>Dentro do Sam's Club &mdash; Estr. do C&ocirc;co, Lauro de Freitas/BA</span></div></div>
+          <div class="info-row"><div class="ico">&#128337;</div><div><b>Hor&aacute;rios &mdash; todos os dias</b><span>Seg a S&aacute;b: 08h &agrave;s 20h &bull; Dom: 08h &agrave;s 17h</span></div></div>
+          <div class="info-row"><div class="ico">&#128241;</div><div><b>WhatsApp</b><span>(71) 98690-7621</span></div></div>
+          <div class="info-row"><div class="ico">&#128247;</div><div><b>Instagram</b><span>@supremeprimeoficial</span></div></div>
         </div>
-        <a href="https://avec.app/supremeprimestudiodebeleza" target="_blank" rel="noopener" class="btn btn-plum" style="margin-top:8px">Agendar pela agenda online</a>
+        <a href="https://beacons.ai/supremeprime" target="_blank" rel="noopener" class="btn btn-noir" style="margin-top:8px">Agendar pela agenda online</a>
       </div>
       <div class="map-ph reveal">
-        <iframe title="Mapa Supreme Prime Deluxy" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=Estrada%20do%20Coco%2040066%20Lauro%20de%20Freitas%20BA&output=embed"></iframe>
+        <iframe title="Mapa Supreme Prime Deluxy — Sam's Club Lauro de Freitas" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Sam's%20Club%20Estrada%20do%20Coco%20Lauro%20de%20Freitas%20BA&output=embed"></iframe>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA FINAL ===== -->
+<!-- ===== CTA FINAL (mármore preto + dourado) ===== -->
 <section id="agendar" class="cta-final">
   <div class="container">
     <div class="reveal">
       <h2>Pronta para se sentir <em>ainda mais bonita</em>?</h2>
-      <p>Agende seu hor&aacute;rio em segundos e deixe o resto com a gente.</p>
-      <a href="https://avec.app/supremeprimestudiodebeleza" target="_blank" rel="noopener" class="btn btn-gold">Agendar meu hor&aacute;rio</a>
+      <p>Supreme: onde sua beleza encontra o cuidado perfeito. Agende em segundos e deixe o resto com a gente.</p>
+      <a href="#agendar" class="btn btn-gold">Agendar meu hor&aacute;rio</a>
     </div>
   </div>
 </section>
@@ -503,8 +508,8 @@
   <div class="container">
     <div class="foot-grid">
       <div style="max-width:300px">
-        <a href="#" class="logo">Supreme Prime Deluxy<b>.</b></a>
-        <div>Studio de Beleza e Est&eacute;tica em Lauro de Freitas/BA. Sua beleza tratada como prioridade.</div>
+        <a href="#" class="logo"><img src="./assets/logo-escura.webp" alt="" width="38" height="38">Supreme Prime Deluxy<b>.</b></a>
+        <div>Centro de Beleza &amp; Est&eacute;tica no Sam's Club de Lauro de Freitas/BA. A beleza j&aacute; est&aacute; em voc&ecirc;, n&oacute;s s&oacute; real&ccedil;amos.</div>
       </div>
       <div class="foot-col">
         <h4>Servi&ccedil;os</h4>
@@ -512,20 +517,21 @@
       </div>
       <div class="foot-col">
         <h4>Studio</h4>
-        <div><a href="#experiencia">Experi&ecirc;ncia</a></div><div><a href="#depoimentos">Depoimentos</a></div><div><a href="#localizacao">Localiza&ccedil;&atilde;o</a></div>
+        <div><a href="#experiencia">Experi&ecirc;ncia</a></div><div><a href="#resultados">Resultados</a></div><div><a href="#localizacao">Localiza&ccedil;&atilde;o</a></div>
       </div>
       <div class="foot-col">
         <h4>Contato</h4>
-        <div>Estr. do C&ocirc;co, 40066 &mdash; Lauro de Freitas/BA</div>
-        <div><a href="https://avec.app/supremeprimestudiodebeleza" target="_blank" rel="noopener">Agenda online</a></div>
-        <div><a href="https://instagram.com/supremeprimedeluxy" target="_blank" rel="noopener">@supremeprimedeluxy</a></div>
+        <div>Sam's Club &mdash; Estr. do C&ocirc;co, Lauro de Freitas/BA</div>
+        <div><a href="https://wa.me/5571986907621" target="_blank" rel="noopener">(71) 98690-7621</a></div>
+        <div><a href="https://beacons.ai/supremeprime" target="_blank" rel="noopener">Agenda online</a></div>
+        <div><a href="https://instagram.com/supremeprimeoficial" target="_blank" rel="noopener">@supremeprimeoficial</a></div>
       </div>
     </div>
-    <div class="foot-bottom">&copy; <span id="ano"></span> Supreme Prime Deluxy &bull; Studio de Beleza e Est&eacute;tica &bull; Feito por PS8</div>
+    <div class="foot-bottom">&copy; <span id="ano"></span> Supreme Prime Deluxy &bull; Centro de Beleza &amp; Est&eacute;tica &bull; Feito por PS8</div>
   </div>
 </footer>
 
-<a class="wpp-float" href="https://wa.me/5571999999999?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" aria-label="WhatsApp">&#128172;</a>
+<a class="wpp-float" href="https://wa.me/5571986907621?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener" aria-label="WhatsApp">&#128172;</a>
 
 <!-- ===== MODAL LEAD ===== -->
 <div class="modal" id="leadModal" aria-hidden="true" role="dialog" aria-modal="true">
@@ -578,7 +584,7 @@
   const modal=document.getElementById('leadModal');
   const openModal=e=>{if(e)e.preventDefault();modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';const f=document.getElementById('lf-nome');if(f)setTimeout(()=>f.focus(),60)};
   const closeModal=()=>{modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow=''};
-  // CTAs internos (#agendar) abrem o modal; o link da agenda online (avec) segue normal
+  // CTAs internos (#agendar) abrem o modal; o link da agenda online (beacons) segue normal
   document.querySelectorAll('a[href="#agendar"]').forEach(b=>b.addEventListener('click',openModal));
   modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeModal));
   addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
@@ -588,7 +594,9 @@
           t=document.getElementById('lf-tel').value.trim(),
           s=document.getElementById('lf-serv').value.trim();
     const msg=encodeURIComponent('Olá! Meu nome é '+n+'. Quero agendar um horário'+(s?' de '+s:'')+'.\nWhatsApp: '+t);
-    window.open('https://wa.me/5571999999999?text='+msg,'_blank');
+    const url='https://wa.me/5571986907621?text='+msg;
+    const w=window.open(url,'_blank');
+    if(!w)location.href=url;
     closeModal();
   });
 

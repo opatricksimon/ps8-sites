@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Supreme Prime Deluxy">
+  <defs>
+    <radialGradient id="bg" cx="38%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#5A2C44"/>
+      <stop offset="60%" stop-color="#4A2438"/>
+      <stop offset="100%" stop-color="#241019"/>
+    </radialGradient>
+    <linearGradient id="rose" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#94654B"/>
+      <stop offset="35%" stop-color="#E8C9AC"/>
+      <stop offset="60%" stop-color="#C99A82"/>
+      <stop offset="100%" stop-color="#F1D7C2"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bg)"/>
+  <circle cx="32" cy="32" r="26.5" fill="none" stroke="url(#rose)" stroke-width="1.1" opacity=".55"/>
+  <!-- 4-point sparkle (beleza/shine) -->
+  <path d="M32 9 C33.4 22.4 41.6 30.6 55 32 C41.6 33.4 33.4 41.6 32 55 C30.6 41.6 22.4 33.4 9 32 C22.4 30.6 30.6 22.4 32 9 Z" fill="url(#rose)"/>
+  <!-- small accent sparkle -->
+  <path d="M46 15 C46.5 18.3 48.7 20.5 52 21 C48.7 21.5 46.5 23.7 46 27 C45.5 23.7 43.3 21.5 40 21 C43.3 20.5 45.5 18.3 46 15 Z" fill="#F1D7C2" opacity=".9"/>
+</svg>
