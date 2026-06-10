@@ -62,6 +62,20 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Preciso agendar antes ou vocês aceitam encaixe?","acceptedAnswer":{"@type":"Answer","text":"O ideal é agendar pelo WhatsApp para garantir o seu horário. Sempre que temos disponibilidade na agenda, aceitamos encaixe no mesmo dia."}},
+    {"@type":"Question","name":"Tem estacionamento?","acceptedAnswer":{"@type":"Answer","text":"Tem. Estamos dentro do Sam's Club da Estrada do Côco, em Lauro de Freitas, com estacionamento amplo e gratuito na porta."}},
+    {"@type":"Question","name":"Dá para fazer cabelo e unha no mesmo dia?","acceptedAnswer":{"@type":"Answer","text":"Dá. Como temos cabelo, unhas, rosto e corpo no mesmo lugar, você resolve tudo numa visita só. É só avisar o que quer fazer na hora de agendar."}},
+    {"@type":"Question","name":"Vocês atendem todos os dias?","acceptedAnswer":{"@type":"Answer","text":"Atendemos de domingo a domingo. De segunda a sábado das 08h às 20h, e aos domingos das 08h às 17h."}},
+    {"@type":"Question","name":"Quanto tempo dura um atendimento?","acceptedAnswer":{"@type":"Answer","text":"Depende do serviço. No agendamento pelo WhatsApp a gente te passa o tempo médio do que você quer fazer, para você se organizar."}},
+    {"@type":"Question","name":"Quais formas de pagamento vocês aceitam?","acceptedAnswer":{"@type":"Answer","text":"Aceitamos as formas de pagamento mais comuns. Confirme as opções com a gente no WhatsApp quando for agendar."}}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
@@ -77,6 +91,9 @@
     --grad-realce:linear-gradient(100deg,#8A6A1E 0%,#E8D391 26%,#C9A24B 50%,#F3E2A9 74%,#8A6A1E 100%);
     --grad-noir:linear-gradient(100deg,#121212 0%,#3C341F 32%,#1E1A10 56%,#52482C 80%,#121212 100%);
     --nav-pad:22px;
+    /* ===== MÁRMORE (veios sutis) — claro p/ fundos brancos, dourado p/ fundos pretos ===== */
+    --marble-light:repeating-linear-gradient(116deg,transparent 0 44px,rgba(138,106,30,.028) 44px 45px,transparent 45px 104px),repeating-linear-gradient(202deg,transparent 0 66px,rgba(110,100,83,.03) 66px 67px,transparent 67px 150px),radial-gradient(130% 90% at 10% 0%,rgba(201,162,75,.05),transparent 55%);
+    --marble-gold:repeating-linear-gradient(116deg,transparent 0 50px,rgba(201,162,75,.06) 50px 51px,transparent 51px 120px),repeating-linear-gradient(206deg,transparent 0 78px,rgba(201,162,75,.045) 78px 79px,transparent 79px 170px);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--cor-realce) var(--cor-superficie)}
@@ -84,7 +101,7 @@
   ::-webkit-scrollbar-track{background:var(--cor-superficie)}
   ::-webkit-scrollbar-thumb{background:var(--grad-realce);background-size:200% auto;border-radius:999px;border:3px solid var(--cor-superficie)}
   ::-webkit-scrollbar-thumb:hover{background:var(--cor-realce-escura)}
-  body{font-family:'Inter',sans-serif;color:var(--cor-texto);background:var(--cor-fundo);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased}
+  body{font-family:'Inter',sans-serif;color:var(--cor-texto);background-color:var(--cor-fundo);background-image:var(--marble-light);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased}
   h1,h2,h3,h4{font-family:'Playfair Display',serif;line-height:1.16;letter-spacing:-.005em;font-weight:600}
   h2{font-size:clamp(1.8rem,3.6vw,2.8rem)}
   a{color:inherit;text-decoration:none}
@@ -136,6 +153,7 @@
   .logo{font-family:'Playfair Display';font-weight:700;font-size:1.18rem;color:var(--cor-primaria);display:flex;align-items:center;gap:10px;transition:.3s;letter-spacing:.01em}
   .logo b{color:var(--cor-realce-escura)}
   .logo img{width:38px;height:38px;border-radius:50%;border:1.5px solid var(--cor-realce);box-shadow:0 2px 10px rgba(138,106,30,.3)}
+  .logo-txt{white-space:nowrap}
   .nav-links{display:flex;gap:28px;font-family:'Inter';font-weight:500;font-size:.9rem}
   .nav-links a{color:var(--cor-texto-suave);transition:.2s}
   .nav-links a:hover{color:var(--cor-realce-escura)}
@@ -174,7 +192,7 @@
   .marquee{overflow:hidden;position:relative;padding:6px 0;
     -webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
   .mq-track{display:flex;gap:14px;width:max-content;animation:scrollx 44s linear infinite}
-  .mq-rev{animation-direction:reverse;animation-duration:52s}
+  .mq-rev{animation-direction:reverse;animation-duration:36s}
   .marquee:hover .mq-track{animation-play-state:paused}
   @keyframes scrollx{to{transform:translateX(-50%)}}
   .pill{flex:0 0 auto;display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;
@@ -202,9 +220,9 @@
   .card p{color:var(--cor-texto-suave);font-size:.94rem;transform:translateZ(16px)}
 
   /* ===== RITMO DE COR DAS SEÇÕES (anti "tudo branco") ===== */
-  .sec-cream{background:var(--cor-superficie)}
+  .sec-cream{background-color:var(--cor-superficie);background-image:var(--marble-light)}
   .sec-dark{background:var(--cor-escura);color:#fff;position:relative;overflow:hidden}
-  .sec-dark::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 80% 10%,rgba(201,162,75,.16),transparent 60%),radial-gradient(70% 60% at 10% 100%,rgba(138,106,30,.18),transparent 60%);pointer-events:none}
+  .sec-dark::before{content:"";position:absolute;inset:0;background:var(--marble-gold),radial-gradient(80% 60% at 80% 10%,rgba(201,162,75,.16),transparent 60%),radial-gradient(70% 60% at 10% 100%,rgba(138,106,30,.18),transparent 60%);pointer-events:none}
   .sec-dark>*{position:relative;z-index:1}
   .sec-dark h2,.sec-dark h3{color:#fff}
   .sec-dark p{color:rgba(255,255,255,.76)}
@@ -289,6 +307,16 @@
   .depo .who b{font-family:'Inter';font-size:.94rem;display:block}
   .depo .who small{color:var(--cor-texto-suave);font-size:.82rem}
 
+  /* ===== FAQ (accordion nativo <details> — quebra de objeção) ===== */
+  .faq-list{max-width:760px;margin:30px auto 0;display:grid;gap:12px}
+  .faq{background:linear-gradient(180deg,var(--cor-tint),var(--cor-tint-2));border:1px solid var(--cor-borda-tint);border-radius:var(--raio);overflow:hidden;transition:border-color .25s ease,box-shadow .25s ease}
+  .faq[open]{border-color:rgba(201,162,75,.55);box-shadow:var(--sombra-sm)}
+  .faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-family:'Inter';font-weight:600;font-size:1rem;color:var(--cor-primaria);display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:'Inter';font-weight:400;font-size:1.6rem;line-height:1;color:var(--cor-realce-escura);transition:transform .3s ease;flex:0 0 auto}
+  .faq[open] summary::after{transform:rotate(45deg)}
+  .faq .faq-a{padding:0 22px 20px;color:var(--cor-texto-suave);font-size:.95rem}
+
   /* ===== LOCALIZAÇÃO / CONTATO ===== */
   .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}
   .info-row{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px}
@@ -303,14 +331,14 @@
 
   /* ===== CTA FINAL (mármore preto + dourado — logo inversa) ===== */
   .cta-final{background:linear-gradient(135deg,#000 0%,#1E1A10 55%,#121212 100%);color:#fff;text-align:center;position:relative;overflow:hidden}
-  .cta-final::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 80% 0,rgba(201,162,75,.26),transparent 60%),radial-gradient(50% 60% at 10% 100%,rgba(138,106,30,.2),transparent 60%);pointer-events:none}
+  .cta-final::before{content:"";position:absolute;inset:0;background:var(--marble-gold),radial-gradient(60% 80% at 80% 0,rgba(201,162,75,.26),transparent 60%),radial-gradient(50% 60% at 10% 100%,rgba(138,106,30,.2),transparent 60%);pointer-events:none}
   .cta-final>*{position:relative;z-index:1}
   .cta-final h2{color:#fff}
   .cta-final h2 em{font-style:italic;background:var(--grad-realce);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 6s linear infinite}
   .cta-final p{max-width:560px;margin:14px auto 28px;opacity:.92}
 
   /* ===== FOOTER ===== */
-  footer{background:var(--cor-escura);color:#B5AB97;padding:56px 0 28px;font-size:.92rem}
+  footer{background-color:var(--cor-escura);background-image:var(--marble-gold);color:#B5AB97;padding:56px 0 28px;font-size:.92rem}
   .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:34px}
   footer .logo{color:#fff;margin-bottom:12px;display:inline-flex}
   footer a:hover{color:var(--cor-realce)}
@@ -364,6 +392,8 @@
     .trust .ts+.ts::before{display:none}
     .local-fotos{grid-template-columns:1fr 1fr}
     .local-fotos .ph:nth-child(3){grid-column:span 2}
+    .hero-img{background-position:64% center}
+    header .nav>.btn{justify-content:center}
     section{padding:clamp(40px,5.5vh,60px) 0}
     /* reels viram carrossel horizontal (9:16 fica usável) */
     .reels{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px;scrollbar-width:none}
@@ -372,19 +402,30 @@
   }
   @media(max-width:560px){
     body{font-size:16px}
-    .g3,.resgrid{grid-template-columns:1fr}
+    .resgrid{grid-template-columns:1fr}
     .reel{flex:0 0 78%}
+    /* cabeçalho: esconde o nome (a logo já diz), deixando o botão respirar */
+    .logo-txt{display:none}
+    .logo img{width:40px;height:40px}
+    /* HERO: imagem ancorada à DIREITA — a mulher fica sempre visível e quem some, ao estreitar, é a parede à esquerda */
     .hero>.container{padding-left:24px}
-    .hero-img{background-position:74% center}
-    .hero-overlay{background:linear-gradient(90deg,rgba(246,242,234,.95) 0%,rgba(246,242,234,.82) 50%,rgba(246,242,234,.4) 100%),
-               linear-gradient(180deg,rgba(246,242,234,.4) 0%,transparent 35%,transparent 70%,rgba(38,32,20,.4) 100%)}
+    .hero-img{background-position:62% 34%}
+    /* degradê suavizado: escurece só o lado do texto (esquerda) e deixa a mulher (direita) à mostra */
+    .hero-overlay{background:linear-gradient(90deg,rgba(246,242,234,.86) 0%,rgba(246,242,234,.5) 44%,rgba(246,242,234,.12) 72%,rgba(246,242,234,0) 100%),
+               linear-gradient(180deg,transparent 58%,rgba(38,32,20,.32) 100%)}
+    /* título em 2 linhas (não 3) */
+    .hero h1{font-size:clamp(1.6rem,6.6vw,2.1rem);letter-spacing:-.012em;text-shadow:0 1px 16px rgba(246,242,234,.85)}
+    .hero p.sub{font-size:1rem;max-width:none}
     .hero-cta{flex-direction:column;align-items:stretch}
     .hero-cta .btn{justify-content:center}
-    /* depoimentos viram scroll manual no mobile (marquee rapido demais em tela pequena) */
-    #depoimentos .marquee{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;-webkit-mask:none;mask:none}
-    #depoimentos .marquee::-webkit-scrollbar{display:none}
-    #depoimentos .mq-track{animation:none!important;width:auto}
-    .depo{flex:0 0 84vw;scroll-snap-align:center}
+    /* SERVIÇOS: grade 2 x 3 com cards menores */
+    .g3{grid-template-columns:1fr 1fr;gap:12px}
+    .g3 .card{padding:16px 13px 15px}
+    .g3 .ico{width:42px;height:42px;font-size:1.2rem;border-radius:12px;margin-bottom:10px}
+    .g3 .card h3{font-size:1rem;margin-bottom:5px}
+    .g3 .card p{font-size:.82rem;line-height:1.5}
+    /* depoimentos seguem rolando sozinhos (auto-marquee) também no mobile */
+    .depo{flex:0 0 80vw;padding:22px}
     .local-fotos{grid-template-columns:1fr}
     .local-fotos .ph:nth-child(3){grid-column:span 1}
   }
@@ -399,7 +440,7 @@
 
 <header id="header">
   <div class="container nav">
-    <a href="#" class="logo"><img src="./assets/logo-clara.webp" alt="Logo Supreme Prime Deluxy" width="38" height="38">Supreme Prime Deluxy<b>.</b></a>
+    <a href="#" class="logo"><img src="./assets/logo-clara.webp" alt="Logo Supreme Prime Deluxy" width="38" height="38"><span class="logo-txt">Supreme Prime Deluxy<b>.</b></span></a>
     <nav class="nav-links">
       <a href="#servicos">Servi&ccedil;os</a>
       <a href="#experiencia">Experi&ecirc;ncia</a>
@@ -417,9 +458,9 @@
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-content">
-      <span class="hero-chip"><i>&#10022;</i> Centro de Beleza &amp; Est&eacute;tica &bull; Sam's Club &bull; Lauro de Freitas/BA</span>
+      <span class="hero-chip"><i>&#10022;</i> Centro de Beleza &amp; Est&eacute;tica</span>
       <h1>A beleza j&aacute; est&aacute; em voc&ecirc;.<br>N&oacute;s s&oacute; <em>real&ccedil;amos</em>.</h1>
-      <p class="sub">Cabelo, unhas, rosto e corpo em um s&oacute; lugar, todos os dias da semana, dentro do Sam's Club da Estrada do C&ocirc;co.</p>
+      <p class="sub">Cabelo, unhas, rosto e corpo em um s&oacute; lugar, todos os dias da semana, dentro do Sam's Club da Estrada do C&ocirc;co, em Lauro de Freitas.</p>
       <div class="hero-cta">
         <a href="#agendar" class="btn btn-gold">Agendar meu hor&aacute;rio</a>
         <a href="#servicos" class="btn btn-ghost-dark">Ver servi&ccedil;os</a>
@@ -431,7 +472,7 @@
 
 <!-- ===== 🎠 CARROSSEL INFINITO DE SERVIÇOS (cardápio real) ===== -->
 <div class="marquee" style="background:var(--cor-fundo);padding:22px 0;border-bottom:1px solid var(--cor-borda)" aria-label="Servi&ccedil;os oferecidos">
-  <div class="smq" data-smq data-dir="-1" data-base="0.55">
+  <div class="smq" data-smq data-dir="-1" data-base="0.85">
     <span class="pill"><span class="e">&#9986;&#65039;</span> Cabelo</span>
     <span class="pill"><span class="e">&#128133;</span> Manicure &amp; Pedicure</span>
     <span class="pill"><span class="e">&#10022;</span> Design de Sobrancelhas</span>
@@ -586,6 +627,28 @@
       <div class="depo"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Melhor design de sobrancelhas que j&aacute; fiz. As meninas s&atilde;o super atenciosas e caprichosas."</p><div class="who"><span class="av">J</span><div><b>Juliana M.</b><small>Cliente</small></div></div></div>
       <div class="depo"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Fiz cabelo e unha no mesmo dia, tudo impec&aacute;vel. Virei cliente fiel do Supreme Prime."</p><div class="who"><span class="av">C</span><div><b>Carla S.</b><small>Cliente</small></div></div></div>
       <div class="depo"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Lugar aconchegante e profissionais que entendem do assunto. Recomendo de olhos fechados."</p><div class="who"><span class="av">R</span><div><b>Renata L.</b><small>Cliente</small></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ (quebra de objeção + schema FAQPage) ===== -->
+<section id="faq">
+  <div class="container">
+    <div class="center reveal">
+      <span class="eyebrow">Perguntas frequentes</span>
+      <h2>Antes de <em style="font-style:italic;color:var(--cor-realce-escura)">agendar</em></h2>
+      <p class="lead">As d&uacute;vidas que mais ouvimos de quem est&aacute; vindo pela primeira vez.</p>
+    </div>
+    <div class="faq-list reveal">
+      <details class="faq"><summary>Preciso agendar antes ou voc&ecirc;s aceitam encaixe?</summary><div class="faq-a">O ideal &eacute; agendar pelo WhatsApp para garantir o seu hor&aacute;rio. Sempre que temos disponibilidade na agenda, aceitamos encaixe no mesmo dia.</div></details>
+      <details class="faq"><summary>Tem estacionamento?</summary><div class="faq-a">Tem. Estamos dentro do Sam's Club da Estrada do C&ocirc;co, em Lauro de Freitas, com estacionamento amplo e gratuito na porta.</div></details>
+      <details class="faq"><summary>D&aacute; para fazer cabelo e unha no mesmo dia?</summary><div class="faq-a">D&aacute;. Como temos cabelo, unhas, rosto e corpo no mesmo lugar, voc&ecirc; resolve tudo numa visita s&oacute;. &Eacute; s&oacute; avisar o que quer fazer na hora de agendar.</div></details>
+      <details class="faq"><summary>Voc&ecirc;s atendem todos os dias?</summary><div class="faq-a">Atendemos de domingo a domingo. De segunda a s&aacute;bado das 08h &agrave;s 20h, e aos domingos das 08h &agrave;s 17h.</div></details>
+      <details class="faq"><summary>Quanto tempo dura um atendimento?</summary><div class="faq-a">Depende do servi&ccedil;o. No agendamento pelo WhatsApp a gente te passa o tempo m&eacute;dio do que voc&ecirc; quer fazer, para voc&ecirc; se organizar.</div></details>
+      <details class="faq"><summary>Quais formas de pagamento voc&ecirc;s aceitam?</summary><div class="faq-a">Aceitamos as formas de pagamento mais comuns. Confirme as op&ccedil;&otilde;es com a gente no WhatsApp quando for agendar.</div></details>
+    </div>
+    <div class="center" style="margin-top:26px">
+      <a href="#agendar" class="btn btn-gold">Agendar meu hor&aacute;rio</a>
     </div>
   </div>
 </section>
