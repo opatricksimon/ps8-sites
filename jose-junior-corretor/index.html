@@ -286,8 +286,11 @@
     .sobre,.contato-grid,.cta-form-grid{grid-template-columns:1fr;gap:36px}
     .sobre-photo{max-width:380px;margin:0 auto}
     section{padding:clamp(40px,5vh,64px) 0}
+    /* hero comeca a deslizar o foco p/ a direita (corretor) conforme estreita */
+    .hero-img{object-position:64% 30%}
   }
   @media(max-width:760px){
+    .hero-img{object-position:72% 28%}
     /* IMÓVEIS viram carrossel arrastável (com espia do próximo) */
     .listings{display:flex;grid-template-columns:none;max-width:none;overflow-x:auto;scroll-snap-type:x mandatory;
       gap:16px;padding:6px 24px 16px;margin:22px -24px 0;-webkit-overflow-scrolling:touch;scrollbar-width:none;scroll-padding-left:24px}
@@ -302,7 +305,7 @@
   }
   @media(max-width:600px){
     body{font-size:16px}
-    .hero-img{object-position:68% 22%}
+    .hero-img{object-position:80% 26%}
     .hero-content{padding:clamp(88px,14vh,104px) 0 clamp(28px,5vh,52px)}
     .hero>.container{padding-left:24px}
     .hero-cta{flex-direction:column;align-items:stretch}
@@ -310,6 +313,10 @@
     .lst{flex-basis:84%}
     .wpp-float{width:52px;height:52px;font-size:1.5rem;bottom:16px;right:16px}
     .rail-nav{width:40px;height:40px;font-size:1.25rem}
+  }
+  @media(max-width:430px){
+    /* telas mais estreitas: centraliza o corretor (rosto+torso) com fresta da casa */
+    .hero-img{object-position:85% 26%}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
