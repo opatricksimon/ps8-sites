@@ -64,9 +64,10 @@
   @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(12,90,110,.36)}50%{box-shadow:0 12px 34px rgba(12,90,110,.62)}}
 
   /* ===== HEADER (flutuante / floating pill) ===== */
-  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease;padding:18px 16px 0}
-  header .nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:none;margin:0;
-    padding:0 14px 0 calc(clamp(24px,6vw,112px) - 16px);border-radius:999px;
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease;padding-top:18px}
+  header .container{max-width:1240px}
+  header .nav{display:flex;align-items:center;justify-content:space-between;height:64px;
+    padding:0 14px 0 var(--nav-pad);border-radius:999px;
     background:rgba(6,40,49,.34);backdrop-filter:blur(12px) saturate(130%);-webkit-backdrop-filter:blur(12px) saturate(130%);
     border:1px solid rgba(255,255,255,.16);box-shadow:0 8px 30px rgba(6,40,49,.2);transition:.35s ease}
   .logo{font-family:'Playfair Display';font-weight:700;font-size:1.3rem;color:#fff;display:flex;align-items:center;gap:6px;transition:.3s}

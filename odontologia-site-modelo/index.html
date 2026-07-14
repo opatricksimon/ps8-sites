@@ -21,13 +21,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cor-primaria:#0E7C8C; --cor-primaria-escura:#0A5A66; --cor-realce:#C9A86A; --cor-realce-escura:#A8884E;
-    --cor-fundo:#FFFFFF; --cor-superficie:#F3F0E9; --cor-escura:#06303A;
+    --cor-primaria:#0C5A6E; --cor-primaria-escura:#073D4C; --cor-realce:#C9A86A; --cor-realce-escura:#A8884E;
+    --cor-fundo:#FFFFFF; --cor-superficie:#F3F0E9; --cor-escura:#062831;
     --cor-texto:#16262B; --cor-texto-suave:#56686E; --cor-borda:#E6E0D4; --cor-whatsapp:#25D366;
     --container:1240px; --raio:16px; --raio-sm:10px;
-    --sombra:0 16px 52px rgba(6,48,58,.14); --sombra-sm:0 5px 20px rgba(6,48,58,.10);
+    --sombra:0 16px 52px rgba(6,40,49,.14); --sombra-sm:0 5px 20px rgba(6,40,49,.10);
     --grad-realce:linear-gradient(100deg,#A8884E 0%,#E7CE94 28%,#C9A86A 52%,#F1DDA8 74%,#A8884E 100%);
-    --grad-azul:linear-gradient(100deg,#0A5A66 0%,#1FA0B5 30%,#0E7C8C 55%,#3BBDD0 78%,#0A5A66 100%);
+    --grad-azul:linear-gradient(100deg,#073D4C 0%,#1E8BA6 30%,#0C5A6E 55%,#34AEC9 78%,#073D4C 100%);
     --nav-pad:22px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
@@ -49,22 +49,22 @@
   .center .eyebrow::after{content:"";width:28px;height:1px;background:var(--cor-realce)}
   .center p.lead{max-width:640px;margin:14px auto 0;color:var(--cor-texto-suave)}
   .btn{display:inline-flex;align-items:center;gap:9px;font-family:'Inter';font-weight:600;font-size:.9rem;letter-spacing:.015em;padding:13px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,background-position .6s ease;will-change:transform}
-  .btn-primary{background:var(--cor-primaria);color:#fff;box-shadow:0 8px 22px rgba(14,124,140,.28)}
+  .btn-primary{background:var(--cor-primaria);color:#fff;box-shadow:0 8px 22px rgba(12,90,110,.28)}
   .btn-primary:hover{background:var(--cor-primaria-escura);transform:translateY(-2px)}
-  .btn-wpp{background:var(--grad-azul);background-size:220% auto;color:#fff;box-shadow:0 10px 26px rgba(14,124,140,.36);animation:shimmer 7s linear infinite,softpulse 2.8s ease-in-out infinite}
+  .btn-wpp{background:var(--grad-azul);background-size:220% auto;color:#fff;box-shadow:0 10px 26px rgba(12,90,110,.36);animation:shimmer 7s linear infinite,softpulse 2.8s ease-in-out infinite}
   .btn-wpp:hover{background-position:right center;transform:translateY(-2px)}
-  .btn-gold{background:var(--grad-realce);background-size:220% auto;color:#0A5A66;box-shadow:0 10px 26px rgba(201,168,106,.36);animation:shimmer 7s linear infinite}
+  .btn-gold{background:var(--grad-realce);background-size:220% auto;color:#073D4C;box-shadow:0 10px 26px rgba(201,168,106,.36);animation:shimmer 7s linear infinite}
   .btn-gold:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 14px 32px rgba(201,168,106,.46)}
   .btn-ghost-light{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.5);backdrop-filter:blur(4px)}
   .btn-ghost-light:hover{background:rgba(255,255,255,.18);border-color:#fff}
-  @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(14,124,140,.36)}50%{box-shadow:0 12px 34px rgba(14,124,140,.62)}}
+  @keyframes softpulse{0%,100%{box-shadow:0 10px 26px rgba(12,90,110,.36)}50%{box-shadow:0 12px 34px rgba(12,90,110,.62)}}
 
   /* ===== HEADER (flutuante) ===== */
   header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease;padding-top:18px}
   header .nav{display:flex;align-items:center;justify-content:space-between;height:64px;
     padding:0 14px 0 var(--nav-pad);border-radius:999px;
-    background:rgba(6,48,58,.34);backdrop-filter:blur(12px) saturate(130%);-webkit-backdrop-filter:blur(12px) saturate(130%);
-    border:1px solid rgba(255,255,255,.16);box-shadow:0 8px 30px rgba(6,48,58,.2);transition:.35s ease}
+    background:rgba(6,40,49,.34);backdrop-filter:blur(12px) saturate(130%);-webkit-backdrop-filter:blur(12px) saturate(130%);
+    border:1px solid rgba(255,255,255,.16);box-shadow:0 8px 30px rgba(6,40,49,.2);transition:.35s ease}
   .logo{font-family:'Playfair Display';font-weight:700;font-size:1.32rem;color:#fff;display:flex;align-items:center;gap:6px;transition:.3s}
   .logo b{color:var(--cor-realce)}
   .nav-links{display:flex;gap:28px;font-family:'Inter';font-weight:500;font-size:.9rem}
@@ -72,7 +72,7 @@
   .nav-links a:hover{color:var(--cor-realce)}
   header .btn{padding:10px 20px;font-size:.82rem}
   header.scrolled{padding-top:10px}
-  header.scrolled .nav{background:rgba(255,255,255,.92);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--cor-borda);box-shadow:0 10px 34px rgba(6,48,58,.14)}
+  header.scrolled .nav{background:rgba(255,255,255,.92);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-color:var(--cor-borda);box-shadow:0 10px 34px rgba(6,40,49,.14)}
   header.scrolled .logo{color:var(--cor-primaria)}
   header.scrolled .nav-links a{color:var(--cor-texto-suave)}
   header.scrolled .nav-links a:hover{color:var(--cor-primaria)}
@@ -81,20 +81,21 @@
 
   /* ===== HERO — IMAGEM ULTRAWIDE ===== */
   .hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:var(--cor-escura)}
-  .hero>.container{padding-left:var(--nav-pad)}
+  /* hero quebra o container centralizado e ancora na ESQUERDA do viewport (respiro vai pra direita) — layout do site-modelo saúde */
+  .hero>.container{max-width:none;margin:0;padding-left:clamp(24px,6vw,112px);padding-right:24px}
   .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;animation:kenburns 22s ease-out forwards}
   @keyframes kenburns{from{transform:scale(1.1)}to{transform:scale(1)}}
   .hero-overlay{position:absolute;inset:0;z-index:2;
-    background:linear-gradient(180deg,rgba(6,48,58,.5) 0%,rgba(6,48,58,.16) 40%,rgba(6,48,58,.5) 75%,rgba(6,48,58,.86) 100%),
-               linear-gradient(90deg,rgba(6,48,58,.72) 0%,rgba(6,48,58,.22) 60%,transparent 100%)}
-  .hero-content{position:relative;z-index:3;color:#fff;max-width:700px;padding:clamp(96px,12vh,120px) 0 clamp(64px,10vh,96px);animation:heroIn 1s cubic-bezier(.22,.61,.36,1) both}
-  .hero .eyebrow{color:var(--cor-realce);margin-bottom:24px}
+    background:linear-gradient(180deg,rgba(6,40,49,.5) 0%,rgba(6,40,49,.16) 40%,rgba(6,40,49,.5) 75%,rgba(6,40,49,.86) 100%),
+               linear-gradient(90deg,rgba(6,40,49,.72) 0%,rgba(6,40,49,.22) 60%,transparent 100%)}
+  .hero-content{position:relative;z-index:3;color:#fff;max-width:760px;padding:clamp(90px,11.5vh,112px) 0 clamp(32px,5vh,56px);animation:heroIn 1s cubic-bezier(.22,.61,.36,1) both}
+  .hero .eyebrow{color:var(--cor-realce)}
   .hero .eyebrow::before{background:var(--cor-realce)}
-  .hero h1{font-size:clamp(2rem,4.2vw,3.3rem);line-height:1.1;font-weight:600;color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.3)}
+  .hero h1{font-size:clamp(2.1rem,4.6vw,3.5rem);font-weight:600;color:#fff;text-shadow:0 2px 28px rgba(0,0,0,.3)}
   .hero h1 em{font-style:italic;background:var(--grad-realce);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 5s linear infinite}
   @keyframes shimmer{to{background-position:200% center}}
   @keyframes heroIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-  .hero p.sub{font-size:clamp(1.04rem,1.5vw,1.2rem);color:rgba(255,255,255,.9);margin:28px 0 40px;max-width:520px;font-weight:400}
+  .hero p.sub{font-size:clamp(1.04rem,1.5vw,1.2rem);color:rgba(255,255,255,.9);margin:18px 0 26px;max-width:520px;font-weight:400}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
   .scroll-cue{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.72);font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;text-align:center;display:flex;flex-direction:column;align-items:center;gap:11px}
   .scroll-cue .mouse{width:24px;height:38px;border:2px solid rgba(255,255,255,.55);border-radius:14px;position:relative}
@@ -117,7 +118,6 @@
   .card .ico{width:50px;height:50px;border-radius:14px;background:var(--cor-superficie);border:1px solid var(--cor-borda);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:12px}
   .card h3{font-size:1.2rem;font-weight:600;margin-bottom:7px}
   .card p{color:var(--cor-texto-suave);font-size:.94rem;flex:1}
-  .card .price{margin-top:12px;font-family:'Inter';font-weight:600;font-size:.82rem;color:var(--cor-primaria);background:var(--cor-superficie);border-radius:999px;padding:6px 14px;align-self:flex-start}
 
   /* ===== STEPS ===== */
   .steps{grid-template-columns:repeat(4,1fr)}
@@ -134,14 +134,14 @@
   .sec-dark .center p.lead{color:rgba(255,255,255,.76)}
   .sec-dark .eyebrow{color:var(--cor-realce)}
   .sec-dark .eyebrow::before,.sec-dark .center .eyebrow::after{background:var(--cor-realce)}
-  .sec-dark .step .num{background:var(--grad-realce);color:#0A5A66}
+  .sec-dark .step .num{background:var(--grad-realce);color:#073D4C}
 
   /* ===== ANTES / DEPOIS (slider) ===== */
-  .ba{position:relative;max-width:600px;margin:20px auto 0;aspect-ratio:16/9;border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);cursor:ew-resize;touch-action:none;background:linear-gradient(135deg,#0E7C8C,#06303A)}
+  .ba{position:relative;max-width:600px;margin:20px auto 0;aspect-ratio:16/9;border-radius:var(--raio);overflow:hidden;box-shadow:var(--sombra);cursor:ew-resize;touch-action:none;background:linear-gradient(135deg,#0C5A6E,#062831)}
   .ba-before,.ba-after{position:absolute;inset:0;background-size:cover;background-position:center}
   .ba-before{background-color:#2a3a40}
-  .ba-after{background-color:#0E7C8C;clip-path:inset(0 0 0 50%)}
-  .ba-tag{position:absolute;top:12px;z-index:4;background:rgba(6,48,58,.7);color:#fff;font-family:'Inter';font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+  .ba-after{background-color:#0C5A6E;clip-path:inset(0 0 0 50%)}
+  .ba-tag{position:absolute;top:12px;z-index:4;background:rgba(6,40,49,.7);color:#fff;font-family:'Inter';font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
   .ba-tag.l{left:12px}.ba-tag.r{right:12px}
   .ba-handle{position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;z-index:5;transform:translateX(-1px)}
   .ba-handle::after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;border-radius:50%;background:#fff;color:var(--cor-primaria);display:flex;align-items:center;justify-content:center;font-size:1.05rem;box-shadow:0 4px 14px rgba(0,0,0,.28)}
@@ -149,9 +149,9 @@
 
   /* ===== SOBRE ===== */
   .sobre{display:grid;grid-template-columns:.82fr 1.18fr;gap:54px;align-items:center}
-  .sobre-photo{position:relative;aspect-ratio:4/5;border-radius:var(--raio);overflow:hidden;background:linear-gradient(150deg,#1c7c8c,#06303A);box-shadow:var(--sombra)}
+  .sobre-photo{position:relative;aspect-ratio:4/5;border-radius:var(--raio);overflow:hidden;background:linear-gradient(150deg,#1c5566,#062831);box-shadow:var(--sombra)}
   .sobre-photo img{width:100%;height:100%;object-fit:cover}
-  .sobre-photo .crm{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(6,48,58,.88));color:#fff;padding:28px 22px 18px;font-family:'Inter';font-weight:600;font-size:.86rem}
+  .sobre-photo .crm{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(6,40,49,.88));color:#fff;padding:28px 22px 18px;font-family:'Inter';font-weight:600;font-size:.86rem}
   .sobre-photo .crm b{color:var(--cor-realce)}
   .sobre ul{list-style:none;margin-top:20px;display:grid;gap:12px}
   .sobre li{display:flex;gap:11px;align-items:flex-start;color:var(--cor-texto-suave)}
@@ -162,7 +162,7 @@
   .depo .stars{color:var(--cor-realce);margin-bottom:12px;letter-spacing:3px}
   .depo p{font-size:.98rem;color:var(--cor-texto);font-style:italic;font-family:'Playfair Display'}
   .depo .who{display:flex;align-items:center;gap:12px;margin-top:18px}
-  .depo .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(150deg,var(--cor-realce),var(--cor-realce-escura));color:#0A5A66;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Inter'}
+  .depo .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(150deg,var(--cor-realce),var(--cor-realce-escura));color:#073D4C;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Inter'}
   .depo .who b{font-family:'Inter';font-size:.94rem;display:block}
   .depo .who small{color:var(--cor-texto-suave);font-size:.82rem}
 
@@ -186,7 +186,7 @@
   .map-ph img{width:100%;height:100%;object-fit:cover}
 
   /* ===== CTA FINAL ===== */
-  .cta-final{background:linear-gradient(135deg,var(--cor-primaria),#0a4a55);color:#fff;text-align:center}
+  .cta-final{background:linear-gradient(135deg,var(--cor-primaria),#0a4a5c);color:#fff;text-align:center}
   .cta-final h2{color:#fff}
   .cta-final h2 em{font-style:italic;color:var(--cor-realce)}
   .cta-final p{max-width:560px;margin:14px auto 28px;opacity:.92}
@@ -201,8 +201,8 @@
   .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;text-align:center;color:#6f8c95;font-size:.84rem}
 
   /* ===== WHATSAPP FLOAT (teal metálico) ===== */
-  .wpp-float{position:fixed;bottom:24px;right:24px;z-index:60;background:var(--grad-azul);background-size:200% auto;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;box-shadow:0 12px 30px rgba(14,124,140,.5);animation:pulse 2.6s infinite}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(14,124,140,.55)}70%{box-shadow:0 0 0 18px rgba(14,124,140,0)}100%{box-shadow:0 0 0 0 rgba(14,124,140,0)}}
+  .wpp-float{position:fixed;bottom:24px;right:24px;z-index:60;background:var(--grad-azul);background-size:200% auto;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.9rem;box-shadow:0 12px 30px rgba(12,90,110,.5);animation:pulse 2.6s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(12,90,110,.55)}70%{box-shadow:0 0 0 18px rgba(12,90,110,0)}100%{box-shadow:0 0 0 0 rgba(12,90,110,0)}}
 
   /* ===== REVEAL ===== */
   .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
@@ -220,8 +220,8 @@
   /* ===== MODAL — FORMULÁRIO LEAD (popup) ===== */
   .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
   .modal.open{display:flex}
-  .modal-bg{position:absolute;inset:0;background:rgba(6,48,58,.66);backdrop-filter:blur(6px);animation:fade .3s ease}
-  .modal-card{position:relative;z-index:2;background:#fff;border-radius:var(--raio);max-width:440px;width:100%;padding:clamp(28px,4vw,40px);box-shadow:0 30px 80px rgba(6,48,58,.4);animation:pop .35s cubic-bezier(.22,.61,.36,1);text-align:left}
+  .modal-bg{position:absolute;inset:0;background:rgba(6,40,49,.66);backdrop-filter:blur(6px);animation:fade .3s ease}
+  .modal-card{position:relative;z-index:2;background:#fff;border-radius:var(--raio);max-width:440px;width:100%;padding:clamp(28px,4vw,40px);box-shadow:0 30px 80px rgba(6,40,49,.4);animation:pop .35s cubic-bezier(.22,.61,.36,1);text-align:left}
   @keyframes fade{from{opacity:0}to{opacity:1}}
   @keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
   .modal-card .x{position:absolute;top:14px;right:16px;font-size:1.6rem;color:var(--cor-texto-suave);background:none;border:0;cursor:pointer;line-height:1}
@@ -312,9 +312,9 @@
       <p class="lead">Estética e saúde bucal com tecnologia e um plano feito sob medida para você.</p>
     </div>
     <div class="grid g3" style="margin-top:32px">
-      <div class="card reveal"><div class="ico">😁</div><h3>Lentes de resina</h3><p>Sorriso harmônico e natural, sem desgaste, em poucas sessões.</p><div class="price">12x sem juros</div></div>
-      <div class="card reveal"><div class="ico">✨</div><h3>Facetas</h3><p>Cobertura estética avançada para forma, cor e alinhamento.</p><div class="price">avaliação gratuita</div></div>
-      <div class="card reveal"><div class="ico">🦷</div><h3>Clareamento</h3><p>Dentes mais brancos com técnica segura, a laser ou caseiro.</p><div class="price">12x sem juros</div></div>
+      <div class="card reveal"><div class="ico">😁</div><h3>Lentes de resina</h3><p>Sorriso harmônico e natural, sem desgaste, em poucas sessões.</p></div>
+      <div class="card reveal"><div class="ico">✨</div><h3>Facetas</h3><p>Cobertura estética avançada para forma, cor e alinhamento.</p></div>
+      <div class="card reveal"><div class="ico">🦷</div><h3>Clareamento</h3><p>Dentes mais brancos com técnica segura, a laser ou caseiro.</p></div>
       <div class="card reveal"><div class="ico">🔧</div><h3>Restauração estética</h3><p>Reparos invisíveis que devolvem função e beleza ao dente.</p></div>
       <div class="card reveal"><div class="ico">🦾</div><h3>Implantes</h3><p>Reposição de dentes com aparência e mordida totalmente naturais.</p></div>
       <div class="card reveal"><div class="ico">😬</div><h3>Alinhadores invisíveis</h3><p>Endireite o sorriso com discrição e conforto, sem aparelho fixo.</p></div>
@@ -395,7 +395,7 @@
     <div class="center"><span class="eyebrow">Dúvidas frequentes</span><h2>Perguntas que todo paciente faz</h2></div>
     <div class="faq">
       <details open><summary>Lente de resina dói? É invasivo?</summary><p>Não. As lentes de resina são minimamente invasivas e aplicadas sem desgaste do dente na maioria dos casos. O procedimento é confortável e indolor.</p></details>
-      <details><summary>Quanto custa e tem parcelamento?</summary><p>O valor depende de quantos dentes e do seu plano de sorriso — definimos isso na avaliação. Trabalhamos com parcelamento em até 12x sem juros.</p></details>
+      <details><summary>Quanto custa e tem parcelamento?</summary><p>O valor depende de quantos dentes e do seu plano de sorriso — definimos isso na avaliação. Oferecemos condições de pagamento facilitadas no cartão.</p></details>
       <details><summary>Em quantas sessões fica pronto?</summary><p>A maioria dos casos de lentes de resina é concluída em até 2 sessões, após o planejamento do sorriso.</p></details>
       <details><summary>Quanto tempo dura o resultado?</summary><p>Com os cuidados corretos e manutenção periódica, as lentes de resina mantêm a estética por vários anos.</p></details>
       <details><summary>Qual a diferença entre resina e porcelana?</summary><p>A resina é mais acessível e reversível; a porcelana é mais resistente e duradoura. Na avaliação indicamos a melhor opção para o seu caso.</p></details>
