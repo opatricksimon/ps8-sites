@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antunes Advocacia - Extensão de Visto para Brasileiros nos EUA</title>
+  <meta name="description" content="Extensão de Visto B1/B2 para Brasileiros nos EUA. Segurança jurídica com advogado licenciado. Atendimento em português.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./assets/favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ========================================
+       MODELO LANDING PAGE - CSS
+       Design: "Luxury Legal" - Elegância Atemporal
+       Paleta: Vinho (#8E2458), Preto (#1C1C1C), Dourado (#C6A664)
+    ======================================== */
+    
+    :root {
+      /* ════════════════════════════════════════════════════════════════
+         REGULADORES DO HERO - AJUSTE AQUI!
+         ════════════════════════════════════════════════════════════════
+         
+         Para mover os elementos do Hero:
+         - Valores POSITIVOS = move para BAIXO
+         - Valores NEGATIVOS = move para CIMA
+         - 0px = posição original
+         
+         CADA ELEMENTO É INDEPENDENTE!
+         Ajuste o número para mover apenas aquele elemento.
+      ════════════════════════════════════════════════════════════════ */
+      
+      --hero-badge-offset: 50px;
+--hero-titulo-offset: 40px;
+--hero-subtitulo-offset: 35px;
+--hero-botao-offset: 30px;
+--hero-micro-offset: 25px;
+--hero-todos-offset: -80px;       /* "Atendimento em Português | Advogado..." */
+      
+      /* Para mover TODOS juntos, ajuste este valor: */
+      --hero-todos-offset: -123px;         /* Move todos os elementos juntos */
+      
+      /* ════════════════════════════════════════════════════════════════ */
+      
+      /* Cores Principais */
+      --vinho: #8E2458;
+      --vinho-light: #A62D68;
+      --vinho-dark: #6E1C45;
+      --vinho-darker: #4A1530;
+      --vinho-glow: rgba(142, 36, 88, 0.4);
+      
+      /* Base - Preto */
+      --preto: #1C1C1C;
+      --preto-light: #252525;
+      --preto-lighter: #2A2A2A;
+      --preto-pure: #0a0a0a;
+      
+      /* Secundária - Dourado */
+      --dourado: #C6A664;
+      --dourado-light: #D4B87A;
+      --dourado-dark: #A68A4E;
+      --dourado-glow: rgba(198, 166, 100, 0.3);
+      
+      /* Neutros */
+      --branco: #FFFFFF;
+      --off-white: #F4F4F2;
+      --cinza: #CCCCCC;
+      --cinza-escuro: #666666;
+      
+      /* Tipografia */
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      
+      /* Layout */
+      --container-max: 1280px;
+      --section-padding: clamp(60px, 10vw, 100px);
+    }
+    
+    /* ========================================
+       RESET & BASE
+    ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--preto);
+      color: var(--off-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-display);
+      font-weight: 600;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    @media (min-width: 640px) {
+      .container { padding: 0 1.5rem; }
+    }
+    
+    @media (min-width: 1024px) {
+      .container { padding: 0 2rem; }
+    }
+    
+    /* ========================================
+       PROGRESS BAR
+    ======================================== */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--vinho-dark), var(--vinho), var(--vinho-light));
+      background-size: 200% 100%;
+      animation: shimmerBar 2s linear infinite;
+      z-index: 10001;
+      box-shadow: 0 0 10px var(--vinho-glow);
+      transition: width 0.1s ease;
+    }
+    
+    @keyframes shimmerBar {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+    
+    /* ========================================
+       HEADER
+    ======================================== */
+    .header {
+      position: fixed;
+      top: 3px;
+      left: 0;
+      right: 0;
+      z-index: 10000;
+      padding: 20px 0;
+      background: linear-gradient(180deg, rgba(28,28,28,0.95) 0%, rgba(28,28,28,0.5) 50%, transparent 100%);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .header.scrolled {
+      padding: 12px 0;
+      background: rgba(28,28,28,0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(198,166,100,0.1);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+    
+    .header.scrolled::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(198,166,100,0.3), transparent);
+    }
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--off-white);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    
+    .logo span {
+      color: var(--dourado);
+    }
+    
+    .nav-desktop {
+      display: none;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 900px) {
+      .nav-desktop { display: flex; }
+    }
+    
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--cinza);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      position: relative;
+      padding: 4px 0;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--dourado);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--off-white);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    /* Botão Header */
+    .btn-header {
+      padding: 12px 28px;
+      font-size: 0.85rem;
+      background: linear-gradient(135deg, var(--vinho-dark), var(--vinho));
+      color: var(--branco);
+      border-radius: 50px;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: btnShine 3s ease-in-out infinite;
+    }
+    
+    .btn-header:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px var(--vinho-glow);
+    }
+    
+    /* Mobile Menu */
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      gap: 6px;
+      z-index: 10002;
+    }
+    
+    @media (min-width: 900px) {
+      .menu-toggle { display: none; }
+    }
+    
+    .menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--off-white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    .nav-mobile {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--preto);
+      padding: 100px 40px 40px;
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 10001;
+      box-shadow: -10px 0 40px rgba(0,0,0,0.3);
+    }
+    
+    .nav-mobile.active {
+      right: 0;
+    }
+    
+    .nav-mobile a,
+    .nav-mobile button {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--off-white);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--preto-lighter);
+      background: none;
+      border-left: none;
+      border-right: none;
+      border-top: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-mobile a:hover,
+    .nav-mobile button:hover {
+      color: var(--dourado);
+      padding-left: 10px;
+    }
+    
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+      z-index: 10000;
+    }
+    
+    .nav-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* ========================================
+       BUTTONS
+    ======================================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px 40px;
+      border-radius: 50px;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      border: none;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--vinho-dark), var(--vinho), var(--vinho-light));
+      background-size: 200% 200%;
+      color: var(--branco);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 20px var(--vinho-glow);
+    }
+    
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: btnShine 2.5s ease-in-out infinite;
+    }
+    
+    @keyframes btnShine {
+      0% { left: -100%; }
+      50%, 100% { left: 200%; }
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px var(--vinho-glow);
+    }
+    
+    .btn-animated {
+      animation: pulse 3s ease-in-out infinite;
+    }
+    
+    .btn-animated:hover {
+      animation: none;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 4px 20px var(--vinho-glow);
+      }
+      50% { 
+        transform: scale(1.02);
+        box-shadow: 0 8px 30px var(--vinho-glow);
+      }
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--dourado);
+      border: 2px solid var(--dourado);
+    }
+    
+    .btn-outline:hover {
+      background: var(--dourado);
+      color: var(--preto);
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .btn, .btn::after, .progress-bar, .metallic-highlight {
+        animation: none;
+        transition: none;
+      }
+    }
+    
+    /* ========================================
+       HERO SECTION
+    ======================================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 6rem;
+      overflow: hidden;
+    }
+    
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+    
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+    .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(28,28,28,0.3) 0%,
+    rgba(28,28,28,0.2) 30%,
+    rgba(28,28,28,0.5) 60%,
+    rgba(28,28,28,0.85) 80%,
+    var(--preto) 95%
+  );
+  z-index: 1;
+}
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 900px;
+      /* Move todos os elementos juntos */
+      transform: translateY(var(--hero-todos-offset));
+    }
+    
+    /* ════════════════════════════════════════
+       ELEMENTOS DO HERO COM CONTROLE INDIVIDUAL
+    ════════════════════════════════════════ */
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(142,36,88,0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(142,36,88,0.4);
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--branco);
+      margin-bottom: 1.5rem;
+      animation: badgePulse 4s ease-in-out infinite;
+      /* REGULADOR INDIVIDUAL */
+      position: relative;
+      top: var(--hero-badge-offset);
+    }
+    
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+    }
+    
+    .hero-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--vinho-light);
+      border-radius: 50%;
+      animation: dotPulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes dotPulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--branco);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.5);
+      /* REGULADOR INDIVIDUAL */
+      position: relative;
+      top: var(--hero-titulo-offset);
+    }
+    
+    .metallic-highlight {
+      font-style: italic;
+      background: linear-gradient(
+        90deg,
+        var(--dourado) 0%,
+        var(--dourado-light) 25%,
+        var(--dourado) 50%,
+        var(--dourado-light) 75%,
+        var(--dourado) 100%
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: metallicShine 3s linear infinite;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+    }
+    
+    @keyframes metallicShine {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--cinza);
+      max-width: 650px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+      /* REGULADOR INDIVIDUAL */
+      position: relative;
+      top: var(--hero-subtitulo-offset);
+    }
+    
+    .hero-cta {
+      margin-bottom: 1.5rem;
+      /* REGULADOR INDIVIDUAL */
+      position: relative;
+      top: var(--hero-botao-offset);
+    }
+    
+    .hero-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--cinza);
+      /* REGULADOR INDIVIDUAL */
+      position: relative;
+      top: var(--hero-micro-offset);
+    }
+    
+    .hero-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .hero-feature svg {
+      color: var(--dourado);
+      width: 18px;
+      height: 18px;
+    }
+    
+    .scroll-indicator {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      color: rgba(198,166,100,0.5);
+      z-index: 2;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+      40% { transform: translateX(-50%) translateY(-10px); }
+      60% { transform: translateX(-50%) translateY(-5px); }
+    }
+    
+    /* ========================================
+       CREDIBILITY SECTION
+    ======================================== */
+    .credibility {
+      padding: 5rem 0;
+      background: var(--preto);
+      position: relative;
+    }
+    
+    .credibility-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+    
+    @media (min-width: 768px) {
+      .credibility-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    
+    .counter-card {
+      padding: 2rem;
+    }
+    
+    .counter-number {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--dourado), var(--dourado-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    
+    .counter-label {
+      color: var(--cinza);
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    
+    /* ========================================
+       PROBLEM SECTION
+    ======================================== */
+    .problem {
+      padding: var(--section-padding) 0;
+      background: var(--preto-light);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .problem::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(142,36,88,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(198,166,100,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .section-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 12px;
+    }
+    
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      color: var(--off-white);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--cinza);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    @media (min-width: 640px) {
+      .problem-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    
+    @media (min-width: 1024px) {
+      .problem-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    
+    .problem-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 28px 24px;
+      position: relative;
+      transition: all 0.4s ease;
+      overflow: hidden;
+    }
+    
+    .problem-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: linear-gradient(180deg, var(--vinho), var(--vinho-light));
+      transition: height 0.4s ease;
+      border-radius: 4px 0 0 4px;
+    }
+    
+    .problem-card:hover::before {
+      height: 100%;
+    }
+    
+    .problem-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(142,36,88,0.3);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+    
+    .problem-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, rgba(198,166,100,0.15), rgba(198,166,100,0.05));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    
+    .problem-icon svg {
+      width: 24px;
+      height: 24px;
+      color: var(--dourado);
+    }
+    
+    .problem-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--off-white);
+      margin-bottom: 8px;
+    }
+    
+    .problem-card p {
+      font-size: 0.9rem;
+      color: var(--cinza);
+      line-height: 1.5;
+    }
+    
+    /* ========================================
+       AUTHORITY SECTION (Rafael Antunes)
+    ======================================== */
+    .authority {
+      padding: var(--section-padding) 0;
+      background: var(--preto);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .authority::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(198,166,100,0.08) 0%, transparent 70%);
+      filter: blur(50px);
+      pointer-events: none;
+    }
+    
+    .authority-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    @media (min-width: 1024px) {
+      .authority-grid { grid-template-columns: 1fr 1.2fr; }
+    }
+    
+    .authority-image {
+      position: relative;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    /* Linha vertical vinho decorativa */
+    .authority-image::before {
+      content: '';
+      position: absolute;
+      left: -16px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--vinho), var(--vinho-light), var(--vinho));
+      border-radius: 4px;
+    }
+    
+    .authority-image-wrapper {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      /* Moldura dourada elegante */
+      border: 2px solid rgba(198,166,100,0.3);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    }
+    
+    .authority-image-wrapper img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: top;
+    }
+    
+    /* Faixa inferior para cobrir elementos do Instagram */
+    .authority-image-wrapper::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background: linear-gradient(
+        to top,
+        var(--preto) 0%,
+        rgba(28,28,28,0.95) 50%,
+        transparent 100%
+      );
+      /* Borda dourada sutil */
+      border-top: 1px solid rgba(198,166,100,0.2);
+    }
+    
+    /* Detalhes decorativos dourados nos cantos */
+    .authority-image-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 60px;
+      height: 60px;
+      border-top: 3px solid var(--dourado);
+      border-right: 3px solid var(--dourado);
+      border-radius: 0 16px 0 0;
+      z-index: 2;
+    }
+    
+    .authority-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .authority-content .section-label {
+      text-align: left;
+    }
+    
+    .authority-content h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--off-white);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .authority-content p {
+      font-size: 1.05rem;
+      color: var(--cinza);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    .authority-cta {
+      margin-top: 2rem;
+    }
+    
+    /* ========================================
+       ABOUT MODELO SECTION
+    ======================================== */
+    .about {
+      padding: var(--section-padding) 0;
+      background: var(--preto-light);
+    }
+    
+    .about-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .about-content p {
+      font-size: 1.1rem;
+      color: var(--cinza);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .features-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    
+    .feature-card {
+      padding: 28px 24px;
+      border-radius: 16px;
+      background: rgba(28,28,28,0.6);
+      border: 1px solid rgba(198,166,100,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      border-color: rgba(198,166,100,0.3);
+      transform: translateY(-5px);
+    }
+    
+    .feature-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--dourado);
+      margin-bottom: 10px;
+    }
+    
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--cinza);
+      margin-bottom: 0;
+    }
+    
+    .location {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--dourado);
+      font-weight: 500;
+    }
+    
+    .location svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    /* ========================================
+       VIDEO SECTION
+    ======================================== */
+    .video-section {
+      padding: var(--section-padding) 0;
+      background: var(--preto);
+    }
+    
+    .video-wrapper {
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+      border: 1px solid rgba(198,166,100,0.15);
+    }
+    
+    .video-container {
+      position: relative;
+      padding-top: 177.78%;
+    }
+    
+    /* Faixa superior para cobrir watermark */
+    .video-overlay-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--preto) 0%, rgba(28,28,28,0.8) 60%, transparent 100%);
+      z-index: 10;
+    }
+    
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* ========================================
+       HOW IT WORKS SECTION (DETALHADO)
+    ======================================== */
+    .how-it-works {
+      padding: var(--section-padding) 0;
+      background: var(--preto-light);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .how-it-works::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 50% 0%, rgba(198,166,100,0.08) 0%, transparent 40%),
+        radial-gradient(circle at 0% 100%, rgba(142,36,88,0.05) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .steps-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Timeline vertical */
+    .steps-timeline {
+      position: relative;
+      padding-left: 60px;
+    }
+    
+    .steps-timeline::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--dourado), var(--vinho), var(--dourado));
+    }
+    
+    .step-item {
+      position: relative;
+      padding-bottom: 3rem;
+    }
+    
+    .step-item:last-child {
+      padding-bottom: 0;
+    }
+    
+    .step-number {
+      position: absolute;
+      left: -60px;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--vinho), var(--vinho-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dourado);
+      box-shadow: 0 10px 25px var(--vinho-glow);
+      border: 2px solid rgba(198,166,100,0.3);
+    }
+    
+    .step-content {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s ease;
+    }
+    
+    .step-content:hover {
+      border-color: rgba(142,36,88,0.2);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .step-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--dourado);
+      margin-bottom: 10px;
+    }
+    
+    .step-content p {
+      font-size: 0.95rem;
+      color: var(--cinza);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    
+    .step-content p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .step-highlight {
+      color: var(--off-white);
+      font-weight: 500;
+    }
+    
+    .how-cta {
+      text-align: center;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* ========================================
+       FAQ SECTION
+    ======================================== */
+    .faq {
+      padding: var(--section-padding) 0;
+      background: var(--preto);
+    }
+    
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .faq-item {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(198,166,100,0.1);
+      background: var(--preto-light);
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+      border-color: rgba(198,166,100,0.2);
+    }
+    
+    .faq-item.active {
+      border-color: var(--vinho);
+      box-shadow: 0 10px 30px rgba(142,36,88,0.15);
+    }
+    
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 28px;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      color: var(--off-white);
+      gap: 20px;
+    }
+    
+    .faq-question h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      flex: 1;
+    }
+    
+    .faq-icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      background: rgba(198,166,100,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item.active .faq-icon {
+      background: var(--vinho);
+      transform: rotate(180deg);
+    }
+    
+    .faq-icon svg {
+      width: 16px;
+      height: 16px;
+      color: var(--dourado);
+      transition: color 0.3s ease;
+    }
+    
+    .faq-item.active .faq-icon svg {
+      color: var(--branco);
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .faq-answer-inner {
+      padding: 0 28px 24px;
+      font-size: 0.98rem;
+      color: var(--cinza);
+      line-height: 1.7;
+    }
+    
+    /* ========================================
+       CTA FINAL SECTION
+    ======================================== */
+    .cta-final {
+      padding: var(--section-padding) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-final-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--vinho-darker) 0%, var(--vinho-dark) 50%, var(--preto) 100%);
+    }
+    
+    .cta-final::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to bottom, rgba(198,166,100,0.1), transparent);
+      z-index: 1;
+    }
+    
+    .cta-final-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .cta-final-content h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--branco);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .cta-final-content p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+    }
+    
+    /* ========================================
+       FOOTER
+    ======================================== */
+    .footer {
+      padding: 4rem 0 2rem;
+      background: var(--preto-pure);
+    }
+    
+    .footer-content {
+      text-align: center;
+    }
+    
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--off-white);
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-logo span {
+      color: var(--dourado);
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .social-link {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--preto-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cinza);
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      color: var(--dourado);
+      background: var(--preto-lighter);
+      transform: translateY(-3px);
+    }
+    
+    .social-link svg {
+      width: 22px;
+      height: 22px;
+    }
+    
+    .footer-info {
+      color: var(--cinza-escuro);
+      margin-bottom: 1rem;
+    }
+    
+    .footer-legal {
+      color: var(--cinza-escuro);
+      font-size: 0.85rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid var(--preto-light);
+      padding-top: 2rem;
+    }
+    
+    .footer-copyright {
+      color: var(--cinza-escuro);
+      font-size: 0.85rem;
+    }
+    
+    .footer-credit {
+      color: var(--cinza-escuro);
+      font-size: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    
+    .footer-credit a {
+      color: var(--dourado);
+    }
+    
+    .footer-credit a:hover {
+      text-decoration: underline;
+    }
+    
+    /* ========================================
+       WHATSAPP FLUTUANTE
+    ======================================== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.8) translateY(20px);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .whatsapp-float.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translateY(0);
+    }
+    
+    .whatsapp-float a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+      transition: all 0.3s ease;
+    }
+    
+    .whatsapp-float a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 10px 30px rgba(37,211,102,0.5);
+    }
+    
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+      fill: white;
+    }
+    
+    .whatsapp-float::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 60px;
+      height: 60px;
+      background: #25D366;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: whatsappPulse 2s infinite;
+      z-index: -1;
+    }
+    
+    @keyframes whatsappPulse {
+      0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+      100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+    }
+    
+    /* ========================================
+       REVEAL ANIMATIONS
+    ======================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                  transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+  
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container header-content">
+      <a href="#" class="logo">LAW<span>ING</span></a>
+      
+      <nav class="nav-desktop">
+        <button class="nav-link" onclick="scrollToSection('sobre')">Sobre</button>
+        <button class="nav-link" onclick="scrollToSection('como-funciona')">Como Funciona</button>
+        <button class="nav-link" onclick="scrollToSection('faq')">FAQ</button>
+        <a href="#analise" target="_blank" rel="noopener" class="btn-header">
+          Analisar Meu Caso
+        </a>
+      </nav>
+      
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <nav class="nav-mobile" id="navMobile">
+      <button onclick="scrollToSection('sobre')">Sobre</button>
+      <button onclick="scrollToSection('como-funciona')">Como Funciona</button>
+      <button onclick="scrollToSection('faq')">FAQ</button>
+      <a href="#analise" target="_blank" rel="noopener" style="color: var(--dourado);">Analisar Meu Caso</a>
+    </nav>
+    <div class="nav-overlay" id="navOverlay"></div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img src="./assets/hero-bg.webp" alt="Antunes Advocacia de Imigração" loading="eager">
+    </div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="dot"></span>
+        Extensão de Visto B1/B2
+      </div>
+      
+      <h1 class="reveal reveal-delay-1">
+        Garanta Sua <span class="metallic-highlight">Permanência</span><br>nos EUA.
+      </h1>
+      
+      <p class="hero-subtitle reveal reveal-delay-2">
+        Extensão de Visto para Brasileiros: Segurança jurídica para você não correr riscos de ilegalidade.
+      </p>
+      
+      <div class="hero-cta reveal reveal-delay-3">
+        <a href="#analise" target="_blank" rel="noopener" class="btn btn-primary btn-animated">
+          QUERO ANALISAR MEU CASO
+        </a>
+      </div>
+      
+      <div class="hero-features reveal reveal-delay-4">
+        <span class="hero-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          Atendimento em Português
+        </span>
+        <span class="hero-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          Advogado Licenciado nos EUA
+        </span>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+  </section>
+  
+  <!-- Credibility Section -->
+  <section class="credibility">
+    <div class="container">
+      <div class="credibility-grid">
+        <div class="counter-card reveal">
+          <div class="counter-number"><span class="contador" data-target="500">0</span>+</div>
+          <p class="counter-label">Brasileiros Atendidos</p>
+        </div>
+        <div class="counter-card reveal reveal-delay-1">
+          <div class="counter-number"><span class="contador" data-target="10">0</span>+</div>
+          <p class="counter-label">Anos de Experiência</p>
+        </div>
+        <div class="counter-card reveal reveal-delay-2">
+          <div class="counter-number"><span class="contador" data-target="98">0</span>%</div>
+          <p class="counter-label">Taxa de Aprovação</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Problem Section -->
+  <section class="problem">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Você se identifica?</p>
+        <h2 class="section-title">O relógio está correndo contra o seu visto?</h2>
+        <p class="section-subtitle">Entendemos suas preocupações. Veja os riscos que você pode estar enfrentando:</p>
+      </div>
+      
+      <div class="problem-grid">
+        <div class="problem-card reveal reveal-delay-1">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+              <line x1="12" y1="9" x2="12" y2="13"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </div>
+          <h3>Risco de Overstay</h3>
+          <p>Ficar ilegal pode banir você dos EUA por 3 a 10 anos.</p>
+        </div>
+        
+        <div class="problem-card reveal reveal-delay-2">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3>Burocracia Confusa</h3>
+          <p>Um erro no formulário I-539 pode causar negativa imediata.</p>
+        </div>
+        
+        <div class="problem-card reveal reveal-delay-3">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3>Prazos Apertados</h3>
+          <p>O USCIS não tolera atrasos. Cada dia conta.</p>
+        </div>
+        
+        <div class="problem-card reveal reveal-delay-4">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <h3>Medo de Perder Tudo</h3>
+          <p>Investimentos, planos e sonhos em risco de um dia pro outro.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Authority Section (Rafael Antunes) -->
+  <section id="sobre" class="authority">
+    <div class="container">
+      <div class="authority-grid">
+        <div class="authority-image reveal">
+          <div class="authority-image-wrapper">
+            <img src="./assets/especialista.webp" alt="Rafael Antunes - Advogado de Imigração" loading="lazy">
+          </div>
+        </div>
+        
+        <div class="authority-content">
+          <p class="section-label reveal">Quem vai te ajudar</p>
+          <h2 class="reveal reveal-delay-1">
+            <span class="metallic-highlight">Rafael Antunes</span>: Seu Especialista em Imigração
+          </h2>
+          <p class="reveal reveal-delay-2">
+            Com mais de uma década de experiência em direito imigratório americano, Dr. Rafael Antunes 
+            é advogado licenciado nos EUA e fundador da Antunes Advocacia de Imigração. Sua missão é 
+            garantir que brasileiros possam realizar seus sonhos nos Estados Unidos com total 
+            segurança jurídica.
+          </p>
+          <p class="reveal reveal-delay-3">
+            Formado em Direito no Brasil e com especialização em imigração americana, Rafael já 
+            ajudou centenas de famílias brasileiras a regularizar sua situação nos EUA, sempre 
+            com atendimento humanizado e em português.
+          </p>
+          <div class="authority-cta reveal reveal-delay-4">
+            <a href="#analise" target="_blank" rel="noopener" class="btn btn-primary">
+              Falar com Dr. Rafael
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Antunes Advocacia Section -->
+  <section class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="section-header reveal">
+          <p class="section-label">Sobre o escritório</p>
+          <h2 class="section-title">Conheça a <span class="metallic-highlight">Antunes Advocacia</span></h2>
+        </div>
+        <p class="reveal reveal-delay-1">
+          A Antunes Advocacia de Imigração nasceu com o propósito de ser a ponte entre brasileiros e 
+          seus sonhos americanos. Localizada em Fort Lauderdale, FL, oferecemos assessoria 
+          jurídica especializada em extensão de visto, com foco total no cliente brasileiro.
+        </p>
+        
+        <div class="features-grid">
+          <div class="feature-card reveal reveal-delay-1">
+            <h3>Atendimento Humanizado</h3>
+            <p>Entendemos suas preocupações e tratamos cada caso com dedicação pessoal.</p>
+          </div>
+          <div class="feature-card reveal reveal-delay-2">
+            <h3>100% Online</h3>
+            <p>Todo o processo pode ser feito remotamente, de onde você estiver.</p>
+          </div>
+          <div class="feature-card reveal reveal-delay-3">
+            <h3>Foco no Brasileiro</h3>
+            <p>Atendimento em português, entendendo a realidade do imigrante.</p>
+          </div>
+        </div>
+        
+        <div class="location reveal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>Fort Lauderdale, FL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Video Section -->
+  <section class="video-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Conteúdo</p>
+        <h2 class="section-title">Veja como podemos te ajudar</h2>
+      </div>
+      
+      <div class="video-wrapper reveal reveal-delay-1">
+        <div class="video-container">
+          <div class="video-overlay-top"></div>
+          <img src="./assets/video-poster.webp" alt="Vídeo de apresentação" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- How It Works Section (DETALHADO) -->
+  <section id="como-funciona" class="how-it-works">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-label">Passo a passo</p>
+        <h2 class="section-title">Como Funciona o Processo</h2>
+        <p class="section-subtitle">Um processo simples e transparente para garantir sua permanência legal nos EUA</p>
+      </div>
+      
+      <div class="steps-container">
+        <div class="steps-timeline">
+          <!-- Passo 1 -->
+          <div class="step-item reveal">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h3>Preencha o Formulário de Análise</h3>
+              <p>
+                Você começa enviando suas informações básicas através do nosso formulário seguro. 
+                <span class="step-highlight">Leva menos de 5 minutos</span> e é o primeiro passo 
+                para regularizar sua situação.
+              </p>
+              <p>
+                Informações necessárias: dados pessoais, tipo de visto atual, data de entrada 
+                nos EUA e data de vencimento do I-94.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Passo 2 -->
+          <div class="step-item reveal reveal-delay-1">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h3>Análise Personalizada do Caso</h3>
+              <p>
+                Dr. Rafael Antunes analisa pessoalmente sua situação e identifica a 
+                <span class="step-highlight">melhor estratégia</span> para o seu caso específico.
+              </p>
+              <p>
+                Você recebe um retorno por WhatsApp ou e-mail com as orientações completas, 
+                próximos passos e o orçamento detalhado do serviço.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Passo 3 -->
+          <div class="step-item reveal reveal-delay-2">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h3>Preparação da Documentação</h3>
+              <p>
+                Nossa equipe prepara toda a documentação necessária: 
+                <span class="step-highlight">formulário I-539, carta de justificativa, 
+                documentos de suporte</span> e demais exigências do USCIS.
+              </p>
+              <p>
+                Você envia os documentos digitalmente e nós cuidamos de toda a burocracia 
+                para você não se preocupar com nada.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Passo 4 -->
+          <div class="step-item reveal reveal-delay-3">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <h3>Envio ao USCIS e Acompanhamento</h3>
+              <p>
+                Fazemos o envio oficial ao USCIS e você recebe o 
+                <span class="step-highlight">comprovante de recebimento (Receipt Notice)</span>, 
+                que já garante sua permanência legal enquanto aguarda a decisão.
+              </p>
+              <p>
+                Acompanhamos todo o processo e mantemos você informado sobre cada 
+                atualização do seu caso até a aprovação final.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="how-cta reveal">
+        <a href="#analise" target="_blank" rel="noopener" class="btn btn-primary btn-animated">
+          Iniciar Minha Análise Agora
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="faq-container">
+        <div class="section-header reveal">
+          <p class="section-label">Dúvidas</p>
+          <h2 class="section-title">Perguntas Frequentes</h2>
+        </div>
+        
+        <div class="faq-list">
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <h3>Quanto tempo demora a extensão?</h3>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                O tempo de processamento varia de acordo com o USCIS, mas geralmente leva de 3 a 6 meses. 
+                Durante esse período, você pode permanecer legalmente nos EUA enquanto aguarda a decisão, 
+                desde que tenha aplicado antes do vencimento do seu I-94.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <h3>Posso aplicar se meu visto já venceu?</h3>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Se você ainda está dentro do período autorizado de permanência (I-94), mesmo que o visto 
+                no passaporte tenha expirado, você pode aplicar para extensão. O importante é não ter 
+                ultrapassado a data do I-94. Faça uma análise conosco para avaliar sua situação específica.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item reveal reveal-delay-3">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <h3>Qual o custo do serviço?</h3>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                O valor varia de acordo com a complexidade do caso. Oferecemos uma análise inicial 
+                para avaliar sua situação e apresentar um orçamento personalizado. Entre em contato 
+                através do formulário para receber todas as informações sobre investimento.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item reveal reveal-delay-1">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <h3>Posso trabalhar enquanto aguardo?</h3>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Com o visto B1/B2, você não tem autorização para trabalhar nos EUA, mesmo durante 
+                o período de extensão. Trabalhar sem autorização pode prejudicar seu caso e futuras 
+                aplicações de visto.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item reveal reveal-delay-2">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <h3>O que acontece se for negado?</h3>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Em caso de negativa, analisamos os motivos e discutimos as opções disponíveis, 
+                que podem incluir uma nova aplicação, apelação ou planejamento para retorno ao 
+                Brasil de forma organizada, minimizando impactos futuros.
+              </div>
+            </div>
+          </div>
+          
+          <div class="faq-item reveal reveal-delay-3">
+            <button class="faq-question" onclick="toggleFaq(this)">
+              <h3>Como funciona o atendimento online?</h3>
+              <div class="faq-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Todo o processo é feito remotamente. Você envia seus documentos digitalmente, 
+                realizamos reuniões por videoconferência quando necessário e mantemos comunicação 
+                constante por WhatsApp e email. Você não precisa sair de casa para nada.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CTA Final Section -->
+  <section class="cta-final">
+    <div class="cta-final-bg"></div>
+    <div class="container">
+      <div class="cta-final-content">
+        <h2 class="reveal">Não Deixe Seu Sonho Americano Virar Pesadelo</h2>
+        <p class="reveal reveal-delay-1">Preencha o formulário e receba uma análise personalizada do seu caso.</p>
+        <div class="reveal reveal-delay-2">
+          <a href="#analise" target="_blank" rel="noopener" class="btn btn-primary btn-animated" style="font-size: 1.1rem; padding: 20px 50px;">
+            ANALISAR MEU CASO AGORA
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <h3 class="footer-logo">LAW<span>ING</span></h3>
+        
+        <div class="social-links">
+          <a href="https://instagram.com/seuescritorio" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="https://wa.me/5511999990000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20extens%C3%A3o%20de%20visto." target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        </div>
+        
+        <p class="footer-info">Antunes Advocacia de Imigração | Fort Lauderdale, FL</p>
+        
+        <p class="footer-legal">
+          Aviso Legal: Resultados passados não garantem resultados futuros. Cada caso é único e 
+          será avaliado individualmente. As informações contidas neste site não constituem 
+          aconselhamento jurídico.
+        </p>
+        
+        <div class="footer-bottom">
+          <p class="footer-copyright">© 2026 Antunes Advocacia de Imigração. Todos os direitos reservados.</p>
+          <p class="footer-credit">Desenvolvido por <a href="https://instagram.com/opatricksimon" target="_blank" rel="noopener">@opatricksimon</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- WhatsApp Flutuante -->
+  <div class="whatsapp-float" id="whatsappFloat">
+    <a href="https://wa.me/5511999990000?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20extens%C3%A3o%20de%20visto." target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+  </div>
+  
+  <script>
+    // ========================================
+    // MODELO LANDING PAGE - JavaScript
+    // ========================================
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      // Elements
+      const header = document.getElementById('header');
+      const progressBar = document.getElementById('progressBar');
+      const menuToggle = document.getElementById('menuToggle');
+      const navMobile = document.getElementById('navMobile');
+      const navOverlay = document.getElementById('navOverlay');
+      const whatsappFloat = document.getElementById('whatsappFloat');
+      const reveals = document.querySelectorAll('.reveal');
+      const contadores = document.querySelectorAll('.contador');
+      
+      // ========================================
+      // SCROLL HANDLER
+      // ========================================
+      function handleScroll() {
+        const scrollY = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollY / docHeight) * 100;
+        
+        // Progress bar
+        progressBar.style.width = scrollPercent + '%';
+        
+        // Header scrolled state
+        if (scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+        
+        // WhatsApp float visibility
+        if (scrollY > 400) {
+          whatsappFloat.classList.add('visible');
+        } else {
+          whatsappFloat.classList.remove('visible');
+        }
+      }
+      
+      // Throttle scroll
+      let ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      
+      handleScroll();
+      
+      // ========================================
+      // MOBILE MENU
+      // ========================================
+      function toggleMenu() {
+        menuToggle.classList.toggle('active');
+        navMobile.classList.toggle('active');
+        navOverlay.classList.toggle('active');
+        document.body.style.overflow = navMobile.classList.contains('active') ? 'hidden' : '';
+      }
+      
+      menuToggle.addEventListener('click', toggleMenu);
+      navOverlay.addEventListener('click', toggleMenu);
+      
+      navMobile.querySelectorAll('a, button').forEach(item => {
+        item.addEventListener('click', function() {
+          if (navMobile.classList.contains('active')) {
+            toggleMenu();
+          }
+        });
+      });
+      
+      // ========================================
+      // REVEAL ON SCROLL
+      // ========================================
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      
+      reveals.forEach(reveal => revealObserver.observe(reveal));
+      
+      // ========================================
+      // CONTADOR ANIMADO
+      // ========================================
+      let contadoresAnimados = false;
+      
+      const contadorObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !contadoresAnimados) {
+            contadoresAnimados = true;
+            contadores.forEach(contador => {
+              const target = parseInt(contador.dataset.target);
+              let current = 0;
+              const step = target / 60;
+              const update = () => {
+                current += step;
+                if (current < target) {
+                  contador.textContent = Math.floor(current);
+                  requestAnimationFrame(update);
+                } else {
+                  contador.textContent = target;
+                }
+              };
+              update();
+            });
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      const credibilitySection = document.querySelector('.credibility');
+      if (credibilitySection) {
+        contadorObserver.observe(credibilitySection);
+      }
+      
+      // ========================================
+      // ESC KEY
+      // ========================================
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navMobile.classList.contains('active')) {
+          toggleMenu();
+        }
+      });
+      
+    });
+    
+    // ========================================
+    // GLOBAL FUNCTIONS
+    // ========================================
+    
+    // Scroll to Section
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    
+    // FAQ Toggle
+    function toggleFaq(button) {
+      const faqItem = button.parentElement;
+      const wasActive = faqItem.classList.contains('active');
+      
+      // Fecha todos
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+        const answer = item.querySelector('.faq-answer');
+        if (answer) answer.style.maxHeight = '0';
+      });
+      
+      // Abre o clicado se não estava aberto
+      if (!wasActive) {
+        faqItem.classList.add('active');
+        const answer = faqItem.querySelector('.faq-answer');
+        const inner = faqItem.querySelector('.faq-answer-inner');
+        if (answer && inner) {
+          answer.style.maxHeight = inner.offsetHeight + 30 + 'px';
+        }
+      }
+    }
+  </script>
+</body>
+</html>
